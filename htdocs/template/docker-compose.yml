@@ -28,7 +28,7 @@ volumes:
 
 services:
   mariadb:
-    image: mariadb:11.4-lts
+    image: mariadb:11.4
     container_name: ${PROJECT_NAME}-mariadb
     restart: unless-stopped
     volumes:
