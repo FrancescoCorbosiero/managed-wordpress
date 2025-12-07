@@ -1,0 +1,108 @@
+# WordPress Site Configuration
+# Works with Caddy Docker Proxy
+#
+# USAGE:
+#   1. Copy this folder to a new directory named after your project
+#   2. Copy .env.template to .env and configure
+#   3. Run: docker compose up -d
+#
+# IMAGES USED (Official, Open Source, Long-term support):
+#   - wordpress:6-php8.3-apache (Official WordPress image, PHP 8.3 LTS)
+#   - mariadb:11.4-lts (MariaDB Long Term Support)
+#
+# PHP 8.3 is supported until Dec 2027, PHP 8.4 until Dec 2028
+# MariaDB 11.4 LTS is supported until May 2029
+
+networks:
+  internal:
+    name: ${PROJECT_NAME}-internal
+    driver: bridge
+  caddy:
+    external: true
+
+volumes:
+  wordpress-data:
+    name: ${PROJECT_NAME}-wordpress-data
+  mariadb-data:
+    name: ${PROJECT_NAME}-mariadb-data
+
+services:
+  mariadb:
+    image: mariadb:11.4
+    container_name: ${PROJECT_NAME}-mariadb
+    restart: unless-stopped
+    volumes:
+      - mariadb-data:/var/lib/mysql
+    environment:
+      MARIADB_DATABASE: ${DB_NAME}
+      MARIADB_USER: ${DB_USER}
+      MARIADB_PASSWORD: ${DB_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    command:
+      - --max_allowed_packet=256M
+      - --innodb_buffer_pool_size=${MARIADB_BUFFER_POOL:-128M}
+      - --innodb_log_file_size=64M
+      - --innodb_flush_log_at_trx_commit=2
+      - --wait_timeout=28800
+      - --interactive_timeout=28800
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    networks:
+      - internal
+    deploy:
+      resources:
+        limits:
+          memory: ${MARIADB_MEMORY_LIMIT:-256M}
+        reservations:
+          memory: ${MARIADB_MEMORY_RESERVATION:-128M}
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  wordpress:
+    image: wordpress:6-php8.3-apache
+    container_name: ${PROJECT_NAME}-wordpress
+    restart: unless-stopped
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    volumes:
+      - wordpress-data:/var/www/html
+      - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini:ro
+    environment:
+      WORDPRESS_DB_HOST: mariadb
+      WORDPRESS_DB_NAME: ${DB_NAME}
+      WORDPRESS_DB_USER: ${DB_USER}
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
+      WORDPRESS_TABLE_PREFIX: ${TABLE_PREFIX:-wp_}
+      # Optional: Auto-configure admin on first install
+      # WORDPRESS_CONFIG_EXTRA is injected into wp-config.php
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_MEMORY_LIMIT', '${WP_MEMORY_LIMIT:-256M}');
+        define('WP_MAX_MEMORY_LIMIT', '${WP_MAX_MEMORY_LIMIT:-512M}');
+        define('FS_METHOD', 'direct');
+        define('DISALLOW_FILE_EDIT', ${DISALLOW_FILE_EDIT:-false});
+    networks:
+      - internal
+      - caddy
+    deploy:
+      resources:
+        limits:
+          memory: ${WP_MEMORY_LIMIT_CONTAINER:-512M}
+        reservations:
+          memory: ${WP_MEMORY_RESERVATION:-256M}
+    labels:
+      # Caddy reverse proxy configuration
+      caddy: ${DOMAIN}
+      caddy.reverse_proxy: "{{upstreams 80}}"
+      # Enable compression
+      caddy.encode: zstd gzip
+      # Security headers
+      caddy.header.X-Content-Type-Options: nosniff
+      caddy.header.X-Frame-Options: SAMEORIGIN
+      caddy.header.Referrer-Policy: strict-origin-when-cross-origin
+      # Request body size limit (512MB for uploads)
+      caddy.request_body.max_size: 512MB
