@@ -1,0 +1,23 @@
+**/.env
+**/.env.*.local
+
+# Terraform
+.terraform/
+*.tfplan
+*.tfstate
+*.tfstate.backup
+
+# Kubernetes
+kubeconfig
+*.kubeconfig
+
+# Logs and temporary files
+*.log
+tmp/
+*.tmp
+
+# Credentials and sensitive files
+*.pem
+*.key
+credentials.json
+service-account.json
