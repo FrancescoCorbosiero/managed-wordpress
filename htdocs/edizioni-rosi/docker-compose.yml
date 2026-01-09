@@ -72,6 +72,7 @@ services:
     volumes:
       - wordpress-data:/var/www/html
       - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini:ro
+#      - ./themes:/var/www/html/wp-content/themes
     environment:
       WORDPRESS_DB_HOST: mariadb
       WORDPRESS_DB_NAME: ${DB_NAME}
