@@ -15,9 +15,47 @@
 
 defined('ABSPATH') || exit;
 
-define('ALPACODE_BLOCKS_VERSION', '0.0.2');
+define('ALPACODE_BLOCKS_VERSION', '1.0.0');
 define('ALPACODE_BLOCKS_PATH', plugin_dir_path(__FILE__));
 define('ALPACODE_BLOCKS_URL', plugin_dir_url(__FILE__));
+
+/**
+ * Enqueue frontend scripts and styles
+ */
+function alpacode_blocks_enqueue_assets()
+{
+    // Enqueue animation library
+    wp_enqueue_script(
+        'alpacode-animations',
+        ALPACODE_BLOCKS_URL . 'js/animations.js',
+        array(),
+        ALPACODE_BLOCKS_VERSION,
+        true
+    );
+
+    // Enqueue global styles
+    wp_enqueue_style(
+        'alpacode-blocks-global',
+        ALPACODE_BLOCKS_URL . 'style.css',
+        array(),
+        ALPACODE_BLOCKS_VERSION
+    );
+}
+add_action('wp_enqueue_scripts', 'alpacode_blocks_enqueue_assets');
+
+/**
+ * Enqueue editor assets
+ */
+function alpacode_blocks_editor_assets()
+{
+    wp_enqueue_style(
+        'alpacode-blocks-editor',
+        ALPACODE_BLOCKS_URL . 'editor.css',
+        array(),
+        ALPACODE_BLOCKS_VERSION
+    );
+}
+add_action('enqueue_block_editor_assets', 'alpacode_blocks_editor_assets');
 
 /**
  * Register all blocks from the blocks directory
