@@ -1,0 +1,45 @@
+/*
+Theme Name: Frost Child - Alpacode
+Theme URI: https://alpacode.studio
+Description: Child theme of Frost for Alpacode Studio. IT consulting, software development, and digital services.
+Author: Alpacode Studio
+Author URI: https://alpacode.studio
+Template: frost
+Version: 0.0.2
+Requires at least: 6.4
+Tested up to: 6.7
+Requires PHP: 8.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: frost-child-alpacode
+*/
+
+/* 
+ * FSE Note: Styling is primarily in theme.json
+ * This file is for styles that theme.json cannot express
+ */
+
+/* Smooth scrolling */
+html {
+	scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+	background-color: var(--wp--preset--color--accent);
+	color: var(--wp--preset--color--white);
+}
+
+/* Focus states for accessibility */
+:focus-visible {
+	outline: 2px solid var(--wp--preset--color--accent);
+	outline-offset: 2px;
+}
+
+/* Gradient text utility */
+.has-gradient-text {
+	background: linear-gradient(135deg, var(--wp--preset--color--accent) 0%, var(--wp--preset--color--accent-light) 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}

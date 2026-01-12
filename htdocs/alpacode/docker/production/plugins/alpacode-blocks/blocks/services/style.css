@@ -1,0 +1,108 @@
+/**
+ * Services Block Styles
+ */
+
+.alpacode-services {
+    padding: var(--wp--preset--spacing--80, 6rem) var(--wp--preset--spacing--40, 1.5rem);
+}
+
+.alpacode-services__header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto var(--wp--preset--spacing--60, 3rem) auto;
+}
+
+.alpacode-services__subheading {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--wp--preset--font-family--outfit, sans-serif);
+    font-size: var(--wp--preset--font-size--small, 0.875rem);
+    font-weight: 500;
+    color: var(--wp--preset--color--accent, #3b82f6);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--wp--preset--spacing--30, 1rem);
+}
+
+.alpacode-services__heading {
+    font-family: var(--wp--preset--font-family--outfit, sans-serif);
+    font-size: var(--wp--preset--font-size--3xl, 2.5rem);
+    font-weight: 600;
+    color: var(--wp--preset--color--text-primary, #fafafa);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.alpacode-services__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--wp--preset--spacing--40, 1.5rem);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.alpacode-services__card {
+    background: var(--wp--preset--color--secondary, #18181b);
+    border: 1px solid var(--wp--preset--color--border, #27272a);
+    border-radius: 12px;
+    padding: var(--wp--preset--spacing--50, 2rem);
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: alpacode-fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0s) forwards;
+}
+
+.alpacode-services__card:hover {
+    border-color: var(--wp--preset--color--accent, #3b82f6);
+    transform: translateY(-4px);
+}
+
+.alpacode-services__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.05));
+    border-radius: 10px;
+    color: var(--wp--preset--color--accent, #3b82f6);
+    margin-bottom: var(--wp--preset--spacing--30, 1rem);
+}
+
+.alpacode-services__title {
+    font-family: var(--wp--preset--font-family--outfit, sans-serif);
+    font-size: var(--wp--preset--font-size--xl, 1.5rem);
+    font-weight: 600;
+    color: var(--wp--preset--color--text-primary, #fafafa);
+    margin: 0 0 var(--wp--preset--spacing--20, 0.75rem) 0;
+}
+
+.alpacode-services__description {
+    font-family: var(--wp--preset--font-family--outfit, sans-serif);
+    font-size: var(--wp--preset--font-size--medium, 1rem);
+    color: var(--wp--preset--color--text-secondary, #a1a1aa);
+    line-height: 1.6;
+    margin: 0;
+}
+
+@keyframes alpacode-fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .alpacode-services {
+        padding: var(--wp--preset--spacing--60, 3rem) var(--wp--preset--spacing--30, 1rem);
+    }
+    
+    .alpacode-services__grid {
+        grid-template-columns: 1fr;
+    }
+}

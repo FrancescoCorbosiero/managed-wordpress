@@ -85,7 +85,7 @@ services:
   # WordPress 6 con PHP 8.3 (supporto fino 2027)
   # Attende che MariaDB sia healthy prima di avviarsi
   wordpress:
-    image: wordpress:6-php8.3-apache
+    image: ${WORDPRESS_IMAGE:-alpacode-wp:0.0.1}
     container_name: ${PROJECT_NAME}-wordpress
     restart: unless-stopped
     depends_on:

@@ -1,0 +1,79 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "alpacode/hero",
+	"version": "0.0.2",
+	"title": "Hero",
+	"category": "alpacode",
+	"description": "Professional hero section for landing pages and service pages.",
+	"keywords": [
+		"hero",
+		"banner",
+		"header",
+		"landing",
+		"intro"
+	],
+	"textdomain": "alpacode-blocks",
+	"editorScript": {
+		"handle": "alpacode-hero-editor",
+		"src": "file:./editor.js",
+		"dependencies": [
+			"wp-blocks",
+			"wp-element",
+			"wp-block-editor",
+			"wp-components",
+			"wp-server-side-render"
+		]
+	},
+	"style": "file:./style.css",
+	"render": "file:./render.php",
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "Digital Solutions"
+		},
+		"heading": {
+			"type": "string",
+			"default": "Build Better Software"
+		},
+		"description": {
+			"type": "string",
+			"default": "We help businesses transform their ideas into powerful digital products."
+		},
+		"primaryButtonText": {
+			"type": "string",
+			"default": "Get Started"
+		},
+		"primaryButtonUrl": {
+			"type": "string",
+			"default": "#contact"
+		},
+		"secondaryButtonText": {
+			"type": "string",
+			"default": "Learn More"
+		},
+		"secondaryButtonUrl": {
+			"type": "string",
+			"default": "#services"
+		},
+		"showButtons": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [
+			"wide",
+			"full"
+		],
+		"color": {
+			"background": true,
+			"text": true
+		},
+		"spacing": {
+			"padding": true,
+			"margin": true
+		}
+	}
+}

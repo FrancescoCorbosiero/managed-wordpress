@@ -1,0 +1,90 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "alpacode/testimonials",
+    "version": "0.0.2",
+    "title": "Testimonials",
+    "category": "alpacode",
+    "description": "Showcase client testimonials with an elegant carousel layout.",
+    "keywords": [
+        "testimonials",
+        "reviews",
+        "clients",
+        "feedback",
+        "carousel"
+    ],
+    "textdomain": "alpacode-blocks",
+    "editorScript": {
+        "handle": "alpacode-testimonials-editor",
+        "src": "file:./editor.js",
+        "dependencies": [
+            "wp-blocks",
+            "wp-element",
+            "wp-block-editor",
+            "wp-components",
+            "wp-server-side-render"
+        ]
+    },
+    "style": "file:./style.css",
+    "viewScript": "file:./view.js",
+    "render": "file:./render.php",
+    "attributes": {
+        "sectionTitle": {
+            "type": "string",
+            "default": "What Our Clients Say"
+        },
+        "sectionSubtitle": {
+            "type": "string",
+            "default": "Testimonials"
+        },
+        "testimonials": {
+            "type": "array",
+            "default": [
+                {
+                    "quote": "Working with this team transformed our entire digital strategy. The results exceeded our expectations.",
+                    "author": "Sarah Johnson",
+                    "role": "CEO, TechCorp",
+                    "avatar": "",
+                    "rating": 5
+                },
+                {
+                    "quote": "Professional, responsive, and incredibly talented. They delivered a solution that perfectly matched our vision.",
+                    "author": "Michael Chen",
+                    "role": "CTO, Innovation Labs",
+                    "avatar": "",
+                    "rating": 5
+                },
+                {
+                    "quote": "The attention to detail and commitment to quality is unmatched. Highly recommend for any serious project.",
+                    "author": "Emily Rodriguez",
+                    "role": "Product Manager, StartupXYZ",
+                    "avatar": "",
+                    "rating": 5
+                }
+            ]
+        },
+        "autoplay": {
+            "type": "boolean",
+            "default": true
+        },
+        "autoplaySpeed": {
+            "type": "number",
+            "default": 5000
+        }
+    },
+    "supports": {
+        "html": false,
+        "align": [
+            "wide",
+            "full"
+        ],
+        "color": {
+            "background": true,
+            "text": true
+        },
+        "spacing": {
+            "padding": true,
+            "margin": true
+        }
+    }
+}

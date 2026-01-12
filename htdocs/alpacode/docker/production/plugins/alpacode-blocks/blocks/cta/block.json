@@ -1,0 +1,67 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "alpacode/cta",
+	"version": "0.0.2",
+	"title": "Call to Action",
+	"category": "alpacode",
+	"description": "A compelling call-to-action section to convert visitors.",
+	"keywords": [
+		"cta",
+		"call to action",
+		"contact",
+		"conversion"
+	],
+	"textdomain": "alpacode-blocks",
+	"editorScript": {
+		"handle": "alpacode-hero-editor",
+		"src": "file:./editor.js",
+		"dependencies": [
+			"wp-blocks",
+			"wp-element",
+			"wp-block-editor",
+			"wp-components",
+			"wp-server-side-render"
+		]
+	},
+	"attributes": {
+		"heading": {
+			"type": "string",
+			"default": "Ready to get started?"
+		},
+		"description": {
+			"type": "string",
+			"default": "Let's discuss how we can help transform your business with the right technology solutions."
+		},
+		"buttonText": {
+			"type": "string",
+			"default": "Schedule a Call"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": "#contact"
+		},
+		"variant": {
+			"type": "string",
+			"default": "default"
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [
+			"wide",
+			"full"
+		],
+		"color": {
+			"background": true,
+			"text": true
+		},
+		"spacing": {
+			"padding": true,
+			"margin": true
+		}
+	},
+	"editorScript": "file:./editor.js",
+	"style": "file:./style.css",
+	"render": "file:./render.php"
+}

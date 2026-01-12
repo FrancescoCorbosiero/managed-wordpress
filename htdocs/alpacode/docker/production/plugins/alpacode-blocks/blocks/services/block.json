@@ -1,0 +1,75 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "alpacode/services",
+	"version": "0.0.2",
+	"title": "Services Grid",
+	"category": "alpacode",
+	"description": "Display services or features in a professional grid layout.",
+	"keywords": [
+		"services",
+		"features",
+		"grid",
+		"cards"
+	],
+	"textdomain": "alpacode-blocks",
+	"editorScript": {
+		"handle": "alpacode-hero-editor",
+		"src": "file:./editor.js",
+		"dependencies": [
+			"wp-blocks",
+			"wp-element",
+			"wp-block-editor",
+			"wp-components",
+			"wp-server-side-render"
+		]
+	},
+	"attributes": {
+		"heading": {
+			"type": "string",
+			"default": "What We Do"
+		},
+		"subheading": {
+			"type": "string",
+			"default": "Our core services"
+		},
+		"services": {
+			"type": "array",
+			"default": [
+				{
+					"icon": "code",
+					"title": "Software Development",
+					"description": "Custom web applications, APIs, and scalable solutions built with modern technologies."
+				},
+				{
+					"icon": "server",
+					"title": "Managed Hosting",
+					"description": "WordPress and web app hosting with automatic backups, SSL, and 24/7 monitoring."
+				},
+				{
+					"icon": "lightbulb",
+					"title": "IT Consulting",
+					"description": "Strategic guidance to help you make the right technology decisions for your business."
+				}
+			]
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [
+			"wide",
+			"full"
+		],
+		"color": {
+			"background": true,
+			"text": true
+		},
+		"spacing": {
+			"padding": true,
+			"margin": true
+		}
+	},
+	"editorScript": "file:./editor.js",
+	"style": "file:./style.css",
+	"render": "file:./render.php"
+}

@@ -1,0 +1,96 @@
+/**
+ * CTA Block Styles
+ */
+
+.alpacode-cta {
+    position: relative;
+    padding: var(--wp--preset--spacing--80, 6rem) var(--wp--preset--spacing--40, 1.5rem);
+    overflow: hidden;
+}
+
+.alpacode-cta__bg {
+    position: absolute;
+    inset: 0;
+    background: 
+        linear-gradient(135deg, var(--wp--preset--color--secondary, #18181b) 0%, var(--wp--preset--color--primary, #0a0a0b) 100%);
+    border: 1px solid var(--wp--preset--color--border, #27272a);
+    border-radius: 16px;
+}
+
+.alpacode-cta__bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+        radial-gradient(ellipse 50% 80% at 20% 0%, rgba(59, 130, 246, 0.15), transparent),
+        radial-gradient(ellipse 40% 60% at 80% 100%, rgba(59, 130, 246, 0.1), transparent);
+    border-radius: 16px;
+}
+
+.alpacode-cta__content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.alpacode-cta__heading {
+    font-family: var(--wp--preset--font-family--outfit, sans-serif);
+    font-size: var(--wp--preset--font-size--3xl, 2.5rem);
+    font-weight: 600;
+    color: var(--wp--preset--color--text-primary, #fafafa);
+    margin: 0 0 var(--wp--preset--spacing--30, 1rem) 0;
+    line-height: 1.2;
+}
+
+.alpacode-cta__description {
+    font-family: var(--wp--preset--font-family--outfit, sans-serif);
+    font-size: var(--wp--preset--font-size--large, 1.25rem);
+    color: var(--wp--preset--color--text-secondary, #a1a1aa);
+    line-height: 1.6;
+    margin: 0 0 var(--wp--preset--spacing--50, 2rem) 0;
+}
+
+.alpacode-cta__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--wp--preset--font-family--outfit, sans-serif);
+    font-size: var(--wp--preset--font-size--medium, 1rem);
+    font-weight: 500;
+    color: var(--wp--preset--color--white, #fff);
+    background: var(--wp--preset--color--accent, #3b82f6);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.alpacode-cta__button:hover {
+    background: var(--wp--preset--color--accent-light, #60a5fa);
+    transform: translateY(-2px);
+}
+
+.alpacode-cta__button svg {
+    transition: transform 0.2s ease;
+}
+
+.alpacode-cta__button:hover svg {
+    transform: translateX(4px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .alpacode-cta {
+        padding: var(--wp--preset--spacing--60, 3rem) var(--wp--preset--spacing--30, 1rem);
+    }
+    
+    .alpacode-cta__heading {
+        font-size: var(--wp--preset--font-size--2xl, 2rem);
+    }
+    
+    .alpacode-cta__description {
+        font-size: var(--wp--preset--font-size--medium, 1rem);
+    }
+}
