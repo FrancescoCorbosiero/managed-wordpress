@@ -1,96 +1,445 @@
 /**
- * CTA Block Styles
+ * CTA Block - Premium Styles
+ * Animated gradients, glow effects, and ripple animations
  */
+
+/* ============================================
+   Base Layout
+   ============================================ */
 
 .alpacode-cta {
     position: relative;
-    padding: var(--wp--preset--spacing--80, 6rem) var(--wp--preset--spacing--40, 1.5rem);
+    padding: 6rem 2rem;
     overflow: hidden;
 }
+
+/* ============================================
+   Background Layer
+   ============================================ */
 
 .alpacode-cta__bg {
     position: absolute;
     inset: 0;
-    background: 
-        linear-gradient(135deg, var(--wp--preset--color--secondary, #18181b) 0%, var(--wp--preset--color--primary, #0a0a0b) 100%);
-    border: 1px solid var(--wp--preset--color--border, #27272a);
-    border-radius: 16px;
+    border-radius: 24px;
+    background: linear-gradient(
+        135deg,
+        var(--wp--preset--color--secondary, #18181b) 0%,
+        var(--wp--preset--color--primary, #0a0a0b) 100%
+    );
+    overflow: hidden;
 }
 
-.alpacode-cta__bg::before {
-    content: '';
+/* Animated Gradient Orbs */
+.alpacode-cta__orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.4;
+}
+
+.alpacode-cta__orb--1 {
+    width: 400px;
+    height: 400px;
+    top: -100px;
+    left: -50px;
+    background: var(--wp--preset--color--accent, #3b82f6);
+}
+
+.alpacode-cta__orb--2 {
+    width: 300px;
+    height: 300px;
+    bottom: -100px;
+    right: -50px;
+    background: var(--wp--preset--color--accent-light, #60a5fa);
+}
+
+/* Animated gradient variant */
+.alpacode-cta--animated-gradient .alpacode-cta__orb--1 {
+    animation: alpacode-cta-float-1 8s ease-in-out infinite;
+}
+
+.alpacode-cta--animated-gradient .alpacode-cta__orb--2 {
+    animation: alpacode-cta-float-2 10s ease-in-out infinite;
+}
+
+@keyframes alpacode-cta-float-1 {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(50px, 30px) scale(1.1);
+    }
+    66% {
+        transform: translate(-30px, 50px) scale(0.9);
+    }
+}
+
+@keyframes alpacode-cta-float-2 {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(-40px, -20px) scale(1.05);
+    }
+    66% {
+        transform: translate(20px, -40px) scale(0.95);
+    }
+}
+
+/* Grid Pattern */
+.alpacode-cta__grid {
     position: absolute;
     inset: 0;
-    background: 
-        radial-gradient(ellipse 50% 80% at 20% 0%, rgba(59, 130, 246, 0.15), transparent),
-        radial-gradient(ellipse 40% 60% at 80% 100%, rgba(59, 130, 246, 0.1), transparent);
-    border-radius: 16px;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 20%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 20%, transparent 70%);
 }
+
+/* Glow Effect */
+.alpacode-cta__glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, var(--wp--preset--color--accent, #3b82f6) 0%, transparent 70%);
+    opacity: 0.15;
+    filter: blur(60px);
+    pointer-events: none;
+}
+
+.alpacode-cta--glow .alpacode-cta__glow {
+    animation: alpacode-cta-glow-pulse 3s ease-in-out infinite;
+}
+
+@keyframes alpacode-cta-glow-pulse {
+    0%, 100% {
+        opacity: 0.15;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 0.25;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+/* ============================================
+   Border Effect
+   ============================================ */
+
+.alpacode-cta__border {
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    padding: 1px;
+    background: linear-gradient(
+        135deg,
+        rgba(59, 130, 246, 0.3) 0%,
+        transparent 50%,
+        rgba(59, 130, 246, 0.3) 100%
+    );
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+/* ============================================
+   Content
+   ============================================ */
 
 .alpacode-cta__content {
     position: relative;
-    z-index: 1;
-    max-width: 700px;
+    z-index: 2;
+    max-width: 800px;
     margin: 0 auto;
     text-align: center;
 }
 
-.alpacode-cta__heading {
+/* Eyebrow */
+.alpacode-cta__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     font-family: var(--wp--preset--font-family--outfit, sans-serif);
-    font-size: var(--wp--preset--font-size--3xl, 2.5rem);
+    font-size: 0.875rem;
     font-weight: 600;
-    color: var(--wp--preset--color--text-primary, #fafafa);
-    margin: 0 0 var(--wp--preset--spacing--30, 1rem) 0;
-    line-height: 1.2;
+    color: var(--wp--preset--color--accent, #3b82f6);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
 }
 
+/* Heading */
+.alpacode-cta__heading {
+    font-family: var(--wp--preset--font-family--outfit, sans-serif);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--wp--preset--color--text-primary, #fafafa);
+    margin: 0 0 1.25rem 0;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+}
+
+/* Description */
 .alpacode-cta__description {
     font-family: var(--wp--preset--font-family--outfit, sans-serif);
-    font-size: var(--wp--preset--font-size--large, 1.25rem);
+    font-size: clamp(1rem, 2vw, 1.25rem);
     color: var(--wp--preset--color--text-secondary, #a1a1aa);
-    line-height: 1.6;
-    margin: 0 0 var(--wp--preset--spacing--50, 2rem) 0;
+    line-height: 1.7;
+    margin: 0 auto 2rem;
+    max-width: 600px;
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+
+.alpacode-cta__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
 }
 
 .alpacode-cta__button {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.625rem;
     font-family: var(--wp--preset--font-family--outfit, sans-serif);
-    font-size: var(--wp--preset--font-size--medium, 1rem);
+    font-size: 1rem;
     font-weight: 500;
-    color: var(--wp--preset--color--white, #fff);
-    background: var(--wp--preset--color--accent, #3b82f6);
-    padding: 1rem 2rem;
-    border-radius: 8px;
     text-decoration: none;
-    transition: all 0.2s ease;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    transition:
+        transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
 }
 
-.alpacode-cta__button:hover {
-    background: var(--wp--preset--color--accent-light, #60a5fa);
-    transform: translateY(-2px);
+/* Primary Button */
+.alpacode-cta__button--primary {
+    background: linear-gradient(135deg, var(--wp--preset--color--accent, #3b82f6), var(--wp--preset--color--accent-light, #60a5fa));
+    color: var(--wp--preset--color--white, #fff);
+    box-shadow:
+        0 4px 15px rgba(59, 130, 246, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-.alpacode-cta__button svg {
-    transition: transform 0.2s ease;
+.alpacode-cta__button--primary:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 8px 30px rgba(59, 130, 246, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    color: var(--wp--preset--color--white, #fff);
 }
 
-.alpacode-cta__button:hover svg {
+/* Button Icon */
+.alpacode-cta__button-icon {
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.alpacode-cta__button--primary:hover .alpacode-cta__button-icon {
     transform: translateX(4px);
 }
 
-/* Responsive */
+/* Button Glow */
+.alpacode-cta__button-glow {
+    position: absolute;
+    inset: -50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.alpacode-cta__button--primary:hover .alpacode-cta__button-glow {
+    opacity: 1;
+    animation: alpacode-button-shimmer 1.5s ease infinite;
+}
+
+@keyframes alpacode-button-shimmer {
+    0% {
+        transform: translateX(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) rotate(45deg);
+    }
+}
+
+/* Secondary Button */
+.alpacode-cta__button--secondary {
+    background: transparent;
+    color: var(--wp--preset--color--text-primary, #fafafa);
+    border: 1px solid var(--wp--preset--color--border, #27272a);
+}
+
+.alpacode-cta__button--secondary:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--wp--preset--color--accent, #3b82f6);
+    color: var(--wp--preset--color--text-primary, #fafafa);
+}
+
+/* ============================================
+   Decorative Rings
+   ============================================ */
+
+.alpacode-cta__decoration {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.alpacode-cta__ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.alpacode-cta__ring--1 {
+    width: 300px;
+    height: 300px;
+    top: -100px;
+    right: -50px;
+    animation: alpacode-ring-rotate 20s linear infinite;
+}
+
+.alpacode-cta__ring--2 {
+    width: 200px;
+    height: 200px;
+    bottom: -50px;
+    left: -50px;
+    animation: alpacode-ring-rotate 15s linear infinite reverse;
+}
+
+@keyframes alpacode-ring-rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ============================================
+   Variants
+   ============================================ */
+
+/* Default variant */
+.alpacode-cta--default .alpacode-cta__bg {
+    background: var(--wp--preset--color--secondary, #18181b);
+}
+
+.alpacode-cta--default .alpacode-cta__orb {
+    display: none;
+}
+
+/* Minimal variant */
+.alpacode-cta--minimal .alpacode-cta__bg {
+    background: transparent;
+}
+
+.alpacode-cta--minimal .alpacode-cta__orb,
+.alpacode-cta--minimal .alpacode-cta__grid,
+.alpacode-cta--minimal .alpacode-cta__glow,
+.alpacode-cta--minimal .alpacode-cta__decoration {
+    display: none;
+}
+
+.alpacode-cta--minimal .alpacode-cta__border {
+    background: linear-gradient(
+        to right,
+        transparent 0%,
+        var(--wp--preset--color--border, #27272a) 50%,
+        transparent 100%
+    );
+}
+
+/* Glow variant */
+.alpacode-cta--glow .alpacode-cta__bg {
+    box-shadow: 0 0 60px rgba(59, 130, 246, 0.2);
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
 @media (max-width: 768px) {
     .alpacode-cta {
-        padding: var(--wp--preset--spacing--60, 3rem) var(--wp--preset--spacing--30, 1rem);
+        padding: 4rem 1.5rem;
     }
-    
-    .alpacode-cta__heading {
-        font-size: var(--wp--preset--font-size--2xl, 2rem);
+
+    .alpacode-cta__bg {
+        border-radius: 16px;
     }
-    
-    .alpacode-cta__description {
-        font-size: var(--wp--preset--font-size--medium, 1rem);
+
+    .alpacode-cta__border {
+        border-radius: 16px;
+    }
+
+    .alpacode-cta__buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .alpacode-cta__button {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+
+    .alpacode-cta__orb--1 {
+        width: 250px;
+        height: 250px;
+    }
+
+    .alpacode-cta__orb--2 {
+        width: 200px;
+        height: 200px;
+    }
+
+    .alpacode-cta__ring {
+        display: none;
+    }
+}
+
+/* ============================================
+   Reduced Motion
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    .alpacode-cta__orb {
+        animation: none !important;
+    }
+
+    .alpacode-cta__glow {
+        animation: none !important;
+    }
+
+    .alpacode-cta__ring {
+        animation: none !important;
+    }
+
+    .alpacode-cta__button-glow {
+        animation: none !important;
+    }
+
+    .alpacode-cta__button:hover {
+        transform: none;
     }
 }

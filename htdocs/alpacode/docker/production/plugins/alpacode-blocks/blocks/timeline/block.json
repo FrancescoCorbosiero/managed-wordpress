@@ -1,0 +1,118 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "alpacode/timeline",
+    "version": "1.0.0",
+    "title": "Timeline",
+    "category": "alpacode",
+    "description": "Display a process or history with scroll-linked progress animation.",
+    "keywords": [
+        "timeline",
+        "process",
+        "steps",
+        "history",
+        "roadmap",
+        "milestones"
+    ],
+    "textdomain": "alpacode-blocks",
+    "editorScript": {
+        "handle": "alpacode-timeline-editor",
+        "src": "file:./editor.js",
+        "dependencies": [
+            "wp-blocks",
+            "wp-element",
+            "wp-block-editor",
+            "wp-components",
+            "wp-server-side-render"
+        ]
+    },
+    "style": "file:./style.css",
+    "viewScript": "file:./view.js",
+    "render": "file:./render.php",
+    "attributes": {
+        "eyebrow": {
+            "type": "string",
+            "default": "Our Process"
+        },
+        "heading": {
+            "type": "string",
+            "default": "How We Work"
+        },
+        "description": {
+            "type": "string",
+            "default": ""
+        },
+        "items": {
+            "type": "array",
+            "default": [
+                {
+                    "title": "Discovery",
+                    "description": "We start by understanding your goals, challenges, and vision through in-depth consultation.",
+                    "icon": "search",
+                    "year": ""
+                },
+                {
+                    "title": "Strategy",
+                    "description": "Based on our findings, we develop a comprehensive strategy tailored to your needs.",
+                    "icon": "lightbulb",
+                    "year": ""
+                },
+                {
+                    "title": "Design",
+                    "description": "Our team creates beautiful, functional designs that align with your brand identity.",
+                    "icon": "palette",
+                    "year": ""
+                },
+                {
+                    "title": "Development",
+                    "description": "We build your solution using modern technologies and best practices.",
+                    "icon": "code",
+                    "year": ""
+                },
+                {
+                    "title": "Launch",
+                    "description": "After thorough testing, we deploy your project and provide ongoing support.",
+                    "icon": "rocket",
+                    "year": ""
+                }
+            ]
+        },
+        "layout": {
+            "type": "string",
+            "default": "vertical",
+            "enum": ["vertical", "horizontal", "alternating"]
+        },
+        "showNumbers": {
+            "type": "boolean",
+            "default": true
+        },
+        "showIcons": {
+            "type": "boolean",
+            "default": true
+        },
+        "enableScrollProgress": {
+            "type": "boolean",
+            "default": true
+        },
+        "lineStyle": {
+            "type": "string",
+            "default": "solid",
+            "enum": ["solid", "dashed", "gradient"]
+        }
+    },
+    "supports": {
+        "html": false,
+        "align": [
+            "wide",
+            "full"
+        ],
+        "color": {
+            "background": true,
+            "text": true
+        },
+        "spacing": {
+            "padding": true,
+            "margin": true
+        }
+    }
+}

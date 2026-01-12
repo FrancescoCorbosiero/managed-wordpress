@@ -1,0 +1,707 @@
+/**
+ * Alpacode Blocks - Global Styles
+ * Premium animation utilities and shared styles
+ *
+ * @version 1.0.0
+ * @author Alpacode Studio
+ */
+
+/* ============================================
+   CSS Custom Properties (Design Tokens)
+   ============================================ */
+:root {
+    --alpacode-transition-fast: 150ms;
+    --alpacode-transition-normal: 300ms;
+    --alpacode-transition-slow: 500ms;
+    --alpacode-easing-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+    --alpacode-easing-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --alpacode-easing-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* ============================================
+   Animation Utility Classes
+   ============================================ */
+
+/* Fade animations */
+.alpacode-fade-in {
+    animation: alpacode-fade-in 0.6s var(--alpacode-easing-smooth) forwards;
+}
+
+.alpacode-fade-up {
+    animation: alpacode-fade-up 0.6s var(--alpacode-easing-smooth) forwards;
+}
+
+.alpacode-fade-down {
+    animation: alpacode-fade-down 0.6s var(--alpacode-easing-smooth) forwards;
+}
+
+.alpacode-fade-left {
+    animation: alpacode-fade-left 0.6s var(--alpacode-easing-smooth) forwards;
+}
+
+.alpacode-fade-right {
+    animation: alpacode-fade-right 0.6s var(--alpacode-easing-smooth) forwards;
+}
+
+/* Scale animations */
+.alpacode-scale-in {
+    animation: alpacode-scale-in 0.5s var(--alpacode-easing-bounce) forwards;
+}
+
+.alpacode-scale-up {
+    animation: alpacode-scale-up 0.5s var(--alpacode-easing-smooth) forwards;
+}
+
+/* Blur animations */
+.alpacode-blur-in {
+    animation: alpacode-blur-in 0.8s var(--alpacode-easing-smooth) forwards;
+}
+
+/* ============================================
+   Keyframe Definitions
+   ============================================ */
+
+@keyframes alpacode-fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes alpacode-fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes alpacode-fade-down {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes alpacode-fade-left {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes alpacode-fade-right {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes alpacode-scale-in {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes alpacode-scale-up {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes alpacode-blur-in {
+    from {
+        opacity: 0;
+        filter: blur(10px);
+    }
+    to {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+@keyframes alpacode-pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+}
+
+@keyframes alpacode-float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes alpacode-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes alpacode-bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-15px);
+    }
+    60% {
+        transform: translateY(-7px);
+    }
+}
+
+@keyframes alpacode-shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+@keyframes alpacode-gradient-x {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes alpacode-border-glow {
+    0%, 100% {
+        border-color: var(--wp--preset--color--accent);
+        box-shadow: 0 0 10px var(--wp--preset--color--accent);
+    }
+    50% {
+        border-color: var(--wp--preset--color--accent-light);
+        box-shadow: 0 0 20px var(--wp--preset--color--accent-light);
+    }
+}
+
+@keyframes alpacode-scroll-down {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    75% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+
+/* Animation delays */
+.alpacode-delay-100 { animation-delay: 100ms; }
+.alpacode-delay-200 { animation-delay: 200ms; }
+.alpacode-delay-300 { animation-delay: 300ms; }
+.alpacode-delay-400 { animation-delay: 400ms; }
+.alpacode-delay-500 { animation-delay: 500ms; }
+.alpacode-delay-600 { animation-delay: 600ms; }
+.alpacode-delay-700 { animation-delay: 700ms; }
+.alpacode-delay-800 { animation-delay: 800ms; }
+
+/* Animation durations */
+.alpacode-duration-fast { animation-duration: 300ms; }
+.alpacode-duration-normal { animation-duration: 500ms; }
+.alpacode-duration-slow { animation-duration: 800ms; }
+
+/* Hover transitions */
+.alpacode-hover-lift {
+    transition: transform var(--alpacode-transition-normal) var(--alpacode-easing-smooth);
+}
+
+.alpacode-hover-lift:hover {
+    transform: translateY(-5px);
+}
+
+.alpacode-hover-scale {
+    transition: transform var(--alpacode-transition-normal) var(--alpacode-easing-smooth);
+}
+
+.alpacode-hover-scale:hover {
+    transform: scale(1.02);
+}
+
+.alpacode-hover-glow {
+    transition: box-shadow var(--alpacode-transition-normal) var(--alpacode-easing-smooth);
+}
+
+.alpacode-hover-glow:hover {
+    box-shadow: 0 10px 40px rgba(59, 130, 246, 0.3);
+}
+
+/* ============================================
+   Background Effects
+   ============================================ */
+
+/* Animated gradient background */
+.alpacode-bg-gradient-animated {
+    background: linear-gradient(
+        135deg,
+        var(--wp--preset--color--primary) 0%,
+        var(--wp--preset--color--secondary) 50%,
+        var(--wp--preset--color--primary) 100%
+    );
+    background-size: 200% 200%;
+    animation: alpacode-gradient-x 8s ease infinite;
+}
+
+/* Accent gradient animated */
+.alpacode-bg-accent-gradient {
+    background: linear-gradient(
+        135deg,
+        var(--wp--preset--color--accent) 0%,
+        var(--wp--preset--color--accent-light) 50%,
+        var(--wp--preset--color--accent) 100%
+    );
+    background-size: 200% 200%;
+    animation: alpacode-gradient-x 3s ease infinite;
+}
+
+/* Grid pattern */
+.alpacode-bg-grid {
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+/* Dot pattern */
+.alpacode-bg-dots {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+/* Noise texture */
+.alpacode-bg-noise {
+    position: relative;
+}
+
+.alpacode-bg-noise::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ============================================
+   Glow Effects
+   ============================================ */
+
+.alpacode-glow {
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+}
+
+.alpacode-glow-strong {
+    box-shadow: 0 0 50px rgba(59, 130, 246, 0.5);
+}
+
+.alpacode-glow-text {
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+/* ============================================
+   Border Effects
+   ============================================ */
+
+/* Gradient border */
+.alpacode-border-gradient {
+    position: relative;
+    background: var(--wp--preset--color--secondary);
+    border-radius: 12px;
+}
+
+.alpacode-border-gradient::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: linear-gradient(
+        135deg,
+        var(--wp--preset--color--accent) 0%,
+        transparent 50%,
+        var(--wp--preset--color--accent) 100%
+    );
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+/* Animated border */
+.alpacode-border-animated {
+    position: relative;
+}
+
+.alpacode-border-animated::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    padding: 2px;
+    border-radius: inherit;
+    background: linear-gradient(
+        var(--angle, 0deg),
+        var(--wp--preset--color--accent),
+        transparent,
+        var(--wp--preset--color--accent)
+    );
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: alpacode-rotate-border 4s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes alpacode-rotate-border {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
+
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+/* ============================================
+   Button Styles
+   ============================================ */
+
+.alpacode-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1;
+    border-radius: 8px;
+    text-decoration: none;
+    transition:
+        transform var(--alpacode-transition-normal) var(--alpacode-easing-smooth),
+        box-shadow var(--alpacode-transition-normal) var(--alpacode-easing-smooth),
+        background-color var(--alpacode-transition-normal) ease;
+    cursor: pointer;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.alpacode-btn-primary {
+    background-color: var(--wp--preset--color--accent);
+    color: var(--wp--preset--color--white);
+}
+
+.alpacode-btn-primary:hover {
+    background-color: var(--wp--preset--color--accent-light);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+}
+
+.alpacode-btn-secondary {
+    background-color: transparent;
+    color: var(--wp--preset--color--text-primary);
+    border: 1px solid var(--wp--preset--color--border);
+}
+
+.alpacode-btn-secondary:hover {
+    background-color: var(--wp--preset--color--secondary);
+    border-color: var(--wp--preset--color--accent);
+    color: var(--wp--preset--color--text-primary);
+}
+
+.alpacode-btn-ghost {
+    background-color: transparent;
+    color: var(--wp--preset--color--text-primary);
+}
+
+.alpacode-btn-ghost:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Button icon animation */
+.alpacode-btn svg {
+    transition: transform var(--alpacode-transition-normal) var(--alpacode-easing-smooth);
+}
+
+.alpacode-btn:hover svg {
+    transform: translateX(4px);
+}
+
+/* ============================================
+   Card Styles
+   ============================================ */
+
+.alpacode-card {
+    background-color: var(--wp--preset--color--secondary);
+    border: 1px solid var(--wp--preset--color--border);
+    border-radius: 12px;
+    padding: 2rem;
+    transition:
+        transform var(--alpacode-transition-normal) var(--alpacode-easing-smooth),
+        border-color var(--alpacode-transition-normal) ease,
+        box-shadow var(--alpacode-transition-normal) ease;
+}
+
+.alpacode-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--wp--preset--color--accent);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   Typography Utilities
+   ============================================ */
+
+.alpacode-text-gradient {
+    background: linear-gradient(
+        135deg,
+        var(--wp--preset--color--text-primary) 0%,
+        var(--wp--preset--color--accent) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.alpacode-text-balance {
+    text-wrap: balance;
+}
+
+/* ============================================
+   Layout Utilities
+   ============================================ */
+
+.alpacode-container {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.alpacode-section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+/* ============================================
+   Scroll Indicator
+   ============================================ */
+
+.alpacode-scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--wp--preset--color--text-muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.alpacode-scroll-indicator__mouse {
+    width: 24px;
+    height: 40px;
+    border: 2px solid var(--wp--preset--color--border);
+    border-radius: 12px;
+    position: relative;
+}
+
+.alpacode-scroll-indicator__wheel {
+    width: 4px;
+    height: 8px;
+    background-color: var(--wp--preset--color--accent);
+    border-radius: 2px;
+    position: absolute;
+    left: 50%;
+    top: 8px;
+    transform: translateX(-50%);
+    animation: alpacode-scroll-down 2s ease-in-out infinite;
+}
+
+/* ============================================
+   Progress Bar
+   ============================================ */
+
+.alpacode-progress {
+    width: 100%;
+    height: 6px;
+    background-color: var(--wp--preset--color--border);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.alpacode-progress-bar {
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        var(--wp--preset--color--accent),
+        var(--wp--preset--color--accent-light)
+    );
+    border-radius: 3px;
+    transition: width 1s var(--alpacode-easing-smooth);
+}
+
+/* ============================================
+   Carousel Base Styles
+   ============================================ */
+
+.alpacode-carousel {
+    overflow: hidden;
+    position: relative;
+}
+
+.alpacode-carousel::before,
+.alpacode-carousel::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.alpacode-carousel::before {
+    left: 0;
+    background: linear-gradient(to right, var(--wp--preset--color--primary), transparent);
+}
+
+.alpacode-carousel::after {
+    right: 0;
+    background: linear-gradient(to left, var(--wp--preset--color--primary), transparent);
+}
+
+.alpacode-carousel-track {
+    display: flex;
+    gap: 2rem;
+    will-change: transform;
+}
+
+/* ============================================
+   Reduced Motion
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .alpacode-hover-lift:hover,
+    .alpacode-hover-scale:hover,
+    .alpacode-card:hover {
+        transform: none;
+    }
+
+    .alpacode-carousel-track {
+        animation: none !important;
+    }
+
+    .alpacode-scroll-indicator__wheel {
+        animation: none !important;
+    }
+}
+
+/* ============================================
+   Responsive Adjustments
+   ============================================ */
+
+@media (max-width: 768px) {
+    .alpacode-section {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+
+    .alpacode-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .alpacode-card {
+        padding: 1.5rem;
+    }
+
+    .alpacode-scroll-indicator {
+        display: none;
+    }
+
+    .alpacode-carousel::before,
+    .alpacode-carousel::after {
+        width: 40px;
+    }
+}

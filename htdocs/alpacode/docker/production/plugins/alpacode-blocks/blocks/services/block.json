@@ -2,19 +2,21 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "alpacode/services",
-	"version": "0.0.2",
+	"version": "1.0.0",
 	"title": "Services Grid",
 	"category": "alpacode",
-	"description": "Display services or features in a professional grid layout.",
+	"description": "Premium services grid with 3D tilt effects and staggered animations.",
 	"keywords": [
 		"services",
 		"features",
 		"grid",
-		"cards"
+		"cards",
+		"tilt",
+		"3d"
 	],
 	"textdomain": "alpacode-blocks",
 	"editorScript": {
-		"handle": "alpacode-hero-editor",
+		"handle": "alpacode-services-editor",
 		"src": "file:./editor.js",
 		"dependencies": [
 			"wp-blocks",
@@ -25,13 +27,17 @@
 		]
 	},
 	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "Our Services"
+		},
 		"heading": {
 			"type": "string",
 			"default": "What We Do"
 		},
 		"subheading": {
 			"type": "string",
-			"default": "Our core services"
+			"default": "Comprehensive solutions to help your business thrive in the digital age."
 		},
 		"services": {
 			"type": "array",
@@ -50,8 +56,40 @@
 					"icon": "lightbulb",
 					"title": "IT Consulting",
 					"description": "Strategic guidance to help you make the right technology decisions for your business."
+				},
+				{
+					"icon": "shield",
+					"title": "Cybersecurity",
+					"description": "Protect your digital assets with comprehensive security audits and implementations."
+				},
+				{
+					"icon": "zap",
+					"title": "Performance Optimization",
+					"description": "Speed up your applications with caching, CDN integration, and code optimization."
+				},
+				{
+					"icon": "users",
+					"title": "Team Augmentation",
+					"description": "Skilled developers to integrate with your team and accelerate project delivery."
 				}
 			]
+		},
+		"columns": {
+			"type": "number",
+			"default": 3
+		},
+		"enableTilt": {
+			"type": "boolean",
+			"default": true
+		},
+		"enableStagger": {
+			"type": "boolean",
+			"default": true
+		},
+		"cardStyle": {
+			"type": "string",
+			"default": "default",
+			"enum": ["default", "bordered", "glass"]
 		}
 	},
 	"supports": {
@@ -69,7 +107,6 @@
 			"margin": true
 		}
 	},
-	"editorScript": "file:./editor.js",
 	"style": "file:./style.css",
 	"render": "file:./render.php"
 }
