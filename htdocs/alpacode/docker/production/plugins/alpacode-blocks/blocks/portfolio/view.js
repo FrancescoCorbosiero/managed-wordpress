@@ -14,9 +14,17 @@
 
             if (!filters.length || !items.length) return;
 
+            // Track pending animation frame for cleanup
+            var pendingUpdate = null;
+
             filters.forEach(function(filter) {
                 filter.addEventListener('click', function() {
                     var filterValue = filter.getAttribute('data-filter');
+
+                    // Cancel any pending updates to prevent race conditions
+                    if (pendingUpdate) {
+                        cancelAnimationFrame(pendingUpdate);
+                    }
 
                     // Update active filter
                     filters.forEach(function(f) {
@@ -24,22 +32,25 @@
                     });
                     filter.classList.add('alpacode-portfolio__filter--active');
 
-                    // Filter items
+                    // Filter items - CSS handles position: absolute via --hidden class
                     items.forEach(function(item) {
                         var category = item.getAttribute('data-category');
                         var shouldShow = filterValue === 'all' || category === filterValue;
 
                         if (shouldShow) {
                             item.classList.remove('alpacode-portfolio__item--hidden');
-                            item.style.position = '';
                         } else {
                             item.classList.add('alpacode-portfolio__item--hidden');
-                            setTimeout(function() {
-                                if (item.classList.contains('alpacode-portfolio__item--hidden')) {
-                                    item.style.position = 'absolute';
-                                }
-                            }, 400);
                         }
+                    });
+
+                    // Force a reflow to ensure grid recalculates properly
+                    pendingUpdate = requestAnimationFrame(function() {
+                        grid.style.minHeight = grid.offsetHeight + 'px';
+                        pendingUpdate = requestAnimationFrame(function() {
+                            grid.style.minHeight = '';
+                            pendingUpdate = null;
+                        });
                     });
                 });
             });
