@@ -1,0 +1,107 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "alpacode/parallax",
+    "version": "1.0.0",
+    "title": "Parallax Section",
+    "category": "alpacode",
+    "description": "Create stunning parallax scrolling effects with background images and overlays.",
+    "keywords": [
+        "parallax",
+        "scroll",
+        "background",
+        "hero",
+        "image",
+        "effect"
+    ],
+    "textdomain": "alpacode-blocks",
+    "editorScript": "file:./editor.js",
+    "viewScript": "file:./view.js",
+    "style": "file:./style.css",
+    "render": "file:./render.php",
+    "attributes": {
+        "eyebrow": {
+            "type": "string",
+            "default": ""
+        },
+        "heading": {
+            "type": "string",
+            "default": ""
+        },
+        "description": {
+            "type": "string",
+            "default": ""
+        },
+        "backgroundImage": {
+            "type": "string",
+            "default": ""
+        },
+        "backgroundPosition": {
+            "type": "string",
+            "default": "center center",
+            "enum": ["top left", "top center", "top right", "center left", "center center", "center right", "bottom left", "bottom center", "bottom right"]
+        },
+        "parallaxSpeed": {
+            "type": "number",
+            "default": 0.5
+        },
+        "minHeight": {
+            "type": "number",
+            "default": 500
+        },
+        "overlayColor": {
+            "type": "string",
+            "default": "rgba(0, 0, 0, 0.5)"
+        },
+        "overlayOpacity": {
+            "type": "number",
+            "default": 50
+        },
+        "contentAlignment": {
+            "type": "string",
+            "default": "center",
+            "enum": ["left", "center", "right"]
+        },
+        "verticalAlignment": {
+            "type": "string",
+            "default": "center",
+            "enum": ["top", "center", "bottom"]
+        },
+        "showButton": {
+            "type": "boolean",
+            "default": false
+        },
+        "buttonText": {
+            "type": "string",
+            "default": "Learn More"
+        },
+        "buttonUrl": {
+            "type": "string",
+            "default": "#"
+        },
+        "variant": {
+            "type": "string",
+            "default": "default",
+            "enum": ["default", "split", "fullscreen", "minimal"]
+        },
+        "enableParallax": {
+            "type": "boolean",
+            "default": true
+        },
+        "enableZoom": {
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "supports": {
+        "html": false,
+        "align": [
+            "wide",
+            "full"
+        ],
+        "spacing": {
+            "padding": true,
+            "margin": true
+        }
+    }
+}
