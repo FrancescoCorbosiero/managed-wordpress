@@ -1,0 +1,92 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "alpacode/logos",
+    "version": "1.0.0",
+    "title": "Logo Carousel",
+    "category": "alpacode",
+    "description": "Showcase client or partner logos with smooth infinite scroll animation.",
+    "keywords": [
+        "logos",
+        "clients",
+        "partners",
+        "brands",
+        "carousel",
+        "marquee"
+    ],
+    "textdomain": "alpacode-blocks",
+    "style": "file:./style.css",
+    "render": "file:./render.php",
+    "attributes": {
+        "eyebrow": {
+            "type": "string",
+            "default": "Trusted By"
+        },
+        "heading": {
+            "type": "string",
+            "default": ""
+        },
+        "logos": {
+            "type": "array",
+            "default": []
+        },
+        "layout": {
+            "type": "string",
+            "default": "infinite",
+            "enum": ["infinite", "static", "grid"]
+        },
+        "scrollSpeed": {
+            "type": "number",
+            "default": 25
+        },
+        "scrollDirection": {
+            "type": "string",
+            "default": "left",
+            "enum": ["left", "right"]
+        },
+        "pauseOnHover": {
+            "type": "boolean",
+            "default": true
+        },
+        "showFadeEdges": {
+            "type": "boolean",
+            "default": true
+        },
+        "grayscale": {
+            "type": "boolean",
+            "default": true
+        },
+        "logoSize": {
+            "type": "string",
+            "default": "medium",
+            "enum": ["small", "medium", "large"]
+        },
+        "rows": {
+            "type": "number",
+            "default": 1
+        },
+        "columns": {
+            "type": "number",
+            "default": 5
+        },
+        "variant": {
+            "type": "string",
+            "default": "default",
+            "enum": ["default", "minimal", "bordered"]
+        }
+    },
+    "supports": {
+        "html": false,
+        "align": [
+            "wide",
+            "full"
+        ],
+        "color": {
+            "background": true
+        },
+        "spacing": {
+            "padding": true,
+            "margin": true
+        }
+    }
+}

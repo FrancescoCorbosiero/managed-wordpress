@@ -1,0 +1,215 @@
+/**
+ * FAQ Block Styles
+ */
+.alpacode-faq {
+    --faq-bg: var(--wp--preset--color--background, #0a0a0b);
+    --faq-text: var(--wp--preset--color--foreground, #ffffff);
+    --faq-muted: var(--wp--preset--color--muted, #a1a1aa);
+    --faq-accent: var(--wp--preset--color--accent, #3b82f6);
+    --faq-surface: rgba(255, 255, 255, 0.03);
+    --faq-border: rgba(255, 255, 255, 0.08);
+    --faq-radius: 12px;
+
+    padding: 100px 0;
+    background: var(--faq-bg);
+}
+
+.alpacode-faq__container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Header */
+.alpacode-faq__header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.alpacode-faq__eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--faq-accent);
+    margin-bottom: 12px;
+}
+
+.alpacode-faq__heading {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 700;
+    color: var(--faq-text);
+    margin: 0 0 12px 0;
+}
+
+.alpacode-faq__description {
+    font-size: 1.125rem;
+    color: var(--faq-muted);
+    margin: 0;
+}
+
+/* List */
+.alpacode-faq__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.alpacode-faq--cols-2 .alpacode-faq__container {
+    max-width: 1200px;
+}
+
+.alpacode-faq--cols-2 .alpacode-faq__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+/* Item */
+.alpacode-faq__item {
+    background: var(--faq-surface);
+    border: 1px solid var(--faq-border);
+    border-radius: var(--faq-radius);
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+}
+
+.alpacode-faq__item:hover {
+    border-color: rgba(59, 130, 246, 0.2);
+}
+
+.alpacode-faq__item--open {
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+/* Question button */
+.alpacode-faq__question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+}
+
+.alpacode-faq--icon-left .alpacode-faq__question {
+    flex-direction: row-reverse;
+}
+
+.alpacode-faq__question-text {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--faq-text);
+    line-height: 1.4;
+}
+
+.alpacode-faq__icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--faq-accent);
+}
+
+.alpacode-faq__icon-v {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.alpacode-faq__item--open .alpacode-faq__icon-v {
+    transform: rotate(90deg);
+    opacity: 0;
+}
+
+/* Answer */
+.alpacode-faq__answer {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease;
+}
+
+.alpacode-faq__item--open .alpacode-faq__answer {
+    grid-template-rows: 1fr;
+}
+
+.alpacode-faq__answer[hidden] {
+    display: grid;
+}
+
+.alpacode-faq__answer-content {
+    overflow: hidden;
+    padding: 0 24px;
+    color: var(--faq-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.alpacode-faq__item--open .alpacode-faq__answer-content {
+    padding-bottom: 20px;
+}
+
+/* Style variants */
+.alpacode-faq--bordered .alpacode-faq__item {
+    background: transparent;
+    border-width: 2px;
+}
+
+.alpacode-faq--separated .alpacode-faq__item {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--faq-border);
+    border-radius: 0;
+}
+
+.alpacode-faq--minimal .alpacode-faq__item {
+    background: transparent;
+    border: none;
+}
+
+.alpacode-faq--minimal .alpacode-faq__question {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.alpacode-faq--minimal .alpacode-faq__answer-content {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .alpacode-faq {
+        padding: 60px 0;
+    }
+
+    .alpacode-faq--cols-2 .alpacode-faq__list {
+        grid-template-columns: 1fr;
+    }
+
+    .alpacode-faq__question {
+        padding: 16px 20px;
+    }
+
+    .alpacode-faq__question-text {
+        font-size: 1rem;
+    }
+
+    .alpacode-faq__answer-content {
+        padding: 0 20px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .alpacode-faq__icon-v,
+    .alpacode-faq__answer,
+    .alpacode-faq__item {
+        transition: none;
+    }
+}
