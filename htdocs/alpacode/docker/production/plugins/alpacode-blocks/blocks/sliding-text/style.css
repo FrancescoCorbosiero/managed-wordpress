@@ -1,11 +1,13 @@
 /**
  * Sliding Text Block Styles
+ * Uses centralized design tokens from style.css
  */
 .alpacode-sliding-text {
-    --slide-text: var(--wp--preset--color--foreground, #ffffff);
-    --slide-muted: var(--wp--preset--color--muted, #a1a1aa);
-    --slide-accent: var(--wp--preset--color--accent, #3b82f6);
-    --slide-border: rgba(255, 255, 255, 0.08);
+    /* Local aliases referencing design tokens */
+    --slide-text: var(--alpacode-color-text);
+    --slide-muted: var(--alpacode-color-text-muted);
+    --slide-accent: var(--alpacode-color-accent);
+    --slide-border: var(--alpacode-border-color);
     --slide-duration: 30s;
 
     overflow: hidden;
@@ -117,7 +119,7 @@
 .alpacode-sliding-text__dot {
     width: 8px;
     height: 8px;
-    border-radius: 50%;
+    border-radius: var(--alpacode-radius-full);
     background: currentColor;
 }
 

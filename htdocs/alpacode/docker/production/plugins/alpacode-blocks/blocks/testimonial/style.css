@@ -1,5 +1,6 @@
 /**
  * Testimonials Block - Premium Styles
+ * Uses centralized design tokens for consistent, sharp modern aesthetic
  */
 
 /* ============================================
@@ -9,7 +10,7 @@
 .alpacode-testimonials {
     position: relative;
     padding: 6rem 2rem;
-    background: var(--wp--preset--color--primary, #0a0a0b);
+    background: var(--alpacode-color-bg, var(--wp--preset--color--primary, #0a0a0b));
     overflow: hidden;
 }
 
@@ -65,7 +66,7 @@
     font-family: var(--wp--preset--font-family--outfit, sans-serif);
     font-size: 0.875rem;
     font-weight: 600;
-    color: var(--wp--preset--color--accent, #3b82f6);
+    color: var(--alpacode-color-accent, var(--wp--preset--color--accent, #3b82f6));
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin-bottom: 1rem;
@@ -75,7 +76,7 @@
     font-family: var(--wp--preset--font-family--outfit, sans-serif);
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 700;
-    color: var(--wp--preset--color--text-primary, #fafafa);
+    color: var(--alpacode-color-text, var(--wp--preset--color--text-primary, #fafafa));
     margin: 0;
     line-height: 1.2;
     letter-spacing: -0.02em;
@@ -84,7 +85,7 @@
 .alpacode-testimonials__description {
     font-family: var(--wp--preset--font-family--outfit, sans-serif);
     font-size: 1.125rem;
-    color: var(--wp--preset--color--text-secondary, #a1a1aa);
+    color: var(--alpacode-color-text-muted, var(--wp--preset--color--text-secondary, #a1a1aa));
     margin: 1rem 0 0;
     line-height: 1.7;
 }
@@ -95,16 +96,19 @@
 
 .alpacode-testimonials__card {
     position: relative;
-    background: var(--wp--preset--color--secondary, #18181b);
+    background: var(--alpacode-color-surface, var(--wp--preset--color--secondary, #18181b));
     border: 1px solid var(--wp--preset--color--border, #27272a);
-    border-radius: 20px;
+    border-radius: var(--alpacode-radius-card);
+    box-shadow: var(--alpacode-shadow-card);
     overflow: hidden;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                border-color 0.3s ease;
+    transition: transform var(--alpacode-transition-slow) var(--alpacode-easing-smooth),
+                border-color var(--alpacode-transition-normal) ease,
+                box-shadow var(--alpacode-transition-normal) ease;
 }
 
 .alpacode-testimonials__card:hover {
-    border-color: rgba(59, 130, 246, 0.3);
+    border-color: var(--alpacode-color-accent, rgba(59, 130, 246, 0.3));
+    box-shadow: var(--alpacode-shadow-card-hover);
     transform: translateY(-4px);
 }
 
@@ -127,7 +131,7 @@
         transparent 50%
     );
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity var(--alpacode-transition-slow) ease;
     pointer-events: none;
 }
 
@@ -139,7 +143,7 @@
 .alpacode-testimonials__card-border {
     position: absolute;
     inset: 0;
-    border-radius: 20px;
+    border-radius: var(--alpacode-radius-card);
     padding: 1px;
     background: linear-gradient(
         135deg,
@@ -153,7 +157,7 @@
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity var(--alpacode-transition-normal) ease;
     pointer-events: none;
 }
 
@@ -181,11 +185,13 @@
 .alpacode-testimonials--card-minimal .alpacode-testimonials__card {
     background: transparent;
     border: none;
-    border-radius: 0;
+    border-radius: var(--alpacode-radius-none);
+    box-shadow: var(--alpacode-shadow-none);
 }
 
 .alpacode-testimonials--card-minimal .alpacode-testimonials__card:hover {
     transform: none;
+    box-shadow: var(--alpacode-shadow-none);
 }
 
 /* ============================================
@@ -193,7 +199,7 @@
    ============================================ */
 
 .alpacode-testimonials__quote-icon {
-    color: var(--wp--preset--color--accent, #3b82f6);
+    color: var(--alpacode-color-accent, var(--wp--preset--color--accent, #3b82f6));
     opacity: 0.3;
     margin-bottom: 1rem;
 }
@@ -214,7 +220,8 @@
 
 .alpacode-testimonials__star {
     color: var(--wp--preset--color--border, #27272a);
-    transition: color 0.2s ease, transform 0.2s ease;
+    transition: color var(--alpacode-transition-fast) ease,
+                transform var(--alpacode-transition-fast) ease;
 }
 
 .alpacode-testimonials__star--active {
@@ -230,7 +237,7 @@
     font-size: 1.125rem;
     font-weight: 400;
     line-height: 1.7;
-    color: var(--wp--preset--color--text-primary, #fafafa);
+    color: var(--alpacode-color-text, var(--wp--preset--color--text-primary, #fafafa));
     margin: 0 0 1.5rem 0;
     font-style: normal;
 }
@@ -250,21 +257,21 @@
 .alpacode-testimonials__avatar {
     width: 48px;
     height: 48px;
-    border-radius: 50%;
+    border-radius: var(--alpacode-radius-avatar);
     object-fit: cover;
     border: 2px solid var(--wp--preset--color--border, #27272a);
-    transition: border-color 0.3s ease;
+    transition: border-color var(--alpacode-transition-normal) ease;
 }
 
 .alpacode-testimonials__card:hover .alpacode-testimonials__avatar {
-    border-color: var(--wp--preset--color--accent, #3b82f6);
+    border-color: var(--alpacode-color-accent, var(--wp--preset--color--accent, #3b82f6));
 }
 
 .alpacode-testimonials__avatar--placeholder {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--wp--preset--color--accent, #3b82f6), var(--wp--preset--color--accent-light, #60a5fa));
+    background: linear-gradient(135deg, var(--alpacode-color-accent, var(--wp--preset--color--accent, #3b82f6)), var(--wp--preset--color--accent-light, #60a5fa));
     color: var(--wp--preset--color--white, #fff);
     font-family: var(--wp--preset--font-family--outfit, sans-serif);
     font-size: 1.125rem;
@@ -281,14 +288,14 @@
     font-family: var(--wp--preset--font-family--outfit, sans-serif);
     font-size: 0.9375rem;
     font-weight: 600;
-    color: var(--wp--preset--color--text-primary, #fafafa);
+    color: var(--alpacode-color-text, var(--wp--preset--color--text-primary, #fafafa));
     margin-bottom: 0.125rem;
 }
 
 .alpacode-testimonials__role {
     font-family: var(--wp--preset--font-family--outfit, sans-serif);
     font-size: 0.875rem;
-    color: var(--wp--preset--color--text-secondary, #a1a1aa);
+    color: var(--alpacode-color-text-muted, var(--wp--preset--color--text-secondary, #a1a1aa));
 }
 
 /* ============================================
@@ -315,7 +322,7 @@
 
 .alpacode-testimonials__track {
     display: flex;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform var(--alpacode-transition-slow) var(--alpacode-easing-default);
 }
 
 .alpacode-testimonials__slide {
@@ -324,7 +331,8 @@
     padding: 0 1rem;
     opacity: 0.4;
     transform: scale(0.95);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition: opacity var(--alpacode-transition-slow) ease,
+                transform var(--alpacode-transition-slow) ease;
 }
 
 .alpacode-testimonials__slide.alpacode-testimonials__slide--active {
@@ -347,17 +355,19 @@
     justify-content: center;
     width: 48px;
     height: 48px;
-    background: var(--wp--preset--color--secondary, #18181b);
+    background: var(--alpacode-color-surface, var(--wp--preset--color--secondary, #18181b));
     border: 1px solid var(--wp--preset--color--border, #27272a);
-    border-radius: 50%;
-    color: var(--wp--preset--color--text-primary, #fafafa);
+    border-radius: var(--alpacode-radius-button);
+    color: var(--alpacode-color-text, var(--wp--preset--color--text-primary, #fafafa));
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: var(--alpacode-shadow-button);
+    transition: all var(--alpacode-transition-normal) var(--alpacode-easing-smooth);
 }
 
 .alpacode-testimonials__nav:hover {
-    background: var(--wp--preset--color--accent, #3b82f6);
-    border-color: var(--wp--preset--color--accent, #3b82f6);
+    background: var(--alpacode-color-accent, var(--wp--preset--color--accent, #3b82f6));
+    border-color: var(--alpacode-color-accent, var(--wp--preset--color--accent, #3b82f6));
+    box-shadow: var(--alpacode-shadow-button-primary-hover);
     transform: scale(1.1);
 }
 
@@ -368,8 +378,9 @@
 }
 
 .alpacode-testimonials__nav:disabled:hover {
-    background: var(--wp--preset--color--secondary, #18181b);
+    background: var(--alpacode-color-surface, var(--wp--preset--color--secondary, #18181b));
     border-color: var(--wp--preset--color--border, #27272a);
+    box-shadow: var(--alpacode-shadow-none);
 }
 
 /* Dots/Progress */
@@ -382,18 +393,18 @@
     position: relative;
     width: 12px;
     height: 12px;
-    border-radius: 50%;
+    border-radius: var(--alpacode-radius-full);
     background: var(--wp--preset--color--border, #27272a);
     border: none;
     cursor: pointer;
     padding: 0;
-    transition: all 0.3s ease;
+    transition: all var(--alpacode-transition-normal) ease;
     overflow: hidden;
 }
 
 .alpacode-testimonials__dot--active {
     width: 32px;
-    border-radius: 6px;
+    border-radius: var(--alpacode-radius-sm);
     background: rgba(59, 130, 246, 0.2);
 }
 
@@ -403,7 +414,7 @@
     top: 0;
     height: 100%;
     width: 0;
-    background: var(--wp--preset--color--accent, #3b82f6);
+    background: var(--alpacode-color-accent, var(--wp--preset--color--accent, #3b82f6));
     border-radius: inherit;
     transition: width 0.1s linear;
 }
@@ -422,7 +433,7 @@
 }
 
 .alpacode-testimonials__dot:hover {
-    background: rgba(59, 130, 246, 0.3);
+    background: var(--alpacode-color-surface-hover, rgba(59, 130, 246, 0.3));
 }
 
 /* ============================================
@@ -477,7 +488,7 @@
     left: 0;
     background: linear-gradient(
         to right,
-        var(--wp--preset--color--primary, #0a0a0b) 0%,
+        var(--alpacode-color-bg, var(--wp--preset--color--primary, #0a0a0b)) 0%,
         transparent 100%
     );
 }
@@ -486,7 +497,7 @@
     right: 0;
     background: linear-gradient(
         to left,
-        var(--wp--preset--color--primary, #0a0a0b) 0%,
+        var(--alpacode-color-bg, var(--wp--preset--color--primary, #0a0a0b)) 0%,
         transparent 100%
     );
 }

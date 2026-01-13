@@ -1,6 +1,6 @@
 /**
- * Hero Block - Premium Styles
- * Agency-level design with advanced animations
+ * Hero Block - Sharp Modern Elegant
+ * Uses design tokens from global style.css
  */
 
 /* ============================================
@@ -13,9 +13,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 8rem 2rem;
+    padding: var(--alpacode-space-5xl) var(--alpacode-space-xl);
     overflow: hidden;
-    background-color: var(--wp--preset--color--primary, #0a0a0b);
+    background-color: var(--alpacode-color-bg);
 }
 
 /* ============================================
@@ -29,12 +29,12 @@
     z-index: 0;
 }
 
-/* Gradient Orbs with Parallax */
+/* Gradient Orbs - subtle for elegant look */
 .alpacode-hero__orb {
     position: absolute;
     border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.6;
+    filter: blur(100px);
+    opacity: 0.4;
     will-change: transform;
 }
 
@@ -43,8 +43,8 @@
     height: 600px;
     top: -200px;
     left: -100px;
-    background: radial-gradient(circle, var(--wp--preset--color--accent, #3b82f6) 0%, transparent 70%);
-    opacity: 0.3;
+    background: radial-gradient(circle, var(--alpacode-color-accent) 0%, transparent 70%);
+    opacity: 0.2;
 }
 
 .alpacode-hero__orb--2 {
@@ -52,8 +52,8 @@
     height: 500px;
     top: 50%;
     right: -150px;
-    background: radial-gradient(circle, var(--wp--preset--color--accent-light, #60a5fa) 0%, transparent 70%);
-    opacity: 0.2;
+    background: radial-gradient(circle, var(--alpacode-color-accent) 0%, transparent 70%);
+    opacity: 0.15;
 }
 
 .alpacode-hero__orb--3 {
@@ -61,17 +61,17 @@
     height: 400px;
     bottom: -100px;
     left: 30%;
-    background: radial-gradient(circle, var(--wp--preset--color--accent, #3b82f6) 0%, transparent 70%);
-    opacity: 0.15;
+    background: radial-gradient(circle, var(--alpacode-color-accent) 0%, transparent 70%);
+    opacity: 0.1;
 }
 
-/* Grid Pattern */
+/* Grid Pattern - clean lines */
 .alpacode-hero__grid {
     position: absolute;
     inset: 0;
     background-image:
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
     background-size: 80px 80px;
     mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 20%, transparent 70%);
     -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 20%, transparent 70%);
@@ -91,8 +91,8 @@
     inset: 0;
     background: linear-gradient(
         to bottom,
-        rgba(10, 10, 11, 0.7) 0%,
-        rgba(10, 10, 11, 0.9) 100%
+        var(--alpacode-overlay-medium) 0%,
+        var(--alpacode-overlay-dark) 100%
     );
 }
 
@@ -107,74 +107,59 @@
     width: 100%;
 }
 
-/* Center alignment (default) */
 .alpacode-hero--align-center .alpacode-hero__content {
     text-align: center;
 }
 
-/* Left alignment */
 .alpacode-hero--align-left .alpacode-hero__content {
     text-align: left;
     max-width: 800px;
     margin-right: auto;
     margin-left: 0;
-    padding-left: 2rem;
+    padding-left: var(--alpacode-space-xl);
 }
 
-/* Eyebrow */
+/* Eyebrow - sharp, elegant */
 .alpacode-hero__eyebrow {
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
-    font-family: var(--wp--preset--font-family--outfit, sans-serif);
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--wp--preset--color--accent, #3b82f6);
+    font-size: 0.75rem;
+    font-weight: var(--alpacode-font-weight-semibold);
+    color: var(--alpacode-color-accent);
     text-transform: uppercase;
-    letter-spacing: 0.15em;
-    margin-bottom: 1.5rem;
-    padding: 0.5rem 1rem 0.5rem 0;
-    background: linear-gradient(90deg, rgba(59, 130, 246, 0.1) 0%, transparent 100%);
-    border-radius: 0 20px 20px 0;
+    letter-spacing: var(--alpacode-letter-spacing-wider);
+    margin-bottom: var(--alpacode-space-lg);
+    padding: 0.5rem 0;
+    border-bottom: var(--alpacode-border-width-thick) solid var(--alpacode-color-accent);
 }
 
 .alpacode-hero__eyebrow::before {
     content: '';
-    width: 32px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--wp--preset--color--accent, #3b82f6), var(--wp--preset--color--accent-light, #60a5fa));
-    border-radius: 2px;
+    width: 40px;
+    height: 2px;
+    background: var(--alpacode-color-accent);
 }
 
-/* Heading */
+/* Heading - bold, high contrast */
 .alpacode-hero__heading {
-    font-family: var(--wp--preset--font-family--outfit, sans-serif);
     font-size: clamp(2.5rem, 7vw, 5rem);
-    font-weight: 700;
-    line-height: 1.05;
-    color: var(--wp--preset--color--text-primary, #fafafa);
-    margin: 0 0 1.5rem 0;
-    letter-spacing: -0.03em;
+    font-weight: var(--alpacode-font-weight-bold);
+    line-height: var(--alpacode-line-height-tight);
+    color: var(--alpacode-color-text);
+    margin: 0 0 var(--alpacode-space-lg) 0;
+    letter-spacing: var(--alpacode-letter-spacing-tight);
     text-wrap: balance;
-}
-
-/* Heading gradient accent */
-.alpacode-hero__heading .alpacode-split-word:nth-child(3n) {
-    background: linear-gradient(135deg, var(--wp--preset--color--text-primary, #fafafa), var(--wp--preset--color--accent-light, #60a5fa));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 /* Description */
 .alpacode-hero__description {
-    font-family: var(--wp--preset--font-family--outfit, sans-serif);
     font-size: clamp(1.125rem, 2vw, 1.375rem);
-    font-weight: 400;
-    line-height: 1.7;
-    color: var(--wp--preset--color--text-secondary, #a1a1aa);
+    font-weight: var(--alpacode-font-weight-normal);
+    line-height: var(--alpacode-line-height-relaxed);
+    color: var(--alpacode-color-text-muted);
     max-width: 650px;
-    margin: 0 0 2.5rem 0;
+    margin: 0 0 var(--alpacode-space-2xl) 0;
 }
 
 .alpacode-hero--align-center .alpacode-hero__description {
@@ -183,13 +168,13 @@
 }
 
 /* ============================================
-   Buttons
+   Buttons - Sharp, Professional
    ============================================ */
 
 .alpacode-hero__buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: var(--alpacode-space-md);
 }
 
 .alpacode-hero--align-center .alpacode-hero__buttons {
@@ -200,68 +185,63 @@
     display: inline-flex;
     align-items: center;
     gap: 0.625rem;
-    font-family: var(--wp--preset--font-family--outfit, sans-serif);
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: var(--alpacode-font-weight-medium);
     text-decoration: none;
     padding: 1rem 2rem;
-    border-radius: 12px;
+    border-radius: var(--alpacode-radius-button);
     transition:
-        transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-        box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-        background-color 0.3s ease,
-        border-color 0.3s ease;
+        transform var(--alpacode-transition-normal) var(--alpacode-easing-smooth),
+        box-shadow var(--alpacode-transition-normal) var(--alpacode-easing-smooth),
+        background-color var(--alpacode-transition-normal) ease,
+        border-color var(--alpacode-transition-normal) ease;
     position: relative;
     overflow: hidden;
 }
 
-/* Primary Button */
+/* Primary Button - solid, confident */
 .alpacode-hero__btn--primary {
-    background: linear-gradient(135deg, var(--wp--preset--color--accent, #3b82f6), var(--wp--preset--color--accent-light, #60a5fa));
-    color: var(--wp--preset--color--white, #fff);
+    background: var(--alpacode-color-accent);
+    color: #fff;
     border: none;
-    box-shadow:
-        0 4px 15px rgba(59, 130, 246, 0.3),
-        0 0 0 0 rgba(59, 130, 246, 0);
+    box-shadow: var(--alpacode-shadow-button-primary);
 }
 
 .alpacode-hero__btn--primary:hover {
-    transform: translateY(-3px);
-    box-shadow:
-        0 8px 25px rgba(59, 130, 246, 0.4),
-        0 0 30px rgba(59, 130, 246, 0.2);
-    color: var(--wp--preset--color--white, #fff);
+    transform: var(--alpacode-hover-lift);
+    box-shadow: var(--alpacode-shadow-button-primary-hover);
+    color: #fff;
 }
 
 .alpacode-hero__btn--primary:active {
-    transform: translateY(-1px);
+    transform: translateY(0);
 }
 
 /* Button Icon Animation */
 .alpacode-hero__btn-icon {
     display: flex;
     align-items: center;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform var(--alpacode-transition-normal) var(--alpacode-easing-smooth);
 }
 
 .alpacode-hero__btn--primary:hover .alpacode-hero__btn-icon {
-    transform: translateX(5px);
+    transform: translateX(4px);
 }
 
-/* Secondary Button */
+/* Secondary Button - outlined, elegant */
 .alpacode-hero__btn--secondary {
     background: transparent;
-    color: var(--wp--preset--color--text-primary, #fafafa);
-    border: 1px solid var(--wp--preset--color--border, #27272a);
-    backdrop-filter: blur(10px);
+    color: var(--alpacode-color-text);
+    border: var(--alpacode-border);
+    backdrop-filter: var(--alpacode-backdrop-blur);
 }
 
 .alpacode-hero__btn--secondary:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: var(--wp--preset--color--accent, #3b82f6);
-    color: var(--wp--preset--color--text-primary, #fafafa);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    background: var(--alpacode-color-surface-hover);
+    border-color: var(--alpacode-border-color-accent);
+    color: var(--alpacode-color-text);
+    transform: var(--alpacode-hover-lift);
+    box-shadow: var(--alpacode-shadow-hover);
 }
 
 /* ============================================
@@ -283,23 +263,23 @@
 }
 
 .alpacode-hero__scroll-mouse {
-    width: 26px;
-    height: 42px;
-    border: 2px solid var(--wp--preset--color--border, #27272a);
-    border-radius: 13px;
+    width: 24px;
+    height: 40px;
+    border: var(--alpacode-border);
+    border-radius: var(--alpacode-radius-sm);
     position: relative;
-    transition: border-color 0.3s ease;
+    transition: border-color var(--alpacode-transition-normal) ease;
 }
 
 .alpacode-hero__scroll-indicator:hover .alpacode-hero__scroll-mouse {
-    border-color: var(--wp--preset--color--accent, #3b82f6);
+    border-color: var(--alpacode-border-color-accent);
 }
 
 .alpacode-hero__scroll-wheel {
-    width: 4px;
-    height: 10px;
-    background: var(--wp--preset--color--accent, #3b82f6);
-    border-radius: 2px;
+    width: 3px;
+    height: 8px;
+    background: var(--alpacode-color-accent);
+    border-radius: var(--alpacode-radius-xs);
     position: absolute;
     left: 50%;
     top: 8px;
@@ -308,16 +288,15 @@
 }
 
 .alpacode-hero__scroll-text {
-    font-family: var(--wp--preset--font-family--outfit, sans-serif);
     font-size: 0.6875rem;
-    font-weight: 500;
-    color: var(--wp--preset--color--text-muted, #71717a);
+    font-weight: var(--alpacode-font-weight-medium);
+    color: var(--alpacode-color-text-muted);
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: var(--alpacode-letter-spacing-wider);
 }
 
 /* ============================================
-   Floating Shapes
+   Floating Shapes - minimal for elegant look
    ============================================ */
 
 .alpacode-hero__floating {
@@ -330,8 +309,7 @@
 
 .alpacode-hero__floating-shape {
     position: absolute;
-    border-radius: 50%;
-    border: 1px solid rgba(59, 130, 246, 0.15);
+    border: var(--alpacode-border);
     will-change: transform;
 }
 
@@ -348,7 +326,6 @@
     height: 120px;
     bottom: 20%;
     left: 8%;
-    border-color: rgba(96, 165, 250, 0.1);
     animation: alpacode-float-rotate 15s linear infinite reverse;
 }
 
@@ -357,7 +334,6 @@
     height: 80px;
     top: 60%;
     right: 20%;
-    border-color: rgba(59, 130, 246, 0.2);
     animation: alpacode-float-rotate 12s linear infinite;
 }
 
@@ -383,17 +359,13 @@
     }
     50% {
         opacity: 0.3;
-        transform: translateX(-50%) translateY(12px);
+        transform: translateX(-50%) translateY(10px);
     }
 }
 
 @keyframes alpacode-float-rotate {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 /* ============================================
@@ -402,7 +374,7 @@
 
 @media (max-width: 1024px) {
     .alpacode-hero {
-        padding: 6rem 1.5rem;
+        padding: var(--alpacode-space-4xl) var(--alpacode-space-lg);
     }
 
     .alpacode-hero__orb--1 {
@@ -424,16 +396,16 @@
 @media (max-width: 768px) {
     .alpacode-hero {
         min-height: auto;
-        padding: 5rem 1rem;
+        padding: var(--alpacode-space-3xl) var(--alpacode-space-md);
     }
 
     .alpacode-hero__content {
-        padding: 0 1rem;
+        padding: 0 var(--alpacode-space-md);
     }
 
     .alpacode-hero--align-left .alpacode-hero__content {
         text-align: center;
-        padding-left: 1rem;
+        padding-left: var(--alpacode-space-md);
         margin: 0 auto;
     }
 
@@ -447,7 +419,7 @@
     }
 
     .alpacode-hero__eyebrow {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
     }
 
     .alpacode-hero__description {

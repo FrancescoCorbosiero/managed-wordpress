@@ -1,6 +1,14 @@
 /**
  * Services Block - Premium Styles
  * 3D tilt, gradient borders, and staggered animations
+ *
+ * Uses centralized design tokens from style.css:
+ * - --alpacode-radius-*: Border radius (0 for sharp modern look)
+ * - --alpacode-shadow-*: Box shadows (minimal, elegant)
+ * - --alpacode-transition-*: Timing values
+ * - --alpacode-easing-*: Easing functions
+ * - --alpacode-color-*: Color tokens
+ * - --alpacode-space-*: Spacing tokens
  */
 
 /* ============================================
@@ -8,12 +16,12 @@
    ============================================ */
 
 .alpacode-services {
-    padding: 6rem 2rem;
-    background-color: var(--wp--preset--color--primary, #0a0a0b);
+    padding: var(--alpacode-section-padding-y) var(--alpacode-container-padding);
+    background-color: var(--alpacode-color-bg);
 }
 
 .alpacode-services__container {
-    max-width: 1280px;
+    max-width: var(--alpacode-container-max-width);
     margin: 0 auto;
 }
 
@@ -24,20 +32,20 @@
 .alpacode-services__header {
     text-align: center;
     max-width: 700px;
-    margin: 0 auto 4rem;
+    margin: 0 auto var(--alpacode-space-3xl);
 }
 
 .alpacode-services__eyebrow {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--alpacode-space-sm);
     font-family: var(--wp--preset--font-family--outfit, sans-serif);
     font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--wp--preset--color--accent, #3b82f6);
+    font-weight: var(--alpacode-font-weight-semibold);
+    color: var(--alpacode-color-accent);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 1rem;
+    letter-spacing: var(--alpacode-letter-spacing-wider);
+    margin-bottom: var(--alpacode-space-md);
 }
 
 .alpacode-services__eyebrow::before,
@@ -45,25 +53,25 @@
     content: '';
     width: 20px;
     height: 1px;
-    background: var(--wp--preset--color--accent, #3b82f6);
+    background: var(--alpacode-color-accent);
     opacity: 0.5;
 }
 
 .alpacode-services__heading {
     font-family: var(--wp--preset--font-family--outfit, sans-serif);
     font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 700;
-    color: var(--wp--preset--color--text-primary, #fafafa);
-    margin: 0 0 1rem 0;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
+    font-weight: var(--alpacode-font-weight-bold);
+    color: var(--alpacode-color-text);
+    margin: 0 0 var(--alpacode-space-md) 0;
+    letter-spacing: var(--alpacode-letter-spacing-tight);
+    line-height: var(--alpacode-line-height-tight);
 }
 
 .alpacode-services__subheading {
     font-family: var(--wp--preset--font-family--outfit, sans-serif);
     font-size: 1.125rem;
-    color: var(--wp--preset--color--text-secondary, #a1a1aa);
-    line-height: 1.6;
+    color: var(--alpacode-color-text-muted);
+    line-height: var(--alpacode-line-height-relaxed);
     margin: 0;
 }
 
@@ -73,7 +81,7 @@
 
 .alpacode-services__grid {
     display: grid;
-    gap: 1.5rem;
+    gap: var(--alpacode-space-lg);
 }
 
 .alpacode-services--cols-2 .alpacode-services__grid {
@@ -94,17 +102,27 @@
 
 .alpacode-services__card {
     position: relative;
-    border-radius: 16px;
-    background: var(--wp--preset--color--secondary, #18181b);
+    border-radius: var(--alpacode-radius-card);
+    background: var(--alpacode-color-surface);
     overflow: hidden;
     transform-style: preserve-3d;
     perspective: 1000px;
+    box-shadow: var(--alpacode-shadow-card);
+    transition:
+        transform var(--alpacode-transition-normal) var(--alpacode-easing-smooth),
+        box-shadow var(--alpacode-transition-normal) var(--alpacode-easing-default),
+        border-color var(--alpacode-transition-normal) var(--alpacode-easing-default);
+    border: var(--alpacode-border);
+}
+
+.alpacode-services__card:hover {
+    box-shadow: var(--alpacode-shadow-card-hover);
 }
 
 .alpacode-services__card-inner {
     position: relative;
     z-index: 2;
-    padding: 2rem;
+    padding: var(--alpacode-card-padding);
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -134,15 +152,15 @@
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     pointer-events: none;
-    transition: background 0.5s ease;
+    transition: background var(--alpacode-transition-slow) var(--alpacode-easing-default);
 }
 
 .alpacode-services__card:hover .alpacode-services__card-border {
     background: linear-gradient(
         135deg,
-        var(--wp--preset--color--accent, #3b82f6) 0%,
-        var(--wp--preset--color--accent-light, #60a5fa) 50%,
-        var(--wp--preset--color--accent, #3b82f6) 100%
+        var(--alpacode-color-accent) 0%,
+        var(--alpacode-color-accent) 50%,
+        var(--alpacode-color-accent) 100%
     );
     animation: alpacode-border-rotate 3s linear infinite;
 }
@@ -151,17 +169,17 @@
     from {
         background: linear-gradient(
             0deg,
-            var(--wp--preset--color--accent, #3b82f6),
+            var(--alpacode-color-accent),
             transparent,
-            var(--wp--preset--color--accent, #3b82f6)
+            var(--alpacode-color-accent)
         );
     }
     to {
         background: linear-gradient(
             360deg,
-            var(--wp--preset--color--accent, #3b82f6),
+            var(--alpacode-color-accent),
             transparent,
-            var(--wp--preset--color--accent, #3b82f6)
+            var(--alpacode-color-accent)
         );
     }
 }
@@ -174,7 +192,7 @@
     position: relative;
     width: 60px;
     height: 60px;
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--alpacode-space-lg);
 }
 
 .alpacode-services__icon {
@@ -186,9 +204,11 @@
     align-items: center;
     justify-content: center;
     background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%);
-    border-radius: 14px;
-    color: var(--wp--preset--color--accent, #3b82f6);
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease;
+    border-radius: var(--alpacode-radius-sm);
+    color: var(--alpacode-color-accent);
+    transition:
+        transform var(--alpacode-transition-normal) var(--alpacode-easing-smooth),
+        background var(--alpacode-transition-normal) var(--alpacode-easing-default);
 }
 
 .alpacode-services__card:hover .alpacode-services__icon {
@@ -199,10 +219,10 @@
 .alpacode-services__icon-glow {
     position: absolute;
     inset: -10px;
-    background: radial-gradient(circle, var(--wp--preset--color--accent, #3b82f6) 0%, transparent 70%);
+    background: radial-gradient(circle, var(--alpacode-color-accent) 0%, transparent 70%);
     opacity: 0;
     filter: blur(20px);
-    transition: opacity 0.3s ease;
+    transition: opacity var(--alpacode-transition-normal) var(--alpacode-easing-default);
     z-index: 1;
 }
 
@@ -217,22 +237,22 @@
 .alpacode-services__title {
     font-family: var(--wp--preset--font-family--outfit, sans-serif);
     font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--wp--preset--color--text-primary, #fafafa);
+    font-weight: var(--alpacode-font-weight-semibold);
+    color: var(--alpacode-color-text);
     margin: 0 0 0.75rem 0;
-    line-height: 1.3;
-    transition: color 0.3s ease;
+    line-height: var(--alpacode-line-height-snug);
+    transition: color var(--alpacode-transition-normal) var(--alpacode-easing-default);
 }
 
 .alpacode-services__card:hover .alpacode-services__title {
-    color: var(--wp--preset--color--accent-light, #60a5fa);
+    color: var(--alpacode-color-accent);
 }
 
 .alpacode-services__description {
     font-family: var(--wp--preset--font-family--outfit, sans-serif);
     font-size: 0.9375rem;
-    color: var(--wp--preset--color--text-secondary, #a1a1aa);
-    line-height: 1.6;
+    color: var(--alpacode-color-text-muted);
+    line-height: var(--alpacode-line-height-relaxed);
     margin: 0;
     flex-grow: 1;
 }
@@ -243,30 +263,30 @@
 
 .alpacode-services__arrow {
     position: absolute;
-    bottom: 1.5rem;
-    right: 1.5rem;
+    bottom: var(--alpacode-space-lg);
+    right: var(--alpacode-space-lg);
     width: 36px;
     height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
+    border-radius: var(--alpacode-radius-none);
     background: transparent;
-    color: var(--wp--preset--color--text-muted, #71717a);
+    color: var(--alpacode-color-text-muted);
     opacity: 0;
     transform: translate(-10px, 10px);
     transition:
-        opacity 0.3s ease,
-        transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-        background 0.3s ease,
-        color 0.3s ease;
+        opacity var(--alpacode-transition-normal) var(--alpacode-easing-default),
+        transform var(--alpacode-transition-normal) var(--alpacode-easing-smooth),
+        background var(--alpacode-transition-normal) var(--alpacode-easing-default),
+        color var(--alpacode-transition-normal) var(--alpacode-easing-default);
 }
 
 .alpacode-services__card:hover .alpacode-services__arrow {
     opacity: 1;
     transform: translate(0, 0);
-    background: var(--wp--preset--color--accent, #3b82f6);
-    color: var(--wp--preset--color--white, #fff);
+    background: var(--alpacode-color-accent);
+    color: #fff;
 }
 
 /* ============================================
@@ -276,23 +296,27 @@
 /* Bordered Style */
 .alpacode-services--style-bordered .alpacode-services__card {
     background: transparent;
-    border: 1px solid var(--wp--preset--color--border, #27272a);
+    border: var(--alpacode-border);
+    box-shadow: var(--alpacode-shadow-none);
 }
 
 .alpacode-services--style-bordered .alpacode-services__card:hover {
-    border-color: var(--wp--preset--color--accent, #3b82f6);
+    border-color: var(--alpacode-border-color-accent);
+    box-shadow: var(--alpacode-shadow-glow);
 }
 
 /* Glass Style */
 .alpacode-services--style-glass .alpacode-services__card {
     background: rgba(24, 24, 27, 0.6);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: var(--alpacode-backdrop-blur-strong);
+    border: var(--alpacode-border);
+    box-shadow: var(--alpacode-shadow-sm);
 }
 
 .alpacode-services--style-glass .alpacode-services__card:hover {
-    background: rgba(24, 24, 27, 0.8);
-    border-color: rgba(59, 130, 246, 0.3);
+    background: var(--alpacode-color-surface-hover);
+    border-color: var(--alpacode-border-color-accent);
+    box-shadow: var(--alpacode-shadow-glow);
 }
 
 /* ============================================
@@ -308,11 +332,11 @@
 
 @media (max-width: 768px) {
     .alpacode-services {
-        padding: 4rem 1rem;
+        padding: var(--alpacode-section-padding-y-mobile) var(--alpacode-container-padding);
     }
 
     .alpacode-services__header {
-        margin-bottom: 3rem;
+        margin-bottom: var(--alpacode-space-2xl);
     }
 
     .alpacode-services--cols-4 .alpacode-services__grid,
@@ -322,7 +346,7 @@
     }
 
     .alpacode-services__card-inner {
-        padding: 1.5rem;
+        padding: var(--alpacode-space-lg);
     }
 
     .alpacode-services__icon-wrapper {
@@ -333,6 +357,7 @@
     .alpacode-services__icon {
         width: 50px;
         height: 50px;
+        border-radius: var(--alpacode-radius-xs);
     }
 
     .alpacode-services__arrow {

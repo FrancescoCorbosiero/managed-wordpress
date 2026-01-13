@@ -2,10 +2,10 @@
  * Parallax Section Block Styles
  */
 .alpacode-parallax {
-    --parallax-bg: var(--wp--preset--color--background, #0a0a0b);
-    --parallax-text: var(--wp--preset--color--foreground, #ffffff);
-    --parallax-muted: var(--wp--preset--color--muted, #a1a1aa);
-    --parallax-accent: var(--wp--preset--color--accent, #3b82f6);
+    --parallax-bg: var(--alpacode-color-bg, var(--wp--preset--color--background, #0a0a0b));
+    --parallax-text: var(--alpacode-color-text, var(--wp--preset--color--foreground, #ffffff));
+    --parallax-muted: var(--alpacode-color-text-muted, var(--wp--preset--color--muted, #a1a1aa));
+    --parallax-accent: var(--alpacode-color-accent, var(--wp--preset--color--accent, #3b82f6));
     --parallax-min-height: 500px;
     --parallax-overlay-opacity: 0.5;
 
@@ -30,7 +30,7 @@
 }
 
 .alpacode-parallax--zoom .alpacode-parallax__background {
-    transition: transform 8s ease-out;
+    transition: transform 8s var(--alpacode-easing-smooth);
 }
 
 .alpacode-parallax--zoom:hover .alpacode-parallax__background {
@@ -107,8 +107,8 @@
     color: var(--parallax-accent);
     margin-bottom: 16px;
     padding: 6px 16px;
-    background: rgba(59, 130, 246, 0.15);
-    border-radius: 100px;
+    background: color-mix(in srgb, var(--parallax-accent) 15%, transparent);
+    border-radius: var(--alpacode-radius-full);
 }
 
 /* Heading */
@@ -118,7 +118,7 @@
     line-height: 1.15;
     color: var(--parallax-text);
     margin: 0 0 20px 0;
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    text-shadow: var(--alpacode-shadow-lg);
 }
 
 /* Description */
@@ -127,7 +127,7 @@
     line-height: 1.6;
     color: var(--parallax-muted);
     margin: 0 0 32px 0;
-    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+    text-shadow: var(--alpacode-shadow-sm);
 }
 
 /* Actions */
@@ -152,23 +152,26 @@
     gap: 10px;
     padding: 16px 32px;
     background: var(--parallax-accent);
-    color: #fff;
+    color: var(--alpacode-color-text);
     font-size: 1rem;
     font-weight: 600;
     text-decoration: none;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+    border-radius: var(--alpacode-radius-button);
+    transition:
+        transform var(--alpacode-transition-normal) var(--alpacode-easing-smooth),
+        box-shadow var(--alpacode-transition-normal) var(--alpacode-easing-smooth),
+        background-color var(--alpacode-transition-normal) ease;
+    box-shadow: var(--alpacode-shadow-button-primary);
 }
 
 .alpacode-parallax__button:hover {
-    background: #2563eb;
+    background: color-mix(in srgb, var(--parallax-accent) 85%, black);
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.5);
+    box-shadow: var(--alpacode-shadow-button-primary-hover);
 }
 
 .alpacode-parallax__button svg {
-    transition: transform 0.3s ease;
+    transition: transform var(--alpacode-transition-normal) var(--alpacode-easing-smooth);
 }
 
 .alpacode-parallax__button:hover svg {
@@ -233,7 +236,7 @@
     background: transparent;
     padding: 0;
     border-bottom: 2px solid var(--parallax-accent);
-    border-radius: 0;
+    border-radius: var(--alpacode-radius-none);
 }
 
 /* Responsive */
