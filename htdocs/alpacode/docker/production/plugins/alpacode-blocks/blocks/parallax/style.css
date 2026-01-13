@@ -1,0 +1,299 @@
+/**
+ * Parallax Section Block Styles
+ */
+.alpacode-parallax {
+    --parallax-bg: var(--wp--preset--color--background, #0a0a0b);
+    --parallax-text: var(--wp--preset--color--foreground, #ffffff);
+    --parallax-muted: var(--wp--preset--color--muted, #a1a1aa);
+    --parallax-accent: var(--wp--preset--color--accent, #3b82f6);
+    --parallax-min-height: 500px;
+    --parallax-overlay-opacity: 0.5;
+
+    position: relative;
+    min-height: var(--parallax-min-height);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: var(--parallax-bg);
+}
+
+/* Background Layer */
+.alpacode-parallax__background {
+    position: absolute;
+    inset: -20%;
+    width: 140%;
+    height: 140%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    will-change: transform;
+    transition: transform 0.1s linear;
+}
+
+.alpacode-parallax--zoom .alpacode-parallax__background {
+    transition: transform 8s ease-out;
+}
+
+.alpacode-parallax--zoom:hover .alpacode-parallax__background {
+    transform: scale(1.1);
+}
+
+/* Overlay */
+.alpacode-parallax__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, calc(var(--parallax-overlay-opacity) * 0.8)) 0%,
+        rgba(0, 0, 0, var(--parallax-overlay-opacity)) 50%,
+        rgba(0, 0, 0, calc(var(--parallax-overlay-opacity) * 0.9)) 100%
+    );
+    pointer-events: none;
+}
+
+/* Container */
+.alpacode-parallax__container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 24px;
+}
+
+/* Content */
+.alpacode-parallax__content {
+    max-width: 720px;
+}
+
+/* Alignment - Horizontal */
+.alpacode-parallax--align-left .alpacode-parallax__content {
+    margin-left: 0;
+    margin-right: auto;
+    text-align: left;
+}
+
+.alpacode-parallax--align-center .alpacode-parallax__content {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.alpacode-parallax--align-right .alpacode-parallax__content {
+    margin-left: auto;
+    margin-right: 0;
+    text-align: right;
+}
+
+/* Alignment - Vertical */
+.alpacode-parallax--valign-top {
+    align-items: flex-start;
+}
+
+.alpacode-parallax--valign-center {
+    align-items: center;
+}
+
+.alpacode-parallax--valign-bottom {
+    align-items: flex-end;
+}
+
+/* Eyebrow */
+.alpacode-parallax__eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--parallax-accent);
+    margin-bottom: 16px;
+    padding: 6px 16px;
+    background: rgba(59, 130, 246, 0.15);
+    border-radius: 100px;
+}
+
+/* Heading */
+.alpacode-parallax__heading {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--parallax-text);
+    margin: 0 0 20px 0;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Description */
+.alpacode-parallax__description {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--parallax-muted);
+    margin: 0 0 32px 0;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Actions */
+.alpacode-parallax__actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.alpacode-parallax--align-center .alpacode-parallax__actions {
+    justify-content: center;
+}
+
+.alpacode-parallax--align-right .alpacode-parallax__actions {
+    justify-content: flex-end;
+}
+
+/* Button */
+.alpacode-parallax__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    background: var(--parallax-accent);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+}
+
+.alpacode-parallax__button:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.5);
+}
+
+.alpacode-parallax__button svg {
+    transition: transform 0.3s ease;
+}
+
+.alpacode-parallax__button:hover svg {
+    transform: translateX(4px);
+}
+
+/* Scroll Indicator */
+.alpacode-parallax__scroll-indicator {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--parallax-muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    animation: parallax-bounce 2s infinite;
+    z-index: 2;
+}
+
+@keyframes parallax-bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* Variants */
+
+/* Fullscreen */
+.alpacode-parallax--fullscreen {
+    min-height: 100vh;
+}
+
+/* Split */
+.alpacode-parallax--split .alpacode-parallax__container {
+    max-width: 1400px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.alpacode-parallax--split .alpacode-parallax__content {
+    max-width: none;
+}
+
+.alpacode-parallax--split .alpacode-parallax__background {
+    left: 50%;
+    width: 70%;
+    clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Minimal */
+.alpacode-parallax--minimal .alpacode-parallax__overlay {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.alpacode-parallax--minimal .alpacode-parallax__eyebrow {
+    background: transparent;
+    padding: 0;
+    border-bottom: 2px solid var(--parallax-accent);
+    border-radius: 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .alpacode-parallax--split .alpacode-parallax__container {
+        grid-template-columns: 1fr;
+    }
+
+    .alpacode-parallax--split .alpacode-parallax__background {
+        left: 0;
+        width: 140%;
+        clip-path: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .alpacode-parallax {
+        --parallax-min-height: 400px;
+    }
+
+    .alpacode-parallax__container {
+        padding: 60px 20px;
+    }
+
+    .alpacode-parallax__heading {
+        font-size: clamp(1.75rem, 6vw, 2.5rem);
+    }
+
+    .alpacode-parallax__description {
+        font-size: 1.125rem;
+    }
+
+    .alpacode-parallax__button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .alpacode-parallax--fullscreen {
+        min-height: 80vh;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .alpacode-parallax__background {
+        transition: none;
+    }
+
+    .alpacode-parallax--enabled .alpacode-parallax__background {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .alpacode-parallax__scroll-indicator {
+        animation: none;
+    }
+
+    .alpacode-parallax__button,
+    .alpacode-parallax__button svg {
+        transition: none;
+    }
+}
