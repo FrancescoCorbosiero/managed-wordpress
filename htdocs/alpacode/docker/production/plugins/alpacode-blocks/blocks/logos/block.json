@@ -15,17 +15,6 @@
         "marquee"
     ],
     "textdomain": "alpacode-blocks",
-    "editorScript": {
-        "handle": "alpacode-logos-editor",
-        "src": "file:./editor.js",
-        "dependencies": [
-            "wp-blocks",
-            "wp-element",
-            "wp-block-editor",
-            "wp-components",
-            "wp-server-side-render"
-        ]
-    },
     "style": "file:./style.css",
     "render": "file:./render.php",
     "attributes": {

@@ -1,0 +1,98 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "alpacode/portfolio",
+    "version": "1.0.0",
+    "title": "Portfolio Grid",
+    "category": "alpacode",
+    "description": "Showcase projects with filterable grid layout and hover effects.",
+    "keywords": ["portfolio", "projects", "work", "gallery", "grid", "filter"],
+    "textdomain": "alpacode-blocks",
+    "style": "file:./style.css",
+    "viewScript": "file:./view.js",
+    "render": "file:./render.php",
+    "attributes": {
+        "eyebrow": {
+            "type": "string",
+            "default": "Our Work"
+        },
+        "heading": {
+            "type": "string",
+            "default": "Featured Projects"
+        },
+        "description": {
+            "type": "string",
+            "default": ""
+        },
+        "projects": {
+            "type": "array",
+            "default": [
+                {
+                    "title": "E-commerce Platform",
+                    "category": "Web Development",
+                    "image": "",
+                    "link": "#",
+                    "description": "Modern online store with seamless checkout experience."
+                },
+                {
+                    "title": "Mobile Banking App",
+                    "category": "Mobile Apps",
+                    "image": "",
+                    "link": "#",
+                    "description": "Secure and intuitive banking on the go."
+                },
+                {
+                    "title": "SaaS Dashboard",
+                    "category": "UI/UX Design",
+                    "image": "",
+                    "link": "#",
+                    "description": "Analytics dashboard with real-time insights."
+                },
+                {
+                    "title": "Healthcare Portal",
+                    "category": "Web Development",
+                    "image": "",
+                    "link": "#",
+                    "description": "Patient management system for clinics."
+                }
+            ]
+        },
+        "showFilters": {
+            "type": "boolean",
+            "default": true
+        },
+        "columns": {
+            "type": "number",
+            "default": 3
+        },
+        "gap": {
+            "type": "number",
+            "default": 24
+        },
+        "cardStyle": {
+            "type": "string",
+            "default": "default",
+            "enum": ["default", "overlay", "minimal", "bordered"]
+        },
+        "aspectRatio": {
+            "type": "string",
+            "default": "4/3",
+            "enum": ["1/1", "4/3", "16/9", "3/4"]
+        },
+        "showDescription": {
+            "type": "boolean",
+            "default": true
+        },
+        "hoverEffect": {
+            "type": "string",
+            "default": "zoom",
+            "enum": ["zoom", "slide", "fade", "none"]
+        }
+    },
+    "supports": {
+        "html": false,
+        "align": ["wide", "full"],
+        "color": { "background": true },
+        "spacing": { "padding": true, "margin": true }
+    }
+}
