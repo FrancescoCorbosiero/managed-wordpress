@@ -1,16 +1,17 @@
 /**
  * Bento Grid Block - Premium Styles
+ * Uses centralized design tokens from style.css
  */
 
 .alpacode-bento-grid {
-    --bento-bg: var(--wp--preset--color--background, #0a0a0b);
-    --bento-text: var(--wp--preset--color--foreground, #ffffff);
-    --bento-muted: var(--wp--preset--color--muted, #a1a1aa);
-    --bento-accent: var(--wp--preset--color--accent, #3b82f6);
-    --bento-surface: rgba(255, 255, 255, 0.03);
-    --bento-border: rgba(255, 255, 255, 0.08);
+    --bento-bg: var(--alpacode-color-bg);
+    --bento-text: var(--alpacode-color-text);
+    --bento-muted: var(--alpacode-color-text-muted);
+    --bento-accent: var(--alpacode-color-accent);
+    --bento-surface: var(--alpacode-color-surface);
+    --bento-border: var(--alpacode-border-color);
     --bento-glow: rgba(59, 130, 246, 0.15);
-    --bento-radius: 20px;
+    --bento-radius: var(--alpacode-radius-card);
     --bento-gap: 24px;
 
     position: relative;
@@ -93,7 +94,7 @@
     overflow: hidden;
     text-decoration: none;
     color: inherit;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all var(--alpacode-transition-slow) var(--alpacode-easing-default);
 }
 
 /* Size variations */
@@ -124,7 +125,8 @@
 
 /* Hover effects */
 .alpacode-bento-grid__item:hover {
-    border-color: rgba(59, 130, 246, 0.3);
+    border-color: var(--alpacode-border-color-accent);
+    box-shadow: var(--alpacode-shadow-glow);
 }
 
 .alpacode-bento-grid--hover-zoom .alpacode-bento-grid__item:hover {
@@ -143,7 +145,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.6s var(--alpacode-easing-default);
 }
 
 .alpacode-bento-grid--hover-zoom .alpacode-bento-grid__item:hover .alpacode-bento-grid__item-bg img {
@@ -155,7 +157,7 @@
     position: absolute;
     inset: 0;
     z-index: 1;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
+    background: linear-gradient(to top, var(--alpacode-overlay-dark) 0%, var(--alpacode-overlay-light) 50%, transparent 100%);
     pointer-events: none;
 }
 
@@ -173,25 +175,25 @@
     width: 48px;
     height: 48px;
     margin-bottom: 16px;
-    border-radius: 12px;
-    transition: all 0.3s ease;
+    border-radius: var(--alpacode-radius-md);
+    transition: all var(--alpacode-transition-normal) var(--alpacode-easing-default);
 }
 
 /* Icon styles */
 .alpacode-bento-grid--icon-filled .alpacode-bento-grid__item-icon {
-    background: linear-gradient(135deg, var(--bento-accent, #3b82f6), #8b5cf6);
-    color: #fff;
+    background: linear-gradient(135deg, var(--bento-accent), #8b5cf6);
+    color: var(--alpacode-color-text);
 }
 
 .alpacode-bento-grid--icon-outlined .alpacode-bento-grid__item-icon {
     background: transparent;
-    border: 2px solid var(--bento-accent, #3b82f6);
-    color: var(--bento-accent, #3b82f6);
+    border: 2px solid var(--bento-accent);
+    color: var(--bento-accent);
 }
 
 .alpacode-bento-grid--icon-gradient .alpacode-bento-grid__item-icon {
     background: rgba(59, 130, 246, 0.1);
-    color: var(--bento-accent, #3b82f6);
+    color: var(--bento-accent);
 }
 
 .alpacode-bento-grid__item-icon svg {
@@ -245,12 +247,12 @@
     justify-content: center;
     width: 32px;
     height: 32px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--alpacode-radius-full);
+    background: var(--alpacode-color-surface-hover);
     color: var(--bento-text);
     opacity: 0;
     transform: translate(-8px, 8px);
-    transition: all 0.3s ease;
+    transition: all var(--alpacode-transition-normal) var(--alpacode-easing-default);
 }
 
 .alpacode-bento-grid__item:hover .alpacode-bento-grid__item-arrow {
@@ -271,7 +273,7 @@
         transparent 50%
     );
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity var(--alpacode-transition-slow) var(--alpacode-easing-default);
     pointer-events: none;
 }
 
@@ -291,7 +293,7 @@
     mask-composite: exclude;
     -webkit-mask-composite: xor;
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity var(--alpacode-transition-slow) var(--alpacode-easing-default);
     pointer-events: none;
 }
 
@@ -306,9 +308,9 @@
 }
 
 .alpacode-bento-grid--card-glass .alpacode-bento-grid__item {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: var(--alpacode-color-surface);
+    backdrop-filter: var(--alpacode-backdrop-blur-strong);
+    -webkit-backdrop-filter: var(--alpacode-backdrop-blur-strong);
 }
 
 .alpacode-bento-grid--card-gradient .alpacode-bento-grid__item {

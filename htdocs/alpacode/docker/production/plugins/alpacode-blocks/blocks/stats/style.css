@@ -1,5 +1,6 @@
 /**
  * Stats Block - Premium Styles
+ * Uses centralized design tokens from style.css
  */
 
 .alpacode-stats {
@@ -8,7 +9,7 @@
 }
 
 .alpacode-stats__container {
-    max-width: 1200px;
+    max-width: var(--alpacode-container-max-width, 1200px);
     margin: 0 auto;
 }
 
@@ -22,60 +23,66 @@
     display: inline-block;
     font-family: var(--wp--preset--font-family--outfit, sans-serif);
     font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--wp--preset--color--accent, #3b82f6);
+    font-weight: var(--alpacode-font-weight-semibold, 600);
+    color: var(--alpacode-color-accent, var(--wp--preset--color--accent, #3b82f6));
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: var(--alpacode-letter-spacing-wider, 0.1em);
     margin-bottom: 1rem;
 }
 
 .alpacode-stats__heading {
     font-family: var(--wp--preset--font-family--outfit, sans-serif);
     font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 700;
+    font-weight: var(--alpacode-font-weight-bold, 700);
     color: var(--wp--preset--color--text-primary, #fafafa);
     margin: 0;
-    letter-spacing: -0.02em;
+    letter-spacing: var(--alpacode-letter-spacing-tight, -0.02em);
 }
 
 /* Grid Layout */
 .alpacode-stats__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+    gap: var(--alpacode-space-xl, 2rem);
 }
 
 .alpacode-stats--inline .alpacode-stats__grid {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 3rem;
+    gap: var(--alpacode-space-2xl, 3rem);
 }
 
 /* Stat Item */
 .alpacode-stats__item {
     position: relative;
     text-align: center;
-    padding: 2rem;
+    padding: var(--alpacode-card-padding, 2rem);
     background: var(--wp--preset--color--secondary, #18181b);
-    border-radius: 16px;
-    border: 1px solid var(--wp--preset--color--border, #27272a);
-    transition: border-color 0.3s ease, transform 0.3s ease;
+    border-radius: var(--alpacode-radius-card, 0);
+    border: var(--alpacode-border-width, 1px) var(--alpacode-border-style, solid) var(--wp--preset--color--border, #27272a);
+    box-shadow: var(--alpacode-shadow-card, none);
+    transition: border-color var(--alpacode-transition-normal, 250ms) var(--alpacode-easing-default, cubic-bezier(0.4, 0, 0.2, 1)),
+                transform var(--alpacode-transition-normal, 250ms) var(--alpacode-easing-smooth, cubic-bezier(0.16, 1, 0.3, 1)),
+                box-shadow var(--alpacode-transition-normal, 250ms) var(--alpacode-easing-default, cubic-bezier(0.4, 0, 0.2, 1));
 }
 
 .alpacode-stats__item:hover {
-    border-color: var(--wp--preset--color--accent, #3b82f6);
-    transform: translateY(-5px);
+    border-color: var(--alpacode-color-accent, var(--wp--preset--color--accent, #3b82f6));
+    transform: var(--alpacode-hover-lift, translateY(-2px));
+    box-shadow: var(--alpacode-shadow-card-hover, 0 8px 30px rgba(0, 0, 0, 0.1));
 }
 
 .alpacode-stats--inline .alpacode-stats__item {
     background: transparent;
     border: none;
-    padding: 1rem;
+    padding: var(--alpacode-space-md, 1rem);
+    box-shadow: var(--alpacode-shadow-none, none);
 }
 
 .alpacode-stats--inline .alpacode-stats__item:hover {
     transform: none;
+    box-shadow: var(--alpacode-shadow-none, none);
 }
 
 /* Value */
@@ -90,9 +97,9 @@
 .alpacode-stats__number {
     font-family: var(--wp--preset--font-family--outfit, sans-serif);
     font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 700;
+    font-weight: var(--alpacode-font-weight-bold, 700);
     color: var(--wp--preset--color--text-primary, #fafafa);
-    line-height: 1;
+    line-height: var(--alpacode-line-height-tight, 1);
     background: linear-gradient(135deg, var(--wp--preset--color--text-primary, #fafafa), var(--wp--preset--color--accent-light, #60a5fa));
     -webkit-background-clip: text;
     background-clip: text;
@@ -103,33 +110,33 @@
 .alpacode-stats__suffix {
     font-family: var(--wp--preset--font-family--outfit, sans-serif);
     font-size: clamp(1.5rem, 3vw, 2rem);
-    font-weight: 600;
-    color: var(--wp--preset--color--accent, #3b82f6);
+    font-weight: var(--alpacode-font-weight-semibold, 600);
+    color: var(--alpacode-color-accent, var(--wp--preset--color--accent, #3b82f6));
 }
 
 /* Label */
 .alpacode-stats__label {
     font-family: var(--wp--preset--font-family--outfit, sans-serif);
     font-size: 1rem;
-    color: var(--wp--preset--color--text-secondary, #a1a1aa);
-    font-weight: 500;
+    color: var(--alpacode-color-text-muted, var(--wp--preset--color--text-secondary, #a1a1aa));
+    font-weight: var(--alpacode-font-weight-medium, 500);
 }
 
 /* Progress Bar */
 .alpacode-stats__progress {
-    margin-top: 1rem;
+    margin-top: var(--alpacode-space-md, 1rem);
     height: 4px;
-    background: var(--wp--preset--color--border, #27272a);
-    border-radius: 2px;
+    background: var(--alpacode-border-color, var(--wp--preset--color--border, #27272a));
+    border-radius: var(--alpacode-radius-xs, 0);
     overflow: hidden;
 }
 
 .alpacode-stats__progress-bar {
     height: 100%;
     width: 0;
-    background: linear-gradient(90deg, var(--wp--preset--color--accent, #3b82f6), var(--wp--preset--color--accent-light, #60a5fa));
-    border-radius: 2px;
-    transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+    background: linear-gradient(90deg, var(--alpacode-color-accent, var(--wp--preset--color--accent, #3b82f6)), var(--wp--preset--color--accent-light, #60a5fa));
+    border-radius: var(--alpacode-radius-xs, 0);
+    transition: width var(--alpacode-transition-slow, 400ms) var(--alpacode-easing-smooth, cubic-bezier(0.16, 1, 0.3, 1));
 }
 
 /* Decoration */
@@ -140,9 +147,9 @@
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
-    background: linear-gradient(90deg, transparent, var(--wp--preset--color--accent, #3b82f6), transparent);
+    background: linear-gradient(90deg, transparent, var(--alpacode-color-accent, var(--wp--preset--color--accent, #3b82f6)), transparent);
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity var(--alpacode-transition-normal, 250ms) var(--alpacode-easing-default, cubic-bezier(0.4, 0, 0.2, 1));
 }
 
 .alpacode-stats__item:hover .alpacode-stats__decoration {
@@ -163,15 +170,15 @@
 
     .alpacode-stats__grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
+        gap: var(--alpacode-space-md, 1rem);
     }
 
     .alpacode-stats__item {
-        padding: 1.5rem;
+        padding: var(--alpacode-space-lg, 1.5rem);
     }
 
     .alpacode-stats--inline .alpacode-stats__grid {
-        gap: 2rem;
+        gap: var(--alpacode-space-xl, 2rem);
     }
 }
 
@@ -183,6 +190,12 @@
 
 /* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
+    .alpacode-stats__item,
+    .alpacode-stats__progress-bar,
+    .alpacode-stats__decoration {
+        transition: none;
+    }
+
     .alpacode-stats__item:hover {
         transform: none;
     }

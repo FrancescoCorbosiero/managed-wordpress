@@ -1,21 +1,20 @@
 /**
  * Contact Split Block - Premium Styles
+ * Updated to use centralized design tokens
  */
 
 .alpacode-contact-split {
-    --contact-bg: var(--wp--preset--color--background, #0a0a0b);
-    --contact-text: var(--wp--preset--color--foreground, #ffffff);
-    --contact-muted: var(--wp--preset--color--muted, #a1a1aa);
-    --contact-accent: var(--wp--preset--color--accent, #3b82f6);
+    --contact-bg: var(--alpacode-color-bg);
+    --contact-text: var(--alpacode-color-text);
+    --contact-muted: var(--alpacode-color-text-muted);
+    --contact-accent: var(--alpacode-color-accent);
     --contact-accent-hover: #60a5fa;
-    --contact-surface: rgba(255, 255, 255, 0.03);
-    --contact-border: rgba(255, 255, 255, 0.08);
+    --contact-surface: var(--alpacode-color-surface);
+    --contact-border: var(--alpacode-border-color);
     --contact-glow: rgba(59, 130, 246, 0.15);
-    --contact-radius: 16px;
-    --contact-radius-sm: 12px;
 
     position: relative;
-    padding: 120px 0;
+    padding: var(--alpacode-section-padding-y) 0;
     background: var(--contact-bg);
     overflow: hidden;
 }
@@ -25,9 +24,9 @@
     z-index: 1;
     display: grid;
     gap: 60px;
-    max-width: 1400px;
+    max-width: var(--alpacode-container-max-width);
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 var(--alpacode-container-padding);
 }
 
 /* Layout variations */
@@ -53,30 +52,30 @@
 
 /* Header */
 .alpacode-contact-split__header {
-    margin-bottom: 40px;
+    margin-bottom: var(--alpacode-space-2xl);
 }
 
 .alpacode-contact-split__eyebrow {
     display: inline-block;
     font-size: 0.75rem;
-    font-weight: 600;
+    font-weight: var(--alpacode-font-weight-semibold);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: var(--alpacode-letter-spacing-wider);
     color: var(--contact-accent);
-    margin-bottom: 16px;
+    margin-bottom: var(--alpacode-space-md);
 }
 
 .alpacode-contact-split__heading {
     font-size: clamp(2rem, 4vw, 2.75rem);
-    font-weight: 700;
-    line-height: 1.2;
+    font-weight: var(--alpacode-font-weight-bold);
+    line-height: var(--alpacode-line-height-tight);
     color: var(--contact-text);
-    margin: 0 0 16px 0;
+    margin: 0 0 var(--alpacode-space-md) 0;
 }
 
 .alpacode-contact-split__description {
     font-size: 1.125rem;
-    line-height: 1.7;
+    line-height: var(--alpacode-line-height-relaxed);
     color: var(--contact-muted);
     margin: 0;
     max-width: 480px;
@@ -86,24 +85,24 @@
 .alpacode-contact-split__cards {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    margin-bottom: 40px;
+    gap: var(--alpacode-space-md);
+    margin-bottom: var(--alpacode-space-2xl);
 }
 
 .alpacode-contact-split__card {
     display: flex;
     align-items: flex-start;
-    gap: 16px;
-    padding: 20px;
+    gap: var(--alpacode-space-md);
+    padding: var(--alpacode-space-lg);
     background: var(--contact-surface);
-    border: 1px solid var(--contact-border);
-    border-radius: var(--contact-radius-sm);
-    transition: all 0.3s ease;
+    border: var(--alpacode-border);
+    border-radius: var(--alpacode-radius-card);
+    transition: all var(--alpacode-transition-normal) var(--alpacode-easing-default);
 }
 
 .alpacode-contact-split__card:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(59, 130, 246, 0.2);
+    background: var(--alpacode-color-surface-hover);
+    border-color: var(--alpacode-border-color-accent);
     transform: translateX(8px);
 }
 
@@ -114,7 +113,7 @@
     width: 48px;
     height: 48px;
     background: linear-gradient(135deg, var(--contact-accent), #8b5cf6);
-    border-radius: 12px;
+    border-radius: var(--alpacode-radius-md);
     color: #fff;
     flex-shrink: 0;
 }
@@ -127,23 +126,23 @@
 .alpacode-contact-split__card-content {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: var(--alpacode-space-xs);
 }
 
 .alpacode-contact-split__card-label {
     font-size: 0.8125rem;
-    font-weight: 500;
+    font-weight: var(--alpacode-font-weight-medium);
     color: var(--contact-muted);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: var(--alpacode-letter-spacing-wide);
 }
 
 .alpacode-contact-split__card-value {
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: var(--alpacode-font-weight-medium);
     color: var(--contact-text);
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: color var(--alpacode-transition-fast) var(--alpacode-easing-default);
 }
 
 a.alpacode-contact-split__card-value:hover {
@@ -153,32 +152,32 @@ a.alpacode-contact-split__card-value:hover {
 /* Card style variants */
 .alpacode-contact-split--card-bordered .alpacode-contact-split__card {
     background: transparent;
-    border-width: 2px;
+    border-width: var(--alpacode-border-width-thick);
 }
 
 .alpacode-contact-split--card-glass .alpacode-contact-split__card {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: var(--alpacode-color-surface-hover);
+    backdrop-filter: var(--alpacode-backdrop-blur);
+    -webkit-backdrop-filter: var(--alpacode-backdrop-blur);
 }
 
 /* Social Links */
 .alpacode-contact-split__social {
     display: flex;
     align-items: center;
-    gap: 16px;
-    margin-bottom: 40px;
+    gap: var(--alpacode-space-md);
+    margin-bottom: var(--alpacode-space-2xl);
 }
 
 .alpacode-contact-split__social-label {
     font-size: 0.875rem;
-    font-weight: 500;
+    font-weight: var(--alpacode-font-weight-medium);
     color: var(--contact-muted);
 }
 
 .alpacode-contact-split__social-links {
     display: flex;
-    gap: 12px;
+    gap: var(--alpacode-space-sm);
 }
 
 .alpacode-contact-split__social-link {
@@ -188,17 +187,17 @@ a.alpacode-contact-split__card-value:hover {
     width: 40px;
     height: 40px;
     background: var(--contact-surface);
-    border: 1px solid var(--contact-border);
-    border-radius: 10px;
+    border: var(--alpacode-border);
+    border-radius: var(--alpacode-radius-sm);
     color: var(--contact-muted);
-    transition: all 0.3s ease;
+    transition: all var(--alpacode-transition-normal) var(--alpacode-easing-default);
 }
 
 .alpacode-contact-split__social-link:hover {
     background: var(--contact-accent);
     border-color: var(--contact-accent);
     color: #fff;
-    transform: translateY(-2px);
+    transform: var(--alpacode-hover-lift);
 }
 
 .alpacode-contact-split__social-link svg {
@@ -209,7 +208,7 @@ a.alpacode-contact-split__card-value:hover {
 /* Map */
 .alpacode-contact-split__map {
     position: relative;
-    border-radius: var(--contact-radius);
+    border-radius: var(--alpacode-radius-container);
     overflow: hidden;
     aspect-ratio: 16 / 9;
 }
@@ -224,7 +223,7 @@ a.alpacode-contact-split__card-value:hover {
     height: 100%;
     border: 0;
     filter: grayscale(1) contrast(1.1);
-    transition: filter 0.3s ease;
+    transition: filter var(--alpacode-transition-normal) var(--alpacode-easing-default);
 }
 
 .alpacode-contact-split__map:hover .alpacode-contact-split__map-embed iframe {
@@ -240,7 +239,8 @@ a.alpacode-contact-split__card-value:hover {
     min-height: 200px;
     background: linear-gradient(135deg, var(--contact-surface) 0%, rgba(59, 130, 246, 0.05) 100%);
     border: 1px dashed var(--contact-border);
-    gap: 12px;
+    border-radius: var(--alpacode-radius-container);
+    gap: var(--alpacode-space-sm);
 }
 
 .alpacode-contact-split__map-placeholder-icon {
@@ -250,7 +250,7 @@ a.alpacode-contact-split__card-value:hover {
     width: 64px;
     height: 64px;
     background: var(--contact-surface);
-    border-radius: 50%;
+    border-radius: var(--alpacode-radius-full);
     color: var(--contact-accent);
 }
 
@@ -276,31 +276,31 @@ a.alpacode-contact-split__card-value:hover {
     z-index: 1;
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    padding: 40px;
+    gap: var(--alpacode-space-lg);
+    padding: var(--alpacode-card-padding-lg);
     background: var(--contact-surface);
-    border: 1px solid var(--contact-border);
-    border-radius: var(--contact-radius);
+    border: var(--alpacode-border);
+    border-radius: var(--alpacode-radius-card);
 }
 
 .alpacode-contact-split__form-shortcode {
     position: relative;
     z-index: 1;
-    padding: 40px;
+    padding: var(--alpacode-card-padding-lg);
     background: var(--contact-surface);
-    border: 1px solid var(--contact-border);
-    border-radius: var(--contact-radius);
+    border: var(--alpacode-border);
+    border-radius: var(--alpacode-radius-card);
 }
 
 .alpacode-contact-split__field {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: var(--alpacode-space-sm);
 }
 
 .alpacode-contact-split__label {
     font-size: 0.875rem;
-    font-weight: 500;
+    font-weight: var(--alpacode-font-weight-medium);
     color: var(--contact-text);
 }
 
@@ -313,12 +313,12 @@ a.alpacode-contact-split__card-value:hover {
     width: 100%;
     padding: 14px 18px;
     background: rgba(0, 0, 0, 0.3);
-    border: 1px solid var(--contact-border);
-    border-radius: var(--contact-radius-sm);
+    border: var(--alpacode-border);
+    border-radius: var(--alpacode-radius-input);
     color: var(--contact-text);
     font-size: 1rem;
     font-family: inherit;
-    transition: all 0.3s ease;
+    transition: all var(--alpacode-transition-normal) var(--alpacode-easing-default);
     outline: none;
 }
 
@@ -329,7 +329,7 @@ a.alpacode-contact-split__card-value:hover {
 
 .alpacode-contact-split__input:focus {
     border-color: var(--contact-accent);
-    box-shadow: 0 0 0 3px var(--contact-glow);
+    box-shadow: var(--alpacode-shadow-glow);
 }
 
 .alpacode-contact-split__textarea {
@@ -345,13 +345,13 @@ a.alpacode-contact-split__card-value:hover {
     padding: 16px 32px;
     background: linear-gradient(135deg, var(--contact-accent), #8b5cf6);
     border: none;
-    border-radius: var(--contact-radius-sm);
+    border-radius: var(--alpacode-radius-button);
     color: #fff;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: var(--alpacode-font-weight-semibold);
     font-family: inherit;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all var(--alpacode-transition-normal) var(--alpacode-easing-default);
     position: relative;
     overflow: hidden;
 }
@@ -362,7 +362,7 @@ a.alpacode-contact-split__card-value:hover {
     inset: 0;
     background: linear-gradient(135deg, #8b5cf6, var(--contact-accent));
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity var(--alpacode-transition-normal) var(--alpacode-easing-default);
 }
 
 .alpacode-contact-split__submit:hover::before {
@@ -376,8 +376,8 @@ a.alpacode-contact-split__card-value:hover {
 }
 
 .alpacode-contact-split__submit:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.5);
+    transform: var(--alpacode-hover-lift);
+    box-shadow: var(--alpacode-shadow-button-primary-hover);
 }
 
 .alpacode-contact-split__submit:hover svg {
@@ -385,7 +385,7 @@ a.alpacode-contact-split__card-value:hover {
 }
 
 .alpacode-contact-split__submit svg {
-    transition: transform 0.3s ease;
+    transition: transform var(--alpacode-transition-normal) var(--alpacode-easing-default);
 }
 
 /* Form Decoration */
@@ -412,10 +412,10 @@ a.alpacode-contact-split__card-value:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 60px;
+    padding: var(--alpacode-space-4xl);
     background: var(--contact-surface);
     border: 1px dashed var(--contact-border);
-    border-radius: var(--contact-radius);
+    border-radius: var(--alpacode-radius-card);
     color: var(--contact-muted);
 }
 
@@ -451,7 +451,7 @@ a.alpacode-contact-split__card-value:hover {
 /* Responsive */
 @media (max-width: 1024px) {
     .alpacode-contact-split {
-        padding: 80px 0;
+        padding: var(--alpacode-section-padding-y-mobile) 0;
     }
 
     .alpacode-contact-split__container,
@@ -459,7 +459,7 @@ a.alpacode-contact-split__card-value:hover {
     .alpacode-contact-split--ratio-60-40 .alpacode-contact-split__container,
     .alpacode-contact-split--ratio-40-60 .alpacode-contact-split__container {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: var(--alpacode-space-2xl);
     }
 
     .alpacode-contact-split--layout-right .alpacode-contact-split__content,
@@ -470,11 +470,11 @@ a.alpacode-contact-split__card-value:hover {
 
 @media (max-width: 640px) {
     .alpacode-contact-split {
-        padding: 60px 0;
+        padding: var(--alpacode-space-4xl) 0;
     }
 
     .alpacode-contact-split__container {
-        padding: 0 16px;
+        padding: 0 var(--alpacode-space-md);
     }
 
     .alpacode-contact-split__heading {
@@ -482,7 +482,7 @@ a.alpacode-contact-split__card-value:hover {
     }
 
     .alpacode-contact-split__card {
-        padding: 16px;
+        padding: var(--alpacode-space-md);
     }
 
     .alpacode-contact-split__card-icon {
@@ -497,13 +497,13 @@ a.alpacode-contact-split__card-value:hover {
 
     .alpacode-contact-split__form,
     .alpacode-contact-split__form-shortcode {
-        padding: 24px;
+        padding: var(--alpacode-space-lg);
     }
 
     .alpacode-contact-split__social {
         flex-direction: column;
         align-items: flex-start;
-        gap: 12px;
+        gap: var(--alpacode-space-sm);
     }
 }
 

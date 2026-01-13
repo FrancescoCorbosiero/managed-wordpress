@@ -1,5 +1,6 @@
 /**
  * Logo Carousel Block - Premium Styles
+ * Updated to use centralized design tokens
  */
 
 /* ============================================
@@ -8,15 +9,15 @@
 
 .alpacode-logos {
     position: relative;
-    padding: 4rem 2rem;
-    background: var(--wp--preset--color--primary, #0a0a0b);
+    padding: var(--alpacode-space-3xl) var(--alpacode-space-xl);
+    background: var(--wp--preset--color--primary, var(--alpacode-color-bg));
     overflow: hidden;
 }
 
 .alpacode-logos__container {
     position: relative;
     z-index: 2;
-    max-width: 1400px;
+    max-width: var(--alpacode-container-max-width);
     margin: 0 auto;
 }
 
@@ -26,27 +27,27 @@
 
 .alpacode-logos__header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: var(--alpacode-space-2xl);
 }
 
 .alpacode-logos__eyebrow {
     display: inline-block;
     font-family: var(--wp--preset--font-family--outfit, sans-serif);
     font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--wp--preset--color--text-secondary, #a1a1aa);
+    font-weight: var(--alpacode-font-weight-semibold);
+    color: var(--wp--preset--color--text-secondary, var(--alpacode-color-text-muted));
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: var(--alpacode-letter-spacing-wider);
     margin-bottom: 0.75rem;
 }
 
 .alpacode-logos__heading {
     font-family: var(--wp--preset--font-family--outfit, sans-serif);
     font-size: clamp(1.5rem, 3vw, 2rem);
-    font-weight: 600;
-    color: var(--wp--preset--color--text-primary, #fafafa);
+    font-weight: var(--alpacode-font-weight-semibold);
+    color: var(--wp--preset--color--text-primary, var(--alpacode-color-text));
     margin: 0;
-    line-height: 1.3;
+    line-height: var(--alpacode-line-height-snug);
 }
 
 /* ============================================
@@ -57,8 +58,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1.5rem 2rem;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    padding: var(--alpacode-space-lg) var(--alpacode-space-xl);
+    transition: opacity var(--alpacode-transition-normal) var(--alpacode-easing-default),
+                transform var(--alpacode-transition-normal) var(--alpacode-easing-default);
 }
 
 .alpacode-logos__link {
@@ -72,7 +74,9 @@
     max-height: 48px;
     width: auto;
     object-fit: contain;
-    transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+    transition: filter var(--alpacode-transition-normal) var(--alpacode-easing-default),
+                opacity var(--alpacode-transition-normal) var(--alpacode-easing-default),
+                transform var(--alpacode-transition-normal) var(--alpacode-easing-default);
 }
 
 /* Size Variants */
@@ -81,7 +85,7 @@
 }
 
 .alpacode-logos--size-small .alpacode-logos__item {
-    padding: 1rem 1.5rem;
+    padding: var(--alpacode-space-md) var(--alpacode-space-lg);
 }
 
 .alpacode-logos--size-large .alpacode-logos__image {
@@ -89,7 +93,7 @@
 }
 
 .alpacode-logos--size-large .alpacode-logos__item {
-    padding: 2rem 2.5rem;
+    padding: var(--alpacode-space-xl) 2.5rem;
 }
 
 /* Placeholder */
@@ -99,12 +103,12 @@
     justify-content: center;
     width: 120px;
     height: 48px;
-    background: var(--wp--preset--color--secondary, #18181b);
-    border: 1px dashed var(--wp--preset--color--border, #27272a);
-    border-radius: 8px;
+    background: var(--wp--preset--color--secondary, var(--alpacode-color-surface));
+    border: 1px dashed var(--wp--preset--color--border, var(--alpacode-border-color));
+    border-radius: var(--alpacode-radius-sm);
     font-family: var(--wp--preset--font-family--outfit, sans-serif);
     font-size: 0.75rem;
-    color: var(--wp--preset--color--text-muted, #71717a);
+    color: var(--wp--preset--color--text-muted, var(--alpacode-color-text-muted));
 }
 
 /* Grayscale Effect */
@@ -133,7 +137,7 @@
 }
 
 .alpacode-logos__marquee + .alpacode-logos__marquee {
-    margin-top: 1rem;
+    margin-top: var(--alpacode-space-md);
 }
 
 .alpacode-logos__track {
@@ -171,7 +175,7 @@
     left: 0;
     background: linear-gradient(
         to right,
-        var(--wp--preset--color--primary, #0a0a0b) 0%,
+        var(--wp--preset--color--primary, var(--alpacode-color-bg)) 0%,
         transparent 100%
     );
 }
@@ -180,7 +184,7 @@
     right: 0;
     background: linear-gradient(
         to left,
-        var(--wp--preset--color--primary, #0a0a0b) 0%,
+        var(--wp--preset--color--primary, var(--alpacode-color-bg)) 0%,
         transparent 100%
     );
 }
@@ -194,7 +198,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    gap: var(--alpacode-space-md);
 }
 
 /* ============================================
@@ -204,19 +208,23 @@
 .alpacode-logos__grid {
     display: grid;
     grid-template-columns: repeat(var(--columns, 5), 1fr);
-    gap: 1rem;
+    gap: var(--alpacode-space-md);
 }
 
 .alpacode-logos__grid .alpacode-logos__item {
-    background: var(--wp--preset--color--secondary, #18181b);
-    border: 1px solid var(--wp--preset--color--border, #27272a);
-    border-radius: 12px;
-    transition: border-color 0.3s ease, transform 0.3s ease;
+    background: var(--wp--preset--color--secondary, var(--alpacode-color-surface));
+    border: var(--alpacode-border);
+    border-radius: var(--alpacode-radius-card);
+    box-shadow: var(--alpacode-shadow-card);
+    transition: border-color var(--alpacode-transition-normal) var(--alpacode-easing-default),
+                transform var(--alpacode-transition-normal) var(--alpacode-easing-smooth),
+                box-shadow var(--alpacode-transition-normal) var(--alpacode-easing-default);
 }
 
 .alpacode-logos__grid .alpacode-logos__item:hover {
-    border-color: rgba(59, 130, 246, 0.3);
-    transform: translateY(-2px);
+    border-color: var(--alpacode-border-color-accent);
+    transform: var(--alpacode-hover-lift);
+    box-shadow: var(--alpacode-shadow-card-hover);
 }
 
 /* ============================================
@@ -226,7 +234,7 @@
 /* Minimal */
 .alpacode-logos--minimal {
     background: transparent;
-    padding: 2rem;
+    padding: var(--alpacode-space-xl);
 }
 
 .alpacode-logos--minimal .alpacode-logos__fade--left {
@@ -247,9 +255,9 @@
 
 /* Bordered */
 .alpacode-logos--bordered .alpacode-logos__item {
-    border: 1px solid var(--wp--preset--color--border, #27272a);
-    border-radius: 12px;
-    margin: 0 0.5rem;
+    border: var(--alpacode-border);
+    border-radius: var(--alpacode-radius-card);
+    margin: 0 var(--alpacode-space-sm);
 }
 
 /* ============================================
@@ -272,8 +280,8 @@
     background: linear-gradient(
         to right,
         transparent 0%,
-        var(--wp--preset--color--border, #27272a) 20%,
-        var(--wp--preset--color--border, #27272a) 80%,
+        var(--wp--preset--color--border, var(--alpacode-border-color)) 20%,
+        var(--wp--preset--color--border, var(--alpacode-border-color)) 80%,
         transparent 100%
     );
     transform: translateY(-50%);
@@ -291,11 +299,11 @@
 
 @media (max-width: 768px) {
     .alpacode-logos {
-        padding: 3rem 1rem;
+        padding: var(--alpacode-space-2xl) var(--alpacode-space-md);
     }
 
     .alpacode-logos__header {
-        margin-bottom: 2rem;
+        margin-bottom: var(--alpacode-space-xl);
     }
 
     .alpacode-logos__grid {
@@ -315,7 +323,7 @@
     }
 
     .alpacode-logos__item {
-        padding: 1rem 1.5rem;
+        padding: var(--alpacode-space-md) var(--alpacode-space-lg);
     }
 }
 
