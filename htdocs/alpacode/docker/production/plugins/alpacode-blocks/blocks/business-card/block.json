@@ -1,0 +1,111 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "alpacode/business-card",
+    "version": "1.0.0",
+    "title": "Business Card",
+    "category": "alpacode",
+    "icon": "id-alt",
+    "description": "A stunning fullscreen business card block with dramatic animations for homepage impact.",
+    "keywords": ["business card", "contact", "homepage", "fullscreen", "hero"],
+    "textdomain": "alpacode",
+    "editorScript": {
+        "handle": "alpacode-business-card-editor",
+        "src": "file:./editor.js"
+    },
+    "render": "file:./render.php",
+    "style": "file:./style.css",
+    "viewScript": "file:./view.js",
+    "attributes": {
+        "logoSquare": {
+            "type": "string",
+            "default": ""
+        },
+        "logoRectangular": {
+            "type": "string",
+            "default": ""
+        },
+        "logoStyle": {
+            "type": "string",
+            "default": "square"
+        },
+        "tagline": {
+            "type": "string",
+            "default": "Crafting Digital Excellence"
+        },
+        "name": {
+            "type": "string",
+            "default": ""
+        },
+        "title": {
+            "type": "string",
+            "default": ""
+        },
+        "email": {
+            "type": "string",
+            "default": ""
+        },
+        "phone": {
+            "type": "string",
+            "default": ""
+        },
+        "website": {
+            "type": "string",
+            "default": ""
+        },
+        "address": {
+            "type": "string",
+            "default": ""
+        },
+        "socials": {
+            "type": "array",
+            "default": [
+                { "platform": "linkedin", "url": "" },
+                { "platform": "twitter", "url": "" },
+                { "platform": "instagram", "url": "" },
+                { "platform": "github", "url": "" }
+            ]
+        },
+        "variant": {
+            "type": "string",
+            "default": "elegant"
+        },
+        "colorScheme": {
+            "type": "string",
+            "default": "dark"
+        },
+        "enableParticles": {
+            "type": "boolean",
+            "default": true
+        },
+        "enableGlowEffect": {
+            "type": "boolean",
+            "default": true
+        },
+        "enableMagneticButtons": {
+            "type": "boolean",
+            "default": true
+        },
+        "animationIntensity": {
+            "type": "string",
+            "default": "high"
+        }
+    },
+    "supports": {
+        "align": ["full"],
+        "html": false,
+        "color": {
+            "background": true,
+            "text": true
+        }
+    },
+    "example": {
+        "attributes": {
+            "tagline": "Crafting Digital Excellence",
+            "name": "John Doe",
+            "title": "Creative Director",
+            "email": "hello@example.com",
+            "variant": "elegant"
+        }
+    }
+}
