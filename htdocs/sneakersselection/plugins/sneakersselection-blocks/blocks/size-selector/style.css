@@ -1,0 +1,99 @@
+/**
+ * Size Selector Block Styles
+ */
+
+.ss-size-selector {
+    padding: var(--ss-space-6);
+    background-color: var(--ss-color-secondary);
+    border-radius: var(--ss-radius-lg);
+}
+
+.ss-size-selector__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--ss-space-4);
+    flex-wrap: wrap;
+    gap: var(--ss-space-2);
+}
+
+.ss-size-selector__label {
+    color: var(--ss-color-primary);
+}
+
+.ss-size-selector__type {
+    font-weight: var(--ss-font-normal);
+    color: var(--ss-gray-500);
+}
+
+.ss-size-selector__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--ss-space-4);
+}
+
+.ss-size-selector__selected {
+    color: var(--ss-gray-500);
+    min-width: 40px;
+    text-align: right;
+}
+
+.ss-size-selector__guide-link {
+    font-size: var(--ss-text-sm);
+    color: var(--ss-gray-600);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color var(--ss-transition-fast);
+}
+
+.ss-size-selector__guide-link:hover {
+    color: var(--ss-color-primary);
+}
+
+/* Grid Layout */
+.ss-size-selector--grid .ss-size-selector__sizes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(56px, 1fr));
+    gap: var(--ss-space-2);
+}
+
+/* Inline Layout */
+.ss-size-selector--inline .ss-size-selector__sizes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--ss-space-2);
+}
+
+.ss-size-selector--inline .ss-size {
+    min-width: auto;
+    padding: var(--ss-space-2) var(--ss-space-4);
+}
+
+/* Size Button Overrides */
+.ss-size-selector .ss-size {
+    position: relative;
+    font-size: var(--ss-text-sm);
+}
+
+.ss-size-selector .ss-size--low-stock::after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 6px;
+    height: 6px;
+    background-color: var(--ss-color-warning);
+    border-radius: var(--ss-radius-full);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .ss-size-selector__header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .ss-size-selector--grid .ss-size-selector__sizes {
+        grid-template-columns: repeat(auto-fill, minmax(48px, 1fr));
+    }
+}

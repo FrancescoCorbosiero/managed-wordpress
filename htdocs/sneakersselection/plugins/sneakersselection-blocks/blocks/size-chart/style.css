@@ -1,0 +1,115 @@
+/**
+ * Size Chart Block Styles
+ */
+
+.ss-size-chart {
+    padding: var(--ss-space-8);
+    background-color: var(--ss-color-secondary);
+    border-radius: var(--ss-radius-lg);
+}
+
+.ss-size-chart__header {
+    margin-bottom: var(--ss-space-6);
+}
+
+.ss-size-chart__heading {
+    margin-bottom: var(--ss-space-2);
+}
+
+.ss-size-chart__description {
+    color: var(--ss-gray-600);
+}
+
+/* Tabs */
+.ss-size-chart__tab-list {
+    display: flex;
+    gap: var(--ss-space-1);
+    margin-bottom: var(--ss-space-6);
+    border-bottom: 2px solid var(--ss-gray-200);
+}
+
+.ss-size-chart__tab {
+    padding: var(--ss-space-3) var(--ss-space-6);
+    font-size: var(--ss-text-sm);
+    font-weight: var(--ss-font-semibold);
+    color: var(--ss-gray-500);
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    cursor: pointer;
+    transition: all var(--ss-transition-fast);
+}
+
+.ss-size-chart__tab:hover {
+    color: var(--ss-color-primary);
+}
+
+.ss-size-chart__tab.ss-tab--active {
+    color: var(--ss-color-primary);
+    border-bottom-color: var(--ss-color-primary);
+}
+
+/* Table */
+.ss-size-chart__table-wrapper {
+    overflow-x: auto;
+}
+
+.ss-size-chart__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--ss-text-sm);
+}
+
+.ss-size-chart__table th,
+.ss-size-chart__table td {
+    padding: var(--ss-space-3) var(--ss-space-4);
+    text-align: center;
+    border-bottom: 1px solid var(--ss-gray-200);
+}
+
+.ss-size-chart__table th {
+    font-weight: var(--ss-font-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--ss-tracking-wider);
+    color: var(--ss-gray-500);
+    background-color: var(--ss-gray-50);
+}
+
+.ss-size-chart__table td {
+    color: var(--ss-color-primary);
+}
+
+.ss-size-chart__table tbody tr:hover {
+    background-color: var(--ss-gray-50);
+}
+
+.ss-size-chart__row--highlight {
+    background-color: rgba(255, 60, 0, 0.1) !important;
+}
+
+.ss-size-chart__row--highlight td {
+    color: var(--ss-color-accent);
+    font-weight: var(--ss-font-semibold);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .ss-size-chart {
+        padding: var(--ss-space-4);
+    }
+
+    .ss-size-chart__tab-list {
+        overflow-x: auto;
+    }
+
+    .ss-size-chart__tab {
+        padding: var(--ss-space-2) var(--ss-space-4);
+        white-space: nowrap;
+    }
+
+    .ss-size-chart__table th,
+    .ss-size-chart__table td {
+        padding: var(--ss-space-2) var(--ss-space-3);
+    }
+}
