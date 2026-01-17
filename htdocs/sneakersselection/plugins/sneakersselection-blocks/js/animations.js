@@ -1,82 +1,178 @@
 /**
- * Sneaker Selection Blocks - Animation Library
- * Premium vanilla JavaScript animations and interactions
+ * Sneaker Selection Blocks - Premium Animation Library
+ * High-end animations for luxury sneaker e-commerce
  */
 
 (function() {
     'use strict';
 
-    // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     /**
-     * Scroll Reveal Animation
-     * Animates elements into view on scroll
+     * Split Text Animation - Character by character reveals
+     */
+    const SplitText = {
+        init() {
+            document.querySelectorAll('[data-ss-split]').forEach(el => {
+                if (el.dataset.ssSplitProcessed) return;
+
+                const type = el.dataset.ssSplit || 'chars';
+                const text = el.textContent.trim();
+
+                if (type === 'chars') {
+                    el.innerHTML = text.split('').map((char, i) =>
+                        char === ' '
+                            ? '<span class="ss-char ss-char--space">&nbsp;</span>'
+                            : `<span class="ss-char" style="--char-index: ${i}; --char-total: ${text.replace(/\s/g, '').length}">${char}</span>`
+                    ).join('');
+                } else if (type === 'words') {
+                    el.innerHTML = text.split(/\s+/).map((word, i, arr) =>
+                        `<span class="ss-word" style="--word-index: ${i}; --word-total: ${arr.length}">${word}</span>`
+                    ).join(' ');
+                }
+
+                el.dataset.ssSplitProcessed = 'true';
+            });
+        }
+    };
+
+    /**
+     * Magnetic Cursor - Elements attracted to mouse
+     */
+    const MagneticCursor = {
+        init() {
+            if (prefersReducedMotion || 'ontouchstart' in window) return;
+
+            document.querySelectorAll('[data-ss-magnetic]').forEach(el => {
+                const strength = parseFloat(el.dataset.ssMagnetic) || 0.3;
+                let bounds;
+
+                el.addEventListener('mouseenter', () => {
+                    bounds = el.getBoundingClientRect();
+                    el.style.transition = 'transform 0.1s ease-out';
+                });
+
+                el.addEventListener('mousemove', (e) => {
+                    const x = e.clientX - bounds.left - bounds.width / 2;
+                    const y = e.clientY - bounds.top - bounds.height / 2;
+                    el.style.transform = `translate(${x * strength}px, ${y * strength}px)`;
+                });
+
+                el.addEventListener('mouseleave', () => {
+                    el.style.transition = 'transform 0.4s cubic-bezier(0.33, 1, 0.68, 1)';
+                    el.style.transform = 'translate(0, 0)';
+                });
+            });
+        }
+    };
+
+    /**
+     * Depth Parallax - Multi-layer scroll parallax
+     */
+    const DepthParallax = {
+        layers: [],
+
+        init() {
+            if (prefersReducedMotion) return;
+
+            document.querySelectorAll('[data-ss-depth]').forEach(el => {
+                this.layers.push({
+                    el,
+                    depth: parseFloat(el.dataset.ssDepth) || 0.5,
+                    direction: el.dataset.ssDepthDir || 'y'
+                });
+            });
+
+            if (this.layers.length) {
+                this.update();
+                window.addEventListener('scroll', () => requestAnimationFrame(() => this.update()), { passive: true });
+            }
+
+            // Mouse parallax for containers
+            document.querySelectorAll('[data-ss-mouse-parallax]').forEach(container => {
+                const layers = container.querySelectorAll('[data-ss-mouse-layer]');
+
+                container.addEventListener('mousemove', (e) => {
+                    const rect = container.getBoundingClientRect();
+                    const x = (e.clientX - rect.left) / rect.width - 0.5;
+                    const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+                    layers.forEach(layer => {
+                        const depth = parseFloat(layer.dataset.ssMouseLayer) || 30;
+                        const rotateX = y * depth * 0.1;
+                        const rotateY = -x * depth * 0.1;
+                        layer.style.transform = `translate3d(${x * depth}px, ${y * depth}px, 0) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                    });
+                });
+
+                container.addEventListener('mouseleave', () => {
+                    layers.forEach(layer => {
+                        layer.style.transition = 'transform 0.6s cubic-bezier(0.33, 1, 0.68, 1)';
+                        layer.style.transform = 'translate3d(0, 0, 0) rotateX(0) rotateY(0)';
+                        setTimeout(() => layer.style.transition = '', 600);
+                    });
+                });
+            });
+        },
+
+        update() {
+            const scrollY = window.scrollY;
+            const vh = window.innerHeight;
+
+            this.layers.forEach(({ el, depth, direction }) => {
+                const rect = el.getBoundingClientRect();
+                const elementCenter = rect.top + rect.height / 2;
+                const distance = (elementCenter - vh / 2) / vh;
+                const movement = distance * depth * -100;
+
+                if (direction === 'x') {
+                    el.style.transform = `translate3d(${movement}px, 0, 0)`;
+                } else {
+                    el.style.transform = `translate3d(0, ${movement}px, 0)`;
+                }
+            });
+        }
+    };
+
+    /**
+     * Scroll Reveal with Premium Animations
      */
     const ScrollReveal = {
         init() {
+            const elements = document.querySelectorAll('[data-ss-reveal]');
+            if (!elements.length) return;
+
             if (prefersReducedMotion) {
-                document.querySelectorAll('[data-ss-animate]').forEach(el => {
-                    el.classList.add('ss-visible');
-                });
+                elements.forEach(el => el.classList.add('ss-revealed'));
                 return;
             }
-
-            const elements = document.querySelectorAll('[data-ss-animate]');
-            if (!elements.length) return;
 
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('ss-visible');
+                        const delay = parseInt(entry.target.dataset.ssRevealDelay) || 0;
+                        setTimeout(() => entry.target.classList.add('ss-revealed'), delay);
                         observer.unobserve(entry.target);
                     }
                 });
-            }, {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            });
+            }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
 
             elements.forEach(el => observer.observe(el));
         }
     };
 
     /**
-     * Stagger Animation
-     * Applies staggered delays to child elements
-     */
-    const StaggerAnimation = {
-        init() {
-            if (prefersReducedMotion) return;
-
-            document.querySelectorAll('[data-ss-stagger]').forEach(container => {
-                const children = container.children;
-                Array.from(children).forEach((child, index) => {
-                    child.style.setProperty('--ss-stagger-index', index);
-                });
-            });
-        }
-    };
-
-    /**
-     * Countdown Timer
-     * Live countdown for sneaker releases
+     * Premium Countdown with Flip Animation
      */
     const CountdownTimer = {
         init() {
             document.querySelectorAll('[data-ss-countdown]').forEach(el => {
                 const targetDate = new Date(el.dataset.ssCountdown).getTime();
-
-                if (isNaN(targetDate)) {
-                    console.warn('Invalid countdown date:', el.dataset.ssCountdown);
-                    return;
-                }
+                if (isNaN(targetDate)) return;
 
                 this.update(el, targetDate);
-
                 const interval = setInterval(() => {
-                    const remaining = this.update(el, targetDate);
-                    if (remaining <= 0) {
+                    if (this.update(el, targetDate) <= 0) {
                         clearInterval(interval);
                         this.handleExpired(el);
                     }
@@ -85,531 +181,362 @@
         },
 
         update(el, targetDate) {
-            const now = Date.now();
-            const remaining = targetDate - now;
+            const remaining = targetDate - Date.now();
+            if (remaining <= 0) return remaining;
 
-            if (remaining <= 0) {
-                return remaining;
-            }
+            const units = {
+                days: Math.floor(remaining / 86400000),
+                hours: Math.floor((remaining % 86400000) / 3600000),
+                minutes: Math.floor((remaining % 3600000) / 60000),
+                seconds: Math.floor((remaining % 60000) / 1000)
+            };
 
-            const days = Math.floor(remaining / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
+            Object.entries(units).forEach(([unit, value]) => {
+                const digitEl = el.querySelector(`[data-ss-countdown-${unit}]`);
+                if (!digitEl) return;
 
-            const daysEl = el.querySelector('[data-ss-countdown-days]');
-            const hoursEl = el.querySelector('[data-ss-countdown-hours]');
-            const minutesEl = el.querySelector('[data-ss-countdown-minutes]');
-            const secondsEl = el.querySelector('[data-ss-countdown-seconds]');
-
-            if (daysEl) daysEl.textContent = String(days).padStart(2, '0');
-            if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
-            if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
-            if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
+                const newVal = String(value).padStart(2, '0');
+                if (digitEl.textContent !== newVal) {
+                    digitEl.classList.add('ss-digit-flip');
+                    setTimeout(() => {
+                        digitEl.textContent = newVal;
+                        digitEl.classList.remove('ss-digit-flip');
+                    }, 200);
+                }
+            });
 
             return remaining;
         },
 
         handleExpired(el) {
-            const expiredText = el.dataset.ssCountdownExpired || 'Released!';
-            el.innerHTML = `<div class="ss-countdown__expired">${expiredText}</div>`;
+            el.innerHTML = `<div class="ss-countdown__expired">${el.dataset.ssCountdownExpired || 'AVAILABLE NOW'}</div>`;
             el.classList.add('ss-countdown--expired');
         }
     };
 
     /**
-     * Carousel
-     * Image and product carousels
+     * Social Proof Popup Notifications
      */
-    const Carousel = {
+    const SocialProof = {
+        notifications: [],
+        currentIndex: 0,
+        container: null,
+
         init() {
-            document.querySelectorAll('[data-ss-carousel]').forEach(carousel => {
-                this.setup(carousel);
+            this.container = document.querySelector('[data-ss-social-proof]');
+            if (!this.container) return;
+
+            try {
+                this.notifications = JSON.parse(this.container.dataset.ssSocialProofItems || '[]');
+            } catch (e) { return; }
+
+            if (!this.notifications.length) return;
+
+            const interval = parseInt(this.container.dataset.ssSocialProofInterval) || 8000;
+            const delay = parseInt(this.container.dataset.ssSocialProofDelay) || 5000;
+
+            // Close button
+            this.container.querySelector('[data-ss-social-proof-close]')?.addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.hide();
+            });
+
+            // Start showing notifications
+            setTimeout(() => {
+                this.show();
+                setInterval(() => this.show(), interval);
+            }, delay);
+        },
+
+        show() {
+            const n = this.notifications[this.currentIndex];
+            this.currentIndex = (this.currentIndex + 1) % this.notifications.length;
+
+            const els = {
+                product: this.container.querySelector('[data-ss-social-proof-product]'),
+                time: this.container.querySelector('[data-ss-social-proof-time]'),
+                location: this.container.querySelector('[data-ss-social-proof-location]'),
+                image: this.container.querySelector('[data-ss-social-proof-image]')
+            };
+
+            if (els.product) els.product.textContent = n.product;
+            if (els.time) els.time.textContent = n.time;
+            if (els.location) els.location.textContent = n.location || '';
+            if (els.image && n.image) {
+                els.image.src = n.image;
+                els.image.alt = n.product;
+            }
+
+            this.container.classList.add('ss-social-proof--visible');
+            setTimeout(() => this.hide(), 5500);
+        },
+
+        hide() {
+            this.container.classList.remove('ss-social-proof--visible');
+        }
+    };
+
+    /**
+     * Smooth Marquee
+     */
+    const Marquee = {
+        init() {
+            document.querySelectorAll('[data-ss-marquee]').forEach(container => {
+                const track = container.querySelector('[data-ss-marquee-track]');
+                if (!track) return;
+
+                const clone = track.cloneNode(true);
+                clone.setAttribute('aria-hidden', 'true');
+                container.appendChild(clone);
+
+                const speed = parseInt(container.dataset.ssMarqueeSpeed) || 50;
+                const dir = container.dataset.ssMarqueeDirection === 'right' ? 'reverse' : 'normal';
+                const duration = track.scrollWidth / speed;
+
+                [track, clone].forEach(t => {
+                    t.style.animation = `ss-marquee-scroll ${duration}s linear infinite ${dir}`;
+                });
+
+                if (container.dataset.ssMarqueePause !== 'false') {
+                    container.addEventListener('mouseenter', () => {
+                        [track, clone].forEach(t => t.style.animationPlayState = 'paused');
+                    });
+                    container.addEventListener('mouseleave', () => {
+                        [track, clone].forEach(t => t.style.animationPlayState = 'running');
+                    });
+                }
+            });
+
+            if (!document.getElementById('ss-marquee-keyframes')) {
+                const style = document.createElement('style');
+                style.id = 'ss-marquee-keyframes';
+                style.textContent = `@keyframes ss-marquee-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }`;
+                document.head.appendChild(style);
+            }
+        }
+    };
+
+    /**
+     * Modal System
+     */
+    const Modal = {
+        init() {
+            document.querySelectorAll('[data-ss-modal-trigger]').forEach(trigger => {
+                trigger.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.open(trigger.dataset.ssModalTrigger);
+                });
+            });
+
+            document.querySelectorAll('[data-ss-modal-close]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const modal = btn.closest('[data-ss-modal]');
+                    if (modal) this.close(modal.dataset.ssModal);
+                });
+            });
+
+            document.querySelectorAll('[data-ss-modal]').forEach(modal => {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) this.close(modal.dataset.ssModal);
+                });
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    const open = document.querySelector('[data-ss-modal].ss-modal--open');
+                    if (open) this.close(open.dataset.ssModal);
+                }
             });
         },
 
-        setup(carousel) {
-            const track = carousel.querySelector('[data-ss-carousel-track]');
-            const slides = carousel.querySelectorAll('[data-ss-carousel-slide]');
-            const prevBtn = carousel.querySelector('[data-ss-carousel-prev]');
-            const nextBtn = carousel.querySelector('[data-ss-carousel-next]');
-            const dotsContainer = carousel.querySelector('[data-ss-carousel-dots]');
+        open(id) {
+            const modal = document.querySelector(`[data-ss-modal="${id}"]`);
+            if (!modal) return;
+            modal.classList.add('ss-modal--open');
+            document.body.style.overflow = 'hidden';
+        },
 
-            if (!track || !slides.length) return;
+        close(id) {
+            const modal = document.querySelector(`[data-ss-modal="${id}"]`);
+            if (!modal) return;
+            modal.classList.remove('ss-modal--open');
+            document.body.style.overflow = '';
+        }
+    };
 
-            let currentIndex = 0;
-            const totalSlides = slides.length;
-            const autoplay = carousel.dataset.ssCarouselAutoplay !== undefined;
-            const autoplayInterval = parseInt(carousel.dataset.ssCarouselInterval) || 5000;
-            let autoplayTimer = null;
+    /**
+     * FAQ Accordion
+     */
+    const FAQ = {
+        init() {
+            document.querySelectorAll('[data-ss-faq]').forEach(container => {
+                const items = container.querySelectorAll('[data-ss-faq-item]');
 
-            // Calculate visible slides
-            const getVisibleSlides = () => {
-                const slidesPerView = carousel.dataset.ssCarouselSlides || 1;
-                if (slidesPerView === 'auto') {
-                    const slideWidth = slides[0].offsetWidth;
-                    return Math.floor(carousel.offsetWidth / slideWidth);
-                }
-                return parseInt(slidesPerView);
-            };
+                items.forEach(item => {
+                    const trigger = item.querySelector('[data-ss-faq-trigger]');
+                    const content = item.querySelector('[data-ss-faq-content]');
+                    if (!trigger || !content) return;
 
-            // Update carousel position
-            const updatePosition = (animate = true) => {
-                const slideWidth = slides[0].offsetWidth;
-                const gap = parseInt(getComputedStyle(track).gap) || 0;
-                const offset = -(currentIndex * (slideWidth + gap));
+                    trigger.addEventListener('click', () => {
+                        const isOpen = item.classList.contains('ss-faq__item--open');
 
-                track.style.transition = animate && !prefersReducedMotion
-                    ? 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)'
-                    : 'none';
-                track.style.transform = `translateX(${offset}px)`;
+                        // Close others
+                        if (container.dataset.ssFaqMultiple !== 'true') {
+                            items.forEach(i => {
+                                i.classList.remove('ss-faq__item--open');
+                                const c = i.querySelector('[data-ss-faq-content]');
+                                if (c) c.style.maxHeight = '0';
+                            });
+                        }
 
-                // Update dots
-                if (dotsContainer) {
-                    dotsContainer.querySelectorAll('[data-ss-carousel-dot]').forEach((dot, i) => {
-                        dot.classList.toggle('ss-carousel__dot--active', i === currentIndex);
+                        if (!isOpen) {
+                            item.classList.add('ss-faq__item--open');
+                            content.style.maxHeight = content.scrollHeight + 'px';
+                        } else {
+                            item.classList.remove('ss-faq__item--open');
+                            content.style.maxHeight = '0';
+                        }
+                    });
+                });
+            });
+        }
+    };
+
+    /**
+     * Hero Carousel with Crossfade
+     */
+    const HeroCarousel = {
+        init() {
+            document.querySelectorAll('[data-ss-hero-carousel]').forEach(carousel => {
+                const slides = carousel.querySelectorAll('[data-ss-hero-slide]');
+                const dots = carousel.querySelector('[data-ss-hero-dots]');
+                const prev = carousel.querySelector('[data-ss-hero-prev]');
+                const next = carousel.querySelector('[data-ss-hero-next]');
+
+                if (slides.length < 2) return;
+
+                let current = 0;
+                let timer = null;
+                const autoplay = parseInt(carousel.dataset.ssHeroAutoplay) || 6000;
+
+                const goTo = (index) => {
+                    slides[current].classList.remove('ss-hero-slide--active');
+                    current = (index + slides.length) % slides.length;
+                    slides[current].classList.add('ss-hero-slide--active');
+
+                    if (dots) {
+                        dots.querySelectorAll('button').forEach((d, i) => {
+                            d.classList.toggle('ss-hero-dot--active', i === current);
+                        });
+                    }
+
+                    resetTimer();
+                };
+
+                const resetTimer = () => {
+                    if (timer) clearInterval(timer);
+                    if (autoplay > 0) timer = setInterval(() => goTo(current + 1), autoplay);
+                };
+
+                // Create dots
+                if (dots) {
+                    slides.forEach((_, i) => {
+                        const btn = document.createElement('button');
+                        btn.className = 'ss-hero-dot' + (i === 0 ? ' ss-hero-dot--active' : '');
+                        btn.setAttribute('aria-label', `Slide ${i + 1}`);
+                        btn.addEventListener('click', () => goTo(i));
+                        dots.appendChild(btn);
                     });
                 }
 
-                // Update button states
-                if (prevBtn) prevBtn.disabled = currentIndex === 0;
-                if (nextBtn) nextBtn.disabled = currentIndex >= totalSlides - getVisibleSlides();
-            };
+                if (prev) prev.addEventListener('click', () => goTo(current - 1));
+                if (next) next.addEventListener('click', () => goTo(current + 1));
 
-            // Navigation
-            const goTo = (index) => {
-                const maxIndex = totalSlides - getVisibleSlides();
-                currentIndex = Math.max(0, Math.min(index, maxIndex));
-                updatePosition();
-            };
+                // Touch
+                let startX = 0;
+                carousel.addEventListener('touchstart', e => startX = e.touches[0].clientX, { passive: true });
+                carousel.addEventListener('touchend', e => {
+                    const diff = startX - e.changedTouches[0].clientX;
+                    if (Math.abs(diff) > 50) goTo(current + (diff > 0 ? 1 : -1));
+                }, { passive: true });
 
-            const goNext = () => goTo(currentIndex + 1);
-            const goPrev = () => goTo(currentIndex - 1);
+                // Pause on hover
+                carousel.addEventListener('mouseenter', () => timer && clearInterval(timer));
+                carousel.addEventListener('mouseleave', resetTimer);
 
-            // Event listeners
-            if (prevBtn) prevBtn.addEventListener('click', goPrev);
-            if (nextBtn) nextBtn.addEventListener('click', goNext);
-
-            // Dots
-            if (dotsContainer) {
-                for (let i = 0; i < totalSlides; i++) {
-                    const dot = document.createElement('button');
-                    dot.className = 'ss-carousel__dot';
-                    dot.setAttribute('data-ss-carousel-dot', '');
-                    dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
-                    dot.addEventListener('click', () => goTo(i));
-                    dotsContainer.appendChild(dot);
-                }
-            }
-
-            // Autoplay
-            if (autoplay && !prefersReducedMotion) {
-                const startAutoplay = () => {
-                    autoplayTimer = setInterval(() => {
-                        if (currentIndex >= totalSlides - getVisibleSlides()) {
-                            goTo(0);
-                        } else {
-                            goNext();
-                        }
-                    }, autoplayInterval);
-                };
-
-                const stopAutoplay = () => clearInterval(autoplayTimer);
-
-                startAutoplay();
-                carousel.addEventListener('mouseenter', stopAutoplay);
-                carousel.addEventListener('mouseleave', startAutoplay);
-            }
-
-            // Touch/Swipe support
-            let touchStartX = 0;
-            let touchEndX = 0;
-
-            track.addEventListener('touchstart', (e) => {
-                touchStartX = e.changedTouches[0].screenX;
-            }, { passive: true });
-
-            track.addEventListener('touchend', (e) => {
-                touchEndX = e.changedTouches[0].screenX;
-                const diff = touchStartX - touchEndX;
-                if (Math.abs(diff) > 50) {
-                    diff > 0 ? goNext() : goPrev();
-                }
-            }, { passive: true });
-
-            // Resize handling
-            let resizeTimeout;
-            window.addEventListener('resize', () => {
-                clearTimeout(resizeTimeout);
-                resizeTimeout = setTimeout(() => updatePosition(false), 100);
+                slides[0].classList.add('ss-hero-slide--active');
+                resetTimer();
             });
-
-            // Initial setup
-            updatePosition(false);
         }
     };
 
     /**
      * Size Selector
-     * Interactive size selection with availability
      */
     const SizeSelector = {
         init() {
             document.querySelectorAll('[data-ss-size-selector]').forEach(container => {
                 const sizes = container.querySelectorAll('[data-ss-size]');
-                const hiddenInput = container.querySelector('input[type="hidden"]');
-                const selectedDisplay = container.querySelector('[data-ss-size-selected]');
+                const display = container.querySelector('[data-ss-size-selected]');
 
                 sizes.forEach(size => {
-                    if (size.classList.contains('ss-size--disabled')) return;
+                    if (size.classList.contains('ss-size--unavailable')) return;
 
                     size.addEventListener('click', () => {
-                        // Remove selection from all
                         sizes.forEach(s => s.classList.remove('ss-size--selected'));
-
-                        // Add selection to clicked
                         size.classList.add('ss-size--selected');
+                        if (display) display.textContent = size.dataset.ssSize;
+                    });
+                });
+            });
+        }
+    };
 
-                        // Update hidden input
-                        if (hiddenInput) {
-                            hiddenInput.value = size.dataset.ssSize;
+    /**
+     * Image Reveal Effect
+     */
+    const ImageReveal = {
+        init() {
+            if (prefersReducedMotion) return;
+
+            document.querySelectorAll('[data-ss-image-reveal]').forEach(el => {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('ss-image-revealed');
+                            observer.unobserve(entry.target);
                         }
-
-                        // Update display
-                        if (selectedDisplay) {
-                            selectedDisplay.textContent = size.dataset.ssSize;
-                        }
-
-                        // Dispatch custom event
-                        container.dispatchEvent(new CustomEvent('ss:size-selected', {
-                            detail: { size: size.dataset.ssSize }
-                        }));
                     });
-                });
+                }, { threshold: 0.2 });
+
+                observer.observe(el);
             });
         }
     };
 
     /**
-     * Image Gallery
-     * Product image gallery with zoom
-     */
-    const ImageGallery = {
-        init() {
-            document.querySelectorAll('[data-ss-gallery]').forEach(gallery => {
-                this.setup(gallery);
-            });
-        },
-
-        setup(gallery) {
-            const mainImage = gallery.querySelector('[data-ss-gallery-main]');
-            const thumbnails = gallery.querySelectorAll('[data-ss-gallery-thumb]');
-
-            if (!mainImage || !thumbnails.length) return;
-
-            thumbnails.forEach(thumb => {
-                thumb.addEventListener('click', () => {
-                    const imgSrc = thumb.dataset.ssGalleryThumb;
-                    const imgAlt = thumb.getAttribute('alt') || '';
-
-                    // Update main image
-                    mainImage.src = imgSrc;
-                    mainImage.alt = imgAlt;
-
-                    // Update active state
-                    thumbnails.forEach(t => t.classList.remove('ss-gallery__thumb--active'));
-                    thumb.classList.add('ss-gallery__thumb--active');
-                });
-            });
-
-            // Image zoom on hover
-            if (gallery.dataset.ssGalleryZoom !== undefined && !prefersReducedMotion) {
-                const zoomContainer = mainImage.parentElement;
-
-                zoomContainer.addEventListener('mousemove', (e) => {
-                    const rect = zoomContainer.getBoundingClientRect();
-                    const x = ((e.clientX - rect.left) / rect.width) * 100;
-                    const y = ((e.clientY - rect.top) / rect.height) * 100;
-                    mainImage.style.transformOrigin = `${x}% ${y}%`;
-                    mainImage.style.transform = 'scale(1.5)';
-                });
-
-                zoomContainer.addEventListener('mouseleave', () => {
-                    mainImage.style.transform = 'scale(1)';
-                });
-            }
-        }
-    };
-
-    /**
-     * Parallax Effect
-     * Scroll-based parallax for background images
-     */
-    const Parallax = {
-        init() {
-            if (prefersReducedMotion) return;
-
-            const elements = document.querySelectorAll('[data-ss-parallax]');
-            if (!elements.length) return;
-
-            const updateParallax = () => {
-                const scrollY = window.scrollY;
-
-                elements.forEach(el => {
-                    const speed = parseFloat(el.dataset.ssParallax) || 0.5;
-                    const rect = el.getBoundingClientRect();
-                    const centerY = rect.top + rect.height / 2;
-                    const viewportCenter = window.innerHeight / 2;
-                    const offset = (centerY - viewportCenter) * speed;
-
-                    el.style.transform = `translateY(${offset}px)`;
-                });
-            };
-
-            let ticking = false;
-            window.addEventListener('scroll', () => {
-                if (!ticking) {
-                    requestAnimationFrame(() => {
-                        updateParallax();
-                        ticking = false;
-                    });
-                    ticking = true;
-                }
-            }, { passive: true });
-
-            updateParallax();
-        }
-    };
-
-    /**
-     * Infinite Scroll/Marquee
-     * For brand logos and product showcases
-     */
-    const InfiniteScroll = {
-        init() {
-            if (prefersReducedMotion) return;
-
-            document.querySelectorAll('[data-ss-marquee]').forEach(container => {
-                const track = container.querySelector('[data-ss-marquee-track]');
-                if (!track) return;
-
-                // Clone items for seamless loop
-                const clone = track.cloneNode(true);
-                container.appendChild(clone);
-
-                // Set animation speed
-                const speed = parseInt(container.dataset.ssMarqueeSpeed) || 30;
-                const direction = container.dataset.ssMarqueeDirection === 'right' ? 'reverse' : 'normal';
-
-                track.style.animation = `ss-marquee ${speed}s linear infinite ${direction}`;
-                clone.style.animation = `ss-marquee ${speed}s linear infinite ${direction}`;
-            });
-
-            // Add marquee animation keyframes if not exists
-            if (!document.querySelector('#ss-marquee-styles')) {
-                const style = document.createElement('style');
-                style.id = 'ss-marquee-styles';
-                style.textContent = `
-                    @keyframes ss-marquee {
-                        0% { transform: translateX(0); }
-                        100% { transform: translateX(-100%); }
-                    }
-                `;
-                document.head.appendChild(style);
-            }
-        }
-    };
-
-    /**
-     * Counter Animation
-     * Animate numbers counting up
-     */
-    const Counter = {
-        init() {
-            if (prefersReducedMotion) {
-                document.querySelectorAll('[data-ss-counter]').forEach(el => {
-                    el.textContent = el.dataset.ssCounter;
-                });
-                return;
-            }
-
-            const elements = document.querySelectorAll('[data-ss-counter]');
-            if (!elements.length) return;
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        this.animate(entry.target);
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
-
-            elements.forEach(el => observer.observe(el));
-        },
-
-        animate(el) {
-            const target = parseInt(el.dataset.ssCounter);
-            const duration = parseInt(el.dataset.ssCounterDuration) || 2000;
-            const prefix = el.dataset.ssCounterPrefix || '';
-            const suffix = el.dataset.ssCounterSuffix || '';
-            const startTime = performance.now();
-
-            const step = (currentTime) => {
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-
-                // Easing function (ease-out)
-                const eased = 1 - Math.pow(1 - progress, 3);
-                const current = Math.floor(eased * target);
-
-                el.textContent = prefix + current.toLocaleString() + suffix;
-
-                if (progress < 1) {
-                    requestAnimationFrame(step);
-                } else {
-                    el.textContent = prefix + target.toLocaleString() + suffix;
-                }
-            };
-
-            requestAnimationFrame(step);
-        }
-    };
-
-    /**
-     * Hover 3D Tilt Effect
-     * Card hover effect for product cards
-     */
-    const TiltEffect = {
-        init() {
-            if (prefersReducedMotion) return;
-
-            document.querySelectorAll('[data-ss-tilt]').forEach(el => {
-                const maxTilt = parseInt(el.dataset.ssTilt) || 10;
-
-                el.addEventListener('mousemove', (e) => {
-                    const rect = el.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-
-                    const rotateX = ((y - centerY) / centerY) * -maxTilt;
-                    const rotateY = ((x - centerX) / centerX) * maxTilt;
-
-                    el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-                });
-
-                el.addEventListener('mouseleave', () => {
-                    el.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-                });
-            });
-        }
-    };
-
-    /**
-     * Floating Animation
-     * Subtle floating effect for images
-     */
-    const FloatingEffect = {
-        init() {
-            if (prefersReducedMotion) return;
-
-            // Add floating animation keyframes
-            if (!document.querySelector('#ss-floating-styles')) {
-                const style = document.createElement('style');
-                style.id = 'ss-floating-styles';
-                style.textContent = `
-                    @keyframes ss-float {
-                        0%, 100% { transform: translateY(0); }
-                        50% { transform: translateY(-20px); }
-                    }
-                    [data-ss-float] {
-                        animation: ss-float 6s ease-in-out infinite;
-                    }
-                `;
-                document.head.appendChild(style);
-            }
-        }
-    };
-
-    /**
-     * Tab System
-     * For size charts and product details
-     */
-    const Tabs = {
-        init() {
-            document.querySelectorAll('[data-ss-tabs]').forEach(container => {
-                const triggers = container.querySelectorAll('[data-ss-tab-trigger]');
-                const panels = container.querySelectorAll('[data-ss-tab-panel]');
-
-                triggers.forEach(trigger => {
-                    trigger.addEventListener('click', () => {
-                        const targetId = trigger.dataset.ssTabTrigger;
-
-                        // Update triggers
-                        triggers.forEach(t => {
-                            t.classList.remove('ss-tab--active');
-                            t.setAttribute('aria-selected', 'false');
-                        });
-                        trigger.classList.add('ss-tab--active');
-                        trigger.setAttribute('aria-selected', 'true');
-
-                        // Update panels
-                        panels.forEach(panel => {
-                            const isTarget = panel.dataset.ssTabPanel === targetId;
-                            panel.hidden = !isTarget;
-                            panel.classList.toggle('ss-tab-panel--active', isTarget);
-                        });
-                    });
-                });
-            });
-        }
-    };
-
-    /**
-     * Initialize all modules
+     * Initialize
      */
     const init = () => {
+        SplitText.init();
+        MagneticCursor.init();
+        DepthParallax.init();
         ScrollReveal.init();
-        StaggerAnimation.init();
         CountdownTimer.init();
-        Carousel.init();
+        SocialProof.init();
+        Marquee.init();
+        Modal.init();
+        FAQ.init();
+        HeroCarousel.init();
         SizeSelector.init();
-        ImageGallery.init();
-        Parallax.init();
-        InfiniteScroll.init();
-        Counter.init();
-        TiltEffect.init();
-        FloatingEffect.init();
-        Tabs.init();
+        ImageReveal.init();
     };
 
-    // Initialize on DOM ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {
         init();
     }
 
-    // Re-initialize on dynamic content load (e.g., AJAX)
-    document.addEventListener('ss:content-loaded', init);
-
-    // Expose modules for external use
-    window.SneakerSelectionAnimations = {
-        ScrollReveal,
-        StaggerAnimation,
-        CountdownTimer,
-        Carousel,
-        SizeSelector,
-        ImageGallery,
-        Parallax,
-        InfiniteScroll,
-        Counter,
-        TiltEffect,
-        FloatingEffect,
-        Tabs,
-        init
-    };
-
+    window.SneakerSelection = { init, Modal, SocialProof };
 })();
