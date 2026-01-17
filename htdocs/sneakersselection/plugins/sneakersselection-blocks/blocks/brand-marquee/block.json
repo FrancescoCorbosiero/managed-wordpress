@@ -1,0 +1,40 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "sneakersselection/brand-marquee",
+    "version": "1.0.0",
+    "title": "Brand Marquee",
+    "category": "sneakersselection",
+    "icon": "images-alt",
+    "description": "Infinite scrolling brand logo carousel with grayscale-to-color hover effect.",
+    "keywords": ["brands", "logos", "marquee", "carousel", "partners"],
+    "textdomain": "sneakersselection-blocks",
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": "Shop By Brand"
+        },
+        "brands": {
+            "type": "array",
+            "default": []
+        },
+        "speed": {
+            "type": "number",
+            "default": 50
+        },
+        "direction": {
+            "type": "string",
+            "default": "left"
+        },
+        "pauseOnHover": {
+            "type": "boolean",
+            "default": true
+        }
+    },
+    "supports": {
+        "align": ["full", "wide"],
+        "html": false
+    },
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php"
+}
