@@ -1,0 +1,85 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "sneakersselection/sneaker-hero",
+    "version": "1.0.0",
+    "title": "Sneaker Hero",
+    "category": "sneakersselection",
+    "description": "A bold hero section for sneaker landing pages with product image, title, and call-to-action.",
+    "keywords": ["hero", "banner", "sneaker", "landing"],
+    "textdomain": "sneakersselection-blocks",
+    "attributes": {
+        "eyebrow": {
+            "type": "string",
+            "default": "New Release"
+        },
+        "heading": {
+            "type": "string",
+            "default": "Air Jordan 1 Retro High OG"
+        },
+        "subheading": {
+            "type": "string",
+            "default": "The shoe that started it all, reimagined for today."
+        },
+        "primaryButtonText": {
+            "type": "string",
+            "default": "Shop Now"
+        },
+        "primaryButtonUrl": {
+            "type": "string",
+            "default": "#"
+        },
+        "secondaryButtonText": {
+            "type": "string",
+            "default": "Learn More"
+        },
+        "secondaryButtonUrl": {
+            "type": "string",
+            "default": "#"
+        },
+        "imageUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "imageAlt": {
+            "type": "string",
+            "default": ""
+        },
+        "imageId": {
+            "type": "number",
+            "default": 0
+        },
+        "backgroundColor": {
+            "type": "string",
+            "default": "#f5f5f5"
+        },
+        "textColor": {
+            "type": "string",
+            "default": "#000000"
+        },
+        "layout": {
+            "type": "string",
+            "default": "image-right",
+            "enum": ["image-right", "image-left", "image-center"]
+        },
+        "showFloatingEffect": {
+            "type": "boolean",
+            "default": true
+        }
+    },
+    "supports": {
+        "html": false,
+        "align": ["wide", "full"],
+        "spacing": {
+            "padding": true,
+            "margin": true
+        }
+    },
+    "editorScript": {
+        "handle": "sneakersselection-sneaker-hero-editor",
+        "src": "file:./editor.js",
+        "dependencies": ["wp-blocks", "wp-element", "wp-block-editor", "wp-components", "wp-i18n"]
+    },
+    "render": "file:./render.php",
+    "style": "file:./style.css"
+}

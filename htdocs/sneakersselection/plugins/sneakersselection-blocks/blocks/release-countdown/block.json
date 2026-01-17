@@ -1,0 +1,88 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "sneakersselection/release-countdown",
+    "version": "1.0.0",
+    "title": "Release Countdown",
+    "category": "sneakersselection",
+    "description": "A countdown timer for sneaker release dates and drops.",
+    "keywords": ["countdown", "timer", "release", "drop"],
+    "textdomain": "sneakersselection-blocks",
+    "attributes": {
+        "heading": {
+            "type": "string",
+            "default": "Dropping Soon"
+        },
+        "productName": {
+            "type": "string",
+            "default": "Air Jordan 1 Retro High OG"
+        },
+        "releaseDate": {
+            "type": "string",
+            "default": ""
+        },
+        "expiredText": {
+            "type": "string",
+            "default": "Available Now!"
+        },
+        "backgroundColor": {
+            "type": "string",
+            "default": "#000000"
+        },
+        "textColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "accentColor": {
+            "type": "string",
+            "default": "#ff3c00"
+        },
+        "imageUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "imageId": {
+            "type": "number",
+            "default": 0
+        },
+        "buttonText": {
+            "type": "string",
+            "default": "Notify Me"
+        },
+        "buttonUrl": {
+            "type": "string",
+            "default": "#"
+        },
+        "showDays": {
+            "type": "boolean",
+            "default": true
+        },
+        "showHours": {
+            "type": "boolean",
+            "default": true
+        },
+        "showMinutes": {
+            "type": "boolean",
+            "default": true
+        },
+        "showSeconds": {
+            "type": "boolean",
+            "default": true
+        }
+    },
+    "supports": {
+        "html": false,
+        "align": ["wide", "full"],
+        "spacing": {
+            "padding": true,
+            "margin": true
+        }
+    },
+    "editorScript": {
+        "handle": "sneakersselection-release-countdown-editor",
+        "src": "file:./editor.js",
+        "dependencies": ["wp-blocks", "wp-element", "wp-block-editor", "wp-components", "wp-i18n"]
+    },
+    "render": "file:./render.php",
+    "style": "file:./style.css"
+}

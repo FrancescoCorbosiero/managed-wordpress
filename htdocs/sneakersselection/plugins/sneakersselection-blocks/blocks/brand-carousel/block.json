@@ -1,0 +1,68 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "sneakersselection/brand-carousel",
+    "version": "1.0.0",
+    "title": "Brand Carousel",
+    "category": "sneakersselection",
+    "description": "An auto-scrolling carousel showcasing sneaker brand logos.",
+    "keywords": ["brands", "logos", "carousel", "marquee"],
+    "textdomain": "sneakersselection-blocks",
+    "attributes": {
+        "heading": {
+            "type": "string",
+            "default": ""
+        },
+        "brands": {
+            "type": "array",
+            "default": [
+                { "name": "Nike", "logo": "", "url": "#" },
+                { "name": "Adidas", "logo": "", "url": "#" },
+                { "name": "Jordan", "logo": "", "url": "#" },
+                { "name": "New Balance", "logo": "", "url": "#" },
+                { "name": "Puma", "logo": "", "url": "#" },
+                { "name": "Converse", "logo": "", "url": "#" }
+            ]
+        },
+        "speed": {
+            "type": "number",
+            "default": 30
+        },
+        "direction": {
+            "type": "string",
+            "default": "left",
+            "enum": ["left", "right"]
+        },
+        "pauseOnHover": {
+            "type": "boolean",
+            "default": true
+        },
+        "showBrandNames": {
+            "type": "boolean",
+            "default": false
+        },
+        "grayscale": {
+            "type": "boolean",
+            "default": true
+        },
+        "backgroundColor": {
+            "type": "string",
+            "default": "#ffffff"
+        }
+    },
+    "supports": {
+        "html": false,
+        "align": ["wide", "full"],
+        "spacing": {
+            "padding": true,
+            "margin": true
+        }
+    },
+    "editorScript": {
+        "handle": "sneakersselection-brand-carousel-editor",
+        "src": "file:./editor.js",
+        "dependencies": ["wp-blocks", "wp-element", "wp-block-editor", "wp-components", "wp-i18n"]
+    },
+    "render": "file:./render.php",
+    "style": "file:./style.css"
+}

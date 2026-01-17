@@ -1,0 +1,196 @@
+/**
+ * Product Showcase Block Styles
+ */
+
+.ss-product-showcase {
+    padding-block: var(--ss-section-padding);
+}
+
+.ss-product-showcase__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--ss-space-16);
+    align-items: start;
+}
+
+/* Gallery */
+.ss-product-showcase__gallery {
+    position: relative;
+}
+
+.ss-product-showcase__badge {
+    position: absolute;
+    top: var(--ss-space-4);
+    left: var(--ss-space-4);
+    z-index: 10;
+}
+
+.ss-product-showcase__main-image {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    background-color: var(--ss-gray-100);
+    border-radius: var(--ss-radius-lg);
+    overflow: hidden;
+    cursor: zoom-in;
+}
+
+.ss-product-showcase__main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform var(--ss-transition-slow);
+}
+
+.ss-product-showcase__placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: var(--ss-gray-400);
+}
+
+.ss-product-showcase__thumbnails {
+    display: flex;
+    gap: var(--ss-space-3);
+    margin-top: var(--ss-space-4);
+    overflow-x: auto;
+    padding-bottom: var(--ss-space-2);
+}
+
+.ss-product-showcase__thumb {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    padding: 0;
+    background-color: var(--ss-gray-100);
+    border: 2px solid transparent;
+    border-radius: var(--ss-radius-md);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all var(--ss-transition-fast);
+}
+
+.ss-product-showcase__thumb:hover {
+    border-color: var(--ss-gray-400);
+}
+
+.ss-product-showcase__thumb.ss-gallery__thumb--active {
+    border-color: var(--ss-color-primary);
+}
+
+.ss-product-showcase__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Details */
+.ss-product-showcase__details {
+    position: sticky;
+    top: var(--ss-space-8);
+}
+
+.ss-product-showcase__header {
+    margin-bottom: var(--ss-space-6);
+}
+
+.ss-product-showcase__brand {
+    color: var(--ss-gray-500);
+    margin-bottom: var(--ss-space-2);
+}
+
+.ss-product-showcase__name {
+    margin-bottom: var(--ss-space-2);
+}
+
+.ss-product-showcase__colorway {
+    font-size: var(--ss-text-lg);
+    color: var(--ss-gray-700);
+    margin-bottom: var(--ss-space-1);
+}
+
+.ss-product-showcase__style-code {
+    color: var(--ss-gray-500);
+}
+
+.ss-product-showcase__price {
+    margin-bottom: var(--ss-space-6);
+}
+
+.ss-product-showcase__description {
+    color: var(--ss-gray-700);
+    margin-bottom: var(--ss-space-8);
+    line-height: var(--ss-leading-relaxed);
+}
+
+/* Sizes */
+.ss-product-showcase__sizes {
+    margin-bottom: var(--ss-space-8);
+}
+
+.ss-product-showcase__sizes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--ss-space-4);
+}
+
+.ss-product-showcase__sizes-header .ss-label {
+    color: var(--ss-color-primary);
+}
+
+.ss-product-showcase__sizes-header [data-ss-size-selected] {
+    color: var(--ss-gray-500);
+}
+
+/* Actions */
+.ss-product-showcase__actions {
+    display: flex;
+    gap: var(--ss-space-4);
+}
+
+.ss-product-showcase__add-to-cart {
+    flex: 1;
+}
+
+.ss-product-showcase__add-to-cart.ss-button--ready {
+    animation: ss-pulse 0.3s ease;
+}
+
+@keyframes ss-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .ss-product-showcase__container {
+        grid-template-columns: 1fr;
+        gap: var(--ss-space-8);
+    }
+
+    .ss-product-showcase__details {
+        position: static;
+    }
+
+    .ss-product-showcase__main-image {
+        max-width: 500px;
+        margin-inline: auto;
+    }
+
+    .ss-product-showcase__thumbnails {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 640px) {
+    .ss-product-showcase {
+        padding-block: var(--ss-space-12);
+    }
+
+    .ss-product-showcase__thumb {
+        width: 60px;
+        height: 60px;
+    }
+}

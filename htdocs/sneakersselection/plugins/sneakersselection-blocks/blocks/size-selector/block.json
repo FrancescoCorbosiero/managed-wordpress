@@ -1,0 +1,65 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "sneakersselection/size-selector",
+    "version": "1.0.0",
+    "title": "Size Selector",
+    "category": "sneakersselection",
+    "description": "An interactive size selector component for sneaker products.",
+    "keywords": ["size", "selector", "sneaker", "product"],
+    "textdomain": "sneakersselection-blocks",
+    "attributes": {
+        "label": {
+            "type": "string",
+            "default": "Select Size"
+        },
+        "sizeType": {
+            "type": "string",
+            "default": "US",
+            "enum": ["US", "UK", "EU"]
+        },
+        "sizes": {
+            "type": "array",
+            "default": ["7", "7.5", "8", "8.5", "9", "9.5", "10", "10.5", "11", "11.5", "12", "13"]
+        },
+        "unavailableSizes": {
+            "type": "array",
+            "default": []
+        },
+        "lowStockSizes": {
+            "type": "array",
+            "default": []
+        },
+        "selectedSize": {
+            "type": "string",
+            "default": ""
+        },
+        "showSizeGuideLink": {
+            "type": "boolean",
+            "default": true
+        },
+        "sizeGuideUrl": {
+            "type": "string",
+            "default": "#size-guide"
+        },
+        "layout": {
+            "type": "string",
+            "default": "grid",
+            "enum": ["grid", "inline"]
+        }
+    },
+    "supports": {
+        "html": false,
+        "spacing": {
+            "padding": true,
+            "margin": true
+        }
+    },
+    "editorScript": {
+        "handle": "sneakersselection-size-selector-editor",
+        "src": "file:./editor.js",
+        "dependencies": ["wp-blocks", "wp-element", "wp-block-editor", "wp-components", "wp-i18n"]
+    },
+    "render": "file:./render.php",
+    "style": "file:./style.css"
+}

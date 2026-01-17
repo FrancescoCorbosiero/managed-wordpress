@@ -1,0 +1,116 @@
+/**
+ * Collection Banner Block Styles
+ */
+
+.ss-collection-banner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: var(--ss-banner-min-height, 400px);
+    background-color: var(--ss-banner-bg, var(--ss-color-primary));
+    color: var(--ss-banner-text, var(--ss-color-secondary));
+    overflow: hidden;
+}
+
+/* Background Image */
+.ss-collection-banner__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.ss-collection-banner__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ss-collection-banner__overlay {
+    position: absolute;
+    inset: 0;
+    background-color: var(--ss-banner-bg, #000000);
+    opacity: var(--ss-banner-overlay, 0.5);
+    z-index: 1;
+}
+
+/* Container */
+.ss-collection-banner__container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding-block: var(--ss-space-16);
+}
+
+/* Content */
+.ss-collection-banner__content {
+    max-width: 600px;
+}
+
+.ss-collection-banner__eyebrow {
+    color: var(--ss-color-accent);
+    margin-bottom: var(--ss-space-4);
+}
+
+.ss-collection-banner__heading {
+    color: inherit;
+    margin-bottom: var(--ss-space-4);
+}
+
+.ss-collection-banner__description {
+    opacity: 0.9;
+    margin-bottom: var(--ss-space-8);
+}
+
+/* Content Position */
+.ss-collection-banner--left .ss-collection-banner__content {
+    text-align: left;
+}
+
+.ss-collection-banner--center .ss-collection-banner__container {
+    display: flex;
+    justify-content: center;
+}
+
+.ss-collection-banner--center .ss-collection-banner__content {
+    text-align: center;
+}
+
+.ss-collection-banner--right .ss-collection-banner__container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.ss-collection-banner--right .ss-collection-banner__content {
+    text-align: right;
+}
+
+/* Hover Effects */
+.ss-collection-banner:hover .ss-collection-banner__bg img {
+    transform: scale(1.05);
+    transition: transform 10s ease-out;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .ss-collection-banner {
+        min-height: 300px;
+    }
+
+    .ss-collection-banner__container {
+        padding-block: var(--ss-space-12);
+    }
+
+    .ss-collection-banner__content {
+        max-width: 100%;
+    }
+
+    .ss-collection-banner--right .ss-collection-banner__container,
+    .ss-collection-banner--left .ss-collection-banner__container {
+        justify-content: flex-start;
+    }
+
+    .ss-collection-banner--right .ss-collection-banner__content,
+    .ss-collection-banner--left .ss-collection-banner__content {
+        text-align: left;
+    }
+}

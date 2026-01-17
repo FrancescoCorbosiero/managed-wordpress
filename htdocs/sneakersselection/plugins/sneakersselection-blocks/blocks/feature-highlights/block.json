@@ -1,0 +1,71 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "sneakersselection/feature-highlights",
+    "version": "1.0.0",
+    "title": "Feature Highlights",
+    "category": "sneakersselection",
+    "description": "Showcase sneaker features like comfort, durability, and technology.",
+    "keywords": ["features", "highlights", "specs", "technology"],
+    "textdomain": "sneakersselection-blocks",
+    "attributes": {
+        "heading": {
+            "type": "string",
+            "default": ""
+        },
+        "features": {
+            "type": "array",
+            "default": [
+                {
+                    "icon": "comfort",
+                    "title": "Supreme Comfort",
+                    "description": "Nike Air cushioning provides all-day comfort and support."
+                },
+                {
+                    "icon": "durability",
+                    "title": "Built to Last",
+                    "description": "Premium leather upper ensures long-lasting durability."
+                },
+                {
+                    "icon": "lightweight",
+                    "title": "Lightweight Design",
+                    "description": "Engineered for performance without the extra weight."
+                },
+                {
+                    "icon": "style",
+                    "title": "Iconic Style",
+                    "description": "Timeless design that never goes out of fashion."
+                }
+            ]
+        },
+        "columns": {
+            "type": "number",
+            "default": 4
+        },
+        "layout": {
+            "type": "string",
+            "default": "grid",
+            "enum": ["grid", "list"]
+        },
+        "iconStyle": {
+            "type": "string",
+            "default": "filled",
+            "enum": ["filled", "outlined", "minimal"]
+        }
+    },
+    "supports": {
+        "html": false,
+        "align": ["wide", "full"],
+        "spacing": {
+            "padding": true,
+            "margin": true
+        }
+    },
+    "editorScript": {
+        "handle": "sneakersselection-feature-highlights-editor",
+        "src": "file:./editor.js",
+        "dependencies": ["wp-blocks", "wp-element", "wp-block-editor", "wp-components", "wp-i18n"]
+    },
+    "render": "file:./render.php",
+    "style": "file:./style.css"
+}
