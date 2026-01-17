@@ -1,0 +1,71 @@
+/* CusRev Styling */
+.site .woocommerce-noreviews {
+	margin-bottom: 2rem;
+}
+#reviews .cr-summaryBox-wrap {
+	padding: 20px;
+}
+#reviews.cr-reviews-ajax-reviews {
+	margin-bottom: 0;
+}
+#reviews .commentlist li .description {
+	margin-bottom: 1em;
+}
+#reviews.cr-reviews-ajax-reviews .cr-ajax-reviews-cus-images-div .cr-ajax-reviews-cus-images-title {
+	margin-bottom: 1em;
+}
+#reviews.cr-reviews-ajax-reviews .cr-ajax-reviews-add-review {
+	font-size: 13px;
+    padding: 6px 16px;
+}
+#reviews.cr-reviews-ajax-reviews #comments.cr-reviews-ajax-comments .cr-ajax-reviews-list li:last-of-type .comment-text {
+    border: none;
+}
+#reviews.cr-reviews-ajax-reviews #comments.cr-reviews-ajax-comments .cr-ajax-reviews-list li:last-of-type {
+    padding-bottom: 0;
+}
+#reviews.cr-reviews-ajax-reviews #comments.cr-reviews-ajax-comments .cr-ajax-reviews-list {
+	padding-bottom: 0;
+}
+.cr-summaryBox-wrap .cr-histogramTable,
+#reviews .cr-summaryBox-wrap .cr-total-rating-count,
+.cr-all-reviews-shortcode ol.commentlist li .comment-text .meta .woocommerce-review__verified,
+#reviews.cr-reviews-ajax-reviews #comments.cr-reviews-ajax-comments .cr-ajax-reviews-list .comment-text .meta .woocommerce-review__verified {
+	font-size: 13px;
+}
+.cr-all-reviews-shortcode ol.commentlist li .comment-text .meta .woocommerce-review__author, #reviews.cr-reviews-ajax-reviews #comments.cr-reviews-ajax-comments .cr-ajax-reviews-list .comment-text .meta .woocommerce-review__author {
+	font-size: 15px;
+}
+.cr-reviews-ajax-reviews .cr-ajax-reviews-sort-div .cr-ajax-reviews-sort, .cr-all-reviews-shortcode .cr-ajax-reviews-sort-div .cr-ajax-reviews-sort {
+	background-color: #fff;
+	border: 1px solid #ccc;
+}
+.cr-reviews-ajax-reviews .cr-reviews-ajax-comments .cr-ajax-reviews-list .comment_container .comment-text, .cr-all-reviews-shortcode ol.commentlist li .comment-text {
+	margin-left: 0;
+}
+#reviews.cr-reviews-ajax-reviews #comments.cr-reviews-ajax-comments .cr-ajax-reviews-list li {
+	margin-bottom: 0;
+}
+.cr-reviews-ajax-reviews .cr-reviews-ajax-comments .cr-ajax-reviews-list .comment-text p {
+	margin-top: 0.5em;
+}
+.cr-all-reviews-shortcode ol.commentlist ul.children, #reviews.cr-reviews-ajax-reviews #comments.cr-reviews-ajax-comments .cr-ajax-reviews-list ul.children {
+	margin-left: 100px;
+}
+#reviews.cr-reviews-ajax-reviews #comments.cr-reviews-ajax-comments .cr-ajax-reviews-list li {
+	padding: 0 0 1.5rem 0;
+}
+#reviews.cr-reviews-ajax-reviews #comments.cr-reviews-ajax-comments .cr-ajax-reviews-list ul.children li {
+	padding: 1.5rem;
+}
+#reviews .commentlist li .description {
+	font-size: 14px;
+}
+#reviews.cr-reviews-ajax-reviews #comments.cr-reviews-ajax-comments .cr-ajax-reviews-list .review ul.children .comment-text {
+	border: 0;
+	margin: 0;
+	padding: 0
+}
+#reviews.cr-reviews-ajax-reviews #comments.cr-reviews-ajax-comments .cr-ajax-reviews-list .comment-text .meta .cr-meta-author-featured-date {
+	column-gap: 5px;
+}
