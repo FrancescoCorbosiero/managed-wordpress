@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Bento Block - Demo Variants</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            padding: 40px;
+            background: #f5f5f5;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 { color: #1a1a2e; margin-bottom: 10px; }
+        .subtitle { color: #666; margin-bottom: 40px; }
+        .variant {
+            background: #fff;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .variant h2 {
+            color: #1a1a2e;
+            font-size: 18px;
+            margin: 0 0 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .variant h2 span {
+            background: #6366f1;
+            color: #fff;
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+        .variant p {
+            color: #666;
+            font-size: 14px;
+            margin: 0 0 16px 0;
+        }
+        pre {
+            background: #1a1a2e;
+            color: #e0e0e0;
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+        .trigger-note {
+            background: #dbeafe;
+            border: 1px solid #3b82f6;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 30px;
+        }
+        .trigger-note h3 {
+            color: #1e40af;
+            margin: 0 0 8px 0;
+            font-size: 14px;
+        }
+        .trigger-note code {
+            background: #fff;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        .grid-preview {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 6px;
+            padding: 16px;
+            background: #0a0a0f;
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+        .grid-preview .tile {
+            border-radius: 4px;
+            height: 30px;
+        }
+        .grid-preview .tile.large {
+            grid-column: span 2;
+            grid-row: span 2;
+            height: auto;
+            min-height: 66px;
+        }
+        .grid-preview .tile.medium {
+            grid-row: span 1;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Navigation Bento Block - Demo Variants</h1>
+<p class="subtitle">Creative bento-grid style fullscreen navigation. Each tile can have its own color, size, icon, and sub-items.</p>
+
+<div class="trigger-note">
+    <h3>How to Trigger This Navigation</h3>
+    <p>Add <code>data-nav-bento-trigger="your-trigger-id"</code> to ANY element to open this navigation.</p>
+    <p>Example: <code>&lt;button data-nav-bento-trigger="bento-nav"&gt;Menu&lt;/button&gt;</code></p>
+</div>
+
+<!-- Variant 1: Alpacode Agency (Italian) -->
+<div class="variant">
+    <h2>Alpacode Agency Bento <span>Italian</span></h2>
+    <p>Complete agency navigation with colorful tiles and hierarchical structure.</p>
+    <div class="grid-preview">
+        <div class="tile large" style="background: #6366f1;"></div>
+        <div class="tile medium" style="background: #8b5cf6;"></div>
+        <div class="tile medium" style="background: #ec4899;"></div>
+        <div class="tile medium" style="background: #06b6d4;"></div>
+        <div class="tile medium" style="background: #10b981;"></div>
+        <div class="tile medium" style="background: #f59e0b;"></div>
+    </div>
+    <pre>&lt;!-- wp:alpacode/nav-bento {
+    "triggerId": "bento-nav",
+    "colorScheme": "dark",
+    "showNumbers": true,
+    "hoverExpand": true,
+    "menuItems": [
+        {
+            "label": "Web",
+            "url": "/web",
+            "icon": "globe",
+            "description": "Soluzioni web complete",
+            "size": "large",
+            "color": "#6366f1",
+            "children": [
+                {"label": "Sito Web", "url": "/web/sito"},
+                {"label": "SEO", "url": "/web/seo"},
+                {"label": "E-commerce", "url": "/web/ecommerce"}
+            ]
+        },
+        {
+            "label": "Applicazioni",
+            "url": "/app",
+            "icon": "smartphone",
+            "description": "Software su misura",
+            "size": "medium",
+            "color": "#8b5cf6",
+            "children": [
+                {"label": "Piattaforme", "url": "/app/piattaforme"},
+                {"label": "E-commerce", "url": "/app/ecommerce"}
+            ]
+        },
+        {
+            "label": "Servizi",
+            "url": "/servizi",
+            "icon": "camera",
+            "description": "Servizi fotografici",
+            "size": "medium",
+            "color": "#ec4899",
+            "children": [
+                {"label": "Fotografici", "url": "/servizi/foto"}
+            ]
+        },
+        {
+            "label": "Visione",
+            "url": "/visione",
+            "icon": "eye",
+            "description": "La nostra filosofia",
+            "size": "medium",
+            "color": "#06b6d4",
+            "children": [
+                {"label": "Mission", "url": "/visione/mission"},
+                {"label": "Metodo", "url": "/visione/metodo"},
+                {"label": "Portfolio", "url": "/visione/portfolio"},
+                {"label": "Careers", "url": "/visione/careers"}
+            ]
+        },
+        {
+            "label": "Blog",
+            "url": "/blog",
+            "icon": "file-text",
+            "description": "Articoli e insights",
+            "size": "medium",
+            "color": "#10b981",
+            "children": []
+        },
+        {
+            "label": "Contatti",
+            "url": "/contatti",
+            "icon": "mail",
+            "description": "Parliamo del tuo progetto",
+            "size": "medium",
+            "color": "#f59e0b",
+            "children": []
+        }
+    ],
+    "footerText": "© 2024 Alpacode. Tutti i diritti riservati."
+} /--&gt;
+
+&lt;!-- Trigger button --&gt;
+&lt;button data-nav-bento-trigger="bento-nav"&gt;Menu&lt;/button&gt;</pre>
+</div>
+
+<!-- Variant 2: Agency (English) -->
+<div class="variant">
+    <h2>Digital Agency <span>English</span></h2>
+    <p>English version with monochrome gradient tiles.</p>
+    <pre>&lt;!-- wp:alpacode/nav-bento {
+    "triggerId": "agency-bento",
+    "colorScheme": "dark",
+    "showNumbers": true,
+    "hoverExpand": true,
+    "menuItems": [
+        {
+            "label": "Web",
+            "url": "/web",
+            "icon": "globe",
+            "description": "Complete web solutions",
+            "size": "large",
+            "color": "#3b82f6",
+            "children": [
+                {"label": "Websites", "url": "/web/websites"},
+                {"label": "SEO", "url": "/web/seo"},
+                {"label": "E-commerce", "url": "/web/ecommerce"}
+            ]
+        },
+        {
+            "label": "Applications",
+            "url": "/apps",
+            "icon": "smartphone",
+            "description": "Custom software",
+            "size": "medium",
+            "color": "#2563eb",
+            "children": [
+                {"label": "Platforms", "url": "/apps/platforms"},
+                {"label": "Mobile", "url": "/apps/mobile"}
+            ]
+        },
+        {
+            "label": "Services",
+            "url": "/services",
+            "icon": "camera",
+            "description": "Creative services",
+            "size": "medium",
+            "color": "#1d4ed8",
+            "children": []
+        },
+        {
+            "label": "Vision",
+            "url": "/vision",
+            "icon": "eye",
+            "description": "Our philosophy",
+            "size": "medium",
+            "color": "#1e40af",
+            "children": [
+                {"label": "Mission", "url": "/vision/mission"},
+                {"label": "Portfolio", "url": "/vision/portfolio"},
+                {"label": "Careers", "url": "/vision/careers"}
+            ]
+        },
+        {
+            "label": "Blog",
+            "url": "/blog",
+            "icon": "file-text",
+            "description": "Latest articles",
+            "size": "small",
+            "color": "#1e3a8a",
+            "children": []
+        },
+        {
+            "label": "Contact",
+            "url": "/contact",
+            "icon": "mail",
+            "description": "Get in touch",
+            "size": "small",
+            "color": "#172554",
+            "children": []
+        }
+    ],
+    "footerText": "© 2024 Agency. All rights reserved."
+} /--&gt;</pre>
+</div>
+
+<!-- Variant 3: Rainbow Theme -->
+<div class="variant">
+    <h2>Rainbow Theme <span>Colorful</span></h2>
+    <p>Vibrant rainbow-colored tiles for creative/playful brands.</p>
+    <pre>&lt;!-- wp:alpacode/nav-bento {
+    "triggerId": "rainbow-nav",
+    "colorScheme": "dark",
+    "showNumbers": false,
+    "hoverExpand": true,
+    "menuItems": [
+        {
+            "label": "Design",
+            "url": "/design",
+            "icon": "eye",
+            "description": "Visual creativity",
+            "size": "large",
+            "color": "#ef4444",
+            "children": [
+                {"label": "Branding", "url": "/design/branding"},
+                {"label": "UI/UX", "url": "/design/ui-ux"},
+                {"label": "Print", "url": "/design/print"}
+            ]
+        },
+        {
+            "label": "Development",
+            "url": "/dev",
+            "icon": "code",
+            "description": "Code that works",
+            "size": "medium",
+            "color": "#f97316",
+            "children": [
+                {"label": "Frontend", "url": "/dev/frontend"},
+                {"label": "Backend", "url": "/dev/backend"}
+            ]
+        },
+        {
+            "label": "Strategy",
+            "url": "/strategy",
+            "icon": "briefcase",
+            "description": "Smart planning",
+            "size": "medium",
+            "color": "#eab308",
+            "children": []
+        },
+        {
+            "label": "Marketing",
+            "url": "/marketing",
+            "icon": "users",
+            "description": "Grow your reach",
+            "size": "medium",
+            "color": "#22c55e",
+            "children": [
+                {"label": "Social", "url": "/marketing/social"},
+                {"label": "Content", "url": "/marketing/content"}
+            ]
+        },
+        {
+            "label": "Work",
+            "url": "/work",
+            "icon": "star",
+            "description": "Our portfolio",
+            "size": "medium",
+            "color": "#06b6d4",
+            "children": []
+        },
+        {
+            "label": "Contact",
+            "url": "/contact",
+            "icon": "mail",
+            "description": "Let's connect",
+            "size": "medium",
+            "color": "#8b5cf6",
+            "children": []
+        }
+    ],
+    "footerText": "Creating magic since 2020"
+} /--&gt;</pre>
+</div>
+
+<!-- Variant 4: Light Theme -->
+<div class="variant">
+    <h2>Light Theme <span>Clean</span></h2>
+    <p>Light background with subtle pastel tiles for elegant sites.</p>
+    <pre>&lt;!-- wp:alpacode/nav-bento {
+    "triggerId": "light-bento",
+    "colorScheme": "light",
+    "showNumbers": true,
+    "hoverExpand": false,
+    "menuItems": [
+        {
+            "label": "Home",
+            "url": "/",
+            "icon": "globe",
+            "description": "Back to start",
+            "size": "medium",
+            "color": "#6366f1",
+            "children": []
+        },
+        {
+            "label": "Work",
+            "url": "/work",
+            "icon": "briefcase",
+            "description": "Our projects",
+            "size": "large",
+            "color": "#8b5cf6",
+            "children": [
+                {"label": "Case Studies", "url": "/work/cases"},
+                {"label": "Clients", "url": "/work/clients"}
+            ]
+        },
+        {
+            "label": "About",
+            "url": "/about",
+            "icon": "users",
+            "description": "Meet the team",
+            "size": "medium",
+            "color": "#a78bfa",
+            "children": []
+        },
+        {
+            "label": "Contact",
+            "url": "/contact",
+            "icon": "mail",
+            "description": "Get in touch",
+            "size": "medium",
+            "color": "#c4b5fd",
+            "children": []
+        }
+    ],
+    "footerText": ""
+} /--&gt;</pre>
+</div>
+
+<!-- Variant 5: SaaS Product -->
+<div class="variant">
+    <h2>SaaS Product <span>Tech</span></h2>
+    <p>Navigation for software products with features and resources.</p>
+    <pre>&lt;!-- wp:alpacode/nav-bento {
+    "triggerId": "saas-bento",
+    "colorScheme": "dark",
+    "showNumbers": true,
+    "hoverExpand": true,
+    "menuItems": [
+        {
+            "label": "Product",
+            "url": "/product",
+            "icon": "globe",
+            "description": "Explore features",
+            "size": "large",
+            "color": "#10b981",
+            "children": [
+                {"label": "Features", "url": "/product/features"},
+                {"label": "Integrations", "url": "/product/integrations"},
+                {"label": "Security", "url": "/product/security"},
+                {"label": "API", "url": "/product/api"}
+            ]
+        },
+        {
+            "label": "Solutions",
+            "url": "/solutions",
+            "icon": "briefcase",
+            "description": "By industry",
+            "size": "medium",
+            "color": "#059669",
+            "children": [
+                {"label": "Enterprise", "url": "/solutions/enterprise"},
+                {"label": "Startups", "url": "/solutions/startups"}
+            ]
+        },
+        {
+            "label": "Resources",
+            "url": "/resources",
+            "icon": "file-text",
+            "description": "Learn more",
+            "size": "medium",
+            "color": "#047857",
+            "children": [
+                {"label": "Docs", "url": "/docs"},
+                {"label": "Blog", "url": "/blog"},
+                {"label": "Community", "url": "/community"}
+            ]
+        },
+        {
+            "label": "Pricing",
+            "url": "/pricing",
+            "icon": "star",
+            "description": "Simple plans",
+            "size": "medium",
+            "color": "#065f46",
+            "children": []
+        },
+        {
+            "label": "Company",
+            "url": "/company",
+            "icon": "users",
+            "description": "About us",
+            "size": "small",
+            "color": "#064e3b",
+            "children": [
+                {"label": "About", "url": "/company/about"},
+                {"label": "Careers", "url": "/company/careers"}
+            ]
+        },
+        {
+            "label": "Login",
+            "url": "/login",
+            "icon": "code",
+            "description": "Access dashboard",
+            "size": "small",
+            "color": "#022c22",
+            "children": []
+        }
+    ],
+    "footerText": "Trusted by 50,000+ teams"
+} /--&gt;</pre>
+</div>
+
+<!-- Variant 6: E-commerce -->
+<div class="variant">
+    <h2>E-commerce Store <span>Shop</span></h2>
+    <p>Shopping navigation with categories and collections.</p>
+    <pre>&lt;!-- wp:alpacode/nav-bento {
+    "triggerId": "shop-bento",
+    "colorScheme": "dark",
+    "showNumbers": false,
+    "hoverExpand": true,
+    "menuItems": [
+        {
+            "label": "Shop All",
+            "url": "/shop",
+            "icon": "globe",
+            "description": "Browse everything",
+            "size": "large",
+            "color": "#ec4899",
+            "children": [
+                {"label": "New Arrivals", "url": "/shop/new"},
+                {"label": "Best Sellers", "url": "/shop/best"},
+                {"label": "Sale", "url": "/shop/sale"}
+            ]
+        },
+        {
+            "label": "Women",
+            "url": "/women",
+            "icon": "star",
+            "description": "Women's collection",
+            "size": "medium",
+            "color": "#db2777",
+            "children": [
+                {"label": "Clothing", "url": "/women/clothing"},
+                {"label": "Shoes", "url": "/women/shoes"},
+                {"label": "Accessories", "url": "/women/accessories"}
+            ]
+        },
+        {
+            "label": "Men",
+            "url": "/men",
+            "icon": "star",
+            "description": "Men's collection",
+            "size": "medium",
+            "color": "#be185d",
+            "children": [
+                {"label": "Clothing", "url": "/men/clothing"},
+                {"label": "Shoes", "url": "/men/shoes"},
+                {"label": "Accessories", "url": "/men/accessories"}
+            ]
+        },
+        {
+            "label": "Collections",
+            "url": "/collections",
+            "icon": "eye",
+            "description": "Curated picks",
+            "size": "medium",
+            "color": "#9d174d",
+            "children": [
+                {"label": "Summer 2024", "url": "/collections/summer"},
+                {"label": "Essentials", "url": "/collections/essentials"}
+            ]
+        },
+        {
+            "label": "About",
+            "url": "/about",
+            "icon": "users",
+            "description": "Our story",
+            "size": "small",
+            "color": "#831843",
+            "children": []
+        },
+        {
+            "label": "Contact",
+            "url": "/contact",
+            "icon": "mail",
+            "description": "Need help?",
+            "size": "small",
+            "color": "#500724",
+            "children": []
+        }
+    ],
+    "footerText": "Free shipping on orders over $100"
+} /--&gt;</pre>
+</div>
+
+<!-- Variant 7: Portfolio/Creative -->
+<div class="variant">
+    <h2>Creative Portfolio <span>Artist</span></h2>
+    <p>Artistic navigation for photographers, designers, and creatives.</p>
+    <pre>&lt;!-- wp:alpacode/nav-bento {
+    "triggerId": "portfolio-bento",
+    "colorScheme": "dark",
+    "showNumbers": true,
+    "hoverExpand": false,
+    "menuItems": [
+        {
+            "label": "Work",
+            "url": "/work",
+            "icon": "camera",
+            "description": "Selected projects",
+            "size": "large",
+            "color": "#f59e0b",
+            "children": [
+                {"label": "Photography", "url": "/work/photo"},
+                {"label": "Film", "url": "/work/film"},
+                {"label": "Commercial", "url": "/work/commercial"}
+            ]
+        },
+        {
+            "label": "About",
+            "url": "/about",
+            "icon": "users",
+            "description": "My story",
+            "size": "medium",
+            "color": "#d97706",
+            "children": []
+        },
+        {
+            "label": "Services",
+            "url": "/services",
+            "icon": "briefcase",
+            "description": "What I offer",
+            "size": "medium",
+            "color": "#b45309",
+            "children": [
+                {"label": "Portraits", "url": "/services/portraits"},
+                {"label": "Events", "url": "/services/events"}
+            ]
+        },
+        {
+            "label": "Contact",
+            "url": "/contact",
+            "icon": "mail",
+            "description": "Book a session",
+            "size": "medium",
+            "color": "#92400e",
+            "children": []
+        }
+    ],
+    "footerText": "Based in Milan, Available Worldwide"
+} /--&gt;</pre>
+</div>
+
+<!-- Variant 8: Minimal 4-Tile -->
+<div class="variant">
+    <h2>Minimal 4 Tiles <span>Simple</span></h2>
+    <p>Ultra-simple navigation with just 4 balanced tiles.</p>
+    <pre>&lt;!-- wp:alpacode/nav-bento {
+    "triggerId": "minimal-bento",
+    "colorScheme": "dark",
+    "showNumbers": true,
+    "hoverExpand": false,
+    "menuItems": [
+        {
+            "label": "Work",
+            "url": "#work",
+            "icon": "briefcase",
+            "description": "View projects",
+            "size": "medium",
+            "color": "#6366f1",
+            "children": []
+        },
+        {
+            "label": "About",
+            "url": "#about",
+            "icon": "users",
+            "description": "Who we are",
+            "size": "medium",
+            "color": "#8b5cf6",
+            "children": []
+        },
+        {
+            "label": "Services",
+            "url": "#services",
+            "icon": "star",
+            "description": "What we do",
+            "size": "medium",
+            "color": "#a78bfa",
+            "children": []
+        },
+        {
+            "label": "Contact",
+            "url": "#contact",
+            "icon": "mail",
+            "description": "Get in touch",
+            "size": "medium",
+            "color": "#c4b5fd",
+            "children": []
+        }
+    ],
+    "footerText": ""
+} /--&gt;</pre>
+</div>
+
+<!-- JavaScript API -->
+<div class="variant">
+    <h2>JavaScript API <span>Advanced</span></h2>
+    <p>Control the bento navigation programmatically.</p>
+    <pre>// Open navigation by trigger ID
+window.AlpacodeNavBento.open('bento-nav');
+
+// Close navigation
+window.AlpacodeNavBento.close('bento-nav');
+
+// Toggle navigation
+window.AlpacodeNavBento.toggle('bento-nav');
+
+// Close all open navigations
+window.AlpacodeNavBento.closeAll();
+
+// Listen for events
+document.addEventListener('navbento:open', function(e) {
+    console.log('Bento navigation opened');
+});
+
+document.addEventListener('navbento:close', function(e) {
+    console.log('Bento navigation closed');
+});
+
+// Access instance directly
+var nav = document.querySelector('.alpacode-nav-bento[data-trigger-id="bento-nav"]');
+if (nav && nav.alpacodeNavBento) {
+    nav.alpacodeNavBento.open();
+    console.log('Is open:', nav.alpacodeNavBento.isOpen());
+}</pre>
+</div>
+
+</body>
+</html>

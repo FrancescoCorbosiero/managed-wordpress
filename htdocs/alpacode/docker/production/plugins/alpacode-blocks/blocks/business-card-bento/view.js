@@ -137,25 +137,44 @@
         var statValues = card.querySelectorAll('.alpacode-bento-card__stat-value');
 
         statValues.forEach(function(element) {
-            // Extract the numeric value and suffix (like + or K)
             var text = element.textContent.trim();
-            var match = text.match(/^([\d.]+)(.*)$/);
 
-            if (!match) return;
+            // Skip if already processed
+            if (element.dataset.processed === 'true') return;
+            element.dataset.processed = 'true';
 
-            var targetValue = parseFloat(match[1]);
-            var suffix = match[2] || '';
-            var isFloat = text.includes('.');
-            var duration = 2000;
-
-            // Store original for reset
+            // Store original value
             element.dataset.originalValue = text;
+
+            // Parse the value - handle formats like: "10+", "$5M", "99%", "200+", "10.5K"
+            // Match: optional prefix (non-digits), number (with optional decimal), optional suffix
+            var match = text.match(/^([^\d]*)([\d.]+)(.*)$/);
+
+            // If no number found, don't animate (e.g., "Fortune", "Custom")
+            if (!match || !match[2]) {
+                return;
+            }
+
+            var prefix = match[1] || '';  // e.g., "$", "€", ""
+            var numStr = match[2];         // e.g., "10", "5.5", "99"
+            var suffix = match[3] || '';   // e.g., "+", "M", "%", "K"
+
+            var targetValue = parseFloat(numStr);
+
+            // Validate the number
+            if (isNaN(targetValue) || !isFinite(targetValue)) {
+                return;
+            }
+
+            var isFloat = numStr.includes('.');
+            var decimalPlaces = isFloat ? (numStr.split('.')[1] || '').length : 0;
+            var duration = 2000;
 
             // Create observer for scroll-triggered animation
             var observer = new IntersectionObserver(function(entries) {
                 entries.forEach(function(entry) {
                     if (entry.isIntersecting) {
-                        animateValue(element, 0, targetValue, suffix, isFloat, duration);
+                        animateValue(element, 0, targetValue, prefix, suffix, isFloat, decimalPlaces, duration);
                         observer.unobserve(element);
                     }
                 });
@@ -168,9 +187,14 @@
     /**
      * Animate a numeric value
      */
-    function animateValue(element, start, end, suffix, isFloat, duration) {
+    function animateValue(element, start, end, prefix, suffix, isFloat, decimalPlaces, duration) {
+        // Validate inputs
+        if (isNaN(end) || !isFinite(end)) {
+            return;
+        }
+
         if (prefersReducedMotion) {
-            element.textContent = (isFloat ? end.toFixed(1) : Math.floor(end)) + suffix;
+            element.textContent = prefix + (isFloat ? end.toFixed(decimalPlaces) : Math.floor(end)) + suffix;
             return;
         }
 
@@ -184,12 +208,14 @@
             var easeProgress = 1 - Math.pow(1 - progress, 3);
             var current = start + (end - start) * easeProgress;
 
-            element.textContent = (isFloat ? current.toFixed(1) : Math.floor(current)) + suffix;
+            // Format the number
+            var displayValue = isFloat ? current.toFixed(decimalPlaces) : Math.floor(current);
+            element.textContent = prefix + displayValue + suffix;
 
             if (progress < 1) {
                 requestAnimationFrame(animate);
             } else {
-                element.textContent = (isFloat ? end.toFixed(1) : Math.floor(end)) + suffix;
+                element.textContent = prefix + (isFloat ? end.toFixed(decimalPlaces) : Math.floor(end)) + suffix;
             }
         }
 
