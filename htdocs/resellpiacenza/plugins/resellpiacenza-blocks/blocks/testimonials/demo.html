@@ -1,0 +1,213 @@
+<!--
+Testimonials Block - Demo & Variants
+Copy-paste ready examples for Resell Piacenza
+
+This block creates a customer reviews carousel with elegant slider,
+star ratings, and customer avatars.
+-->
+
+<!-- ============================================
+     WORDPRESS CODE EDITOR SNIPPETS
+     ============================================ -->
+
+<!--
+VARIANT 1: Full testimonials carousel (3 testimonials)
+-->
+<!-- wp:resellpiacenza/testimonials {"eyebrow":"Customer Reviews","title":"What Our Customers Say","autoplay":6000,"testimonials":[{"quote":"Absolutely incredible service. The sneakers arrived in perfect condition with full authentication documentation. This is now my go-to for all premium purchases.","name":"Marco R.","meta":"Verified Buyer - Milan","avatar":"https://i.pravatar.cc/100?img=12","rating":5},{"quote":"Fast shipping, excellent communication, and the authentication certificate gave me complete peace of mind. Highly recommend!","name":"Sofia L.","meta":"Verified Buyer - Rome","avatar":"https://i.pravatar.cc/100?img=5","rating":5},{"quote":"Found a rare pair I'd been searching for months. The condition was exactly as described. Will definitely buy again.","name":"Alessandro M.","meta":"Verified Buyer - Naples","avatar":"https://i.pravatar.cc/100?img=8","rating":5}]} /-->
+
+<!--
+VARIANT 2: Single testimonial (no carousel)
+-->
+<!-- wp:resellpiacenza/testimonials {"eyebrow":"Featured Review","title":"Customer Spotlight","autoplay":0,"testimonials":[{"quote":"The authentication process is incredibly thorough. I've purchased from other resellers before, but Resell Piacenza is in a different league. The attention to detail and customer service is unmatched.","name":"Giovanni B.","meta":"VIP Member - Florence","avatar":"https://i.pravatar.cc/100?img=15","rating":5}]} /-->
+
+<!--
+VARIANT 3: Multiple testimonials, slow autoplay
+-->
+<!-- wp:resellpiacenza/testimonials {"eyebrow":"","title":"Trusted by Collectors","autoplay":10000,"testimonials":[{"quote":"Best resale experience I've ever had. Period.","name":"Lorenzo P.","meta":"Collector - Turin","avatar":"https://i.pravatar.cc/100?img=3","rating":5},{"quote":"Premium service for premium sneakers. Exactly what the market needed.","name":"Francesca D.","meta":"Verified Buyer - Venice","avatar":"https://i.pravatar.cc/100?img=9","rating":5}]} /-->
+
+<!--
+VARIANT 4: No eyebrow, 4-star review included
+-->
+<!-- wp:resellpiacenza/testimonials {"eyebrow":"","title":"Recent Reviews","autoplay":5000,"testimonials":[{"quote":"Great selection and fast delivery. The sneakers were exactly as described.","name":"Matteo S.","meta":"Verified Buyer - Bologna","avatar":"https://i.pravatar.cc/100?img=11","rating":5},{"quote":"Good experience overall. Shipping took a bit longer than expected, but the product quality was excellent.","name":"Elena R.","meta":"Verified Buyer - Genoa","avatar":"https://i.pravatar.cc/100?img=20","rating":4}]} /-->
+
+<!--
+VARIANT 5: Detailed testimonials
+-->
+<!-- wp:resellpiacenza/testimonials {"eyebrow":"Success Stories","title":"From Our Community","autoplay":8000,"testimonials":[{"quote":"As a serious collector, authenticity is everything to me. I've been burned by fakes before, so I was skeptical at first. After my third purchase from Resell Piacenza, I can confidently say they're the real deal. Every pair has been 100% authentic with full documentation.","name":"Roberto M.","meta":"Collector since 2019","avatar":"https://i.pravatar.cc/100?img=7","rating":5},{"quote":"The customer service team went above and beyond to help me find a specific size. They even followed up after delivery to make sure everything was perfect. That level of care is rare these days.","name":"Chiara V.","meta":"Repeat Customer - Palermo","avatar":"https://i.pravatar.cc/100?img=23","rating":5}]} /-->
+
+
+<!-- ============================================
+     HTML VARIANTS FOR VISUAL TESTING
+     ============================================ -->
+
+<!-- DEFAULT: Full testimonials carousel -->
+<section class="rp-block rp-testimonials" data-rp-testimonials data-rp-testimonials-autoplay="6000">
+    <div class="rp-testimonials__header" data-rp-reveal="up">
+        <span class="rp-testimonials__eyebrow">Customer Reviews</span>
+        <h2 class="rp-testimonials__title">What Our Customers Say</h2>
+    </div>
+    <div class="rp-testimonials__carousel" data-rp-reveal="up" data-rp-reveal-delay="200">
+        <div class="rp-testimonials__track" data-rp-testimonials-track>
+            <div class="rp-testimonial" data-rp-testimonial>
+                <div class="rp-testimonials__stars">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <blockquote class="rp-testimonial__quote">
+                    Absolutely incredible service. The sneakers arrived in perfect condition with full authentication documentation. This is now my go-to for all premium purchases.
+                </blockquote>
+                <div class="rp-testimonial__author">
+                    <div class="rp-testimonial__avatar">
+                        <img src="https://i.pravatar.cc/100?img=12" alt="Marco R." loading="lazy">
+                    </div>
+                    <div class="rp-testimonial__info">
+                        <span class="rp-testimonial__name">Marco R.</span>
+                        <span class="rp-testimonial__meta">Verified Buyer - Milan</span>
+                    </div>
+                </div>
+            </div>
+            <div class="rp-testimonial" data-rp-testimonial>
+                <div class="rp-testimonials__stars">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <blockquote class="rp-testimonial__quote">
+                    Fast shipping, excellent communication, and the authentication certificate gave me complete peace of mind. Highly recommend!
+                </blockquote>
+                <div class="rp-testimonial__author">
+                    <div class="rp-testimonial__avatar">
+                        <img src="https://i.pravatar.cc/100?img=5" alt="Sofia L." loading="lazy">
+                    </div>
+                    <div class="rp-testimonial__info">
+                        <span class="rp-testimonial__name">Sofia L.</span>
+                        <span class="rp-testimonial__meta">Verified Buyer - Rome</span>
+                    </div>
+                </div>
+            </div>
+            <div class="rp-testimonial" data-rp-testimonial>
+                <div class="rp-testimonials__stars">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <blockquote class="rp-testimonial__quote">
+                    Found a rare pair I'd been searching for months. The condition was exactly as described. Will definitely buy again.
+                </blockquote>
+                <div class="rp-testimonial__author">
+                    <div class="rp-testimonial__avatar">
+                        <img src="https://i.pravatar.cc/100?img=8" alt="Alessandro M." loading="lazy">
+                    </div>
+                    <div class="rp-testimonial__info">
+                        <span class="rp-testimonial__name">Alessandro M.</span>
+                        <span class="rp-testimonial__meta">Verified Buyer - Naples</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="rp-testimonials__nav">
+            <button class="rp-testimonials__dot rp-testimonials__dot--active" data-rp-testimonials-dot aria-label="Go to testimonial 1"></button>
+            <button class="rp-testimonials__dot" data-rp-testimonials-dot aria-label="Go to testimonial 2"></button>
+            <button class="rp-testimonials__dot" data-rp-testimonials-dot aria-label="Go to testimonial 3"></button>
+        </div>
+    </div>
+</section>
+
+
+<!-- VARIANT: Single testimonial (no carousel) -->
+<section class="rp-block rp-testimonials" data-rp-testimonials data-rp-testimonials-autoplay="0">
+    <div class="rp-testimonials__header" data-rp-reveal="up">
+        <span class="rp-testimonials__eyebrow">Featured Review</span>
+        <h2 class="rp-testimonials__title">Customer Spotlight</h2>
+    </div>
+    <div class="rp-testimonials__carousel" data-rp-reveal="up" data-rp-reveal-delay="200">
+        <div class="rp-testimonials__track" data-rp-testimonials-track>
+            <div class="rp-testimonial" data-rp-testimonial>
+                <div class="rp-testimonials__stars">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <blockquote class="rp-testimonial__quote">
+                    The authentication process is incredibly thorough. I've purchased from other resellers before, but Resell Piacenza is in a different league. The attention to detail and customer service is unmatched.
+                </blockquote>
+                <div class="rp-testimonial__author">
+                    <div class="rp-testimonial__avatar">
+                        <img src="https://i.pravatar.cc/100?img=15" alt="Giovanni B." loading="lazy">
+                    </div>
+                    <div class="rp-testimonial__info">
+                        <span class="rp-testimonial__name">Giovanni B.</span>
+                        <span class="rp-testimonial__meta">VIP Member - Florence</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- VARIANT: No eyebrow -->
+<section class="rp-block rp-testimonials" data-rp-testimonials data-rp-testimonials-autoplay="8000">
+    <div class="rp-testimonials__header" data-rp-reveal="up">
+        <h2 class="rp-testimonials__title">Trusted by Collectors</h2>
+    </div>
+    <div class="rp-testimonials__carousel" data-rp-reveal="up" data-rp-reveal-delay="200">
+        <div class="rp-testimonials__track" data-rp-testimonials-track>
+            <div class="rp-testimonial" data-rp-testimonial>
+                <div class="rp-testimonials__stars">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <blockquote class="rp-testimonial__quote">
+                    Best resale experience I've ever had. Period.
+                </blockquote>
+                <div class="rp-testimonial__author">
+                    <div class="rp-testimonial__avatar">
+                        <img src="https://i.pravatar.cc/100?img=3" alt="Lorenzo P." loading="lazy">
+                    </div>
+                    <div class="rp-testimonial__info">
+                        <span class="rp-testimonial__name">Lorenzo P.</span>
+                        <span class="rp-testimonial__meta">Collector - Turin</span>
+                    </div>
+                </div>
+            </div>
+            <div class="rp-testimonial" data-rp-testimonial>
+                <div class="rp-testimonials__stars">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <blockquote class="rp-testimonial__quote">
+                    Premium service for premium sneakers. Exactly what the market needed.
+                </blockquote>
+                <div class="rp-testimonial__author">
+                    <div class="rp-testimonial__avatar">
+                        <img src="https://i.pravatar.cc/100?img=9" alt="Francesca D." loading="lazy">
+                    </div>
+                    <div class="rp-testimonial__info">
+                        <span class="rp-testimonial__name">Francesca D.</span>
+                        <span class="rp-testimonial__meta">Verified Buyer - Venice</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="rp-testimonials__nav">
+            <button class="rp-testimonials__dot rp-testimonials__dot--active" data-rp-testimonials-dot></button>
+            <button class="rp-testimonials__dot" data-rp-testimonials-dot></button>
+        </div>
+    </div>
+</section>

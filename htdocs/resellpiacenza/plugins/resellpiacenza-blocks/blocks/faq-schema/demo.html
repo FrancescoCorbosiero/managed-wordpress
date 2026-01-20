@@ -1,0 +1,236 @@
+<!--
+FAQ Schema Block - Demo & Variants
+Copy-paste ready examples for Resell Piacenza
+
+This block creates an SEO-optimized FAQ accordion with JSON-LD
+structured data schema markup for rich snippets in search results.
+
+NOTE: The JSON-LD schema is automatically generated from the FAQ items
+and inserted into the page for search engine optimization.
+-->
+
+<!-- ============================================
+     WORDPRESS CODE EDITOR SNIPPETS
+     ============================================ -->
+
+<!--
+VARIANT 1: General FAQ (5 questions)
+-->
+<!-- wp:resellpiacenza/faq-schema {"eyebrow":"Have Questions?","title":"Frequently Asked Questions","subtitle":"Everything you need to know about buying authentic sneakers","allowMultiple":false,"items":[{"question":"How do you verify authenticity?","answer":"Every item undergoes a rigorous multi-point inspection by our team of trained authentication specialists. We examine materials, stitching, labels, packaging, and more using industry-standard techniques and tools."},{"question":"What is your return policy?","answer":"We offer a 14-day return policy for unworn items in original condition with all tags and packaging. Simply contact our support team to initiate a return."},{"question":"How long does shipping take?","answer":"Standard shipping within Italy takes 2-4 business days. Express shipping is available for next-day delivery. International shipping times vary by destination, typically 5-10 business days."},{"question":"Are all items brand new?","answer":"We offer both deadstock (brand new, never worn) and pre-owned items. Each listing clearly indicates the condition. All items, regardless of condition, are 100% authenticated."},{"question":"Do you offer payment plans?","answer":"Yes! We partner with Klarna and PayPal to offer flexible payment options including buy-now-pay-later and installment plans."}]} /-->
+
+<!--
+VARIANT 2: Shipping-focused FAQ
+-->
+<!-- wp:resellpiacenza/faq-schema {"eyebrow":"Shipping Info","title":"Delivery Questions","subtitle":"","allowMultiple":true,"items":[{"question":"Do you ship internationally?","answer":"Yes! We ship to over 50 countries worldwide. International shipping rates and delivery times are calculated at checkout based on your location."},{"question":"Is shipping insured?","answer":"All orders are fully insured during transit. If your package is lost or damaged, we'll either replace the item or provide a full refund."},{"question":"Can I track my order?","answer":"Absolutely. Once your order ships, you'll receive a tracking number via email. You can also track your order status anytime through your account dashboard."}]} /-->
+
+<!--
+VARIANT 3: Authentication-focused FAQ
+-->
+<!-- wp:resellpiacenza/faq-schema {"eyebrow":"Authentication","title":"About Our Verification Process","subtitle":"Learn how we ensure 100% authenticity","allowMultiple":false,"items":[{"question":"Who authenticates the items?","answer":"Our authentication team includes former brand quality control specialists and industry veterans with a combined 50+ years of experience in sneaker authentication."},{"question":"What if an item fails authentication?","answer":"If an item fails our authentication process, it is never listed for sale. We maintain a strict zero-tolerance policy for counterfeit goods."},{"question":"Do I receive proof of authentication?","answer":"Yes! Every purchase includes an official Certificate of Authenticity documenting our verification process and signed by the authenticating specialist."},{"question":"What authentication methods do you use?","answer":"We use a comprehensive 15-point inspection process including material analysis, stitching verification, label authentication, UV light testing, and comparison with verified authentic samples."}]} /-->
+
+<!--
+VARIANT 4: Minimal FAQ (2 questions)
+-->
+<!-- wp:resellpiacenza/faq-schema {"eyebrow":"","title":"Quick Answers","subtitle":"","allowMultiple":false,"items":[{"question":"Is everything authentic?","answer":"Yes! Every item is verified by our expert authentication team. We guarantee 100% authenticity or your money back."},{"question":"How do I contact support?","answer":"You can reach our support team via email at support@resellpiacenza.com or through the live chat on our website. We typically respond within 2 hours during business hours."}]} /-->
+
+<!--
+VARIANT 5: Product-specific FAQ
+-->
+<!-- wp:resellpiacenza/faq-schema {"eyebrow":"Product Info","title":"Air Jordan 1 FAQ","subtitle":"Common questions about this model","allowMultiple":true,"items":[{"question":"How does the Jordan 1 fit?","answer":"Air Jordan 1s generally run true to size. However, the High OG versions may feel slightly roomier than Mids or Lows. If you have wide feet, we recommend staying true to size."},{"question":"What's the difference between OG and Retro?","answer":"OG (Original) releases are exact recreations of the original colorways and materials. Retro releases may include updated materials or new colorway variations not seen in the original line."},{"question":"How should I care for my Jordan 1s?","answer":"Use a soft brush with mild soap and water for cleaning. Avoid machine washing. Store in a cool, dry place away from direct sunlight. Use sneaker shields to prevent toe box creasing."}]} /-->
+
+
+<!-- ============================================
+     HTML VARIANTS FOR VISUAL TESTING
+     ============================================ -->
+
+<!-- DEFAULT: General FAQ with 5 questions -->
+<section class="rp-block rp-faq" data-rp-faq data-rp-faq-multiple="false">
+    <div class="rp-faq__header" data-rp-reveal="up">
+        <span class="rp-faq__eyebrow">Have Questions?</span>
+        <h2 class="rp-faq__title">Frequently Asked Questions</h2>
+        <p class="rp-faq__subtitle">Everything you need to know about buying authentic sneakers</p>
+    </div>
+    <div class="rp-faq__list">
+        <div class="rp-faq__item" data-rp-faq-item data-rp-reveal="up" data-rp-reveal-delay="100">
+            <button class="rp-faq__trigger" data-rp-faq-trigger aria-expanded="false">
+                <span class="rp-faq__question">How do you verify authenticity?</span>
+                <span class="rp-faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+            </button>
+            <div class="rp-faq__content" data-rp-faq-content>
+                <div class="rp-faq__answer">
+                    <p>Every item undergoes a rigorous multi-point inspection by our team of trained authentication specialists. We examine materials, stitching, labels, packaging, and more using industry-standard techniques and tools.</p>
+                </div>
+            </div>
+        </div>
+        <div class="rp-faq__item" data-rp-faq-item data-rp-reveal="up" data-rp-reveal-delay="200">
+            <button class="rp-faq__trigger" data-rp-faq-trigger aria-expanded="false">
+                <span class="rp-faq__question">What is your return policy?</span>
+                <span class="rp-faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+            </button>
+            <div class="rp-faq__content" data-rp-faq-content>
+                <div class="rp-faq__answer">
+                    <p>We offer a 14-day return policy for unworn items in original condition with all tags and packaging. Simply contact our support team to initiate a return.</p>
+                </div>
+            </div>
+        </div>
+        <div class="rp-faq__item" data-rp-faq-item data-rp-reveal="up" data-rp-reveal-delay="300">
+            <button class="rp-faq__trigger" data-rp-faq-trigger aria-expanded="false">
+                <span class="rp-faq__question">How long does shipping take?</span>
+                <span class="rp-faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+            </button>
+            <div class="rp-faq__content" data-rp-faq-content>
+                <div class="rp-faq__answer">
+                    <p>Standard shipping within Italy takes 2-4 business days. Express shipping is available for next-day delivery. International shipping times vary by destination, typically 5-10 business days.</p>
+                </div>
+            </div>
+        </div>
+        <div class="rp-faq__item" data-rp-faq-item data-rp-reveal="up" data-rp-reveal-delay="400">
+            <button class="rp-faq__trigger" data-rp-faq-trigger aria-expanded="false">
+                <span class="rp-faq__question">Are all items brand new?</span>
+                <span class="rp-faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+            </button>
+            <div class="rp-faq__content" data-rp-faq-content>
+                <div class="rp-faq__answer">
+                    <p>We offer both deadstock (brand new, never worn) and pre-owned items. Each listing clearly indicates the condition. All items, regardless of condition, are 100% authenticated.</p>
+                </div>
+            </div>
+        </div>
+        <div class="rp-faq__item" data-rp-faq-item data-rp-reveal="up" data-rp-reveal-delay="500">
+            <button class="rp-faq__trigger" data-rp-faq-trigger aria-expanded="false">
+                <span class="rp-faq__question">Do you offer payment plans?</span>
+                <span class="rp-faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+            </button>
+            <div class="rp-faq__content" data-rp-faq-content>
+                <div class="rp-faq__answer">
+                    <p>Yes! We partner with Klarna and PayPal to offer flexible payment options including buy-now-pay-later and installment plans.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- JSON-LD Schema (auto-generated in WordPress) -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "How do you verify authenticity?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Every item undergoes a rigorous multi-point inspection by our team of trained authentication specialists. We examine materials, stitching, labels, packaging, and more using industry-standard techniques and tools."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "What is your return policy?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We offer a 14-day return policy for unworn items in original condition with all tags and packaging. Simply contact our support team to initiate a return."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How long does shipping take?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Standard shipping within Italy takes 2-4 business days. Express shipping is available for next-day delivery. International shipping times vary by destination, typically 5-10 business days."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Are all items brand new?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We offer both deadstock (brand new, never worn) and pre-owned items. Each listing clearly indicates the condition. All items, regardless of condition, are 100% authenticated."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Do you offer payment plans?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! We partner with Klarna and PayPal to offer flexible payment options including buy-now-pay-later and installment plans."
+            }
+        }
+    ]
+}
+</script>
+
+
+<!-- VARIANT: Allow multiple open (shipping-focused) -->
+<section class="rp-block rp-faq" data-rp-faq data-rp-faq-multiple="true">
+    <div class="rp-faq__header" data-rp-reveal="up">
+        <span class="rp-faq__eyebrow">Shipping Info</span>
+        <h2 class="rp-faq__title">Delivery Questions</h2>
+    </div>
+    <div class="rp-faq__list">
+        <div class="rp-faq__item" data-rp-faq-item data-rp-reveal="up" data-rp-reveal-delay="100">
+            <button class="rp-faq__trigger" data-rp-faq-trigger aria-expanded="false">
+                <span class="rp-faq__question">Do you ship internationally?</span>
+                <span class="rp-faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+            </button>
+            <div class="rp-faq__content" data-rp-faq-content>
+                <div class="rp-faq__answer">
+                    <p>Yes! We ship to over 50 countries worldwide. International shipping rates and delivery times are calculated at checkout based on your location.</p>
+                </div>
+            </div>
+        </div>
+        <div class="rp-faq__item" data-rp-faq-item data-rp-reveal="up" data-rp-reveal-delay="200">
+            <button class="rp-faq__trigger" data-rp-faq-trigger aria-expanded="false">
+                <span class="rp-faq__question">Is shipping insured?</span>
+                <span class="rp-faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+            </button>
+            <div class="rp-faq__content" data-rp-faq-content>
+                <div class="rp-faq__answer">
+                    <p>All orders are fully insured during transit. If your package is lost or damaged, we'll either replace the item or provide a full refund.</p>
+                </div>
+            </div>
+        </div>
+        <div class="rp-faq__item" data-rp-faq-item data-rp-reveal="up" data-rp-reveal-delay="300">
+            <button class="rp-faq__trigger" data-rp-faq-trigger aria-expanded="false">
+                <span class="rp-faq__question">Can I track my order?</span>
+                <span class="rp-faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+            </button>
+            <div class="rp-faq__content" data-rp-faq-content>
+                <div class="rp-faq__answer">
+                    <p>Absolutely. Once your order ships, you'll receive a tracking number via email. You can also track your order status anytime through your account dashboard.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- VARIANT: Minimal (no eyebrow, no subtitle) -->
+<section class="rp-block rp-faq" data-rp-faq data-rp-faq-multiple="false">
+    <div class="rp-faq__header" data-rp-reveal="up">
+        <h2 class="rp-faq__title">Quick Answers</h2>
+    </div>
+    <div class="rp-faq__list">
+        <div class="rp-faq__item" data-rp-faq-item data-rp-reveal="up" data-rp-reveal-delay="100">
+            <button class="rp-faq__trigger" data-rp-faq-trigger aria-expanded="false">
+                <span class="rp-faq__question">Is everything authentic?</span>
+                <span class="rp-faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+            </button>
+            <div class="rp-faq__content" data-rp-faq-content>
+                <div class="rp-faq__answer">
+                    <p>Yes! Every item is verified by our expert authentication team. We guarantee 100% authenticity or your money back.</p>
+                </div>
+            </div>
+        </div>
+        <div class="rp-faq__item" data-rp-faq-item data-rp-reveal="up" data-rp-reveal-delay="200">
+            <button class="rp-faq__trigger" data-rp-faq-trigger aria-expanded="false">
+                <span class="rp-faq__question">How do I contact support?</span>
+                <span class="rp-faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+            </button>
+            <div class="rp-faq__content" data-rp-faq-content>
+                <div class="rp-faq__answer">
+                    <p>You can reach our support team via email at support@resellpiacenza.com or through the live chat on our website. We typically respond within 2 hours during business hours.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
