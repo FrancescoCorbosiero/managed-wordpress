@@ -1,0 +1,32 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "sneakersselection/features",
+    "version": "1.0.0",
+    "title": "Feature Grid",
+    "category": "sneakersselection",
+    "icon": "grid-view",
+    "description": "Premium feature highlights grid with animated icons and hover effects.",
+    "keywords": ["features", "benefits", "grid", "icons", "highlights"],
+    "textdomain": "sneakersselection-blocks",
+    "attributes": {
+        "eyebrow": {
+            "type": "string",
+            "default": ""
+        },
+        "title": {
+            "type": "string",
+            "default": "Why Choose Us"
+        },
+        "features": {
+            "type": "array",
+            "default": []
+        }
+    },
+    "supports": {
+        "align": ["wide", "full"],
+        "html": false
+    },
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php"
+}

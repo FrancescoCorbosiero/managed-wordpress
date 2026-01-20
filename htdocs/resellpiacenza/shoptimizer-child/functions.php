@@ -3,7 +3,7 @@
  * Shoptimizer Child Theme Functions
  * 
  * @package Shoptimizer Child
- * @author SneakersSelection
+ * @author ResellPiacenza
  * @version 1.0.0
  */
 
