@@ -1,0 +1,48 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "resellpiacenza/authenticity-guarantee",
+    "version": "1.0.0",
+    "title": "Authenticity Guarantee",
+    "category": "resellpiacenza",
+    "icon": "awards",
+    "description": "Trust-building certification display showcasing your authentication process.",
+    "keywords": ["authenticity", "guarantee", "certification", "trust", "verified"],
+    "textdomain": "resellpiacenza-blocks",
+    "attributes": {
+        "eyebrow": {
+            "type": "string",
+            "default": "Our Promise"
+        },
+        "title": {
+            "type": "string",
+            "default": "100% Authenticity Guaranteed"
+        },
+        "description": {
+            "type": "string",
+            "default": "Every item is meticulously inspected and verified by our team of experts before reaching you."
+        },
+        "badgeText": {
+            "type": "string",
+            "default": "Certified Authentic"
+        },
+        "steps": {
+            "type": "array",
+            "default": []
+        },
+        "buttonText": {
+            "type": "string",
+            "default": "Learn More"
+        },
+        "buttonUrl": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "supports": {
+        "align": ["wide", "full"],
+        "html": false
+    },
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php"
+}

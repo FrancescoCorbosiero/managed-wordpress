@@ -1,0 +1,36 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "resellpiacenza/testimonials",
+    "version": "1.0.0",
+    "title": "Testimonials",
+    "category": "resellpiacenza",
+    "icon": "format-quote",
+    "description": "Customer reviews carousel with elegant slider and star ratings.",
+    "keywords": ["testimonials", "reviews", "customers", "quotes", "social proof"],
+    "textdomain": "resellpiacenza-blocks",
+    "attributes": {
+        "eyebrow": {
+            "type": "string",
+            "default": "Customer Reviews"
+        },
+        "title": {
+            "type": "string",
+            "default": "What Our Customers Say"
+        },
+        "testimonials": {
+            "type": "array",
+            "default": []
+        },
+        "autoplay": {
+            "type": "number",
+            "default": 6000
+        }
+    },
+    "supports": {
+        "align": ["wide", "full"],
+        "html": false
+    },
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php"
+}
