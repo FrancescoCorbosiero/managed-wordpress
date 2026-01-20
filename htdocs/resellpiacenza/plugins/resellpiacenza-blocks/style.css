@@ -41,9 +41,9 @@
     --rp-error: #b91c1c;
     --rp-info: #1e40af;
 
-    /* Typography */
-    --rp-font-serif: 'Playfair Display', Georgia, serif;
-    --rp-font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    /* Typography - Trap/Streetwear Style */
+    --rp-font-display: 'Bebas Neue', Impact, sans-serif;
+    --rp-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --rp-font-mono: 'JetBrains Mono', monospace;
 
     /* Fluid Type Scale - Elegant Proportions */
@@ -193,7 +193,7 @@
 }
 
 .rp-hero-video__title {
-    font-family: var(--rp-font-serif);
+    font-family: var(--rp-font-display);
     font-size: var(--rp-text-6xl);
     font-weight: 600;
     line-height: 1.1;
@@ -305,7 +305,7 @@
 }
 
 .rp-trust-badges__title {
-    font-family: var(--rp-font-serif);
+    font-family: var(--rp-font-display);
     font-size: var(--rp-text-3xl);
     font-weight: 500;
     color: var(--rp-navy);
@@ -465,7 +465,7 @@
 }
 
 .rp-product-spotlight__title {
-    font-family: var(--rp-font-serif);
+    font-family: var(--rp-font-display);
     font-size: var(--rp-text-4xl);
     font-weight: 500;
     line-height: 1.2;
@@ -516,7 +516,7 @@
 }
 
 .rp-product-spotlight__price-current {
-    font-family: var(--rp-font-serif);
+    font-family: var(--rp-font-display);
     font-size: var(--rp-text-3xl);
     font-weight: 600;
     color: var(--rp-gold);
@@ -587,7 +587,7 @@
 }
 
 .rp-newsletter__title {
-    font-family: var(--rp-font-serif);
+    font-family: var(--rp-font-display);
     font-size: var(--rp-text-3xl);
     font-weight: 500;
     color: var(--rp-navy);
@@ -697,7 +697,7 @@
 }
 
 .rp-authenticity__badge-text {
-    font-family: var(--rp-font-serif);
+    font-family: var(--rp-font-display);
     font-size: var(--rp-text-2xl);
     font-weight: 600;
     color: var(--rp-white);
@@ -727,7 +727,7 @@
 }
 
 .rp-authenticity__title {
-    font-family: var(--rp-font-serif);
+    font-family: var(--rp-font-display);
     font-size: var(--rp-text-4xl);
     font-weight: 500;
     color: var(--rp-navy);
@@ -815,7 +815,7 @@
 }
 
 .rp-testimonials__title {
-    font-family: var(--rp-font-serif);
+    font-family: var(--rp-font-display);
     font-size: var(--rp-text-3xl);
     font-weight: 500;
     color: var(--rp-navy);
@@ -841,7 +841,7 @@
 
 .rp-testimonial__quote {
     position: relative;
-    font-family: var(--rp-font-serif);
+    font-family: var(--rp-font-display);
     font-size: var(--rp-text-2xl);
     font-weight: 400;
     font-style: italic;
@@ -960,7 +960,7 @@
 }
 
 .rp-faq__title {
-    font-family: var(--rp-font-serif);
+    font-family: var(--rp-font-display);
     font-size: var(--rp-text-3xl);
     font-weight: 500;
     color: var(--rp-navy);
@@ -1131,7 +1131,7 @@
 }
 
 .rp-cta-banner__title {
-    font-family: var(--rp-font-serif);
+    font-family: var(--rp-font-display);
     font-size: var(--rp-text-4xl);
     font-weight: 500;
     color: var(--rp-white);
