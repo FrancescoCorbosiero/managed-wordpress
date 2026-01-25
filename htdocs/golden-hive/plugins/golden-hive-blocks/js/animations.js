@@ -231,8 +231,8 @@
 
             if (!this.notifications.length) return;
 
-            const interval = parseInt(this.container.dataset.ghSocialProofInterval) || 8000;
-            const delay = parseInt(this.container.dataset.ghSocialProofDelay) || 5000;
+            const interval = parseInt(this.container.dataset.ghSocialProofInterval) || 12000;
+            const delay = parseInt(this.container.dataset.ghSocialProofDelay) || 8000;
 
             // Bottone chiudi
             this.container.querySelector('[data-gh-social-proof-close]')?.addEventListener('click', (e) => {
@@ -267,7 +267,7 @@
             }
 
             this.container.classList.add('gh-social-proof--visible');
-            setTimeout(() => this.hide(), 5500);
+            setTimeout(() => this.hide(), 4500);
         },
 
         hide() {
