@@ -1,0 +1,2245 @@
+/**
+ * Golden Hive Blocks - Premium Global Styles
+ * Design system moderno per e-commerce streetwear e sneakers
+ */
+
+/* ==========================================================================
+   Design Tokens
+   ========================================================================== */
+
+:root {
+    /* Colori principali */
+    --gh-black: #000000;
+    --gh-white: #ffffff;
+    --gh-accent: #ff3c00;
+    --gh-accent-dark: #cc3000;
+    --gh-success: #00c853;
+    --gh-warning: #ffc107;
+    --gh-error: #f44336;
+
+    /* Scala grigi */
+    --gh-gray-50: #fafafa;
+    --gh-gray-100: #f5f5f5;
+    --gh-gray-200: #e5e5e5;
+    --gh-gray-300: #d4d4d4;
+    --gh-gray-400: #a3a3a3;
+    --gh-gray-500: #737373;
+    --gh-gray-600: #525252;
+    --gh-gray-700: #404040;
+    --gh-gray-800: #262626;
+    --gh-gray-900: #171717;
+
+    /* Tipografia */
+    --gh-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --gh-font-display: 'Bebas Neue', 'Inter', -apple-system, sans-serif;
+
+    /* Scala tipografica fluida */
+    --gh-text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+    --gh-text-sm: clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
+    --gh-text-base: clamp(1rem, 0.9rem + 0.4vw, 1.125rem);
+    --gh-text-lg: clamp(1.125rem, 1rem + 0.5vw, 1.25rem);
+    --gh-text-xl: clamp(1.25rem, 1rem + 1vw, 1.5rem);
+    --gh-text-2xl: clamp(1.5rem, 1.2rem + 1.5vw, 2rem);
+    --gh-text-3xl: clamp(2rem, 1.5rem + 2.5vw, 3rem);
+    --gh-text-4xl: clamp(2.5rem, 1.8rem + 3.5vw, 4rem);
+    --gh-text-5xl: clamp(3rem, 2rem + 5vw, 5rem);
+    --gh-text-6xl: clamp(4rem, 2.5rem + 7.5vw, 7rem);
+    --gh-text-7xl: clamp(5rem, 3rem + 10vw, 10rem);
+
+    /* Spaziatura */
+    --gh-space-xs: 0.25rem;
+    --gh-space-sm: 0.5rem;
+    --gh-space-md: 1rem;
+    --gh-space-lg: 1.5rem;
+    --gh-space-xl: 2rem;
+    --gh-space-2xl: 3rem;
+    --gh-space-3xl: 4rem;
+    --gh-space-4xl: 6rem;
+    --gh-space-5xl: 8rem;
+
+    /* Easing */
+    --gh-ease-out: cubic-bezier(0.33, 1, 0.68, 1);
+    --gh-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    --gh-ease-elastic: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* Ombre */
+    --gh-shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+    --gh-shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+    --gh-shadow-lg: 0 12px 40px rgba(0,0,0,0.15);
+    --gh-shadow-xl: 0 24px 60px rgba(0,0,0,0.2);
+    --gh-shadow-glow: 0 0 60px rgba(255,60,0,0.3);
+
+    /* Z-Index */
+    --gh-z-dropdown: 100;
+    --gh-z-sticky: 200;
+    --gh-z-fixed: 500;
+    --gh-z-modal: 1000;
+    --gh-z-notification: 1100;
+    --gh-z-tooltip: 1200;
+}
+
+/* ==========================================================================
+   Base Reset per i Blocchi
+   ========================================================================== */
+
+.gh-block,
+.gh-block *,
+.gh-block *::before,
+.gh-block *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-block {
+    font-family: var(--gh-font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   HERO CAROUSEL PREMIUM
+   Carousel full-screen con crossfade e animazioni split-text
+   ========================================================================== */
+
+.gh-hero-carousel {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    max-height: 1200px;
+    overflow: hidden;
+    background: var(--gh-black);
+}
+
+.gh-hero-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.2s var(--gh-ease-in-out), visibility 1.2s;
+}
+
+.gh-hero-slide--active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.gh-hero-slide__bg {
+    position: absolute;
+    inset: 0;
+}
+
+.gh-hero-slide__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.1);
+    transition: transform 8s var(--gh-ease-out);
+}
+
+.gh-hero-slide--active .gh-hero-slide__bg img {
+    transform: scale(1);
+}
+
+.gh-hero-slide__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
+}
+
+.gh-hero-slide__content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    padding: var(--gh-space-3xl);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.gh-hero-slide__eyebrow {
+    font-size: var(--gh-text-xs);
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gh-accent);
+    margin-bottom: var(--gh-space-lg);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s var(--gh-ease-out) 0.3s;
+}
+
+.gh-hero-slide--active .gh-hero-slide__eyebrow {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gh-hero-slide__title {
+    font-family: var(--gh-font-display);
+    font-size: var(--gh-text-7xl);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--gh-white);
+    margin-bottom: var(--gh-space-xl);
+}
+
+.gh-hero-slide__title .gh-char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100%) rotateX(-90deg);
+    transition: all 0.6s var(--gh-ease-out);
+    transition-delay: calc(var(--char-index, 0) * 0.03s + 0.5s);
+}
+
+.gh-hero-slide--active .gh-hero-slide__title .gh-char {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+}
+
+.gh-hero-slide__subtitle {
+    font-size: var(--gh-text-xl);
+    font-weight: 400;
+    color: var(--gh-gray-300);
+    max-width: 500px;
+    line-height: 1.6;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s var(--gh-ease-out) 0.8s;
+}
+
+.gh-hero-slide--active .gh-hero-slide__subtitle {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gh-hero-slide__cta {
+    margin-top: var(--gh-space-2xl);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s var(--gh-ease-out) 1s;
+}
+
+.gh-hero-slide--active .gh-hero-slide__cta {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gh-hero-nav {
+    position: absolute;
+    bottom: var(--gh-space-3xl);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: var(--gh-space-sm);
+    z-index: 10;
+}
+
+.gh-hero-dot {
+    width: 12px;
+    height: 12px;
+    border: 2px solid var(--gh-white);
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.4s var(--gh-ease-out);
+    opacity: 0.5;
+}
+
+.gh-hero-dot:hover {
+    opacity: 1;
+}
+
+.gh-hero-dot--active {
+    background: var(--gh-white);
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+.gh-hero-arrows {
+    position: absolute;
+    bottom: var(--gh-space-3xl);
+    right: var(--gh-space-3xl);
+    display: flex;
+    gap: var(--gh-space-sm);
+    z-index: 10;
+}
+
+.gh-hero-arrow {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--gh-white);
+    background: transparent;
+    color: var(--gh-white);
+    cursor: pointer;
+    transition: all 0.4s var(--gh-ease-out);
+}
+
+.gh-hero-arrow:hover {
+    background: var(--gh-white);
+    color: var(--gh-black);
+}
+
+.gh-hero-arrow svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* ==========================================================================
+   HERO VIDEO
+   Full-screen hero con video/immagine background
+   ========================================================================== */
+
+.gh-hero-video {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    max-height: 1200px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gh-hero-video__media {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.gh-hero-video__media video,
+.gh-hero-video__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gh-hero-video__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 100%);
+}
+
+.gh-hero-video__content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    max-width: 900px;
+    padding: var(--gh-space-xl);
+}
+
+.gh-hero-video__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--gh-space-sm);
+    padding: var(--gh-space-sm) var(--gh-space-lg);
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50px;
+    color: var(--gh-white);
+    font-size: var(--gh-text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--gh-space-xl);
+}
+
+.gh-hero-video__badge svg {
+    color: var(--gh-accent);
+}
+
+.gh-hero-video__title {
+    font-family: var(--gh-font-display);
+    font-size: var(--gh-text-6xl);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--gh-white);
+    line-height: 1;
+    margin-bottom: var(--gh-space-xl);
+}
+
+.gh-hero-video__subtitle {
+    font-size: var(--gh-text-xl);
+    color: var(--gh-gray-300);
+    line-height: 1.6;
+    margin-bottom: var(--gh-space-2xl);
+}
+
+.gh-hero-video__cta {
+    display: flex;
+    gap: var(--gh-space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.gh-hero-video__scroll {
+    position: absolute;
+    bottom: var(--gh-space-2xl);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gh-space-sm);
+    color: var(--gh-white);
+    font-size: var(--gh-text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    animation: gh-bounce 2s infinite;
+}
+
+@keyframes gh-bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(10px); }
+}
+
+/* ==========================================================================
+   PARALLAX SECTION
+   Sezione parallax multi-layer con mouse tracking
+   ========================================================================== */
+
+.gh-parallax-section {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+.gh-parallax-section__layer {
+    position: absolute;
+    inset: -10%;
+    transition: transform 0.1s ease-out;
+    will-change: transform;
+}
+
+.gh-parallax-section__layer--bg {
+    z-index: 1;
+}
+
+.gh-parallax-section__layer--bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.4);
+}
+
+.gh-parallax-section__layer--mid {
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gh-parallax-section__layer--mid img {
+    max-width: 60%;
+    height: auto;
+    filter: drop-shadow(0 40px 80px rgba(0,0,0,0.5));
+}
+
+.gh-parallax-section__layer--fg {
+    z-index: 3;
+    pointer-events: none;
+}
+
+.gh-parallax-section__content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    color: var(--gh-white);
+    padding: var(--gh-space-3xl);
+    max-width: 900px;
+}
+
+.gh-parallax-section__title {
+    font-family: var(--gh-font-display);
+    font-size: var(--gh-text-6xl);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    line-height: 0.95;
+    margin-bottom: var(--gh-space-xl);
+    text-shadow: 0 4px 30px rgba(0,0,0,0.5);
+}
+
+.gh-parallax-section__text {
+    font-size: var(--gh-text-xl);
+    color: var(--gh-gray-300);
+    line-height: 1.7;
+    margin-bottom: var(--gh-space-2xl);
+}
+
+.gh-parallax-section__particles {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.gh-parallax-section__particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--gh-white);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: gh-float-particle 20s infinite linear;
+}
+
+@keyframes gh-float-particle {
+    0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.3; }
+    90% { opacity: 0.3; }
+    100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+}
+
+/* ==========================================================================
+   SOCIAL PROOF POPUP
+   Notifica di conversione per aumentare la fiducia
+   ========================================================================== */
+
+.gh-social-proof {
+    position: fixed;
+    bottom: var(--gh-space-xl);
+    left: var(--gh-space-xl);
+    z-index: var(--gh-z-notification);
+    display: flex;
+    align-items: center;
+    gap: var(--gh-space-md);
+    padding: var(--gh-space-md) var(--gh-space-lg);
+    background: var(--gh-white);
+    border-radius: 8px;
+    box-shadow: var(--gh-shadow-xl);
+    transform: translateX(-120%);
+    opacity: 0;
+    transition: all 0.5s var(--gh-ease-elastic);
+    max-width: 380px;
+}
+
+.gh-social-proof--visible {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.gh-social-proof__image {
+    width: 64px;
+    height: 64px;
+    border-radius: 8px;
+    background: var(--gh-gray-100);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.gh-social-proof__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gh-social-proof__content {
+    flex: 1;
+    min-width: 0;
+}
+
+.gh-social-proof__title {
+    font-size: var(--gh-text-xs);
+    font-weight: 600;
+    color: var(--gh-gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--gh-space-xs);
+}
+
+.gh-social-proof__product {
+    font-size: var(--gh-text-sm);
+    font-weight: 700;
+    color: var(--gh-black);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: var(--gh-space-xs);
+}
+
+.gh-social-proof__meta {
+    font-size: var(--gh-text-xs);
+    color: var(--gh-gray-500);
+}
+
+.gh-social-proof__close {
+    position: absolute;
+    top: var(--gh-space-sm);
+    right: var(--gh-space-sm);
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: var(--gh-gray-400);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.gh-social-proof__close:hover {
+    color: var(--gh-black);
+}
+
+.gh-social-proof::before {
+    content: '';
+    position: absolute;
+    top: var(--gh-space-md);
+    left: var(--gh-space-md);
+    width: 8px;
+    height: 8px;
+    background: var(--gh-success);
+    border-radius: 50%;
+    animation: gh-pulse 2s infinite;
+}
+
+@keyframes gh-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.5; }
+}
+
+/* ==========================================================================
+   FAQ ACCORDION (SEO Schema)
+   Accordion premium con animazioni smooth
+   ========================================================================== */
+
+.gh-faq {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--gh-space-4xl) var(--gh-space-xl);
+}
+
+.gh-faq__header {
+    text-align: center;
+    margin-bottom: var(--gh-space-3xl);
+}
+
+.gh-faq__title {
+    font-family: var(--gh-font-display);
+    font-size: var(--gh-text-4xl);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--gh-black);
+    margin-bottom: var(--gh-space-md);
+}
+
+.gh-faq__subtitle {
+    font-size: var(--gh-text-lg);
+    color: var(--gh-gray-500);
+}
+
+.gh-faq__item {
+    border-bottom: 1px solid var(--gh-gray-200);
+}
+
+.gh-faq__trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--gh-space-lg);
+    padding: var(--gh-space-xl) 0;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.gh-faq__trigger:hover {
+    color: var(--gh-accent);
+}
+
+.gh-faq__question {
+    font-size: var(--gh-text-lg);
+    font-weight: 600;
+    color: inherit;
+    line-height: 1.4;
+}
+
+.gh-faq__icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.gh-faq__icon::before,
+.gh-faq__icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 14px;
+    height: 2px;
+    background: currentColor;
+    transition: transform 0.3s var(--gh-ease-out);
+}
+
+.gh-faq__icon::before {
+    transform: translate(-50%, -50%);
+}
+
+.gh-faq__icon::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.gh-faq__item--open .gh-faq__icon::after {
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.gh-faq__content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s var(--gh-ease-out);
+}
+
+.gh-faq__answer {
+    padding-bottom: var(--gh-space-xl);
+    font-size: var(--gh-text-base);
+    line-height: 1.8;
+    color: var(--gh-gray-600);
+}
+
+.gh-faq__answer p {
+    margin-bottom: var(--gh-space-md);
+}
+
+.gh-faq__answer p:last-child {
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   CTA BANNER PREMIUM
+   Call-to-action full-bleed con design drammatico
+   ========================================================================== */
+
+.gh-cta-banner {
+    position: relative;
+    padding: var(--gh-space-5xl) var(--gh-space-xl);
+    background: var(--gh-black);
+    overflow: hidden;
+}
+
+.gh-cta-banner__bg {
+    position: absolute;
+    inset: 0;
+    opacity: 0.4;
+}
+
+.gh-cta-banner__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gh-cta-banner__gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+        rgba(0,0,0,0.9) 0%,
+        rgba(0,0,0,0.6) 40%,
+        rgba(255,60,0,0.2) 100%
+    );
+}
+
+.gh-cta-banner__content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.gh-cta-banner__eyebrow {
+    font-size: var(--gh-text-xs);
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gh-accent);
+    margin-bottom: var(--gh-space-lg);
+}
+
+.gh-cta-banner__title {
+    font-family: var(--gh-font-display);
+    font-size: var(--gh-text-5xl);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--gh-white);
+    line-height: 1;
+    margin-bottom: var(--gh-space-xl);
+}
+
+.gh-cta-banner__text {
+    font-size: var(--gh-text-lg);
+    color: var(--gh-gray-400);
+    line-height: 1.7;
+    margin-bottom: var(--gh-space-2xl);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gh-cta-banner__glow {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gh-accent), transparent);
+    box-shadow: 0 0 30px var(--gh-accent), 0 0 60px var(--gh-accent);
+}
+
+/* ==========================================================================
+   CTA IMAGE (Split Layout)
+   CTA con immagine a sinistra e sfumatura verso testo
+   ========================================================================== */
+
+.gh-cta-image {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 600px;
+    overflow: hidden;
+}
+
+.gh-cta-image__visual {
+    position: relative;
+    overflow: hidden;
+}
+
+.gh-cta-image__visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gh-cta-image__visual::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    background: linear-gradient(to right, transparent, var(--gh-black));
+}
+
+.gh-cta-image__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--gh-space-4xl);
+    background: var(--gh-black);
+    color: var(--gh-white);
+}
+
+.gh-cta-image__eyebrow {
+    font-size: var(--gh-text-xs);
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gh-accent);
+    margin-bottom: var(--gh-space-lg);
+}
+
+.gh-cta-image__title {
+    font-family: var(--gh-font-display);
+    font-size: var(--gh-text-4xl);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: var(--gh-space-xl);
+}
+
+.gh-cta-image__text {
+    font-size: var(--gh-text-lg);
+    color: var(--gh-gray-400);
+    line-height: 1.7;
+    margin-bottom: var(--gh-space-2xl);
+}
+
+.gh-cta-image--reverse {
+    direction: rtl;
+}
+
+.gh-cta-image--reverse > * {
+    direction: ltr;
+}
+
+.gh-cta-image--reverse .gh-cta-image__visual::after {
+    right: auto;
+    left: 0;
+    background: linear-gradient(to left, transparent, var(--gh-black));
+}
+
+@media (max-width: 768px) {
+    .gh-cta-image {
+        grid-template-columns: 1fr;
+    }
+
+    .gh-cta-image__visual {
+        height: 300px;
+    }
+
+    .gh-cta-image__visual::after {
+        top: auto;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        background: linear-gradient(to top, var(--gh-black), transparent);
+    }
+}
+
+/* ==========================================================================
+   BRAND MARQUEE
+   Logo brand in scorrimento infinito
+   ========================================================================== */
+
+.gh-brand-marquee {
+    padding: var(--gh-space-3xl) 0;
+    background: var(--gh-gray-50);
+    overflow: hidden;
+}
+
+.gh-brand-marquee__header {
+    text-align: center;
+    margin-bottom: var(--gh-space-2xl);
+}
+
+.gh-brand-marquee__title {
+    font-size: var(--gh-text-sm);
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gh-gray-400);
+}
+
+.gh-brand-marquee__track-wrapper {
+    display: flex;
+    mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+}
+
+.gh-brand-marquee__track {
+    display: flex;
+    gap: var(--gh-space-4xl);
+    padding: 0 var(--gh-space-2xl);
+    flex-shrink: 0;
+}
+
+.gh-brand-marquee__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    min-width: 140px;
+    filter: grayscale(100%);
+    opacity: 0.5;
+    transition: all 0.4s var(--gh-ease-out);
+}
+
+.gh-brand-marquee__item:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+.gh-brand-marquee__item img {
+    max-height: 40px;
+    max-width: 120px;
+    object-fit: contain;
+}
+
+/* ==========================================================================
+   SIZE CHART MODAL
+   Guida taglie premium con modal
+   ========================================================================== */
+
+.gh-modal {
+    position: fixed;
+    inset: 0;
+    z-index: var(--gh-z-modal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--gh-space-xl);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s var(--gh-ease-out);
+}
+
+.gh-modal--open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.gh-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(4px);
+}
+
+.gh-modal__container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 700px;
+    max-height: 90vh;
+    background: var(--gh-white);
+    border-radius: 12px;
+    overflow: hidden;
+    transform: translateY(20px) scale(0.98);
+    transition: transform 0.4s var(--gh-ease-out);
+}
+
+.gh-modal--open .gh-modal__container {
+    transform: translateY(0) scale(1);
+}
+
+.gh-modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--gh-space-xl);
+    border-bottom: 1px solid var(--gh-gray-200);
+}
+
+.gh-modal__title {
+    font-family: var(--gh-font-display);
+    font-size: var(--gh-text-xl);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--gh-black);
+}
+
+.gh-modal__close {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: var(--gh-gray-500);
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.gh-modal__close:hover {
+    background: var(--gh-gray-100);
+    color: var(--gh-black);
+}
+
+.gh-modal__body {
+    padding: var(--gh-space-xl);
+    overflow-y: auto;
+    max-height: calc(90vh - 140px);
+}
+
+.gh-size-chart {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--gh-text-sm);
+}
+
+.gh-size-chart th,
+.gh-size-chart td {
+    padding: var(--gh-space-md) var(--gh-space-lg);
+    text-align: center;
+    border-bottom: 1px solid var(--gh-gray-200);
+}
+
+.gh-size-chart th {
+    font-weight: 700;
+    font-size: var(--gh-text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gh-gray-500);
+    background: var(--gh-gray-50);
+}
+
+.gh-size-chart td {
+    color: var(--gh-gray-700);
+}
+
+.gh-size-chart tbody tr:hover {
+    background: var(--gh-gray-50);
+}
+
+.gh-size-chart__highlight {
+    background: rgba(255,60,0,0.1) !important;
+    font-weight: 600;
+    color: var(--gh-accent) !important;
+}
+
+/* ==========================================================================
+   TRUST BADGES
+   Badge di fiducia e garanzie
+   ========================================================================== */
+
+.gh-trust-badges {
+    padding: var(--gh-space-4xl) var(--gh-space-xl);
+    background: var(--gh-gray-50);
+}
+
+.gh-trust-badges__container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gh-trust-badges__header {
+    text-align: center;
+    margin-bottom: var(--gh-space-3xl);
+}
+
+.gh-trust-badges__eyebrow {
+    font-size: var(--gh-text-xs);
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gh-accent);
+    margin-bottom: var(--gh-space-md);
+    display: block;
+}
+
+.gh-trust-badges__title {
+    font-family: var(--gh-font-display);
+    font-size: var(--gh-text-4xl);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--gh-black);
+}
+
+.gh-trust-badges__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--gh-space-xl);
+}
+
+.gh-trust-badge {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--gh-space-lg);
+    padding: var(--gh-space-xl);
+    background: var(--gh-white);
+    border-radius: 12px;
+    transition: all 0.4s var(--gh-ease-out);
+}
+
+.gh-trust-badge:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--gh-shadow-lg);
+}
+
+.gh-trust-badge__icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gh-black);
+    color: var(--gh-white);
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+.gh-trust-badge__icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.gh-trust-badge__title {
+    font-size: var(--gh-text-lg);
+    font-weight: 700;
+    color: var(--gh-black);
+    margin-bottom: var(--gh-space-xs);
+}
+
+.gh-trust-badge__text {
+    font-size: var(--gh-text-sm);
+    color: var(--gh-gray-500);
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   PRODUCT SPOTLIGHT
+   Prodotto in evidenza con layout premium
+   ========================================================================== */
+
+.gh-product-spotlight {
+    position: relative;
+    padding: var(--gh-space-4xl) var(--gh-space-xl);
+    background: var(--gh-black);
+    overflow: hidden;
+}
+
+.gh-product-spotlight__bg-pattern {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 80%, rgba(255,60,0,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255,60,0,0.05) 0%, transparent 50%);
+}
+
+.gh-product-spotlight__container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gh-space-4xl);
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.gh-product-spotlight__image-wrapper {
+    position: relative;
+}
+
+.gh-product-spotlight__image {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--gh-gray-900);
+}
+
+.gh-product-spotlight__image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.gh-product-spotlight__verified {
+    position: absolute;
+    top: var(--gh-space-lg);
+    left: var(--gh-space-lg);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--gh-space-sm);
+    padding: var(--gh-space-sm) var(--gh-space-md);
+    background: var(--gh-success);
+    color: var(--gh-white);
+    font-size: var(--gh-text-xs);
+    font-weight: 600;
+    border-radius: 50px;
+}
+
+.gh-product-spotlight__verified svg {
+    width: 16px;
+    height: 16px;
+}
+
+.gh-product-spotlight__content {
+    color: var(--gh-white);
+}
+
+.gh-product-spotlight__category {
+    font-size: var(--gh-text-xs);
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gh-accent);
+    margin-bottom: var(--gh-space-md);
+    display: block;
+}
+
+.gh-product-spotlight__title {
+    font-family: var(--gh-font-display);
+    font-size: var(--gh-text-4xl);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: var(--gh-space-lg);
+}
+
+.gh-product-spotlight__description {
+    font-size: var(--gh-text-lg);
+    color: var(--gh-gray-400);
+    line-height: 1.7;
+    margin-bottom: var(--gh-space-xl);
+}
+
+.gh-product-spotlight__meta {
+    display: flex;
+    gap: var(--gh-space-xl);
+    margin-bottom: var(--gh-space-xl);
+    padding: var(--gh-space-lg) 0;
+    border-top: 1px solid var(--gh-gray-800);
+    border-bottom: 1px solid var(--gh-gray-800);
+}
+
+.gh-product-spotlight__meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gh-space-xs);
+}
+
+.gh-product-spotlight__meta-label {
+    font-size: var(--gh-text-xs);
+    color: var(--gh-gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.gh-product-spotlight__meta-value {
+    font-size: var(--gh-text-base);
+    font-weight: 600;
+    color: var(--gh-white);
+}
+
+.gh-product-spotlight__price {
+    display: flex;
+    align-items: baseline;
+    gap: var(--gh-space-md);
+    margin-bottom: var(--gh-space-xl);
+}
+
+.gh-product-spotlight__price-current {
+    font-family: var(--gh-font-display);
+    font-size: var(--gh-text-3xl);
+    font-weight: 400;
+    color: var(--gh-white);
+}
+
+.gh-product-spotlight__price-original {
+    font-size: var(--gh-text-lg);
+    color: var(--gh-gray-500);
+    text-decoration: line-through;
+}
+
+@media (max-width: 768px) {
+    .gh-product-spotlight__container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================================
+   NEWSLETTER
+   Sezione iscrizione email elegante
+   ========================================================================== */
+
+.gh-newsletter {
+    padding: var(--gh-space-4xl) var(--gh-space-xl);
+    background: var(--gh-black);
+}
+
+.gh-newsletter__container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.gh-newsletter__icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gh-gray-900);
+    color: var(--gh-accent);
+    border-radius: 50%;
+    margin: 0 auto var(--gh-space-xl);
+}
+
+.gh-newsletter__icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+.gh-newsletter__title {
+    font-family: var(--gh-font-display);
+    font-size: var(--gh-text-3xl);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--gh-white);
+    margin-bottom: var(--gh-space-md);
+}
+
+.gh-newsletter__text {
+    font-size: var(--gh-text-lg);
+    color: var(--gh-gray-400);
+    line-height: 1.6;
+    margin-bottom: var(--gh-space-2xl);
+}
+
+.gh-newsletter__form {
+    display: flex;
+    gap: var(--gh-space-md);
+    max-width: 500px;
+    margin: 0 auto var(--gh-space-lg);
+}
+
+.gh-newsletter__input {
+    flex: 1;
+    padding: var(--gh-space-md) var(--gh-space-lg);
+    background: var(--gh-gray-900);
+    border: 1px solid var(--gh-gray-700);
+    border-radius: 4px;
+    color: var(--gh-white);
+    font-size: var(--gh-text-base);
+    transition: border-color 0.3s;
+}
+
+.gh-newsletter__input::placeholder {
+    color: var(--gh-gray-500);
+}
+
+.gh-newsletter__input:focus {
+    outline: none;
+    border-color: var(--gh-accent);
+}
+
+.gh-newsletter__feedback {
+    font-size: var(--gh-text-sm);
+    margin-bottom: var(--gh-space-md);
+}
+
+.gh-newsletter__feedback--success {
+    color: var(--gh-success);
+}
+
+.gh-newsletter__feedback--error {
+    color: var(--gh-error);
+}
+
+.gh-newsletter__disclaimer {
+    font-size: var(--gh-text-xs);
+    color: var(--gh-gray-500);
+}
+
+@media (max-width: 600px) {
+    .gh-newsletter__form {
+        flex-direction: column;
+    }
+}
+
+/* ==========================================================================
+   AUTHENTICITY GUARANTEE
+   Garanzia autenticita con visual premium
+   ========================================================================== */
+
+.gh-authenticity {
+    padding: var(--gh-space-4xl) var(--gh-space-xl);
+    background: var(--gh-gray-50);
+}
+
+.gh-authenticity__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gh-space-4xl);
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.gh-authenticity__visual {
+    display: flex;
+    justify-content: center;
+}
+
+.gh-authenticity__badge-large {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--gh-space-3xl);
+    background: var(--gh-white);
+    border-radius: 24px;
+    box-shadow: var(--gh-shadow-xl);
+}
+
+.gh-authenticity__badge-icon {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gh-black);
+    color: var(--gh-accent);
+    border-radius: 50%;
+    margin-bottom: var(--gh-space-lg);
+}
+
+.gh-authenticity__badge-icon svg {
+    width: 40px;
+    height: 40px;
+}
+
+.gh-authenticity__badge-text {
+    font-family: var(--gh-font-display);
+    font-size: var(--gh-text-2xl);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--gh-black);
+    margin-bottom: var(--gh-space-xs);
+}
+
+.gh-authenticity__badge-sub {
+    font-size: var(--gh-text-sm);
+    color: var(--gh-gray-500);
+    font-weight: 500;
+}
+
+.gh-authenticity__eyebrow {
+    font-size: var(--gh-text-xs);
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gh-accent);
+    margin-bottom: var(--gh-space-md);
+    display: block;
+}
+
+.gh-authenticity__title {
+    font-family: var(--gh-font-display);
+    font-size: var(--gh-text-4xl);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--gh-black);
+    line-height: 1;
+    margin-bottom: var(--gh-space-lg);
+}
+
+.gh-authenticity__description {
+    font-size: var(--gh-text-lg);
+    color: var(--gh-gray-600);
+    line-height: 1.7;
+    margin-bottom: var(--gh-space-2xl);
+}
+
+.gh-authenticity__steps {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gh-space-lg);
+}
+
+.gh-authenticity__step {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--gh-space-lg);
+}
+
+.gh-authenticity__step-number {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gh-black);
+    color: var(--gh-white);
+    font-size: var(--gh-text-lg);
+    font-weight: 700;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.gh-authenticity__step-content h4 {
+    font-size: var(--gh-text-base);
+    font-weight: 700;
+    color: var(--gh-black);
+    margin-bottom: var(--gh-space-xs);
+}
+
+.gh-authenticity__step-content p {
+    font-size: var(--gh-text-sm);
+    color: var(--gh-gray-600);
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .gh-authenticity__container {
+        grid-template-columns: 1fr;
+    }
+
+    .gh-authenticity__visual {
+        order: -1;
+    }
+}
+
+/* ==========================================================================
+   TRUSTPILOT WIDGET
+   Blocco recensioni Trustpilot
+   ========================================================================== */
+
+.gh-trustpilot {
+    padding: var(--gh-space-3xl) var(--gh-space-xl);
+    background: var(--gh-white);
+}
+
+.gh-trustpilot__container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.gh-trustpilot__header {
+    margin-bottom: var(--gh-space-xl);
+}
+
+.gh-trustpilot__label {
+    font-size: var(--gh-text-xs);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gh-gray-500);
+    margin-bottom: var(--gh-space-sm);
+    display: block;
+}
+
+.gh-trustpilot__stars {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: var(--gh-space-md);
+}
+
+.gh-trustpilot__star {
+    width: 32px;
+    height: 32px;
+    background: #00b67a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gh-trustpilot__star svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--gh-white);
+}
+
+.gh-trustpilot__rating {
+    font-size: var(--gh-text-2xl);
+    font-weight: 700;
+    color: var(--gh-black);
+    margin-bottom: var(--gh-space-xs);
+}
+
+.gh-trustpilot__count {
+    font-size: var(--gh-text-sm);
+    color: var(--gh-gray-500);
+}
+
+.gh-trustpilot__logo {
+    margin-top: var(--gh-space-lg);
+}
+
+.gh-trustpilot__logo img {
+    height: 24px;
+    width: auto;
+}
+
+/* ==========================================================================
+   SHORTCODE WRAPPER
+   Container per shortcode WordPress
+   ========================================================================== */
+
+.gh-shortcode-wrapper {
+    padding: var(--gh-space-3xl) var(--gh-space-xl);
+}
+
+.gh-shortcode-wrapper__header {
+    text-align: center;
+    margin-bottom: var(--gh-space-2xl);
+}
+
+.gh-shortcode-wrapper__eyebrow {
+    font-size: var(--gh-text-xs);
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gh-accent);
+    margin-bottom: var(--gh-space-md);
+    display: block;
+}
+
+.gh-shortcode-wrapper__title {
+    font-family: var(--gh-font-display);
+    font-size: var(--gh-text-3xl);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--gh-black);
+}
+
+.gh-shortcode-wrapper__content {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   PROMO MODAL
+   Modal promozionale (es. sconto primo acquisto)
+   ========================================================================== */
+
+.gh-promo-modal {
+    position: fixed;
+    inset: 0;
+    z-index: var(--gh-z-modal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--gh-space-xl);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s var(--gh-ease-out);
+}
+
+.gh-promo-modal--open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.gh-promo-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(8px);
+}
+
+.gh-promo-modal__container {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 900px;
+    background: var(--gh-white);
+    border-radius: 16px;
+    overflow: hidden;
+    transform: translateY(20px) scale(0.95);
+    transition: transform 0.4s var(--gh-ease-out);
+}
+
+.gh-promo-modal--open .gh-promo-modal__container {
+    transform: translateY(0) scale(1);
+}
+
+.gh-promo-modal__visual {
+    position: relative;
+    min-height: 400px;
+    background: var(--gh-black);
+}
+
+.gh-promo-modal__visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gh-promo-modal__content {
+    padding: var(--gh-space-3xl);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.gh-promo-modal__close {
+    position: absolute;
+    top: var(--gh-space-md);
+    right: var(--gh-space-md);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gh-white);
+    border: none;
+    border-radius: 50%;
+    color: var(--gh-black);
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.2s;
+}
+
+.gh-promo-modal__close:hover {
+    background: var(--gh-gray-100);
+}
+
+.gh-promo-modal__badge {
+    display: inline-block;
+    padding: var(--gh-space-sm) var(--gh-space-md);
+    background: var(--gh-accent);
+    color: var(--gh-white);
+    font-size: var(--gh-text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 4px;
+    margin-bottom: var(--gh-space-lg);
+}
+
+.gh-promo-modal__title {
+    font-family: var(--gh-font-display);
+    font-size: var(--gh-text-4xl);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--gh-black);
+    line-height: 1;
+    margin-bottom: var(--gh-space-lg);
+}
+
+.gh-promo-modal__text {
+    font-size: var(--gh-text-base);
+    color: var(--gh-gray-600);
+    line-height: 1.7;
+    margin-bottom: var(--gh-space-xl);
+}
+
+.gh-promo-modal__code {
+    display: inline-block;
+    padding: var(--gh-space-md) var(--gh-space-xl);
+    background: var(--gh-gray-100);
+    border: 2px dashed var(--gh-gray-300);
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: var(--gh-text-xl);
+    font-weight: 700;
+    color: var(--gh-black);
+    margin-bottom: var(--gh-space-xl);
+}
+
+.gh-promo-modal__disclaimer {
+    font-size: var(--gh-text-xs);
+    color: var(--gh-gray-500);
+}
+
+@media (max-width: 768px) {
+    .gh-promo-modal__container {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+
+    .gh-promo-modal__visual {
+        min-height: 200px;
+    }
+}
+
+/* ==========================================================================
+   WHATSAPP BUTTON
+   Bottone WhatsApp flottante
+   ========================================================================== */
+
+.gh-whatsapp-btn {
+    position: fixed;
+    bottom: var(--gh-space-xl);
+    right: var(--gh-space-xl);
+    z-index: var(--gh-z-fixed);
+    display: flex;
+    align-items: center;
+    gap: var(--gh-space-md);
+    padding: var(--gh-space-md) var(--gh-space-lg);
+    background: #25d366;
+    color: var(--gh-white);
+    font-size: var(--gh-text-sm);
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s var(--gh-ease-out);
+}
+
+.gh-whatsapp-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+}
+
+.gh-whatsapp-btn__icon {
+    width: 24px;
+    height: 24px;
+}
+
+.gh-whatsapp-btn--icon-only {
+    padding: var(--gh-space-md);
+    border-radius: 50%;
+}
+
+.gh-whatsapp-btn--icon-only .gh-whatsapp-btn__text {
+    display: none;
+}
+
+/* ==========================================================================
+   SOCIAL BUTTONS
+   Bottoni social flottanti
+   ========================================================================== */
+
+.gh-social-buttons {
+    position: fixed;
+    right: var(--gh-space-xl);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: var(--gh-z-fixed);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gh-space-sm);
+}
+
+.gh-social-btn {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gh-white);
+    color: var(--gh-black);
+    border-radius: 50%;
+    box-shadow: var(--gh-shadow-md);
+    text-decoration: none;
+    transition: all 0.3s var(--gh-ease-out);
+}
+
+.gh-social-btn:hover {
+    transform: scale(1.1);
+    box-shadow: var(--gh-shadow-lg);
+}
+
+.gh-social-btn--instagram:hover {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    color: var(--gh-white);
+}
+
+.gh-social-btn--facebook:hover {
+    background: #1877f2;
+    color: var(--gh-white);
+}
+
+.gh-social-btn--tiktok:hover {
+    background: var(--gh-black);
+    color: var(--gh-white);
+}
+
+.gh-social-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* ==========================================================================
+   PREMIUM BUTTON
+   ========================================================================== */
+
+.gh-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gh-space-sm);
+    padding: var(--gh-space-lg) var(--gh-space-2xl);
+    font-family: var(--gh-font-sans);
+    font-size: var(--gh-text-sm);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s var(--gh-ease-out);
+    position: relative;
+    overflow: hidden;
+}
+
+.gh-btn--primary {
+    background: var(--gh-black);
+    color: var(--gh-white);
+    border-color: var(--gh-black);
+}
+
+.gh-btn--primary:hover {
+    background: var(--gh-accent);
+    border-color: var(--gh-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(255,60,0,0.3);
+}
+
+.gh-btn--outline {
+    background: transparent;
+    color: var(--gh-white);
+    border-color: var(--gh-white);
+}
+
+.gh-btn--outline:hover {
+    background: var(--gh-white);
+    color: var(--gh-black);
+}
+
+.gh-btn--dark {
+    background: var(--gh-white);
+    color: var(--gh-black);
+    border-color: var(--gh-white);
+}
+
+.gh-btn--dark:hover {
+    background: var(--gh-accent);
+    border-color: var(--gh-accent);
+    color: var(--gh-white);
+}
+
+.gh-btn--secondary {
+    background: transparent;
+    color: var(--gh-white);
+    border-color: rgba(255,255,255,0.3);
+}
+
+.gh-btn--secondary:hover {
+    border-color: var(--gh-white);
+}
+
+.gh-btn--large {
+    padding: var(--gh-space-xl) var(--gh-space-3xl);
+    font-size: var(--gh-text-base);
+}
+
+.gh-btn-magnetic {
+    display: inline-block;
+}
+
+/* ==========================================================================
+   SCROLL REVEAL ANIMATIONS
+   ========================================================================== */
+
+[data-gh-reveal] {
+    opacity: 0;
+    transition: opacity 0.8s var(--gh-ease-out), transform 0.8s var(--gh-ease-out);
+}
+
+[data-gh-reveal="up"] {
+    transform: translateY(60px);
+}
+
+[data-gh-reveal="down"] {
+    transform: translateY(-60px);
+}
+
+[data-gh-reveal="left"] {
+    transform: translateX(-60px);
+}
+
+[data-gh-reveal="right"] {
+    transform: translateX(60px);
+}
+
+[data-gh-reveal="scale"] {
+    transform: scale(0.9);
+}
+
+[data-gh-reveal].gh-revealed {
+    opacity: 1;
+    transform: translate(0) scale(1);
+}
+
+[data-gh-image-reveal] {
+    position: relative;
+    overflow: hidden;
+}
+
+[data-gh-image-reveal]::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gh-black);
+    transform-origin: left;
+    transition: transform 1s var(--gh-ease-in-out);
+}
+
+[data-gh-image-reveal].gh-image-revealed::after {
+    transform: scaleX(0);
+    transform-origin: right;
+}
+
+[data-gh-image-reveal] img {
+    transform: scale(1.2);
+    transition: transform 1.2s var(--gh-ease-out) 0.3s;
+}
+
+[data-gh-image-reveal].gh-image-revealed img {
+    transform: scale(1);
+}
+
+/* ==========================================================================
+   COUNTDOWN TIMER
+   ========================================================================== */
+
+.gh-countdown {
+    display: flex;
+    gap: var(--gh-space-lg);
+    justify-content: center;
+}
+
+.gh-countdown__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+}
+
+.gh-countdown__value {
+    font-family: var(--gh-font-display);
+    font-size: var(--gh-text-4xl);
+    font-weight: 400;
+    line-height: 1;
+    color: var(--gh-white);
+    transition: transform 0.3s var(--gh-ease-elastic);
+}
+
+.gh-countdown__value.gh-digit-flip {
+    transform: scale(1.1);
+}
+
+.gh-countdown__label {
+    font-size: var(--gh-text-xs);
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gh-gray-400);
+    margin-top: var(--gh-space-sm);
+}
+
+.gh-countdown__expired {
+    font-family: var(--gh-font-display);
+    font-size: var(--gh-text-2xl);
+    font-weight: 400;
+    color: var(--gh-accent);
+    animation: gh-pulse-text 1.5s infinite;
+}
+
+@keyframes gh-pulse-text {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+/* ==========================================================================
+   UTILITY CLASSES
+   ========================================================================== */
+
+.gh-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--gh-space-xl);
+}
+
+.gh-text-center { text-align: center; }
+.gh-text-left { text-align: left; }
+.gh-text-right { text-align: right; }
+
+.gh-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    .gh-hero-slide__content {
+        padding: var(--gh-space-2xl);
+    }
+
+    .gh-hero-slide__title {
+        font-size: var(--gh-text-5xl);
+    }
+}
+
+@media (max-width: 768px) {
+    .gh-hero-carousel {
+        min-height: 500px;
+    }
+
+    .gh-hero-slide__title {
+        font-size: var(--gh-text-4xl);
+    }
+
+    .gh-hero-arrows {
+        display: none;
+    }
+
+    .gh-hero-video__title {
+        font-size: var(--gh-text-4xl);
+    }
+
+    .gh-parallax-section__title {
+        font-size: var(--gh-text-4xl);
+    }
+
+    .gh-cta-banner__title {
+        font-size: var(--gh-text-3xl);
+    }
+
+    .gh-countdown {
+        gap: var(--gh-space-md);
+    }
+
+    .gh-countdown__value {
+        font-size: var(--gh-text-2xl);
+    }
+
+    .gh-social-proof {
+        left: var(--gh-space-md);
+        right: var(--gh-space-md);
+        bottom: var(--gh-space-md);
+        max-width: none;
+    }
+
+    .gh-whatsapp-btn {
+        right: var(--gh-space-md);
+        bottom: var(--gh-space-md);
+    }
+
+    .gh-social-buttons {
+        right: var(--gh-space-md);
+    }
+}
+
+/* ==========================================================================
+   REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    [data-gh-reveal] {
+        opacity: 1;
+        transform: none;
+    }
+}
