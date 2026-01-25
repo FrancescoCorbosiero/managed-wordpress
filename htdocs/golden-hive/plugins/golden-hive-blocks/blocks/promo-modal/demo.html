@@ -1,0 +1,205 @@
+<!--
+Promo Modal Block - Demo & Varianti
+Esempi pronti per copia-incolla - Golden Hive
+Modal promozionale per sconti, offerte speciali, primo acquisto
+-->
+
+<!-- ============================================
+     DEFAULT: Sconto 10% primo acquisto (auto-show)
+     ============================================ -->
+<div class="gh-block gh-promo-modal"
+     data-gh-modal="promo-welcome"
+     data-gh-promo-modal
+     data-gh-promo-delay="5000"
+     data-gh-promo-once="true"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="promo-welcome-title">
+    <div class="gh-promo-modal__backdrop"></div>
+    <div class="gh-promo-modal__container">
+        <button class="gh-promo-modal__close" data-gh-modal-close aria-label="Chiudi">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>
+        </button>
+        <div class="gh-promo-modal__visual">
+            <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?w=600" alt="" loading="lazy">
+        </div>
+        <div class="gh-promo-modal__content">
+            <span class="gh-promo-modal__badge">Offerta Esclusiva</span>
+            <h3 class="gh-promo-modal__title" id="promo-welcome-title">10% di Sconto</h3>
+            <p class="gh-promo-modal__text">Benvenuto su Golden Hive! Iscriviti alla newsletter e ottieni il 10% di sconto sul tuo primo ordine.</p>
+            <div class="gh-promo-modal__code">WELCOME10</div>
+            <a href="/shop" class="gh-btn gh-btn--primary gh-btn--large">
+                Inizia lo Shopping
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+            <p class="gh-promo-modal__disclaimer">Valido su ordini superiori a €100. Non cumulabile.</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- ============================================
+     VARIANTE 1: Flash Sale (senza auto-show)
+     Usa un bottone per aprirlo manualmente
+     ============================================ -->
+<!-- Bottone trigger -->
+<button class="gh-btn gh-btn--primary" data-gh-modal-trigger="promo-flash">
+    Scopri l'Offerta
+</button>
+
+<!-- Modal -->
+<div class="gh-block gh-promo-modal"
+     data-gh-modal="promo-flash"
+     role="dialog"
+     aria-modal="true">
+    <div class="gh-promo-modal__backdrop"></div>
+    <div class="gh-promo-modal__container">
+        <button class="gh-promo-modal__close" data-gh-modal-close aria-label="Chiudi">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>
+        </button>
+        <div class="gh-promo-modal__visual">
+            <img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=600" alt="" loading="lazy">
+        </div>
+        <div class="gh-promo-modal__content">
+            <span class="gh-promo-modal__badge">Flash Sale</span>
+            <h3 class="gh-promo-modal__title">30% Off</h3>
+            <p class="gh-promo-modal__text">Solo per oggi! Approfitta dello sconto del 30% su tutta la collezione Nike.</p>
+            <div class="gh-promo-modal__code">FLASH30</div>
+            <a href="/shop/nike" class="gh-btn gh-btn--primary gh-btn--large">
+                Shop Nike
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+            <p class="gh-promo-modal__disclaimer">Offerta valida fino a mezzanotte.</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- ============================================
+     VARIANTE 2: Newsletter con sconto (auto-show ripetuto)
+     ============================================ -->
+<div class="gh-block gh-promo-modal"
+     data-gh-modal="promo-newsletter"
+     data-gh-promo-modal
+     data-gh-promo-delay="8000"
+     data-gh-promo-once="false"
+     role="dialog"
+     aria-modal="true">
+    <div class="gh-promo-modal__backdrop"></div>
+    <div class="gh-promo-modal__container">
+        <button class="gh-promo-modal__close" data-gh-modal-close aria-label="Chiudi">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>
+        </button>
+        <div class="gh-promo-modal__visual">
+            <img src="https://images.unsplash.com/photo-1597045566677-8cf032ed6634?w=600" alt="" loading="lazy">
+        </div>
+        <div class="gh-promo-modal__content">
+            <span class="gh-promo-modal__badge">Join the Hive</span>
+            <h3 class="gh-promo-modal__title">Resta Connesso</h3>
+            <p class="gh-promo-modal__text">Iscriviti per ricevere accesso anticipato ai drop, offerte esclusive e contenuti riservati.</p>
+            <form style="display: flex; flex-direction: column; gap: var(--gh-space-md); margin-bottom: var(--gh-space-lg);">
+                <input type="email" placeholder="La tua email" style="padding: var(--gh-space-md); border: 1px solid var(--gh-gray-300); border-radius: 4px;">
+                <button type="submit" class="gh-btn gh-btn--primary">
+                    Iscriviti
+                </button>
+            </form>
+            <p class="gh-promo-modal__disclaimer">Niente spam. Solo le cose migliori.</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- ============================================
+     VARIANTE 3: Senza immagine
+     ============================================ -->
+<div class="gh-block gh-promo-modal"
+     data-gh-modal="promo-simple"
+     data-gh-promo-modal
+     data-gh-promo-delay="3000"
+     data-gh-promo-once="true"
+     role="dialog"
+     aria-modal="true">
+    <div class="gh-promo-modal__backdrop"></div>
+    <div class="gh-promo-modal__container" style="grid-template-columns: 1fr; max-width: 500px;">
+        <button class="gh-promo-modal__close" data-gh-modal-close aria-label="Chiudi">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>
+        </button>
+        <div class="gh-promo-modal__content" style="text-align: center;">
+            <span class="gh-promo-modal__badge">Limited Time</span>
+            <h3 class="gh-promo-modal__title">Spedizione Gratuita</h3>
+            <p class="gh-promo-modal__text">Questo weekend spedizione gratuita su tutti gli ordini. Nessun minimo richiesto!</p>
+            <a href="/shop" class="gh-btn gh-btn--primary gh-btn--large">
+                Acquista Ora
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+            <p class="gh-promo-modal__disclaimer">Valido fino a domenica mezzanotte.</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- ============================================
+     VARIANTE 4: Black Friday
+     ============================================ -->
+<div class="gh-block gh-promo-modal"
+     data-gh-modal="promo-bf"
+     data-gh-promo-modal
+     data-gh-promo-delay="4000"
+     data-gh-promo-once="true"
+     role="dialog"
+     aria-modal="true">
+    <div class="gh-promo-modal__backdrop"></div>
+    <div class="gh-promo-modal__container">
+        <button class="gh-promo-modal__close" data-gh-modal-close aria-label="Chiudi">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>
+        </button>
+        <div class="gh-promo-modal__visual" style="background: #000;">
+            <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=600" alt="" loading="lazy" style="opacity: 0.7;">
+        </div>
+        <div class="gh-promo-modal__content">
+            <span class="gh-promo-modal__badge" style="background: #000;">Black Friday</span>
+            <h3 class="gh-promo-modal__title">Fino al 50% Off</h3>
+            <p class="gh-promo-modal__text">Le offerte piu pazze dell'anno sono qui. Sneakers, abbigliamento e accessori con sconti fino al 50%.</p>
+            <div class="gh-promo-modal__code">BLACKFRIDAY</div>
+            <a href="/black-friday" class="gh-btn gh-btn--primary gh-btn--large">
+                Vai alle Offerte
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+            <p class="gh-promo-modal__disclaimer">Fino ad esaurimento scorte.</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- ============================================
+     NOTE IMPORTANTI:
+
+     data-gh-promo-delay="5000" = compare dopo 5 secondi
+     data-gh-promo-once="true" = compare solo 1 volta (usa localStorage)
+     data-gh-promo-once="false" = compare ogni volta
+
+     Per aprire manualmente senza auto-show, rimuovi:
+     - data-gh-promo-modal
+     - data-gh-promo-delay
+     - data-gh-promo-once
+
+     E usa un bottone con data-gh-modal-trigger="nome-modal"
+     ============================================ -->

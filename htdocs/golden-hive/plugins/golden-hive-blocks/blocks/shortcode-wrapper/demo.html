@@ -1,0 +1,129 @@
+<!--
+Shortcode Wrapper Block - Demo & Varianti
+Esempi pronti per copia-incolla - Golden Hive
+Usa questo blocco per wrappare shortcode WooCommerce o altri plugin
+-->
+
+<!-- ============================================
+     DEFAULT: Prodotti Best Seller
+     ============================================ -->
+<section class="gh-block gh-shortcode-wrapper">
+    <div class="gh-shortcode-wrapper__header" data-gh-reveal="up">
+        <span class="gh-shortcode-wrapper__eyebrow">I Piu Venduti</span>
+        <h2 class="gh-shortcode-wrapper__title">Best Sellers</h2>
+    </div>
+    <div class="gh-shortcode-wrapper__content">
+        [products limit="8" columns="4" best_selling="true"]
+    </div>
+</section>
+
+
+<!-- ============================================
+     VARIANTE 1: Nuovi Arrivi
+     ============================================ -->
+<section class="gh-block gh-shortcode-wrapper">
+    <div class="gh-shortcode-wrapper__header" data-gh-reveal="up">
+        <span class="gh-shortcode-wrapper__eyebrow">Fresh Drops</span>
+        <h2 class="gh-shortcode-wrapper__title">Nuovi Arrivi</h2>
+    </div>
+    <div class="gh-shortcode-wrapper__content">
+        [products limit="8" columns="4" orderby="date" order="DESC"]
+    </div>
+</section>
+
+
+<!-- ============================================
+     VARIANTE 2: Prodotti in Saldo (bg grigio)
+     ============================================ -->
+<section class="gh-block gh-shortcode-wrapper" style="background: var(--gh-gray-50);">
+    <div class="gh-shortcode-wrapper__header" data-gh-reveal="up">
+        <span class="gh-shortcode-wrapper__eyebrow">Offerte</span>
+        <h2 class="gh-shortcode-wrapper__title">Saldi</h2>
+    </div>
+    <div class="gh-shortcode-wrapper__content">
+        [products limit="8" columns="4" on_sale="true"]
+    </div>
+</section>
+
+
+<!-- ============================================
+     VARIANTE 3: Prodotti per Categoria
+     ============================================ -->
+<section class="gh-block gh-shortcode-wrapper">
+    <div class="gh-shortcode-wrapper__header" data-gh-reveal="up">
+        <span class="gh-shortcode-wrapper__eyebrow">Collezione</span>
+        <h2 class="gh-shortcode-wrapper__title">Jordan</h2>
+    </div>
+    <div class="gh-shortcode-wrapper__content">
+        [products limit="8" columns="4" category="jordan"]
+    </div>
+</section>
+
+
+<!-- ============================================
+     VARIANTE 4: Prodotti in Evidenza (bg nero)
+     ============================================ -->
+<section class="gh-block gh-shortcode-wrapper" style="background: var(--gh-black); color: var(--gh-white);">
+    <div class="gh-shortcode-wrapper__header" data-gh-reveal="up">
+        <span class="gh-shortcode-wrapper__eyebrow">Selezione</span>
+        <h2 class="gh-shortcode-wrapper__title">Editor's Pick</h2>
+    </div>
+    <div class="gh-shortcode-wrapper__content">
+        [products limit="4" columns="4" visibility="featured"]
+    </div>
+</section>
+
+
+<!-- ============================================
+     VARIANTE 5: Senza header (solo shortcode)
+     ============================================ -->
+<section class="gh-block gh-shortcode-wrapper">
+    <div class="gh-shortcode-wrapper__content">
+        [products limit="12" columns="4" orderby="popularity"]
+    </div>
+</section>
+
+
+<!-- ============================================
+     VARIANTE 6: Product Carousel (con altri plugin)
+     ============================================ -->
+<section class="gh-block gh-shortcode-wrapper">
+    <div class="gh-shortcode-wrapper__header" data-gh-reveal="up">
+        <span class="gh-shortcode-wrapper__eyebrow">Trending</span>
+        <h2 class="gh-shortcode-wrapper__title">Le Piu Cercate</h2>
+    </div>
+    <div class="gh-shortcode-wrapper__content">
+        [product_carousel type="best_selling" limit="8"]
+    </div>
+</section>
+
+
+<!-- ============================================
+     VARIANTE 7: Recensioni
+     ============================================ -->
+<section class="gh-block gh-shortcode-wrapper" style="background: var(--gh-gray-50);">
+    <div class="gh-shortcode-wrapper__header" data-gh-reveal="up">
+        <span class="gh-shortcode-wrapper__eyebrow">Clienti Soddisfatti</span>
+        <h2 class="gh-shortcode-wrapper__title">Recensioni</h2>
+    </div>
+    <div class="gh-shortcode-wrapper__content">
+        [woocommerce_reviews limit="6"]
+    </div>
+</section>
+
+
+<!-- ============================================
+     SHORTCODE COMUNI WOOCOMMERCE:
+
+     [products limit="8" columns="4"]
+     [products category="jordan" limit="8"]
+     [products tag="limited" limit="4"]
+     [products on_sale="true" limit="8"]
+     [products best_selling="true" limit="8"]
+     [products visibility="featured" limit="4"]
+     [products orderby="date" order="DESC" limit="8"]
+     [products orderby="popularity" limit="8"]
+     [products ids="1,2,3,4,5,6,7,8"]
+     [product_page id="123"]
+     [add_to_cart id="123"]
+     ============================================ -->
