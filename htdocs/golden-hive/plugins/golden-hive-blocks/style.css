@@ -31,7 +31,7 @@
 
     /* Tipografia */
     --gh-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --gh-font-display: 'Bebas Neue', 'Inter', -apple-system, sans-serif;
+    --gh-font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
     /* Scala tipografica fluida */
     --gh-text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
@@ -180,7 +180,7 @@
 .gh-hero-slide__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-7xl);
-    font-weight: 900;
+    font-weight: 800;
     line-height: 0.9;
     letter-spacing: -0.02em;
     text-transform: uppercase;
@@ -341,16 +341,16 @@
     display: inline-flex;
     align-items: center;
     gap: var(--gh-space-sm);
-    padding: var(--gh-space-sm) var(--gh-space-lg);
+    padding: 0.5rem 1.25rem;
     background: rgba(255,255,255,0.1);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255,255,255,0.2);
     border-radius: 50px;
     color: var(--gh-white);
-    font-size: var(--gh-text-xs);
-    font-weight: 600;
+    font-size: 0.75rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
     margin-bottom: var(--gh-space-xl);
 }
 
@@ -361,7 +361,7 @@
 .gh-hero-video__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-6xl);
-    font-weight: 400;
+    font-weight: 800;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     color: var(--gh-white);
@@ -468,7 +468,7 @@
 .gh-parallax-section__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-6xl);
-    font-weight: 400;
+    font-weight: 800;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     line-height: 0.95;
@@ -520,15 +520,15 @@
     z-index: var(--gh-z-notification);
     display: flex;
     align-items: center;
-    gap: var(--gh-space-md);
-    padding: var(--gh-space-md) var(--gh-space-lg);
+    gap: var(--gh-space-lg);
+    padding: var(--gh-space-lg) var(--gh-space-xl);
     background: var(--gh-white);
-    border-radius: 8px;
+    border-radius: 12px;
     box-shadow: var(--gh-shadow-xl);
     transform: translateX(-120%);
     opacity: 0;
     transition: all 0.5s var(--gh-ease-elastic);
-    max-width: 380px;
+    max-width: 400px;
 }
 
 .gh-social-proof--visible {
@@ -537,9 +537,9 @@
 }
 
 .gh-social-proof__image {
-    width: 64px;
-    height: 64px;
-    border-radius: 8px;
+    width: 72px;
+    height: 72px;
+    border-radius: 10px;
     background: var(--gh-gray-100);
     overflow: hidden;
     flex-shrink: 0;
@@ -558,21 +558,21 @@
 
 .gh-social-proof__title {
     font-size: var(--gh-text-xs);
-    font-weight: 600;
+    font-weight: 700;
     color: var(--gh-gray-500);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: var(--gh-space-xs);
+    letter-spacing: 0.1em;
+    margin-bottom: var(--gh-space-sm);
 }
 
 .gh-social-proof__product {
-    font-size: var(--gh-text-sm);
+    font-size: var(--gh-text-base);
     font-weight: 700;
     color: var(--gh-black);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-bottom: var(--gh-space-xs);
+    margin-bottom: var(--gh-space-sm);
 }
 
 .gh-social-proof__meta {
@@ -636,7 +636,7 @@
 .gh-faq__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-4xl);
-    font-weight: 400;
+    font-weight: 800;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     color: var(--gh-black);
@@ -666,6 +666,10 @@
     transition: color 0.3s;
 }
 
+.gh-faq__trigger * {
+    text-align: left;
+}
+
 .gh-faq__trigger:hover {
     color: var(--gh-accent);
 }
@@ -675,6 +679,8 @@
     font-weight: 600;
     color: inherit;
     line-height: 1.4;
+    text-align: left;
+    flex: 1;
 }
 
 .gh-faq__icon {
@@ -783,7 +789,7 @@
 .gh-cta-banner__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-5xl);
-    font-weight: 400;
+    font-weight: 800;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     color: var(--gh-white);
@@ -867,7 +873,7 @@
 .gh-cta-image__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-4xl);
-    font-weight: 400;
+    font-weight: 800;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     line-height: 1;
@@ -1032,7 +1038,7 @@
 .gh-modal__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-xl);
-    font-weight: 400;
+    font-weight: 700;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     color: var(--gh-black);
@@ -1132,7 +1138,7 @@
 .gh-trust-badges__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-4xl);
-    font-weight: 400;
+    font-weight: 800;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     color: var(--gh-black);
@@ -1243,11 +1249,12 @@
     display: inline-flex;
     align-items: center;
     gap: var(--gh-space-sm);
-    padding: var(--gh-space-sm) var(--gh-space-md);
+    padding: 0.5rem 1rem;
     background: var(--gh-success);
     color: var(--gh-white);
-    font-size: var(--gh-text-xs);
-    font-weight: 600;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
     border-radius: 50px;
 }
 
@@ -1273,7 +1280,7 @@
 .gh-product-spotlight__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-4xl);
-    font-weight: 400;
+    font-weight: 800;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     line-height: 1;
@@ -1325,7 +1332,7 @@
 .gh-product-spotlight__price-current {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-3xl);
-    font-weight: 400;
+    font-weight: 800;
     color: var(--gh-white);
 }
 
@@ -1377,7 +1384,7 @@
 .gh-newsletter__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-3xl);
-    font-weight: 400;
+    font-weight: 800;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     color: var(--gh-white);
@@ -1496,7 +1503,7 @@
 .gh-authenticity__badge-text {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-2xl);
-    font-weight: 400;
+    font-weight: 700;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     color: var(--gh-black);
@@ -1522,7 +1529,7 @@
 .gh-authenticity__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-4xl);
-    font-weight: 400;
+    font-weight: 800;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     color: var(--gh-black);
@@ -1686,7 +1693,7 @@
 .gh-shortcode-wrapper__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-3xl);
-    font-weight: 400;
+    font-weight: 800;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     color: var(--gh-black);
@@ -1787,13 +1794,13 @@
 
 .gh-promo-modal__badge {
     display: inline-block;
-    padding: var(--gh-space-sm) var(--gh-space-md);
+    padding: 0.5rem 1rem;
     background: var(--gh-accent);
     color: var(--gh-white);
-    font-size: var(--gh-text-xs);
+    font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
     border-radius: 4px;
     margin-bottom: var(--gh-space-lg);
 }
@@ -1801,7 +1808,7 @@
 .gh-promo-modal__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-4xl);
-    font-weight: 400;
+    font-weight: 800;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     color: var(--gh-black);
@@ -1952,18 +1959,20 @@
     align-items: center;
     justify-content: center;
     gap: var(--gh-space-sm);
-    padding: var(--gh-space-lg) var(--gh-space-2xl);
+    padding: 1rem 2rem;
     font-family: var(--gh-font-sans);
-    font-size: var(--gh-text-sm);
+    font-size: 0.875rem;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     text-decoration: none;
     border: 2px solid transparent;
+    border-radius: 0;
     cursor: pointer;
     transition: all 0.3s var(--gh-ease-out);
     position: relative;
     overflow: hidden;
+    line-height: 1.2;
 }
 
 .gh-btn--primary {
@@ -2013,8 +2022,13 @@
 }
 
 .gh-btn--large {
-    padding: var(--gh-space-xl) var(--gh-space-3xl);
-    font-size: var(--gh-text-base);
+    padding: 1.25rem 2.5rem;
+    font-size: 1rem;
+}
+
+.gh-btn--small {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.75rem;
 }
 
 .gh-btn-magnetic {
@@ -2103,7 +2117,7 @@
 .gh-countdown__value {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-4xl);
-    font-weight: 400;
+    font-weight: 800;
     line-height: 1;
     color: var(--gh-white);
     transition: transform 0.3s var(--gh-ease-elastic);
@@ -2125,7 +2139,7 @@
 .gh-countdown__expired {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-2xl);
-    font-weight: 400;
+    font-weight: 700;
     color: var(--gh-accent);
     animation: gh-pulse-text 1.5s infinite;
 }
