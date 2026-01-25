@@ -118,7 +118,7 @@ services:
           memory: ${WP_MEMORY_RESERVATION:-256M}
     # Labels per Caddy Docker Proxy (SSL automatico)
     labels:
-      caddy: ${DOMAIN}
+      caddy: ${DOMAIN}, www.${DOMAIN}
       caddy.reverse_proxy: "{{upstreams 80}}"
       caddy.encode: zstd gzip
       caddy.header.X-Content-Type-Options: nosniff
