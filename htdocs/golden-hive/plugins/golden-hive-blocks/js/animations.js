@@ -214,12 +214,14 @@
     };
 
     /**
-     * Social Proof Popup Notifications
+     * Social Proof Notification - Shopify style
+     * Gentle timing, non-aggressive popups
      */
     const SocialProof = {
         notifications: [],
         currentIndex: 0,
         container: null,
+        isHidden: false,
 
         init() {
             this.container = document.querySelector('[data-gh-social-proof]');
@@ -231,47 +233,58 @@
 
             if (!this.notifications.length) return;
 
-            const interval = parseInt(this.container.dataset.ghSocialProofInterval) || 12000;
-            const delay = parseInt(this.container.dataset.ghSocialProofDelay) || 8000;
+            // Gentle timing: show every 25-35 seconds, start after 15 seconds
+            const interval = parseInt(this.container.dataset.ghSocialProofInterval) || 30000;
+            const delay = parseInt(this.container.dataset.ghSocialProofDelay) || 15000;
+            const duration = parseInt(this.container.dataset.ghSocialProofDuration) || 6000;
 
-            // Bottone chiudi
+            this.displayDuration = duration;
+
+            // Close button
             this.container.querySelector('[data-gh-social-proof-close]')?.addEventListener('click', (e) => {
                 e.stopPropagation();
                 this.hide();
+                this.isHidden = true; // User dismissed, stop showing
             });
 
-            // Inizia a mostrare le notifiche
+            // Start showing notifications after delay
             setTimeout(() => {
                 this.show();
-                setInterval(() => this.show(), interval);
+                setInterval(() => {
+                    if (!this.isHidden) this.show();
+                }, interval);
             }, delay);
         },
 
         show() {
+            if (this.isHidden) return;
+
             const n = this.notifications[this.currentIndex];
             this.currentIndex = (this.currentIndex + 1) % this.notifications.length;
 
-            const els = {
-                product: this.container.querySelector('[data-gh-social-proof-product]'),
-                time: this.container.querySelector('[data-gh-social-proof-time]'),
-                location: this.container.querySelector('[data-gh-social-proof-location]'),
-                image: this.container.querySelector('[data-gh-social-proof-image]')
-            };
+            // Update content
+            const textEl = this.container.querySelector('[data-gh-social-proof-text]');
+            const metaEl = this.container.querySelector('[data-gh-social-proof-meta]');
+            const imageEl = this.container.querySelector('[data-gh-social-proof-image]');
 
-            if (els.product) els.product.textContent = n.product;
-            if (els.time) els.time.textContent = n.time;
-            if (els.location) els.location.textContent = n.location || '';
-            if (els.image && n.image) {
-                els.image.src = n.image;
-                els.image.alt = n.product;
+            if (textEl) {
+                textEl.innerHTML = `Someone purchased <strong>${n.product}</strong>`;
+            }
+            if (metaEl) {
+                const location = n.location ? ` from ${n.location}` : '';
+                metaEl.textContent = `${n.time}${location}`;
+            }
+            if (imageEl && n.image) {
+                imageEl.src = n.image;
+                imageEl.alt = n.product;
             }
 
-            this.container.classList.add('gh-social-proof--visible');
-            setTimeout(() => this.hide(), 4500);
+            this.container.classList.add('is-visible');
+            setTimeout(() => this.hide(), this.displayDuration);
         },
 
         hide() {
-            this.container.classList.remove('gh-social-proof--visible');
+            this.container.classList.remove('is-visible');
         }
     };
 
