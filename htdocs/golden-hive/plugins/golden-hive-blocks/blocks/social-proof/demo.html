@@ -1,38 +1,43 @@
 <!--
-Social Proof Block - Demo & Varianti
-Esempi pronti per copia-incolla - Golden Hive
+Social Proof Block - Shopify-style notification
+Clean, non-aggressive purchase notifications
 -->
 
 <!-- ============================================
-     DEFAULT: Notifiche acquisti recenti
+     DEFAULT: Standard timing (gentle)
+     Shows after 15s, then every 30s, visible for 6s
      ============================================ -->
 <div class="gh-block gh-social-proof"
      data-gh-social-proof
      data-gh-social-proof-items='[
-         {"product": "Air Jordan 4 Retro", "time": "2 minuti fa", "location": "Milano", "image": "https://images.unsplash.com/photo-1552346154-21d32810aba3?w=200"},
-         {"product": "Nike Dunk Low Panda", "time": "5 minuti fa", "location": "Roma", "image": "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=200"},
-         {"product": "New Balance 550", "time": "8 minuti fa", "location": "Napoli", "image": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=200"},
-         {"product": "Yeezy 350 V2", "time": "12 minuti fa", "location": "Torino", "image": "https://images.unsplash.com/photo-1597045566677-8cf032ed6634?w=200"},
-         {"product": "Adidas Samba", "time": "15 minuti fa", "location": "Firenze", "image": "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?w=200"}
+         {"product": "Air Jordan 4 Retro", "time": "2 minutes ago", "location": "Milan", "image": "https://images.unsplash.com/photo-1552346154-21d32810aba3?w=200"},
+         {"product": "Nike Dunk Low Panda", "time": "5 minutes ago", "location": "Rome", "image": "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=200"},
+         {"product": "New Balance 550", "time": "8 minutes ago", "location": "Naples", "image": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=200"},
+         {"product": "Yeezy 350 V2", "time": "12 minutes ago", "location": "Turin", "image": "https://images.unsplash.com/photo-1597045566677-8cf032ed6634?w=200"},
+         {"product": "Adidas Samba", "time": "15 minutes ago", "location": "Florence", "image": "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?w=200"}
      ]'
-     data-gh-social-proof-interval="8000"
-     data-gh-social-proof-delay="5000"
+     data-gh-social-proof-interval="30000"
+     data-gh-social-proof-delay="15000"
+     data-gh-social-proof-duration="6000"
      aria-live="polite"
      aria-atomic="true">
     <div class="gh-social-proof__image">
-        <img src="" alt="" data-gh-social-proof-image>
+        <img src="" alt="" data-gh-social-proof-image loading="lazy">
     </div>
-    <div class="gh-social-proof__content">
-        <span class="gh-social-proof__title">Qualcuno ha appena acquistato</span>
-        <span class="gh-social-proof__product" data-gh-social-proof-product></span>
-        <span class="gh-social-proof__meta">
-            <span data-gh-social-proof-time></span>
-            <span> - </span>
-            <span data-gh-social-proof-location></span>
+    <div class="gh-social-proof__body">
+        <p class="gh-social-proof__text" data-gh-social-proof-text>
+            Someone purchased <strong></strong>
+        </p>
+        <p class="gh-social-proof__meta" data-gh-social-proof-meta></p>
+        <span class="gh-social-proof__verified">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+            </svg>
+            Verified purchase
         </span>
     </div>
-    <button class="gh-social-proof__close" data-gh-social-proof-close aria-label="Chiudi notifica">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <button class="gh-social-proof__close" data-gh-social-proof-close aria-label="Close notification">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M18 6L6 18M6 6l12 12"/>
         </svg>
     </button>
@@ -40,66 +45,38 @@ Esempi pronti per copia-incolla - Golden Hive
 
 
 <!-- ============================================
-     VARIANTE 1: Intervallo veloce (5 secondi)
+     VARIANT 1: Slightly faster (every 20s)
+     For higher traffic stores
      ============================================ -->
 <div class="gh-block gh-social-proof"
      data-gh-social-proof
      data-gh-social-proof-items='[
-         {"product": "Travis Scott x Jordan 1", "time": "1 minuto fa", "location": "Milano", "image": "/wp-content/uploads/products/travis-1.jpg"},
-         {"product": "Off-White x Nike Dunk", "time": "3 minuti fa", "location": "Roma", "image": "/wp-content/uploads/products/ow-dunk.jpg"},
-         {"product": "Supreme Box Logo Tee", "time": "6 minuti fa", "location": "Bologna", "image": "/wp-content/uploads/products/supreme-bogo.jpg"}
+         {"product": "Travis Scott x Jordan 1", "time": "Just now", "location": "Milan", "image": "/wp-content/uploads/products/travis-1.jpg"},
+         {"product": "Off-White x Nike Dunk", "time": "3 minutes ago", "location": "Rome", "image": "/wp-content/uploads/products/ow-dunk.jpg"},
+         {"product": "Supreme Box Logo Tee", "time": "6 minutes ago", "location": "Bologna", "image": "/wp-content/uploads/products/supreme-bogo.jpg"}
      ]'
-     data-gh-social-proof-interval="5000"
-     data-gh-social-proof-delay="3000"
-     aria-live="polite"
-     aria-atomic="true">
-    <div class="gh-social-proof__image">
-        <img src="" alt="" data-gh-social-proof-image>
-    </div>
-    <div class="gh-social-proof__content">
-        <span class="gh-social-proof__title">Nuovo ordine</span>
-        <span class="gh-social-proof__product" data-gh-social-proof-product></span>
-        <span class="gh-social-proof__meta">
-            <span data-gh-social-proof-time></span>
-            <span> - </span>
-            <span data-gh-social-proof-location></span>
-        </span>
-    </div>
-    <button class="gh-social-proof__close" data-gh-social-proof-close aria-label="Chiudi">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 6L6 18M6 6l12 12"/>
-        </svg>
-    </button>
-</div>
-
-
-<!-- ============================================
-     VARIANTE 2: Delay lungo (10 secondi)
-     ============================================ -->
-<div class="gh-block gh-social-proof"
-     data-gh-social-proof
-     data-gh-social-proof-items='[
-         {"product": "Jordan 4 Military Black", "time": "Poco fa", "location": "Verona", "image": "/wp-content/uploads/products/j4-military.jpg"},
-         {"product": "Nike Air Force 1", "time": "5 min fa", "location": "Padova", "image": "/wp-content/uploads/products/af1.jpg"}
-     ]'
-     data-gh-social-proof-interval="10000"
+     data-gh-social-proof-interval="20000"
      data-gh-social-proof-delay="10000"
+     data-gh-social-proof-duration="5000"
      aria-live="polite"
      aria-atomic="true">
     <div class="gh-social-proof__image">
-        <img src="" alt="" data-gh-social-proof-image>
+        <img src="" alt="" data-gh-social-proof-image loading="lazy">
     </div>
-    <div class="gh-social-proof__content">
-        <span class="gh-social-proof__title">Acquistato ora</span>
-        <span class="gh-social-proof__product" data-gh-social-proof-product></span>
-        <span class="gh-social-proof__meta">
-            <span data-gh-social-proof-time></span>
-            <span> - </span>
-            <span data-gh-social-proof-location></span>
+    <div class="gh-social-proof__body">
+        <p class="gh-social-proof__text" data-gh-social-proof-text>
+            Someone purchased <strong></strong>
+        </p>
+        <p class="gh-social-proof__meta" data-gh-social-proof-meta></p>
+        <span class="gh-social-proof__verified">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+            </svg>
+            Verified purchase
         </span>
     </div>
-    <button class="gh-social-proof__close" data-gh-social-proof-close aria-label="Chiudi">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <button class="gh-social-proof__close" data-gh-social-proof-close aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M18 6L6 18M6 6l12 12"/>
         </svg>
     </button>
@@ -107,32 +84,51 @@ Esempi pronti per copia-incolla - Golden Hive
 
 
 <!-- ============================================
-     VARIANTE 3: Senza location
+     VARIANT 2: Relaxed timing (every 45s)
+     For a more subtle approach
      ============================================ -->
 <div class="gh-block gh-social-proof"
      data-gh-social-proof
      data-gh-social-proof-items='[
-         {"product": "Air Jordan 1 High OG", "time": "Ora", "image": "/wp-content/uploads/products/aj1-og.jpg"},
-         {"product": "Yeezy Slide", "time": "2 min fa", "image": "/wp-content/uploads/products/yeezy-slide.jpg"},
-         {"product": "Nike SB Dunk", "time": "5 min fa", "image": "/wp-content/uploads/products/sb-dunk.jpg"}
+         {"product": "Jordan 4 Military Black", "time": "Recently", "location": "Verona", "image": "/wp-content/uploads/products/j4-military.jpg"},
+         {"product": "Nike Air Force 1", "time": "5 min ago", "location": "Padua", "image": "/wp-content/uploads/products/af1.jpg"}
      ]'
-     data-gh-social-proof-interval="7000"
-     data-gh-social-proof-delay="4000"
+     data-gh-social-proof-interval="45000"
+     data-gh-social-proof-delay="20000"
+     data-gh-social-proof-duration="7000"
      aria-live="polite"
      aria-atomic="true">
     <div class="gh-social-proof__image">
-        <img src="" alt="" data-gh-social-proof-image>
+        <img src="" alt="" data-gh-social-proof-image loading="lazy">
     </div>
-    <div class="gh-social-proof__content">
-        <span class="gh-social-proof__title">Sold!</span>
-        <span class="gh-social-proof__product" data-gh-social-proof-product></span>
-        <span class="gh-social-proof__meta">
-            <span data-gh-social-proof-time></span>
+    <div class="gh-social-proof__body">
+        <p class="gh-social-proof__text" data-gh-social-proof-text>
+            Someone purchased <strong></strong>
+        </p>
+        <p class="gh-social-proof__meta" data-gh-social-proof-meta></p>
+        <span class="gh-social-proof__verified">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+            </svg>
+            Verified purchase
         </span>
     </div>
-    <button class="gh-social-proof__close" data-gh-social-proof-close aria-label="Chiudi">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <button class="gh-social-proof__close" data-gh-social-proof-close aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M18 6L6 18M6 6l12 12"/>
         </svg>
     </button>
 </div>
+
+
+<!-- ============================================
+     NOTE: Timing parameters
+     - interval: Time between notifications (ms)
+     - delay: Initial delay before first notification (ms)
+     - duration: How long notification stays visible (ms)
+
+     Recommended gentle settings:
+     - interval: 25000-45000 (25-45 seconds)
+     - delay: 10000-20000 (10-20 seconds)
+     - duration: 5000-7000 (5-7 seconds)
+     ============================================ -->
