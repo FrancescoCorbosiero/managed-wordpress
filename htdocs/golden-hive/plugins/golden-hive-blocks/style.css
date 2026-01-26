@@ -79,22 +79,103 @@
 }
 
 /* ==========================================================================
-   Base Reset per i Blocchi
+   Base Reset per i Blocchi - Override WordPress/Theme/WooCommerce
    ========================================================================== */
 
+/* Aggressive reset to override all theme styles */
 .gh-block,
 .gh-block *,
 .gh-block *::before,
 .gh-block *::after {
-    box-sizing: border-box;
+    box-sizing: border-box !important;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.gh-block {
+    font-family: var(--gh-font-sans) !important;
+    font-size: var(--gh-text-base) !important;
+    line-height: 1.5 !important;
+    color: var(--gh-black) !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
+}
+
+/* Reset links inside blocks */
+.gh-block a {
+    color: inherit;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+/* Reset lists inside blocks */
+.gh-block ul,
+.gh-block ol {
+    list-style: none;
+}
+
+/* Reset images inside blocks */
+.gh-block img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-style: none;
+}
+
+/* Reset buttons inside blocks - critical for fixing button issues */
+.gh-block button,
+.gh-block input,
+.gh-block select,
+.gh-block textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    color: inherit;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.gh-block button {
+    cursor: pointer;
+    overflow: visible;
+    text-transform: none;
+}
+
+/* Reset headings inside blocks */
+.gh-block h1,
+.gh-block h2,
+.gh-block h3,
+.gh-block h4,
+.gh-block h5,
+.gh-block h6 {
+    font-size: inherit;
+    font-weight: inherit;
     margin: 0;
     padding: 0;
 }
 
-.gh-block {
-    font-family: var(--gh-font-sans);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+/* Reset paragraphs inside blocks */
+.gh-block p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Reset spans and inline elements */
+.gh-block span,
+.gh-block strong,
+.gh-block em {
+    font-style: inherit;
+    font-weight: inherit;
 }
 
 /* ==========================================================================
@@ -338,20 +419,21 @@
 }
 
 .gh-hero-video__badge {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--gh-space-sm);
-    padding: 0.5rem 1.25rem;
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 50px;
-    color: var(--gh-white);
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    margin-bottom: var(--gh-space-xl);
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    padding: 0.5rem 1.25rem !important;
+    background: rgba(255,255,255,0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+    border-radius: 50px !important;
+    color: var(--gh-white) !important;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.15em !important;
+    margin-bottom: var(--gh-space-xl) !important;
+    line-height: 1.4 !important;
 }
 
 .gh-hero-video__badge svg {
@@ -514,70 +596,74 @@
    ========================================================================== */
 
 .gh-social-proof {
-    position: fixed;
-    bottom: var(--gh-space-xl);
-    left: var(--gh-space-xl);
-    z-index: var(--gh-z-notification);
-    display: flex;
-    align-items: center;
-    gap: var(--gh-space-lg);
-    padding: var(--gh-space-lg) var(--gh-space-xl);
-    background: var(--gh-white);
-    border-radius: 12px;
-    box-shadow: var(--gh-shadow-xl);
-    transform: translateX(-120%);
-    opacity: 0;
-    transition: all 0.5s var(--gh-ease-elastic);
-    max-width: 400px;
+    position: fixed !important;
+    bottom: 2rem !important;
+    left: 2rem !important;
+    z-index: 1100 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    padding: 1.25rem 1.5rem !important;
+    background: #ffffff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.2) !important;
+    transform: translateX(-120%) !important;
+    opacity: 0 !important;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    max-width: 400px !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
 }
 
 .gh-social-proof--visible {
-    transform: translateX(0);
-    opacity: 1;
+    transform: translateX(0) !important;
+    opacity: 1 !important;
 }
 
 .gh-social-proof__image {
-    width: 72px;
-    height: 72px;
-    border-radius: 10px;
-    background: var(--gh-gray-100);
-    overflow: hidden;
-    flex-shrink: 0;
+    width: 72px !important;
+    height: 72px !important;
+    border-radius: 10px !important;
+    background: #f5f5f5 !important;
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
 }
 
 .gh-social-proof__image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
 }
 
 .gh-social-proof__content {
-    flex: 1;
-    min-width: 0;
+    flex: 1 !important;
+    min-width: 0 !important;
 }
 
 .gh-social-proof__title {
-    font-size: var(--gh-text-xs);
-    font-weight: 700;
-    color: var(--gh-gray-500);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: var(--gh-space-sm);
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    color: #737373 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    margin-bottom: 0.5rem !important;
+    line-height: 1.4 !important;
 }
 
 .gh-social-proof__product {
-    font-size: var(--gh-text-base);
-    font-weight: 700;
-    color: var(--gh-black);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-bottom: var(--gh-space-sm);
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    color: #000000 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    margin-bottom: 0.5rem !important;
+    line-height: 1.4 !important;
 }
 
 .gh-social-proof__meta {
-    font-size: var(--gh-text-xs);
-    color: var(--gh-gray-500);
+    font-size: 0.75rem !important;
+    color: #737373 !important;
+    line-height: 1.4 !important;
 }
 
 .gh-social-proof__close {
@@ -1243,19 +1329,22 @@
 }
 
 .gh-product-spotlight__verified {
-    position: absolute;
-    top: var(--gh-space-lg);
-    left: var(--gh-space-lg);
-    display: inline-flex;
-    align-items: center;
-    gap: var(--gh-space-sm);
-    padding: 0.5rem 1rem;
-    background: var(--gh-success);
-    color: var(--gh-white);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    border-radius: 50px;
+    position: absolute !important;
+    top: var(--gh-space-lg) !important;
+    left: var(--gh-space-lg) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    padding: 0.5rem 1rem !important;
+    background: var(--gh-success) !important;
+    color: var(--gh-white) !important;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em !important;
+    border-radius: 50px !important;
+    line-height: 1.4 !important;
+    border: none !important;
+    text-transform: uppercase !important;
 }
 
 .gh-product-spotlight__verified svg {
@@ -1793,16 +1882,18 @@
 }
 
 .gh-promo-modal__badge {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background: var(--gh-accent);
-    color: var(--gh-white);
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    border-radius: 4px;
-    margin-bottom: var(--gh-space-lg);
+    display: inline-block !important;
+    padding: 0.5rem 1rem !important;
+    background: var(--gh-accent) !important;
+    color: var(--gh-white) !important;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.15em !important;
+    border-radius: 4px !important;
+    margin-bottom: var(--gh-space-lg) !important;
+    line-height: 1.4 !important;
+    border: none !important;
 }
 
 .gh-promo-modal__title {
@@ -1954,85 +2045,123 @@
    PREMIUM BUTTON
    ========================================================================== */
 
-.gh-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--gh-space-sm);
-    padding: 1rem 2rem;
-    font-family: var(--gh-font-sans);
-    font-size: 0.875rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border: 2px solid transparent;
-    border-radius: 0;
-    cursor: pointer;
-    transition: all 0.3s var(--gh-ease-out);
-    position: relative;
-    overflow: hidden;
-    line-height: 1.2;
+/* Button styles with !important to override theme/WooCommerce conflicts */
+.gh-btn,
+a.gh-btn,
+button.gh-btn,
+input.gh-btn[type="submit"],
+input.gh-btn[type="button"] {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    padding: 1rem 2rem !important;
+    font-family: var(--gh-font-sans) !important;
+    font-size: 0.875rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.1em !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    border: 2px solid transparent !important;
+    border-radius: 0 !important;
+    cursor: pointer !important;
+    transition: all 0.3s var(--gh-ease-out) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    line-height: 1.2 !important;
+    box-sizing: border-box !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    min-height: auto !important;
+    min-width: auto !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
 }
 
-.gh-btn--primary {
-    background: var(--gh-black);
-    color: var(--gh-white);
-    border-color: var(--gh-black);
+.gh-btn--primary,
+a.gh-btn--primary,
+button.gh-btn--primary {
+    background: var(--gh-black) !important;
+    color: var(--gh-white) !important;
+    border-color: var(--gh-black) !important;
 }
 
-.gh-btn--primary:hover {
-    background: var(--gh-accent);
-    border-color: var(--gh-accent);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(255,60,0,0.3);
+.gh-btn--primary:hover,
+a.gh-btn--primary:hover,
+button.gh-btn--primary:hover {
+    background: var(--gh-accent) !important;
+    border-color: var(--gh-accent) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 10px 30px rgba(255,60,0,0.3) !important;
+    color: var(--gh-white) !important;
 }
 
-.gh-btn--outline {
-    background: transparent;
-    color: var(--gh-white);
-    border-color: var(--gh-white);
+.gh-btn--outline,
+a.gh-btn--outline,
+button.gh-btn--outline {
+    background: transparent !important;
+    color: var(--gh-white) !important;
+    border-color: var(--gh-white) !important;
 }
 
-.gh-btn--outline:hover {
-    background: var(--gh-white);
-    color: var(--gh-black);
+.gh-btn--outline:hover,
+a.gh-btn--outline:hover,
+button.gh-btn--outline:hover {
+    background: var(--gh-white) !important;
+    color: var(--gh-black) !important;
 }
 
-.gh-btn--dark {
-    background: var(--gh-white);
-    color: var(--gh-black);
-    border-color: var(--gh-white);
+.gh-btn--dark,
+a.gh-btn--dark,
+button.gh-btn--dark {
+    background: var(--gh-white) !important;
+    color: var(--gh-black) !important;
+    border-color: var(--gh-white) !important;
 }
 
-.gh-btn--dark:hover {
-    background: var(--gh-accent);
-    border-color: var(--gh-accent);
-    color: var(--gh-white);
+.gh-btn--dark:hover,
+a.gh-btn--dark:hover,
+button.gh-btn--dark:hover {
+    background: var(--gh-accent) !important;
+    border-color: var(--gh-accent) !important;
+    color: var(--gh-white) !important;
 }
 
-.gh-btn--secondary {
-    background: transparent;
-    color: var(--gh-white);
-    border-color: rgba(255,255,255,0.3);
+.gh-btn--secondary,
+a.gh-btn--secondary,
+button.gh-btn--secondary {
+    background: transparent !important;
+    color: var(--gh-white) !important;
+    border-color: rgba(255,255,255,0.3) !important;
 }
 
-.gh-btn--secondary:hover {
-    border-color: var(--gh-white);
+.gh-btn--secondary:hover,
+a.gh-btn--secondary:hover,
+button.gh-btn--secondary:hover {
+    border-color: var(--gh-white) !important;
 }
 
-.gh-btn--large {
-    padding: 1.25rem 2.5rem;
-    font-size: 1rem;
+.gh-btn--large,
+a.gh-btn--large,
+button.gh-btn--large {
+    padding: 1.25rem 2.5rem !important;
+    font-size: 1rem !important;
 }
 
-.gh-btn--small {
-    padding: 0.75rem 1.5rem;
-    font-size: 0.75rem;
+.gh-btn--small,
+a.gh-btn--small,
+button.gh-btn--small {
+    padding: 0.75rem 1.5rem !important;
+    font-size: 0.75rem !important;
 }
 
 .gh-btn-magnetic {
-    display: inline-block;
+    display: inline-block !important;
 }
 
 /* ==========================================================================
@@ -2255,5 +2384,84 @@
     [data-gh-reveal] {
         opacity: 1;
         transform: none;
+    }
+}
+
+/* ==========================================================================
+   THEME/WOOCOMMERCE OVERRIDE SAFETY NET
+   These rules ensure Golden Hive styles take precedence over any theme
+   ========================================================================== */
+
+/* Force font family on all Golden Hive elements */
+[class*="gh-"] {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+}
+
+/* Override WooCommerce button styles */
+.woocommerce .gh-btn,
+.woocommerce-page .gh-btn,
+body.woocommerce .gh-btn,
+body.woocommerce-page .gh-btn {
+    background: var(--gh-black) !important;
+    color: var(--gh-white) !important;
+    border-radius: 0 !important;
+    padding: 1rem 2rem !important;
+    font-size: 0.875rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    border: 2px solid var(--gh-black) !important;
+    line-height: 1.2 !important;
+}
+
+.woocommerce .gh-btn:hover,
+.woocommerce-page .gh-btn:hover {
+    background: var(--gh-accent) !important;
+    border-color: var(--gh-accent) !important;
+}
+
+/* Override common theme link colors inside Golden Hive blocks */
+.gh-block a:not(.gh-btn),
+[class*="gh-"] a:not(.gh-btn) {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+.gh-block a:not(.gh-btn):hover {
+    color: var(--gh-accent) !important;
+}
+
+/* Override theme heading styles */
+.gh-block h1,
+.gh-block h2,
+.gh-block h3,
+.gh-block h4,
+.gh-block h5,
+.gh-block h6,
+[class*="gh-__title"],
+[class*="gh-"] [class*="__title"] {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    letter-spacing: 0.02em !important;
+    text-transform: uppercase !important;
+}
+
+/* Override WordPress core button block conflicts */
+.wp-block-button .gh-btn,
+.wp-block-buttons .gh-btn {
+    background: var(--gh-black) !important;
+    color: var(--gh-white) !important;
+    border-radius: 0 !important;
+}
+
+/* Fix for WP admin bar offset if present */
+.admin-bar .gh-social-proof {
+    bottom: calc(2rem + 32px) !important;
+}
+
+@media screen and (max-width: 782px) {
+    .admin-bar .gh-social-proof {
+        bottom: calc(2rem + 46px) !important;
     }
 }
