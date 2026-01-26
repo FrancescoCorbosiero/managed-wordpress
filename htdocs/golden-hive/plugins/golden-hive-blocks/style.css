@@ -97,6 +97,13 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* Prevent horizontal overflow from fixed positioned elements */
+html:has(.gh-social-proof),
+html:has(.gh-whatsapp-btn),
+html:has(.gh-social-buttons) {
+    overflow-x: hidden;
+}
+
 /* ==========================================================================
    HERO CAROUSEL PREMIUM
    Carousel full-screen con crossfade e animazioni split-text
@@ -520,15 +527,15 @@
     z-index: var(--gh-z-notification);
     display: flex;
     align-items: center;
-    gap: var(--gh-space-lg);
-    padding: var(--gh-space-lg) var(--gh-space-xl);
+    gap: var(--gh-space-md);
+    padding: var(--gh-space-md) var(--gh-space-lg);
     background: var(--gh-white);
-    border-radius: 12px;
+    border-radius: 10px;
     box-shadow: var(--gh-shadow-xl);
     transform: translateX(-120%);
     opacity: 0;
     transition: all 0.5s var(--gh-ease-elastic);
-    max-width: 400px;
+    max-width: 360px;
 }
 
 .gh-social-proof--visible {
@@ -537,15 +544,30 @@
 }
 
 .gh-social-proof__image {
-    width: 72px;
-    height: 72px;
-    border-radius: 10px;
+    position: relative;
+    width: 56px;
+    height: 56px;
+    border-radius: 8px;
     background: var(--gh-gray-100);
-    overflow: hidden;
     flex-shrink: 0;
 }
 
+.gh-social-proof__image::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    width: 12px;
+    height: 12px;
+    background: var(--gh-success);
+    border: 2px solid var(--gh-white);
+    border-radius: 50%;
+    z-index: 2;
+    animation: gh-pulse 2s infinite;
+}
+
 .gh-social-proof__image img {
+    border-radius: 8px;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -598,18 +620,6 @@
 
 .gh-social-proof__close:hover {
     color: var(--gh-black);
-}
-
-.gh-social-proof::before {
-    content: '';
-    position: absolute;
-    top: var(--gh-space-md);
-    left: var(--gh-space-md);
-    width: 8px;
-    height: 8px;
-    background: var(--gh-success);
-    border-radius: 50%;
-    animation: gh-pulse 2s infinite;
 }
 
 @keyframes gh-pulse {
@@ -2224,9 +2234,11 @@
 
     .gh-social-proof {
         left: var(--gh-space-md);
-        right: var(--gh-space-md);
+        right: auto;
         bottom: var(--gh-space-md);
-        max-width: none;
+        /* Leave room for WhatsApp button on the right */
+        max-width: calc(100vw - var(--gh-space-md) * 2 - 56px);
+        width: auto;
     }
 
     .gh-whatsapp-btn {
