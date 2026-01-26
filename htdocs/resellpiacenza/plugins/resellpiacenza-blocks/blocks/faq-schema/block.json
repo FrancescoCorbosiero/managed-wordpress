@@ -1,0 +1,40 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "resellpiacenza/faq-schema",
+    "version": "1.0.0",
+    "title": "FAQ (SEO Schema)",
+    "category": "resellpiacenza",
+    "icon": "editor-help",
+    "description": "SEO-optimized FAQ accordion with structured data schema markup for rich snippets.",
+    "keywords": ["faq", "accordion", "seo", "schema", "questions"],
+    "textdomain": "resellpiacenza-blocks",
+    "attributes": {
+        "eyebrow": {
+            "type": "string",
+            "default": "Have Questions?"
+        },
+        "title": {
+            "type": "string",
+            "default": "Frequently Asked Questions"
+        },
+        "subtitle": {
+            "type": "string",
+            "default": ""
+        },
+        "items": {
+            "type": "array",
+            "default": []
+        },
+        "allowMultiple": {
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "supports": {
+        "align": ["wide"],
+        "html": false
+    },
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php"
+}

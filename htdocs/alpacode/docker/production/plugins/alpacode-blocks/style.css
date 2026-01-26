@@ -1,0 +1,624 @@
+/**
+ * Alpacode Blocks - Global Styles
+ * Design System with Tokenized Variables
+ *
+ * @version 2.0.0
+ * @author Alpacode Studio
+ *
+ * THEME: Sharp Modern Elegant
+ * - Zero or minimal border radius
+ * - Clean, understated shadows
+ * - High contrast typography
+ * - Sophisticated, minimal aesthetic
+ */
+
+/* ============================================
+   DESIGN TOKENS
+   Change these to instantly restyle all blocks
+   ============================================ */
+:root {
+    /* === BORDER RADIUS === */
+    --alpacode-radius-none: 0;
+    --alpacode-radius-xs: 0;
+    --alpacode-radius-sm: 0;
+    --alpacode-radius-md: 0;
+    --alpacode-radius-lg: 0;
+    --alpacode-radius-xl: 0;
+    --alpacode-radius-2xl: 0;
+    --alpacode-radius-full: 0;
+
+    /* Buttons - sharp edges */
+    --alpacode-radius-button: 0;
+    --alpacode-radius-button-pill: 0;
+
+    /* Cards & containers - sharp edges */
+    --alpacode-radius-card: 0;
+    --alpacode-radius-container: 0;
+
+    /* Form elements */
+    --alpacode-radius-input: 0;
+
+    /* Images & media */
+    --alpacode-radius-image: 0;
+    --alpacode-radius-avatar: 0;
+
+    /* Tags & badges */
+    --alpacode-radius-tag: 0;
+
+    /* === SHADOWS === */
+    /* Minimal, elegant shadows */
+    --alpacode-shadow-none: none;
+    --alpacode-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.1);
+    --alpacode-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
+    --alpacode-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --alpacode-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.1);
+    --alpacode-shadow-xl: 0 12px 40px rgba(0, 0, 0, 0.12);
+    --alpacode-shadow-2xl: 0 20px 60px rgba(0, 0, 0, 0.15);
+
+    /* Hover shadow - subtle lift */
+    --alpacode-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
+
+    /* Accent glow - very subtle */
+    --alpacode-shadow-glow: 0 0 20px rgba(59, 130, 246, 0.15);
+    --alpacode-shadow-glow-strong: 0 0 40px rgba(59, 130, 246, 0.2);
+
+    /* Button shadows */
+    --alpacode-shadow-button: none;
+    --alpacode-shadow-button-hover: 0 4px 20px rgba(0, 0, 0, 0.15);
+    --alpacode-shadow-button-primary: 0 2px 10px rgba(59, 130, 246, 0.2);
+    --alpacode-shadow-button-primary-hover: 0 4px 20px rgba(59, 130, 246, 0.3);
+
+    /* Card shadows */
+    --alpacode-shadow-card: none;
+    --alpacode-shadow-card-hover: 0 8px 30px rgba(0, 0, 0, 0.1);
+
+    /* === BORDERS === */
+    --alpacode-border-width: 1px;
+    --alpacode-border-width-thick: 2px;
+    --alpacode-border-style: solid;
+    --alpacode-border-color: rgba(255, 255, 255, 0.1);
+    --alpacode-border-color-strong: rgba(255, 255, 255, 0.2);
+    --alpacode-border-color-accent: var(--wp--preset--color--accent, #3b82f6);
+
+    /* Composed borders */
+    --alpacode-border: var(--alpacode-border-width) var(--alpacode-border-style) var(--alpacode-border-color);
+    --alpacode-border-strong: var(--alpacode-border-width) var(--alpacode-border-style) var(--alpacode-border-color-strong);
+    --alpacode-border-accent: var(--alpacode-border-width-thick) var(--alpacode-border-style) var(--alpacode-border-color-accent);
+
+    /* === SPACING === */
+    --alpacode-space-xs: 0.25rem;
+    --alpacode-space-sm: 0.5rem;
+    --alpacode-space-md: 1rem;
+    --alpacode-space-lg: 1.5rem;
+    --alpacode-space-xl: 2rem;
+    --alpacode-space-2xl: 3rem;
+    --alpacode-space-3xl: 4rem;
+    --alpacode-space-4xl: 6rem;
+    --alpacode-space-5xl: 8rem;
+
+    /* Section padding - generous whitespace */
+    --alpacode-section-padding-y: 120px;
+    --alpacode-section-padding-y-mobile: 80px;
+
+    /* Container */
+    --alpacode-container-max-width: 1200px;
+    --alpacode-container-padding: 24px;
+
+    /* Card padding */
+    --alpacode-card-padding: 2rem;
+    --alpacode-card-padding-lg: 2.5rem;
+
+    /* === TRANSITIONS === */
+    --alpacode-transition-fast: 150ms;
+    --alpacode-transition-normal: 250ms;
+    --alpacode-transition-slow: 400ms;
+
+    /* Easing - clean, professional */
+    --alpacode-easing-default: cubic-bezier(0.4, 0, 0.2, 1);
+    --alpacode-easing-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+    --alpacode-easing-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --alpacode-easing-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* === TYPOGRAPHY === */
+    --alpacode-font-weight-normal: 400;
+    --alpacode-font-weight-medium: 500;
+    --alpacode-font-weight-semibold: 600;
+    --alpacode-font-weight-bold: 700;
+    --alpacode-font-weight-black: 800;
+
+    /* Letter spacing - tighter for modern look */
+    --alpacode-letter-spacing-tight: -0.03em;
+    --alpacode-letter-spacing-normal: 0;
+    --alpacode-letter-spacing-wide: 0.05em;
+    --alpacode-letter-spacing-wider: 0.1em;
+
+    /* Line heights */
+    --alpacode-line-height-tight: 1.1;
+    --alpacode-line-height-snug: 1.25;
+    --alpacode-line-height-normal: 1.5;
+    --alpacode-line-height-relaxed: 1.7;
+
+    /* === COLORS (fallbacks) === */
+    --alpacode-color-bg: var(--wp--preset--color--background, #0a0a0b);
+    --alpacode-color-surface: rgba(255, 255, 255, 0.02);
+    --alpacode-color-surface-hover: rgba(255, 255, 255, 0.05);
+    --alpacode-color-text: var(--wp--preset--color--foreground, #ffffff);
+    --alpacode-color-text-muted: var(--wp--preset--color--muted, #a1a1aa);
+    --alpacode-color-accent: var(--wp--preset--color--accent, #3b82f6);
+
+    /* === HOVER TRANSFORMS === */
+    --alpacode-hover-lift: translateY(-2px);
+    --alpacode-hover-scale: scale(1.02);
+
+    /* === BACKDROP === */
+    --alpacode-backdrop-blur: blur(10px);
+    --alpacode-backdrop-blur-strong: blur(20px);
+
+    /* === OVERLAY === */
+    --alpacode-overlay-light: rgba(0, 0, 0, 0.4);
+    --alpacode-overlay-medium: rgba(0, 0, 0, 0.6);
+    --alpacode-overlay-dark: rgba(0, 0, 0, 0.8);
+}
+
+/* ============================================
+   Animation Utility Classes
+   ============================================ */
+
+.alpacode-fade-in {
+    animation: alpacode-fade-in 0.6s var(--alpacode-easing-smooth) forwards;
+}
+
+.alpacode-fade-up {
+    animation: alpacode-fade-up 0.6s var(--alpacode-easing-smooth) forwards;
+}
+
+.alpacode-fade-down {
+    animation: alpacode-fade-down 0.6s var(--alpacode-easing-smooth) forwards;
+}
+
+.alpacode-fade-left {
+    animation: alpacode-fade-left 0.6s var(--alpacode-easing-smooth) forwards;
+}
+
+.alpacode-fade-right {
+    animation: alpacode-fade-right 0.6s var(--alpacode-easing-smooth) forwards;
+}
+
+.alpacode-scale-in {
+    animation: alpacode-scale-in 0.5s var(--alpacode-easing-smooth) forwards;
+}
+
+.alpacode-scale-up {
+    animation: alpacode-scale-up 0.5s var(--alpacode-easing-smooth) forwards;
+}
+
+.alpacode-blur-in {
+    animation: alpacode-blur-in 0.8s var(--alpacode-easing-smooth) forwards;
+}
+
+/* ============================================
+   Keyframe Definitions
+   ============================================ */
+
+@keyframes alpacode-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes alpacode-fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes alpacode-fade-down {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes alpacode-fade-left {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes alpacode-fade-right {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes alpacode-scale-in {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes alpacode-scale-up {
+    from { transform: scale(1); }
+    to { transform: scale(1.02); }
+}
+
+@keyframes alpacode-blur-in {
+    from {
+        opacity: 0;
+        filter: blur(8px);
+    }
+    to {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+@keyframes alpacode-pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.02);
+        opacity: 0.9;
+    }
+}
+
+@keyframes alpacode-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+@keyframes alpacode-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes alpacode-shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+@keyframes alpacode-gradient-x {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes alpacode-scroll-down {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    75% {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+
+.alpacode-delay-100 { animation-delay: 100ms; }
+.alpacode-delay-200 { animation-delay: 200ms; }
+.alpacode-delay-300 { animation-delay: 300ms; }
+.alpacode-delay-400 { animation-delay: 400ms; }
+.alpacode-delay-500 { animation-delay: 500ms; }
+.alpacode-delay-600 { animation-delay: 600ms; }
+.alpacode-delay-700 { animation-delay: 700ms; }
+.alpacode-delay-800 { animation-delay: 800ms; }
+
+.alpacode-duration-fast { animation-duration: 300ms; }
+.alpacode-duration-normal { animation-duration: 500ms; }
+.alpacode-duration-slow { animation-duration: 800ms; }
+
+.alpacode-hover-lift {
+    transition: transform var(--alpacode-transition-normal) var(--alpacode-easing-smooth),
+                box-shadow var(--alpacode-transition-normal) var(--alpacode-easing-smooth);
+}
+
+.alpacode-hover-lift:hover {
+    transform: var(--alpacode-hover-lift);
+    box-shadow: var(--alpacode-shadow-hover);
+}
+
+.alpacode-hover-scale {
+    transition: transform var(--alpacode-transition-normal) var(--alpacode-easing-smooth);
+}
+
+.alpacode-hover-scale:hover {
+    transform: var(--alpacode-hover-scale);
+}
+
+/* ============================================
+   Base Component Styles
+   ============================================ */
+
+.alpacode-container {
+    width: 100%;
+    max-width: var(--alpacode-container-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--alpacode-container-padding);
+    padding-right: var(--alpacode-container-padding);
+}
+
+.alpacode-section {
+    padding-top: var(--alpacode-section-padding-y);
+    padding-bottom: var(--alpacode-section-padding-y);
+}
+
+.alpacode-card {
+    background-color: var(--alpacode-color-surface);
+    border: var(--alpacode-border);
+    border-radius: var(--alpacode-radius-card);
+    padding: var(--alpacode-card-padding);
+    transition:
+        transform var(--alpacode-transition-normal) var(--alpacode-easing-smooth),
+        border-color var(--alpacode-transition-normal) ease,
+        box-shadow var(--alpacode-transition-normal) ease;
+}
+
+.alpacode-card:hover {
+    transform: var(--alpacode-hover-lift);
+    border-color: var(--alpacode-border-color-accent);
+    box-shadow: var(--alpacode-shadow-card-hover);
+}
+
+.alpacode-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 1rem 2rem;
+    font-weight: var(--alpacode-font-weight-medium);
+    font-size: 1rem;
+    line-height: 1;
+    border-radius: var(--alpacode-radius-button);
+    text-decoration: none;
+    transition:
+        transform var(--alpacode-transition-normal) var(--alpacode-easing-smooth),
+        box-shadow var(--alpacode-transition-normal) var(--alpacode-easing-smooth),
+        background-color var(--alpacode-transition-normal) ease,
+        border-color var(--alpacode-transition-normal) ease;
+    cursor: pointer;
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.alpacode-btn-primary {
+    background-color: var(--alpacode-color-accent);
+    color: #fff;
+    box-shadow: var(--alpacode-shadow-button-primary);
+}
+
+.alpacode-btn-primary:hover {
+    transform: var(--alpacode-hover-lift);
+    box-shadow: var(--alpacode-shadow-button-primary-hover);
+}
+
+.alpacode-btn-secondary {
+    background-color: transparent;
+    color: var(--alpacode-color-text);
+    border: var(--alpacode-border);
+}
+
+.alpacode-btn-secondary:hover {
+    background-color: var(--alpacode-color-surface-hover);
+    border-color: var(--alpacode-border-color-accent);
+}
+
+.alpacode-btn svg {
+    transition: transform var(--alpacode-transition-normal) var(--alpacode-easing-smooth);
+}
+
+.alpacode-btn:hover svg {
+    transform: translateX(3px);
+}
+
+/* ============================================
+   Typography Utilities
+   ============================================ */
+
+.alpacode-text-gradient {
+    background: linear-gradient(
+        135deg,
+        var(--alpacode-color-text) 0%,
+        var(--alpacode-color-accent) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.alpacode-text-balance {
+    text-wrap: balance;
+}
+
+/* ============================================
+   Background Patterns
+   ============================================ */
+
+.alpacode-bg-grid {
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+}
+
+.alpacode-bg-dots {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+/* ============================================
+   Scroll Indicator
+   ============================================ */
+
+.alpacode-scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--alpacode-color-text-muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: var(--alpacode-letter-spacing-wider);
+}
+
+.alpacode-scroll-indicator__mouse {
+    width: 24px;
+    height: 40px;
+    border: var(--alpacode-border);
+    border-radius: var(--alpacode-radius-sm);
+    position: relative;
+}
+
+.alpacode-scroll-indicator__wheel {
+    width: 3px;
+    height: 8px;
+    background-color: var(--alpacode-color-accent);
+    border-radius: var(--alpacode-radius-xs);
+    position: absolute;
+    left: 50%;
+    top: 8px;
+    transform: translateX(-50%);
+    animation: alpacode-scroll-down 2s ease-in-out infinite;
+}
+
+/* ============================================
+   Progress Bar
+   ============================================ */
+
+.alpacode-progress {
+    width: 100%;
+    height: 4px;
+    background-color: var(--alpacode-border-color);
+    border-radius: var(--alpacode-radius-xs);
+    overflow: hidden;
+}
+
+.alpacode-progress-bar {
+    height: 100%;
+    background-color: var(--alpacode-color-accent);
+    border-radius: var(--alpacode-radius-xs);
+    transition: width 1s var(--alpacode-easing-smooth);
+}
+
+/* ============================================
+   Carousel Base
+   ============================================ */
+
+.alpacode-carousel {
+    overflow: hidden;
+    position: relative;
+}
+
+.alpacode-carousel::before,
+.alpacode-carousel::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.alpacode-carousel::before {
+    left: 0;
+    background: linear-gradient(to right, var(--alpacode-color-bg), transparent);
+}
+
+.alpacode-carousel::after {
+    right: 0;
+    background: linear-gradient(to left, var(--alpacode-color-bg), transparent);
+}
+
+.alpacode-carousel-track {
+    display: flex;
+    gap: 2rem;
+    will-change: transform;
+}
+
+/* ============================================
+   Reduced Motion
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .alpacode-hover-lift:hover,
+    .alpacode-hover-scale:hover,
+    .alpacode-card:hover,
+    .alpacode-btn:hover {
+        transform: none;
+    }
+
+    .alpacode-carousel-track {
+        animation: none !important;
+    }
+
+    .alpacode-scroll-indicator__wheel {
+        animation: none !important;
+    }
+}
+
+/* ============================================
+   Responsive Adjustments
+   ============================================ */
+
+@media (max-width: 768px) {
+    :root {
+        --alpacode-section-padding-y: var(--alpacode-section-padding-y-mobile);
+        --alpacode-card-padding: 1.5rem;
+        --alpacode-container-padding: 1rem;
+    }
+
+    .alpacode-scroll-indicator {
+        display: none;
+    }
+
+    .alpacode-carousel::before,
+    .alpacode-carousel::after {
+        width: 40px;
+    }
+}

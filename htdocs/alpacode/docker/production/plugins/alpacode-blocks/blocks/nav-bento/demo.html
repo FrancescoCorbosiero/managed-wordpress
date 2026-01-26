@@ -1,0 +1,138 @@
+<!--
+    Navigation Bento Block - Demo & Usage Examples
+
+    Creative bento-grid style fullscreen navigation with colorful tiles.
+    Each tile can have its own color, size, icon, and sub-items.
+
+    To use these examples:
+    1. Create a new page in WordPress
+    2. Switch to Code Editor (Ctrl+Shift+Alt+M or from options menu)
+    3. Copy the desired variant and paste it
+    4. Switch back to Visual Editor
+    5. Update/Publish the page
+
+    IMPORTANT: Add data-nav-bento-trigger="your-trigger-id" to any element
+    on your site to open this navigation overlay.
+
+    Example trigger:
+    <button data-nav-bento-trigger="bento-nav">Open Menu</button>
+
+    Tile sizes: "small" (1x1), "medium" (1x1), "large" (2x2)
+
+    Available attributes:
+    - triggerId: ID to match with data-nav-bento-trigger
+    - colorScheme: "dark" or "light"
+    - showIcons: true/false - show icon in tiles
+    - showDescriptions: true/false - show description text
+    - showChildPreviews: true/false - show child item tags
+    - enableHoverExpand: true/false - expand submenu on hover vs click
+    - footerText: footer copyright text
+-->
+
+
+<!-- ============================================
+     VARIANT 1: ALPACODE AGENCY (Italian)
+     Colorful tiles with agency services
+     ============================================ -->
+
+<!-- wp:alpacode/nav-bento {"triggerId":"bento-nav","colorScheme":"dark","showIcons":true,"showDescriptions":true,"showChildPreviews":true,"enableHoverExpand":true,"menuItems":[{"label":"Web","url":"/web","icon":"globe","description":"Soluzioni web complete","size":"large","color":"#6366f1","children":[{"label":"Sito Web","url":"/web/sito"},{"label":"SEO","url":"/web/seo"},{"label":"E-commerce","url":"/web/ecommerce"}]},{"label":"Applicazioni","url":"/app","icon":"smartphone","description":"Software su misura","size":"medium","color":"#8b5cf6","children":[{"label":"Piattaforme","url":"/app/piattaforme"},{"label":"E-commerce","url":"/app/ecommerce"}]},{"label":"Servizi","url":"/servizi","icon":"camera","description":"Servizi fotografici","size":"medium","color":"#ec4899","children":[{"label":"Fotografici","url":"/servizi/foto"}]},{"label":"Visione","url":"/visione","icon":"eye","description":"La nostra filosofia","size":"medium","color":"#06b6d4","children":[{"label":"Mission","url":"/visione/mission"},{"label":"Metodo","url":"/visione/metodo"},{"label":"Portfolio","url":"/visione/portfolio"},{"label":"Careers","url":"/visione/careers"}]},{"label":"Blog","url":"/blog","icon":"file-text","description":"Articoli e insights","size":"medium","color":"#10b981","children":[]},{"label":"Contatti","url":"/contatti","icon":"mail","description":"Parliamo del tuo progetto","size":"medium","color":"#f59e0b","children":[]}],"footerText":"© 2024 Alpacode. Tutti i diritti riservati."} /-->
+
+
+<!-- ============================================
+     VARIANT 2: AGENCY (English) - Blue Gradient
+     Monochrome gradient tiles
+     ============================================ -->
+
+<!-- wp:alpacode/nav-bento {"triggerId":"agency-bento","colorScheme":"dark","showIcons":true,"showDescriptions":true,"showChildPreviews":true,"enableHoverExpand":true,"menuItems":[{"label":"Web","url":"/web","icon":"globe","description":"Complete web solutions","size":"large","color":"#3b82f6","children":[{"label":"Websites","url":"/web/websites"},{"label":"SEO","url":"/web/seo"},{"label":"E-commerce","url":"/web/ecommerce"}]},{"label":"Applications","url":"/apps","icon":"smartphone","description":"Custom software","size":"medium","color":"#2563eb","children":[{"label":"Platforms","url":"/apps/platforms"},{"label":"Mobile","url":"/apps/mobile"}]},{"label":"Services","url":"/services","icon":"camera","description":"Creative services","size":"medium","color":"#1d4ed8","children":[]},{"label":"Vision","url":"/vision","icon":"eye","description":"Our philosophy","size":"medium","color":"#1e40af","children":[{"label":"Mission","url":"/vision/mission"},{"label":"Portfolio","url":"/vision/portfolio"},{"label":"Careers","url":"/vision/careers"}]},{"label":"Blog","url":"/blog","icon":"file-text","description":"Latest articles","size":"small","color":"#1e3a8a","children":[]},{"label":"Contact","url":"/contact","icon":"mail","description":"Get in touch","size":"small","color":"#172554","children":[]}],"footerText":"© 2024 Agency. All rights reserved."} /-->
+
+
+<!-- ============================================
+     VARIANT 3: RAINBOW THEME
+     Vibrant colors for creative brands
+     ============================================ -->
+
+<!-- wp:alpacode/nav-bento {"triggerId":"rainbow-nav","colorScheme":"dark","showIcons":true,"showDescriptions":true,"showChildPreviews":true,"enableHoverExpand":true,"menuItems":[{"label":"Design","url":"/design","icon":"eye","description":"Visual creativity","size":"large","color":"#ef4444","children":[{"label":"Branding","url":"/design/branding"},{"label":"UI/UX","url":"/design/ui-ux"},{"label":"Print","url":"/design/print"}]},{"label":"Development","url":"/dev","icon":"globe","description":"Code that works","size":"medium","color":"#f97316","children":[{"label":"Frontend","url":"/dev/frontend"},{"label":"Backend","url":"/dev/backend"}]},{"label":"Strategy","url":"/strategy","icon":"eye","description":"Smart planning","size":"medium","color":"#eab308","children":[]},{"label":"Marketing","url":"/marketing","icon":"mail","description":"Grow your reach","size":"medium","color":"#22c55e","children":[{"label":"Social","url":"/marketing/social"},{"label":"Content","url":"/marketing/content"}]},{"label":"Work","url":"/work","icon":"camera","description":"Our portfolio","size":"medium","color":"#06b6d4","children":[]},{"label":"Contact","url":"/contact","icon":"mail","description":"Let's connect","size":"medium","color":"#8b5cf6","children":[]}],"footerText":"Creating magic since 2020"} /-->
+
+
+<!-- ============================================
+     VARIANT 4: LIGHT THEME
+     Clean light background with pastel tiles
+     ============================================ -->
+
+<!-- wp:alpacode/nav-bento {"triggerId":"light-bento","colorScheme":"light","showIcons":true,"showDescriptions":true,"showChildPreviews":true,"enableHoverExpand":false,"menuItems":[{"label":"Home","url":"/","icon":"globe","description":"Back to start","size":"medium","color":"#6366f1","children":[]},{"label":"Work","url":"/work","icon":"camera","description":"Our projects","size":"large","color":"#8b5cf6","children":[{"label":"Case Studies","url":"/work/cases"},{"label":"Clients","url":"/work/clients"}]},{"label":"About","url":"/about","icon":"eye","description":"Meet the team","size":"medium","color":"#a78bfa","children":[]},{"label":"Contact","url":"/contact","icon":"mail","description":"Get in touch","size":"medium","color":"#c4b5fd","children":[]}],"footerText":""} /-->
+
+
+<!-- ============================================
+     VARIANT 5: SAAS PRODUCT - Green Theme
+     For software products
+     ============================================ -->
+
+<!-- wp:alpacode/nav-bento {"triggerId":"saas-bento","colorScheme":"dark","showIcons":true,"showDescriptions":true,"showChildPreviews":true,"enableHoverExpand":true,"menuItems":[{"label":"Product","url":"/product","icon":"globe","description":"Explore features","size":"large","color":"#10b981","children":[{"label":"Features","url":"/product/features"},{"label":"Integrations","url":"/product/integrations"},{"label":"Security","url":"/product/security"},{"label":"API","url":"/product/api"}]},{"label":"Solutions","url":"/solutions","icon":"eye","description":"By industry","size":"medium","color":"#059669","children":[{"label":"Enterprise","url":"/solutions/enterprise"},{"label":"Startups","url":"/solutions/startups"}]},{"label":"Resources","url":"/resources","icon":"file-text","description":"Learn more","size":"medium","color":"#047857","children":[{"label":"Docs","url":"/docs"},{"label":"Blog","url":"/blog"},{"label":"Community","url":"/community"}]},{"label":"Pricing","url":"/pricing","icon":"camera","description":"Simple plans","size":"medium","color":"#065f46","children":[]},{"label":"Company","url":"/company","icon":"eye","description":"About us","size":"small","color":"#064e3b","children":[{"label":"About","url":"/company/about"},{"label":"Careers","url":"/company/careers"}]},{"label":"Login","url":"/login","icon":"globe","description":"Access dashboard","size":"small","color":"#022c22","children":[]}],"footerText":"Trusted by 50,000+ teams"} /-->
+
+
+<!-- ============================================
+     VARIANT 6: E-COMMERCE - Pink Theme
+     Shopping navigation with categories
+     ============================================ -->
+
+<!-- wp:alpacode/nav-bento {"triggerId":"shop-bento","colorScheme":"dark","showIcons":false,"showDescriptions":true,"showChildPreviews":true,"enableHoverExpand":true,"menuItems":[{"label":"Shop All","url":"/shop","icon":"globe","description":"Browse everything","size":"large","color":"#ec4899","children":[{"label":"New Arrivals","url":"/shop/new"},{"label":"Best Sellers","url":"/shop/best"},{"label":"Sale","url":"/shop/sale"}]},{"label":"Women","url":"/women","icon":"camera","description":"Women's collection","size":"medium","color":"#db2777","children":[{"label":"Clothing","url":"/women/clothing"},{"label":"Shoes","url":"/women/shoes"},{"label":"Accessories","url":"/women/accessories"}]},{"label":"Men","url":"/men","icon":"camera","description":"Men's collection","size":"medium","color":"#be185d","children":[{"label":"Clothing","url":"/men/clothing"},{"label":"Shoes","url":"/men/shoes"},{"label":"Accessories","url":"/men/accessories"}]},{"label":"Collections","url":"/collections","icon":"eye","description":"Curated picks","size":"medium","color":"#9d174d","children":[{"label":"Summer 2024","url":"/collections/summer"},{"label":"Essentials","url":"/collections/essentials"}]},{"label":"About","url":"/about","icon":"eye","description":"Our story","size":"small","color":"#831843","children":[]},{"label":"Contact","url":"/contact","icon":"mail","description":"Need help?","size":"small","color":"#500724","children":[]}],"footerText":"Free shipping on orders over $100"} /-->
+
+
+<!-- ============================================
+     VARIANT 7: CREATIVE PORTFOLIO - Amber Theme
+     For photographers and designers
+     ============================================ -->
+
+<!-- wp:alpacode/nav-bento {"triggerId":"portfolio-bento","colorScheme":"dark","showIcons":true,"showDescriptions":true,"showChildPreviews":true,"enableHoverExpand":false,"menuItems":[{"label":"Work","url":"/work","icon":"camera","description":"Selected projects","size":"large","color":"#f59e0b","children":[{"label":"Photography","url":"/work/photo"},{"label":"Film","url":"/work/film"},{"label":"Commercial","url":"/work/commercial"}]},{"label":"About","url":"/about","icon":"eye","description":"My story","size":"medium","color":"#d97706","children":[]},{"label":"Services","url":"/services","icon":"globe","description":"What I offer","size":"medium","color":"#b45309","children":[{"label":"Portraits","url":"/services/portraits"},{"label":"Events","url":"/services/events"}]},{"label":"Contact","url":"/contact","icon":"mail","description":"Book a session","size":"medium","color":"#92400e","children":[]}],"footerText":"Based in Milan, Available Worldwide"} /-->
+
+
+<!-- ============================================
+     VARIANT 8: MINIMAL 4 TILES - Purple Theme
+     Ultra-simple balanced grid
+     ============================================ -->
+
+<!-- wp:alpacode/nav-bento {"triggerId":"minimal-bento","colorScheme":"dark","showIcons":true,"showDescriptions":true,"showChildPreviews":false,"enableHoverExpand":false,"menuItems":[{"label":"Work","url":"#work","icon":"camera","description":"View projects","size":"medium","color":"#6366f1","children":[]},{"label":"About","url":"#about","icon":"eye","description":"Who we are","size":"medium","color":"#8b5cf6","children":[]},{"label":"Services","url":"#services","icon":"globe","description":"What we do","size":"medium","color":"#a78bfa","children":[]},{"label":"Contact","url":"#contact","icon":"mail","description":"Get in touch","size":"medium","color":"#c4b5fd","children":[]}],"footerText":""} /-->
+
+
+<!-- ============================================
+     VARIANT 9: NO ICONS - Text Only
+     Minimal text-focused navigation
+     ============================================ -->
+
+<!-- wp:alpacode/nav-bento {"triggerId":"text-bento","colorScheme":"dark","showIcons":false,"showDescriptions":false,"showChildPreviews":true,"enableHoverExpand":true,"menuItems":[{"label":"Home","url":"/","icon":"globe","description":"","size":"medium","color":"#6366f1","children":[]},{"label":"Work","url":"/work","icon":"camera","description":"","size":"large","color":"#8b5cf6","children":[{"label":"Projects","url":"/work/projects"},{"label":"Clients","url":"/work/clients"}]},{"label":"About","url":"/about","icon":"eye","description":"","size":"medium","color":"#a78bfa","children":[]},{"label":"Contact","url":"/contact","icon":"mail","description":"","size":"medium","color":"#c4b5fd","children":[]}],"footerText":""} /-->
+
+
+<!-- ============================================
+     JAVASCRIPT API
+     Control navigation programmatically
+     ============================================ -->
+
+<!--
+// Open navigation by trigger ID
+window.AlpacodeNavBento.open('bento-nav');
+
+// Close navigation
+window.AlpacodeNavBento.close('bento-nav');
+
+// Toggle navigation
+window.AlpacodeNavBento.toggle('bento-nav');
+
+// Close all open navigations
+window.AlpacodeNavBento.closeAll();
+
+// Listen for events
+document.addEventListener('navbento:open', function(e) {
+    console.log('Bento navigation opened');
+});
+
+document.addEventListener('navbento:close', function(e) {
+    console.log('Bento navigation closed');
+});
+
+// Access instance directly
+var nav = document.querySelector('.alpacode-nav-bento[data-trigger-id="bento-nav"]');
+if (nav && nav.alpacodeNavBento) {
+    nav.alpacodeNavBento.open();
+    console.log('Is open:', nav.alpacodeNavBento.isOpen());
+}
+-->

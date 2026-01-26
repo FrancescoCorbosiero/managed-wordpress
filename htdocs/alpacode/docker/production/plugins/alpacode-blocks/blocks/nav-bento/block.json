@@ -1,0 +1,126 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "alpacode/nav-bento",
+    "version": "1.0.0",
+    "title": "Navigation Bento",
+    "category": "alpacode",
+    "icon": "grid-view",
+    "description": "A stunning bento-grid style fullscreen navigation. Each menu item becomes a visual tile with hover effects and animations.",
+    "keywords": ["navigation", "menu", "bento", "grid", "fullscreen", "tiles"],
+    "textdomain": "alpacode",
+    "editorScript": {
+        "handle": "alpacode-nav-bento-editor",
+        "src": "file:./editor.js"
+    },
+    "render": "file:./render.php",
+    "style": "file:./style.css",
+    "viewScript": "file:./view.js",
+    "attributes": {
+        "menuItems": {
+            "type": "array",
+            "default": [
+                {
+                    "label": "Web",
+                    "url": "#web",
+                    "description": "Soluzioni web complete",
+                    "size": "large",
+                    "icon": "globe",
+                    "color": "#6366f1",
+                    "children": [
+                        { "label": "Sito Web", "url": "#sito-web" },
+                        { "label": "SEO & Marketing", "url": "#seo" },
+                        { "label": "E-commerce", "url": "#ecommerce" }
+                    ]
+                },
+                {
+                    "label": "Applicazioni",
+                    "url": "#app",
+                    "description": "Software su misura",
+                    "size": "medium",
+                    "icon": "smartphone",
+                    "color": "#8b5cf6",
+                    "children": [
+                        { "label": "Piattaforme Custom", "url": "#platforms" },
+                        { "label": "Mobile Apps", "url": "#mobile" }
+                    ]
+                },
+                {
+                    "label": "Servizi",
+                    "url": "#servizi",
+                    "description": "Servizi creativi",
+                    "size": "medium",
+                    "icon": "camera",
+                    "color": "#ec4899",
+                    "children": [
+                        { "label": "Fotografia", "url": "#foto" }
+                    ]
+                },
+                {
+                    "label": "Visione",
+                    "url": "#visione",
+                    "description": "Chi siamo",
+                    "size": "large",
+                    "icon": "eye",
+                    "color": "#06b6d4",
+                    "children": [
+                        { "label": "Mission", "url": "#mission" },
+                        { "label": "Metodo", "url": "#metodo" },
+                        { "label": "Portfolio", "url": "#portfolio" },
+                        { "label": "Careers", "url": "#careers" }
+                    ]
+                },
+                {
+                    "label": "Blog",
+                    "url": "#blog",
+                    "description": "Insights e novità",
+                    "size": "small",
+                    "icon": "file-text",
+                    "color": "#f97316",
+                    "children": []
+                },
+                {
+                    "label": "Contatti",
+                    "url": "#contatti",
+                    "description": "Parliamo",
+                    "size": "small",
+                    "icon": "mail",
+                    "color": "#22c55e",
+                    "children": []
+                }
+            ]
+        },
+        "triggerId": {
+            "type": "string",
+            "default": "nav-bento-trigger"
+        },
+        "colorScheme": {
+            "type": "string",
+            "default": "dark"
+        },
+        "showIcons": {
+            "type": "boolean",
+            "default": true
+        },
+        "showDescriptions": {
+            "type": "boolean",
+            "default": true
+        },
+        "showChildPreviews": {
+            "type": "boolean",
+            "default": true
+        },
+        "enableHoverExpand": {
+            "type": "boolean",
+            "default": true
+        },
+        "footerText": {
+            "type": "string",
+            "default": "© 2024 Alpacode Studio"
+        }
+    },
+    "supports": {
+        "align": ["full"],
+        "html": false
+    }
+}

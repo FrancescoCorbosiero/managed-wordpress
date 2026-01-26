@@ -1,0 +1,36 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "golden-hive/faq-schema",
+    "version": "1.0.0",
+    "title": "FAQ Schema",
+    "category": "golden-hive",
+    "icon": "editor-help",
+    "description": "Accordion FAQ ottimizzato SEO con structured data schema per rich snippets.",
+    "keywords": ["faq", "domande", "accordion", "schema", "seo"],
+    "textdomain": "golden-hive-blocks",
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": "Domande Frequenti"
+        },
+        "subtitle": {
+            "type": "string",
+            "default": ""
+        },
+        "items": {
+            "type": "array",
+            "default": []
+        },
+        "allowMultiple": {
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "supports": {
+        "align": ["wide"],
+        "html": false
+    },
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php"
+}

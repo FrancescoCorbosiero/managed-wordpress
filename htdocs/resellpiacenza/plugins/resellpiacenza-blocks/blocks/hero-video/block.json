@@ -1,0 +1,68 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "resellpiacenza/hero-video",
+    "version": "1.0.0",
+    "title": "Hero Video",
+    "category": "resellpiacenza",
+    "icon": "video-alt3",
+    "description": "Full-screen hero section with video or image background, elegant typography, and animated reveals.",
+    "keywords": ["hero", "video", "banner", "fullscreen", "landing"],
+    "textdomain": "resellpiacenza-blocks",
+    "attributes": {
+        "mediaType": {
+            "type": "string",
+            "default": "image"
+        },
+        "videoUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "imageUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "posterUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "badge": {
+            "type": "string",
+            "default": "Authentic Luxury"
+        },
+        "title": {
+            "type": "string",
+            "default": "Premium Sneaker Resale"
+        },
+        "subtitle": {
+            "type": "string",
+            "default": "Curated collection of authenticated luxury sneakers"
+        },
+        "primaryButtonText": {
+            "type": "string",
+            "default": "Shop Collection"
+        },
+        "primaryButtonUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "secondaryButtonText": {
+            "type": "string",
+            "default": "Learn More"
+        },
+        "secondaryButtonUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "showScrollIndicator": {
+            "type": "boolean",
+            "default": true
+        }
+    },
+    "supports": {
+        "align": ["full"],
+        "html": false
+    },
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php"
+}

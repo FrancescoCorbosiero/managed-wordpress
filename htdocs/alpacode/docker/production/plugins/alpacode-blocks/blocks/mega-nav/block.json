@@ -1,0 +1,157 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "alpacode/mega-nav",
+    "version": "1.0.0",
+    "title": "Mega Navigation",
+    "category": "alpacode",
+    "icon": "menu",
+    "description": "A stunning fullscreen mega navigation with dramatic animations and immersive UX for maximum impact.",
+    "keywords": ["navigation", "menu", "mega", "fullscreen", "header"],
+    "textdomain": "alpacode",
+    "editorScript": {
+        "handle": "alpacode-mega-nav-editor",
+        "src": "file:./editor.js"
+    },
+    "render": "file:./render.php",
+    "style": "file:./style.css",
+    "viewScript": "file:./view.js",
+    "attributes": {
+        "logoUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "logoText": {
+            "type": "string",
+            "default": "ALPACODE"
+        },
+        "menuItems": {
+            "type": "array",
+            "default": [
+                {
+                    "label": "Web",
+                    "url": "#web",
+                    "icon": "globe",
+                    "description": "Soluzioni web complete",
+                    "image": "",
+                    "children": [
+                        { "label": "Sito Web", "url": "#sito-web", "description": "Siti web professionali e responsive" },
+                        { "label": "SEO e Digital Marketing", "url": "#seo", "description": "Visibilità e crescita online" },
+                        { "label": "E-commerce", "url": "#ecommerce-web", "description": "Vendita online che converte" }
+                    ]
+                },
+                {
+                    "label": "Applicazioni",
+                    "url": "#applicazioni",
+                    "icon": "smartphone",
+                    "description": "Software su misura",
+                    "image": "",
+                    "children": [
+                        { "label": "Piattaforme Personalizzate", "url": "#piattaforme", "description": "Soluzioni enterprise custom" },
+                        { "label": "E-commerce", "url": "#ecommerce-app", "description": "App per vendita mobile" }
+                    ]
+                },
+                {
+                    "label": "Servizi",
+                    "url": "#servizi",
+                    "icon": "camera",
+                    "description": "Servizi creativi",
+                    "image": "",
+                    "children": [
+                        { "label": "Servizi Fotografici", "url": "#fotografia", "description": "Fotografia professionale" }
+                    ]
+                },
+                {
+                    "label": "Visione",
+                    "url": "#visione",
+                    "icon": "eye",
+                    "description": "Chi siamo",
+                    "image": "",
+                    "children": [
+                        { "label": "Mission", "url": "#mission", "description": "La nostra missione" },
+                        { "label": "Metodo", "url": "#metodo", "description": "Come lavoriamo" },
+                        { "label": "Network & Portfolio", "url": "#portfolio", "description": "I nostri clienti e progetti" },
+                        { "label": "Lavora con Noi", "url": "#careers", "description": "Unisciti al team" }
+                    ]
+                },
+                {
+                    "label": "Blog",
+                    "url": "#blog",
+                    "icon": "file-text",
+                    "description": "Insights e novità",
+                    "image": "",
+                    "children": []
+                },
+                {
+                    "label": "Contatti",
+                    "url": "#contatti",
+                    "icon": "mail",
+                    "description": "Parliamo del tuo progetto",
+                    "image": "",
+                    "children": []
+                }
+            ]
+        },
+        "ctaText": {
+            "type": "string",
+            "default": "Inizia un Progetto"
+        },
+        "ctaUrl": {
+            "type": "string",
+            "default": "#contact"
+        },
+        "colorScheme": {
+            "type": "string",
+            "default": "dark"
+        },
+        "accentColor": {
+            "type": "string",
+            "default": "#6366f1"
+        },
+        "variant": {
+            "type": "string",
+            "default": "fullscreen"
+        },
+        "triggerStyle": {
+            "type": "string",
+            "default": "hamburger"
+        },
+        "showSocialLinks": {
+            "type": "boolean",
+            "default": true
+        },
+        "socialLinks": {
+            "type": "array",
+            "default": [
+                { "platform": "linkedin", "url": "" },
+                { "platform": "instagram", "url": "" }
+            ]
+        },
+        "footerText": {
+            "type": "string",
+            "default": "© 2024 Alpacode Studio. All rights reserved."
+        },
+        "enableSoundEffects": {
+            "type": "boolean",
+            "default": false
+        },
+        "enableCursorEffect": {
+            "type": "boolean",
+            "default": true
+        },
+        "position": {
+            "type": "string",
+            "default": "fixed"
+        }
+    },
+    "supports": {
+        "align": ["full"],
+        "html": false
+    },
+    "example": {
+        "attributes": {
+            "logoText": "ALPACODE",
+            "variant": "fullscreen"
+        }
+    }
+}

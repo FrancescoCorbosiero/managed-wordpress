@@ -1,0 +1,193 @@
+<!--
+FAQ Schema Block - Demo & Varianti
+Esempi pronti per copia-incolla - Golden Hive
+Include JSON-LD per rich snippets Google
+-->
+
+<!-- ============================================
+     DEFAULT: FAQ completa con SEO schema
+     ============================================ -->
+<section class="gh-block gh-faq" data-gh-faq>
+    <div class="gh-faq__header">
+        <h2 class="gh-faq__title">Domande Frequenti</h2>
+        <p class="gh-faq__subtitle">Trova le risposte alle domande piu comuni</p>
+    </div>
+    <div class="gh-faq__list">
+        <div class="gh-faq__item" data-gh-faq-item data-gh-reveal="up">
+            <button class="gh-faq__trigger" data-gh-faq-trigger aria-expanded="false">
+                <span class="gh-faq__question">Come posso essere sicuro che i prodotti siano autentici?</span>
+                <span class="gh-faq__icon" aria-hidden="true"></span>
+            </button>
+            <div class="gh-faq__content" data-gh-faq-content>
+                <div class="gh-faq__answer">
+                    <p>Ogni prodotto venduto su Golden Hive passa attraverso un rigoroso processo di autenticazione. Il nostro team di esperti verifica ogni articolo prima della spedizione, controllando materiali, cuciture, etichette e tutti i dettagli che distinguono un prodotto autentico da un falso.</p>
+                    <p>Inoltre, collaboriamo con i principali servizi di autenticazione internazionali per garantire la massima sicurezza ai nostri clienti.</p>
+                </div>
+            </div>
+        </div>
+        <div class="gh-faq__item" data-gh-faq-item data-gh-reveal="up" data-gh-reveal-delay="50">
+            <button class="gh-faq__trigger" data-gh-faq-trigger aria-expanded="false">
+                <span class="gh-faq__question">Quali sono i tempi di spedizione?</span>
+                <span class="gh-faq__icon" aria-hidden="true"></span>
+            </button>
+            <div class="gh-faq__content" data-gh-faq-content>
+                <div class="gh-faq__answer">
+                    <p>Spediamo in tutta Italia in 2-4 giorni lavorativi con corriere espresso. Per le spedizioni internazionali, i tempi variano da 5 a 10 giorni lavorativi a seconda della destinazione.</p>
+                    <p>Tutti gli ordini vengono processati entro 24-48 ore dalla conferma del pagamento.</p>
+                </div>
+            </div>
+        </div>
+        <div class="gh-faq__item" data-gh-faq-item data-gh-reveal="up" data-gh-reveal-delay="100">
+            <button class="gh-faq__trigger" data-gh-faq-trigger aria-expanded="false">
+                <span class="gh-faq__question">Posso restituire o cambiare un prodotto?</span>
+                <span class="gh-faq__icon" aria-hidden="true"></span>
+            </button>
+            <div class="gh-faq__content" data-gh-faq-content>
+                <div class="gh-faq__answer">
+                    <p>Si, offriamo 14 giorni per il reso dalla data di consegna. Il prodotto deve essere nelle condizioni originali, non indossato e con tutti i tag ancora attaccati.</p>
+                    <p>Per avviare una procedura di reso, contatta il nostro servizio clienti via email o WhatsApp.</p>
+                </div>
+            </div>
+        </div>
+        <div class="gh-faq__item" data-gh-faq-item data-gh-reveal="up" data-gh-reveal-delay="150">
+            <button class="gh-faq__trigger" data-gh-faq-trigger aria-expanded="false">
+                <span class="gh-faq__question">Come posso tracciare il mio ordine?</span>
+                <span class="gh-faq__icon" aria-hidden="true"></span>
+            </button>
+            <div class="gh-faq__content" data-gh-faq-content>
+                <div class="gh-faq__answer">
+                    <p>Una volta spedito l'ordine, riceverai una email con il codice di tracking. Potrai seguire la spedizione direttamente sul sito del corriere o nella tua area personale sul nostro sito.</p>
+                </div>
+            </div>
+        </div>
+        <div class="gh-faq__item" data-gh-faq-item data-gh-reveal="up" data-gh-reveal-delay="200">
+            <button class="gh-faq__trigger" data-gh-faq-trigger aria-expanded="false">
+                <span class="gh-faq__question">Quali metodi di pagamento accettate?</span>
+                <span class="gh-faq__icon" aria-hidden="true"></span>
+            </button>
+            <div class="gh-faq__content" data-gh-faq-content>
+                <div class="gh-faq__answer">
+                    <p>Accettiamo tutte le principali carte di credito (Visa, Mastercard, American Express), PayPal, Apple Pay, Google Pay e bonifico bancario. Offriamo anche la possibilita di pagare in 3 rate senza interessi con Klarna o Scalapay.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- JSON-LD Schema per SEO -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Come posso essere sicuro che i prodotti siano autentici?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ogni prodotto venduto su Golden Hive passa attraverso un rigoroso processo di autenticazione. Il nostro team di esperti verifica ogni articolo prima della spedizione."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Quali sono i tempi di spedizione?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Spediamo in tutta Italia in 2-4 giorni lavorativi con corriere espresso. Per le spedizioni internazionali, i tempi variano da 5 a 10 giorni lavorativi."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Posso restituire o cambiare un prodotto?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Si, offriamo 14 giorni per il reso dalla data di consegna. Il prodotto deve essere nelle condizioni originali, non indossato e con tutti i tag ancora attaccati."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Come posso tracciare il mio ordine?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Una volta spedito l'ordine, riceverai una email con il codice di tracking. Potrai seguire la spedizione direttamente sul sito del corriere."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Quali metodi di pagamento accettate?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Accettiamo carte di credito, PayPal, Apple Pay, Google Pay, bonifico bancario e pagamento a rate con Klarna o Scalapay."
+            }
+        }
+    ]
+}
+</script>
+
+
+<!-- ============================================
+     VARIANTE 1: Multiple open (accordions indipendenti)
+     ============================================ -->
+<section class="gh-block gh-faq" data-gh-faq data-gh-faq-multiple="true">
+    <div class="gh-faq__header">
+        <h2 class="gh-faq__title">FAQ Spedizioni</h2>
+    </div>
+    <div class="gh-faq__list">
+        <div class="gh-faq__item" data-gh-faq-item>
+            <button class="gh-faq__trigger" data-gh-faq-trigger aria-expanded="false">
+                <span class="gh-faq__question">Spedite all'estero?</span>
+                <span class="gh-faq__icon" aria-hidden="true"></span>
+            </button>
+            <div class="gh-faq__content" data-gh-faq-content>
+                <div class="gh-faq__answer">
+                    <p>Si, spediamo in tutta Europa e in molti paesi extra-UE. I costi e i tempi variano in base alla destinazione.</p>
+                </div>
+            </div>
+        </div>
+        <div class="gh-faq__item" data-gh-faq-item>
+            <button class="gh-faq__trigger" data-gh-faq-trigger aria-expanded="false">
+                <span class="gh-faq__question">La spedizione e assicurata?</span>
+                <span class="gh-faq__icon" aria-hidden="true"></span>
+            </button>
+            <div class="gh-faq__content" data-gh-faq-content>
+                <div class="gh-faq__answer">
+                    <p>Tutte le nostre spedizioni sono completamente assicurate contro furto e danneggiamento.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================
+     VARIANTE 2: Minimal senza sottotitolo
+     ============================================ -->
+<section class="gh-block gh-faq" data-gh-faq>
+    <div class="gh-faq__header">
+        <h2 class="gh-faq__title">Hai altre domande?</h2>
+    </div>
+    <div class="gh-faq__list">
+        <div class="gh-faq__item" data-gh-faq-item>
+            <button class="gh-faq__trigger" data-gh-faq-trigger aria-expanded="false">
+                <span class="gh-faq__question">Cosa succede se ricevo un prodotto sbagliato?</span>
+                <span class="gh-faq__icon" aria-hidden="true"></span>
+            </button>
+            <div class="gh-faq__content" data-gh-faq-content>
+                <div class="gh-faq__answer">
+                    <p>In caso di errore da parte nostra, organizzeremo il ritiro gratuito del prodotto e la spedizione di quello corretto senza alcun costo aggiuntivo.</p>
+                </div>
+            </div>
+        </div>
+        <div class="gh-faq__item" data-gh-faq-item>
+            <button class="gh-faq__trigger" data-gh-faq-trigger aria-expanded="false">
+                <span class="gh-faq__question">Offrite sconti per acquisti multipli?</span>
+                <span class="gh-faq__icon" aria-hidden="true"></span>
+            </button>
+            <div class="gh-faq__content" data-gh-faq-content>
+                <div class="gh-faq__answer">
+                    <p>Iscriviti alla newsletter per ricevere codici sconto esclusivi. Inoltre, i membri del nostro programma VIP hanno accesso a promozioni speciali.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

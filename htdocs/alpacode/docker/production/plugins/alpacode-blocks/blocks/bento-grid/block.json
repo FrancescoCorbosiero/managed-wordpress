@@ -1,0 +1,135 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "alpacode/bento-grid",
+    "version": "1.0.0",
+    "title": "Bento Grid",
+    "category": "alpacode",
+    "description": "Responsive bento-style grid layout with mixed cell sizes, image support, and animations.",
+    "keywords": [
+        "bento",
+        "grid",
+        "layout",
+        "cards",
+        "masonry",
+        "features"
+    ],
+    "textdomain": "alpacode-blocks",
+    "editorScript": {
+        "handle": "alpacode-bento-grid-editor",
+        "src": "file:./editor.js",
+        "dependencies": [
+            "wp-blocks",
+            "wp-element",
+            "wp-block-editor",
+            "wp-components",
+            "wp-server-side-render"
+        ]
+    },
+    "style": "file:./style.css",
+    "render": "file:./render.php",
+    "attributes": {
+        "eyebrow": {
+            "type": "string",
+            "default": ""
+        },
+        "heading": {
+            "type": "string",
+            "default": ""
+        },
+        "description": {
+            "type": "string",
+            "default": ""
+        },
+        "items": {
+            "type": "array",
+            "default": [
+                {
+                    "title": "Lightning Fast",
+                    "description": "Optimized performance with sub-second load times.",
+                    "icon": "zap",
+                    "size": "large",
+                    "image": "",
+                    "link": "",
+                    "accentColor": ""
+                },
+                {
+                    "title": "Secure by Default",
+                    "description": "Enterprise-grade security built into every layer.",
+                    "icon": "shield",
+                    "size": "medium",
+                    "image": "",
+                    "link": "",
+                    "accentColor": ""
+                },
+                {
+                    "title": "Global Scale",
+                    "description": "Deploy to 100+ edge locations worldwide.",
+                    "icon": "globe",
+                    "size": "medium",
+                    "image": "",
+                    "link": "",
+                    "accentColor": ""
+                },
+                {
+                    "title": "24/7 Support",
+                    "description": "Expert help whenever you need it.",
+                    "icon": "headphones",
+                    "size": "small",
+                    "image": "",
+                    "link": "",
+                    "accentColor": ""
+                },
+                {
+                    "title": "API First",
+                    "description": "Powerful REST and GraphQL APIs.",
+                    "icon": "code",
+                    "size": "small",
+                    "image": "",
+                    "link": "",
+                    "accentColor": ""
+                }
+            ]
+        },
+        "columns": {
+            "type": "number",
+            "default": 4
+        },
+        "gap": {
+            "type": "number",
+            "default": 24
+        },
+        "cardStyle": {
+            "type": "string",
+            "default": "default",
+            "enum": ["default", "bordered", "glass", "gradient"]
+        },
+        "enableHoverZoom": {
+            "type": "boolean",
+            "default": true
+        },
+        "showIcons": {
+            "type": "boolean",
+            "default": true
+        },
+        "iconStyle": {
+            "type": "string",
+            "default": "filled",
+            "enum": ["filled", "outlined", "gradient"]
+        }
+    },
+    "supports": {
+        "html": false,
+        "align": [
+            "wide",
+            "full"
+        ],
+        "color": {
+            "background": true
+        },
+        "spacing": {
+            "padding": true,
+            "margin": true
+        }
+    }
+}

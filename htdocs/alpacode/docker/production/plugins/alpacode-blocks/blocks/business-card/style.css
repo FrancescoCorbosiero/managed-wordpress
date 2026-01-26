@@ -1,0 +1,961 @@
+/**
+ * Business Card Block Styles
+ *
+ * Fullscreen, non-scrollable business card with dramatic animations
+ * for maximum homepage impact and conversion.
+ */
+
+/* ============================================
+   BASE STYLES & FULLSCREEN SETUP
+   ============================================ */
+
+.alpacode-business-card {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 2rem;
+    box-sizing: border-box;
+
+    /* Default dark theme */
+    --bc-bg: #0a0a0f;
+    --bc-bg-secondary: #12121a;
+    --bc-text: #ffffff;
+    --bc-text-muted: rgba(255, 255, 255, 0.6);
+    --bc-accent: #6366f1;
+    --bc-accent-secondary: #8b5cf6;
+    --bc-accent-glow: rgba(99, 102, 241, 0.4);
+    --bc-border: rgba(255, 255, 255, 0.08);
+    --bc-border-accent: rgba(99, 102, 241, 0.3);
+    --bc-card-bg: rgba(18, 18, 26, 0.8);
+    --bc-card-border: rgba(255, 255, 255, 0.1);
+
+    background: var(--bc-bg);
+    color: var(--bc-text);
+}
+
+/* Light color scheme */
+.alpacode-business-card--light {
+    --bc-bg: #fafafa;
+    --bc-bg-secondary: #ffffff;
+    --bc-text: #0a0a0f;
+    --bc-text-muted: rgba(10, 10, 15, 0.6);
+    --bc-accent: #4f46e5;
+    --bc-accent-secondary: #7c3aed;
+    --bc-accent-glow: rgba(79, 70, 229, 0.3);
+    --bc-border: rgba(0, 0, 0, 0.06);
+    --bc-border-accent: rgba(79, 70, 229, 0.2);
+    --bc-card-bg: rgba(255, 255, 255, 0.9);
+    --bc-card-border: rgba(0, 0, 0, 0.08);
+}
+
+/* ============================================
+   ANIMATED BACKGROUND
+   ============================================ */
+
+.alpacode-business-card__background {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Floating gradient orbs */
+.alpacode-business-card__orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.5;
+    animation: orbFloat 20s ease-in-out infinite;
+}
+
+.alpacode-business-card__orb--1 {
+    width: 600px;
+    height: 600px;
+    background: linear-gradient(135deg, var(--bc-accent), var(--bc-accent-secondary));
+    top: -20%;
+    right: -10%;
+    animation-delay: 0s;
+}
+
+.alpacode-business-card__orb--2 {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(225deg, var(--bc-accent-secondary), #ec4899);
+    bottom: -15%;
+    left: -5%;
+    animation-delay: -7s;
+}
+
+.alpacode-business-card__orb--3 {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(45deg, #06b6d4, var(--bc-accent));
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-delay: -14s;
+    opacity: 0.3;
+}
+
+@keyframes orbFloat {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    25% {
+        transform: translate(30px, -30px) scale(1.05);
+    }
+    50% {
+        transform: translate(-20px, 20px) scale(0.95);
+    }
+    75% {
+        transform: translate(-30px, -20px) scale(1.02);
+    }
+}
+
+/* Grid overlay */
+.alpacode-business-card__grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(var(--bc-border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--bc-border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.5;
+    animation: gridPulse 4s ease-in-out infinite;
+}
+
+@keyframes gridPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+}
+
+/* Scanline effect */
+.alpacode-business-card__scanline {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(99, 102, 241, 0.03) 50%,
+        transparent 100%
+    );
+    background-size: 100% 4px;
+    animation: scanline 8s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes scanline {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+/* Particles container */
+.alpacode-business-card__particles {
+    position: absolute;
+    inset: 0;
+}
+
+/* ============================================
+   MAIN CARD CONTAINER
+   ============================================ */
+
+.alpacode-business-card__container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.alpacode-business-card__card {
+    position: relative;
+    width: 100%;
+    padding: 3rem 2.5rem;
+    background: var(--bc-card-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--bc-card-border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    overflow: hidden;
+}
+
+/* Animated card border glow */
+.alpacode-business-card__card-border {
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    background: linear-gradient(
+        135deg,
+        var(--bc-accent) 0%,
+        transparent 40%,
+        transparent 60%,
+        var(--bc-accent-secondary) 100%
+    );
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: borderRotate 6s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes borderRotate {
+    0% {
+        background: linear-gradient(0deg, var(--bc-accent) 0%, transparent 40%, transparent 60%, var(--bc-accent-secondary) 100%);
+    }
+    25% {
+        background: linear-gradient(90deg, var(--bc-accent) 0%, transparent 40%, transparent 60%, var(--bc-accent-secondary) 100%);
+    }
+    50% {
+        background: linear-gradient(180deg, var(--bc-accent) 0%, transparent 40%, transparent 60%, var(--bc-accent-secondary) 100%);
+    }
+    75% {
+        background: linear-gradient(270deg, var(--bc-accent) 0%, transparent 40%, transparent 60%, var(--bc-accent-secondary) 100%);
+    }
+    100% {
+        background: linear-gradient(360deg, var(--bc-accent) 0%, transparent 40%, transparent 60%, var(--bc-accent-secondary) 100%);
+    }
+}
+
+/* ============================================
+   LOGO SECTION
+   ============================================ */
+
+.alpacode-business-card__logo-wrapper {
+    position: relative;
+}
+
+.alpacode-business-card__logo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.alpacode-business-card__logo--square {
+    width: 100px;
+    height: 100px;
+}
+
+.alpacode-business-card__logo--rectangular {
+    width: 200px;
+    height: 80px;
+}
+
+.alpacode-business-card__logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: relative;
+    z-index: 1;
+    animation: logoReveal 1s ease-out 0.3s both;
+}
+
+@keyframes logoReveal {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+        filter: blur(10px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+}
+
+.alpacode-business-card__logo-glow {
+    position: absolute;
+    inset: -20px;
+    background: radial-gradient(circle, var(--bc-accent-glow) 0%, transparent 70%);
+    animation: logoGlow 3s ease-in-out infinite;
+    z-index: 0;
+}
+
+@keyframes logoGlow {
+    0%, 100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.1);
+    }
+}
+
+/* ============================================
+   TAGLINE
+   ============================================ */
+
+.alpacode-business-card__tagline-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.alpacode-business-card__tagline {
+    font-size: 1.125rem;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--bc-text-muted);
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Character animation for tagline */
+.alpacode-business-card__tagline .char {
+    display: inline-block;
+    animation: charReveal 0.6s ease-out both;
+    animation-delay: calc(var(--char-index) * 0.03s + 0.5s);
+}
+
+@keyframes charReveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px) rotateX(-90deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) rotateX(0);
+    }
+}
+
+.alpacode-business-card__tagline-line {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--bc-accent), transparent);
+    animation: lineExpand 1s ease-out 0.8s both;
+}
+
+@keyframes lineExpand {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to {
+        width: 60px;
+        opacity: 1;
+    }
+}
+
+/* ============================================
+   IDENTITY SECTION
+   ============================================ */
+
+.alpacode-business-card__identity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.alpacode-business-card__name {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0;
+    background: linear-gradient(135deg, var(--bc-text) 0%, var(--bc-text-muted) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Character animation for name */
+.alpacode-business-card__name .char {
+    display: inline-block;
+    animation: nameCharReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: calc(var(--char-index) * 0.04s + 0.7s);
+}
+
+@keyframes nameCharReveal {
+    from {
+        opacity: 0;
+        transform: translateY(100%) scale(0.5);
+        filter: blur(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+.alpacode-business-card__title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--bc-accent);
+    margin: 0;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    animation: titleFade 0.6s ease-out 1s both;
+}
+
+@keyframes titleFade {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   DIVIDER
+   ============================================ */
+
+.alpacode-business-card__divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    max-width: 300px;
+    margin: 0.5rem 0;
+}
+
+.alpacode-business-card__divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--bc-border-accent), transparent);
+}
+
+.alpacode-business-card__divider-icon {
+    color: var(--bc-accent);
+    width: 20px;
+    height: 20px;
+    animation: dividerIconPulse 2s ease-in-out infinite;
+}
+
+.alpacode-business-card__divider-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes dividerIconPulse {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1.1) rotate(180deg);
+        opacity: 1;
+    }
+}
+
+/* ============================================
+   CONTACT INFORMATION
+   ============================================ */
+
+.alpacode-business-card__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+}
+
+.alpacode-business-card__contact {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--bc-border);
+    text-decoration: none;
+    color: var(--bc-text);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.alpacode-business-card__contact::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, var(--bc-accent-glow), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+}
+
+.alpacode-business-card__contact:hover {
+    border-color: var(--bc-border-accent);
+    transform: translateX(5px);
+}
+
+.alpacode-business-card__contact:hover::before {
+    transform: translateX(0);
+}
+
+.alpacode-business-card__contact-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--bc-accent);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.alpacode-business-card__contact-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.alpacode-business-card__contact-text {
+    font-size: 0.9375rem;
+    position: relative;
+    z-index: 1;
+}
+
+.alpacode-business-card__contact--address {
+    cursor: default;
+}
+
+/* ============================================
+   SOCIAL LINKS
+   ============================================ */
+
+.alpacode-business-card__socials {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.alpacode-business-card__social {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--bc-border);
+    color: var(--bc-text-muted);
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+    animation: socialReveal 0.6s ease-out both;
+    animation-delay: calc(var(--social-delay) + 1.3s);
+}
+
+@keyframes socialReveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.alpacode-business-card__social:hover {
+    color: var(--bc-text);
+    border-color: var(--bc-accent);
+    transform: translateY(-5px);
+}
+
+.alpacode-business-card__social-icon {
+    width: 22px;
+    height: 22px;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.alpacode-business-card__social-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.alpacode-business-card__social:hover .alpacode-business-card__social-icon {
+    transform: scale(1.1);
+}
+
+.alpacode-business-card__social-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, var(--bc-accent-glow) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.alpacode-business-card__social:hover .alpacode-business-card__social-glow {
+    opacity: 1;
+}
+
+/* ============================================
+   CORNER ACCENTS
+   ============================================ */
+
+.alpacode-business-card__corner {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    pointer-events: none;
+}
+
+.alpacode-business-card__corner::before,
+.alpacode-business-card__corner::after {
+    content: '';
+    position: absolute;
+    background: var(--bc-accent);
+    opacity: 0.3;
+}
+
+.alpacode-business-card__corner--tl {
+    top: -20px;
+    left: -20px;
+}
+
+.alpacode-business-card__corner--tl::before {
+    width: 40px;
+    height: 2px;
+    top: 20px;
+    left: 0;
+}
+
+.alpacode-business-card__corner--tl::after {
+    width: 2px;
+    height: 40px;
+    top: 0;
+    left: 20px;
+}
+
+.alpacode-business-card__corner--tr {
+    top: -20px;
+    right: -20px;
+}
+
+.alpacode-business-card__corner--tr::before {
+    width: 40px;
+    height: 2px;
+    top: 20px;
+    right: 0;
+}
+
+.alpacode-business-card__corner--tr::after {
+    width: 2px;
+    height: 40px;
+    top: 0;
+    right: 20px;
+}
+
+.alpacode-business-card__corner--bl {
+    bottom: -20px;
+    left: -20px;
+}
+
+.alpacode-business-card__corner--bl::before {
+    width: 40px;
+    height: 2px;
+    bottom: 20px;
+    left: 0;
+}
+
+.alpacode-business-card__corner--bl::after {
+    width: 2px;
+    height: 40px;
+    bottom: 0;
+    left: 20px;
+}
+
+.alpacode-business-card__corner--br {
+    bottom: -20px;
+    right: -20px;
+}
+
+.alpacode-business-card__corner--br::before {
+    width: 40px;
+    height: 2px;
+    bottom: 20px;
+    right: 0;
+}
+
+.alpacode-business-card__corner--br::after {
+    width: 2px;
+    height: 40px;
+    bottom: 0;
+    right: 20px;
+}
+
+/* ============================================
+   SCROLL HINT
+   ============================================ */
+
+.alpacode-business-card__scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0.6;
+    animation: scrollHintFade 2s ease-in-out infinite;
+}
+
+@keyframes scrollHintFade {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+}
+
+.alpacode-business-card__scroll-text {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--bc-text-muted);
+}
+
+.alpacode-business-card__scroll-arrow {
+    width: 24px;
+    height: 24px;
+    color: var(--bc-accent);
+    animation: scrollArrowBounce 1.5s ease-in-out infinite;
+}
+
+.alpacode-business-card__scroll-arrow svg {
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes scrollArrowBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(8px);
+    }
+}
+
+/* ============================================
+   VARIANT: MINIMAL
+   ============================================ */
+
+.alpacode-business-card--minimal .alpacode-business-card__card {
+    background: transparent;
+    border: none;
+    backdrop-filter: none;
+}
+
+.alpacode-business-card--minimal .alpacode-business-card__card-border {
+    display: none;
+}
+
+.alpacode-business-card--minimal .alpacode-business-card__orb {
+    opacity: 0.2;
+}
+
+/* ============================================
+   VARIANT: BOLD
+   ============================================ */
+
+.alpacode-business-card--bold .alpacode-business-card__name {
+    font-size: 3.5rem;
+    background: linear-gradient(135deg, var(--bc-accent), var(--bc-accent-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.alpacode-business-card--bold .alpacode-business-card__card {
+    border-width: 2px;
+}
+
+.alpacode-business-card--bold .alpacode-business-card__social {
+    border-width: 2px;
+}
+
+/* ============================================
+   VARIANT: GLASSMORPHISM
+   ============================================ */
+
+.alpacode-business-card--glass .alpacode-business-card__card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.2),
+        inset 0 0 80px rgba(255, 255, 255, 0.05);
+}
+
+.alpacode-business-card--glass.alpacode-business-card--light .alpacode-business-card__card {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 0 80px rgba(255, 255, 255, 0.3);
+}
+
+/* ============================================
+   ANIMATION INTENSITY VARIANTS
+   ============================================ */
+
+/* Low intensity - reduce animations */
+.alpacode-business-card--animation-low .alpacode-business-card__orb {
+    animation: none;
+    opacity: 0.2;
+}
+
+.alpacode-business-card--animation-low .alpacode-business-card__scanline {
+    display: none;
+}
+
+.alpacode-business-card--animation-low .alpacode-business-card__grid {
+    animation: none;
+    opacity: 0.2;
+}
+
+.alpacode-business-card--animation-low .alpacode-business-card__card-border {
+    animation: none;
+}
+
+/* Medium intensity */
+.alpacode-business-card--animation-medium .alpacode-business-card__orb {
+    animation-duration: 30s;
+}
+
+.alpacode-business-card--animation-medium .alpacode-business-card__scanline {
+    animation-duration: 12s;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+    .alpacode-business-card {
+        padding: 1.5rem;
+    }
+
+    .alpacode-business-card__card {
+        padding: 2rem 1.5rem;
+    }
+
+    .alpacode-business-card__name {
+        font-size: 2rem;
+    }
+
+    .alpacode-business-card--bold .alpacode-business-card__name {
+        font-size: 2.5rem;
+    }
+
+    .alpacode-business-card__tagline {
+        font-size: 0.875rem;
+        letter-spacing: 0.15em;
+    }
+
+    .alpacode-business-card__logo--square {
+        width: 80px;
+        height: 80px;
+    }
+
+    .alpacode-business-card__logo--rectangular {
+        width: 160px;
+        height: 64px;
+    }
+
+    .alpacode-business-card__social {
+        width: 44px;
+        height: 44px;
+    }
+
+    .alpacode-business-card__orb--1 {
+        width: 400px;
+        height: 400px;
+    }
+
+    .alpacode-business-card__orb--2 {
+        width: 280px;
+        height: 280px;
+    }
+
+    .alpacode-business-card__orb--3 {
+        width: 200px;
+        height: 200px;
+    }
+
+    .alpacode-business-card__corner {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .alpacode-business-card__name {
+        font-size: 1.75rem;
+    }
+
+    .alpacode-business-card--bold .alpacode-business-card__name {
+        font-size: 2rem;
+    }
+
+    .alpacode-business-card__socials {
+        gap: 0.75rem;
+    }
+
+    .alpacode-business-card__social {
+        width: 40px;
+        height: 40px;
+    }
+
+    .alpacode-business-card__contact {
+        padding: 0.625rem 0.875rem;
+    }
+
+    .alpacode-business-card__contact-text {
+        font-size: 0.875rem;
+    }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    .alpacode-business-card__orb,
+    .alpacode-business-card__scanline,
+    .alpacode-business-card__grid,
+    .alpacode-business-card__card-border,
+    .alpacode-business-card__logo-glow,
+    .alpacode-business-card__divider-icon,
+    .alpacode-business-card__scroll-hint,
+    .alpacode-business-card__scroll-arrow,
+    .alpacode-business-card__tagline .char,
+    .alpacode-business-card__name .char,
+    .alpacode-business-card__title,
+    .alpacode-business-card__tagline-line,
+    .alpacode-business-card__logo-img,
+    .alpacode-business-card__social {
+        animation: none !important;
+    }
+
+    .alpacode-business-card__contact::before {
+        transition: none;
+    }
+}

@@ -1,0 +1,61 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "alpacode/sliding-text",
+    "version": "1.0.0",
+    "title": "Sliding Text",
+    "category": "alpacode",
+    "description": "Animated marquee text that slides across the screen.",
+    "keywords": ["marquee", "ticker", "sliding", "scroll", "text", "banner"],
+    "textdomain": "alpacode-blocks",
+    "style": "file:./style.css",
+    "render": "file:./render.php",
+    "attributes": {
+        "items": {
+            "type": "array",
+            "default": [
+                { "text": "Web Development", "highlight": false },
+                { "text": "Mobile Apps", "highlight": true },
+                { "text": "UI/UX Design", "highlight": false },
+                { "text": "Cloud Solutions", "highlight": true }
+            ]
+        },
+        "separator": {
+            "type": "string",
+            "default": "star",
+            "enum": ["star", "dot", "dash", "slash", "none"]
+        },
+        "speed": {
+            "type": "number",
+            "default": 30
+        },
+        "direction": {
+            "type": "string",
+            "default": "left",
+            "enum": ["left", "right"]
+        },
+        "pauseOnHover": {
+            "type": "boolean",
+            "default": true
+        },
+        "size": {
+            "type": "string",
+            "default": "large",
+            "enum": ["small", "medium", "large", "xlarge"]
+        },
+        "variant": {
+            "type": "string",
+            "default": "default",
+            "enum": ["default", "outline", "gradient"]
+        },
+        "showBorder": {
+            "type": "boolean",
+            "default": true
+        }
+    },
+    "supports": {
+        "html": false,
+        "align": ["wide", "full"],
+        "spacing": { "padding": true, "margin": true }
+    }
+}
