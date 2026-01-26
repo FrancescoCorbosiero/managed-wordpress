@@ -530,12 +530,12 @@ html:has(.gh-social-buttons) {
     gap: var(--gh-space-md);
     padding: var(--gh-space-md) var(--gh-space-lg);
     background: var(--gh-white);
-    border-radius: 10px;
+    border-radius: 8px;
     box-shadow: var(--gh-shadow-xl);
     transform: translateX(-120%);
     opacity: 0;
     transition: all 0.5s var(--gh-ease-elastic);
-    max-width: 360px;
+    max-width: 380px;
 }
 
 .gh-social-proof--visible {
@@ -544,30 +544,15 @@ html:has(.gh-social-buttons) {
 }
 
 .gh-social-proof__image {
-    position: relative;
-    width: 56px;
-    height: 56px;
+    width: 64px;
+    height: 64px;
     border-radius: 8px;
     background: var(--gh-gray-100);
+    overflow: hidden;
     flex-shrink: 0;
 }
 
-.gh-social-proof__image::before {
-    content: '';
-    position: absolute;
-    top: -3px;
-    right: -3px;
-    width: 12px;
-    height: 12px;
-    background: var(--gh-success);
-    border: 2px solid var(--gh-white);
-    border-radius: 50%;
-    z-index: 2;
-    animation: gh-pulse 2s infinite;
-}
-
 .gh-social-proof__image img {
-    border-radius: 8px;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -580,21 +565,21 @@ html:has(.gh-social-buttons) {
 
 .gh-social-proof__title {
     font-size: var(--gh-text-xs);
-    font-weight: 700;
+    font-weight: 600;
     color: var(--gh-gray-500);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: var(--gh-space-sm);
+    letter-spacing: 0.05em;
+    margin-bottom: var(--gh-space-xs);
 }
 
 .gh-social-proof__product {
-    font-size: var(--gh-text-base);
+    font-size: var(--gh-text-sm);
     font-weight: 700;
     color: var(--gh-black);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-bottom: var(--gh-space-sm);
+    margin-bottom: var(--gh-space-xs);
 }
 
 .gh-social-proof__meta {
@@ -620,6 +605,19 @@ html:has(.gh-social-buttons) {
 
 .gh-social-proof__close:hover {
     color: var(--gh-black);
+}
+
+/* Pulse animation indicator for urgency */
+.gh-social-proof::before {
+    content: '';
+    position: absolute;
+    top: var(--gh-space-md);
+    left: var(--gh-space-md);
+    width: 8px;
+    height: 8px;
+    background: var(--gh-success);
+    border-radius: 50%;
+    animation: gh-pulse 2s infinite;
 }
 
 @keyframes gh-pulse {
@@ -1722,7 +1720,7 @@ html:has(.gh-social-buttons) {
 .gh-promo-modal {
     position: fixed;
     inset: 0;
-    z-index: var(--gh-z-modal);
+    z-index: calc(var(--gh-z-notification) + 100);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1755,6 +1753,16 @@ html:has(.gh-social-buttons) {
     overflow: hidden;
     transform: translateY(20px) scale(0.95);
     transition: transform 0.4s var(--gh-ease-out);
+}
+
+/* When no visual is present, use single column */
+.gh-promo-modal__container:not(:has(.gh-promo-modal__visual)) {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+}
+
+.gh-promo-modal__container:not(:has(.gh-promo-modal__visual)) .gh-promo-modal__content {
+    text-align: center;
 }
 
 .gh-promo-modal--open .gh-promo-modal__container {
@@ -1952,6 +1960,11 @@ html:has(.gh-social-buttons) {
 
 .gh-social-btn--tiktok:hover {
     background: var(--gh-black);
+    color: var(--gh-white);
+}
+
+.gh-social-btn--whatsapp:hover {
+    background: #25d366;
     color: var(--gh-white);
 }
 
@@ -2234,11 +2247,14 @@ html:has(.gh-social-buttons) {
 
     .gh-social-proof {
         left: var(--gh-space-md);
-        right: auto;
+        right: var(--gh-space-md);
         bottom: var(--gh-space-md);
-        /* Leave room for WhatsApp button on the right */
-        max-width: calc(100vw - var(--gh-space-md) * 2 - 56px);
-        width: auto;
+        max-width: none;
+    }
+
+    /* When WhatsApp button is present, adjust social proof to avoid overlap */
+    body:has(.gh-whatsapp-btn) .gh-social-proof {
+        right: calc(var(--gh-space-md) + 56px);
     }
 
     .gh-whatsapp-btn {
