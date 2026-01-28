@@ -2,22 +2,14 @@
     "$schema": "https://schemas.wp.org/trunk/block.json",
     "apiVersion": 3,
     "name": "golden-hive/trust-badges",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "title": "Trust Badges",
     "category": "golden-hive",
     "icon": "shield",
-    "description": "Badge di fiducia e garanzie per aumentare la conversione dei clienti.",
+    "description": "Minimal trust strip with badges for customer confidence.",
     "keywords": ["trust", "badge", "garanzia", "sicurezza", "verified"],
     "textdomain": "golden-hive-blocks",
     "attributes": {
-        "eyebrow": {
-            "type": "string",
-            "default": "Perché Sceglierci"
-        },
-        "title": {
-            "type": "string",
-            "default": "La Tua Fiducia, Garantita"
-        },
         "badges": {
             "type": "array",
             "default": []

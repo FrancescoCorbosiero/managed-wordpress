@@ -1004,92 +1004,74 @@ html:has(.gh-social-buttons) {
 
 /* ==========================================================================
    TRUST BADGES
-   Badge di fiducia e garanzie
+   Minimal inline trust strip - slim & elegant
    ========================================================================== */
 
 .gh-trust-badges {
-    padding: var(--gh-space-4xl) var(--gh-space-xl);
+    padding: var(--gh-space-md) var(--gh-space-lg);
     background: var(--gh-gray-50);
+    border-top: 1px solid var(--gh-gray-100);
+    border-bottom: 1px solid var(--gh-gray-100);
 }
 
-.gh-trust-badges__container {
+.gh-trust-badges__strip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gh-space-lg) var(--gh-space-2xl);
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.gh-trust-badges__header {
-    text-align: center;
-    margin-bottom: var(--gh-space-3xl);
-}
-
-.gh-trust-badges__eyebrow {
-    font-size: var(--gh-text-xs);
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gh-accent);
-    margin-bottom: var(--gh-space-md);
-    display: block;
-}
-
-.gh-trust-badges__title {
-    font-family: var(--gh-font-display);
-    font-size: var(--gh-text-4xl);
-    font-weight: 800;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-    color: var(--gh-black);
-}
-
-.gh-trust-badges__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--gh-space-xl);
-}
-
 .gh-trust-badge {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--gh-space-lg);
-    padding: var(--gh-space-xl);
-    background: var(--gh-white);
-    border-radius: 12px;
-    transition: all 0.4s var(--gh-ease-out);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--gh-space-sm);
+    color: var(--gh-gray-600);
+    transition: color 0.2s ease;
 }
 
 .gh-trust-badge:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--gh-shadow-lg);
+    color: var(--gh-black);
 }
 
 .gh-trust-badge__icon {
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--gh-black);
-    color: var(--gh-white);
-    border-radius: 12px;
+    width: 20px;
+    height: 20px;
     flex-shrink: 0;
+    opacity: 0.7;
 }
 
 .gh-trust-badge__icon svg {
-    width: 24px;
-    height: 24px;
+    width: 100%;
+    height: 100%;
 }
 
-.gh-trust-badge__title {
-    font-size: var(--gh-text-lg);
-    font-weight: 700;
-    color: var(--gh-black);
-    margin-bottom: var(--gh-space-xs);
-}
-
-.gh-trust-badge__text {
+.gh-trust-badge__label {
     font-size: var(--gh-text-sm);
-    color: var(--gh-gray-500);
-    line-height: 1.6;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* Mobile: tighter spacing, smaller text */
+@media (max-width: 640px) {
+    .gh-trust-badges {
+        padding: var(--gh-space-sm) var(--gh-space-md);
+    }
+
+    .gh-trust-badges__strip {
+        gap: var(--gh-space-sm) var(--gh-space-lg);
+    }
+
+    .gh-trust-badge__icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    .gh-trust-badge__label {
+        font-size: var(--gh-text-xs);
+    }
 }
 
 /* ==========================================================================

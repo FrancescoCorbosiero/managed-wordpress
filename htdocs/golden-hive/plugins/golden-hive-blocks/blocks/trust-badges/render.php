@@ -1,10 +1,9 @@
 <?php
 /**
  * Trust Badges Block - Render lato server
+ * Minimal inline trust strip design
  */
 
-$eyebrow = $attributes['eyebrow'] ?? '';
-$title = $attributes['title'] ?? '';
 $badges = $attributes['badges'] ?? [];
 
 $icons = [
@@ -21,37 +20,19 @@ if (empty($badges)) {
 }
 ?>
 <section class="gh-block gh-trust-badges">
-    <div class="gh-trust-badges__container">
-        <?php if (!empty($eyebrow) || !empty($title)) : ?>
-            <div class="gh-trust-badges__header" data-gh-reveal="up">
-                <?php if (!empty($eyebrow)) : ?>
-                    <span class="gh-trust-badges__eyebrow"><?php echo esc_html($eyebrow); ?></span>
-                <?php endif; ?>
-                <?php if (!empty($title)) : ?>
-                    <h2 class="gh-trust-badges__title"><?php echo esc_html($title); ?></h2>
+    <div class="gh-trust-badges__strip">
+        <?php foreach ($badges as $badge) : ?>
+            <div class="gh-trust-badge">
+                <span class="gh-trust-badge__icon">
+                    <?php
+                    $icon_key = $badge['icon'] ?? 'authentic';
+                    echo isset($icons[$icon_key]) ? $icons[$icon_key] : $icons['authentic'];
+                    ?>
+                </span>
+                <?php if (!empty($badge['title'])) : ?>
+                    <span class="gh-trust-badge__label"><?php echo esc_html($badge['title']); ?></span>
                 <?php endif; ?>
             </div>
-        <?php endif; ?>
-
-        <div class="gh-trust-badges__grid">
-            <?php foreach ($badges as $index => $badge) : ?>
-                <div class="gh-trust-badge" data-gh-reveal="up" data-gh-reveal-delay="<?php echo ($index + 1) * 100; ?>">
-                    <div class="gh-trust-badge__icon">
-                        <?php
-                        $icon_key = $badge['icon'] ?? 'authentic';
-                        echo isset($icons[$icon_key]) ? $icons[$icon_key] : $icons['authentic'];
-                        ?>
-                    </div>
-                    <div class="gh-trust-badge__content">
-                        <?php if (!empty($badge['title'])) : ?>
-                            <h3 class="gh-trust-badge__title"><?php echo esc_html($badge['title']); ?></h3>
-                        <?php endif; ?>
-                        <?php if (!empty($badge['text'])) : ?>
-                            <p class="gh-trust-badge__text"><?php echo esc_html($badge['text']); ?></p>
-                        <?php endif; ?>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        </div>
+        <?php endforeach; ?>
     </div>
 </section>
