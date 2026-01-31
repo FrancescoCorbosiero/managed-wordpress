@@ -2,17 +2,22 @@
     "$schema": "https://schemas.wp.org/trunk/block.json",
     "apiVersion": 3,
     "name": "golden-hive/trust-badges",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "title": "Trust Badges",
     "category": "golden-hive",
     "icon": "shield",
     "description": "Minimal trust strip with badges for customer confidence.",
-    "keywords": ["trust", "badge", "garanzia", "sicurezza", "verified"],
+    "keywords": ["trust", "badge", "garanzia", "sicurezza", "verified", "carousel"],
     "textdomain": "golden-hive-blocks",
     "attributes": {
         "badges": {
             "type": "array",
             "default": []
+        },
+        "variant": {
+            "type": "string",
+            "default": "default",
+            "enum": ["default", "carousel"]
         }
     },
     "supports": {

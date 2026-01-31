@@ -1,10 +1,11 @@
 <?php
 /**
  * Trust Badges Block - Render lato server
- * Minimal inline trust strip design
+ * Supports: default (inline strip) and carousel (marquee scroll)
  */
 
 $badges = $attributes['badges'] ?? [];
+$variant = $attributes['variant'] ?? 'default';
 
 $icons = [
     'authentic' => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>',
@@ -18,10 +19,15 @@ $icons = [
 if (empty($badges)) {
     return;
 }
+
+$variant_class = $variant === 'carousel' ? ' gh-trust-badges--carousel' : '';
+
+// For carousel, we duplicate badges for seamless infinite scroll
+$render_badges = $variant === 'carousel' ? array_merge($badges, $badges) : $badges;
 ?>
-<section class="gh-block gh-trust-badges">
+<section class="gh-block gh-trust-badges<?php echo esc_attr($variant_class); ?>">
     <div class="gh-trust-badges__strip">
-        <?php foreach ($badges as $badge) : ?>
+        <?php foreach ($render_badges as $badge) : ?>
             <div class="gh-trust-badge">
                 <span class="gh-trust-badge__icon">
                     <?php

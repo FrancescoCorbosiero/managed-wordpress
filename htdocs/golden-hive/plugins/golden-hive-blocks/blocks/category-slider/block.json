@@ -1,0 +1,44 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "golden-hive/category-slider",
+    "version": "1.1.0",
+    "title": "Category Slider",
+    "category": "golden-hive",
+    "icon": "category",
+    "description": "Swiper.js category carousel with images - Shopify style.",
+    "keywords": ["category", "collection", "slider", "carousel", "shopify", "swiper"],
+    "textdomain": "golden-hive-blocks",
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": ""
+        },
+        "categories": {
+            "type": "array",
+            "default": []
+        },
+        "showNav": {
+            "type": "boolean",
+            "default": true
+        },
+        "showDots": {
+            "type": "boolean",
+            "default": false
+        },
+        "autoplay": {
+            "type": "boolean",
+            "default": false
+        },
+        "loop": {
+            "type": "boolean",
+            "default": true
+        }
+    },
+    "supports": {
+        "align": ["wide", "full"],
+        "html": false
+    },
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php"
+}
