@@ -1,0 +1,28 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "golden-hive/category-slider",
+    "version": "1.0.0",
+    "title": "Category Slider",
+    "category": "golden-hive",
+    "icon": "category",
+    "description": "Horizontal scrollable category showcase with images - Shopify style.",
+    "keywords": ["category", "collection", "slider", "carousel", "shopify"],
+    "textdomain": "golden-hive-blocks",
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": ""
+        },
+        "categories": {
+            "type": "array",
+            "default": []
+        }
+    },
+    "supports": {
+        "align": ["wide", "full"],
+        "html": false
+    },
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php"
+}

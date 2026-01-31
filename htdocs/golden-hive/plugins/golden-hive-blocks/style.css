@@ -1045,28 +1045,35 @@ html:has(.gh-social-buttons) {
    ========================================================================== */
 
 .gh-trust-badges {
-    padding: var(--gh-space-md) var(--gh-space-lg);
+    padding: var(--gh-space-md) 0;
     background: var(--gh-gray-50);
     border-top: 1px solid var(--gh-gray-100);
     border-bottom: 1px solid var(--gh-gray-100);
+    overflow: hidden;
 }
 
 .gh-trust-badges__strip {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: var(--gh-space-lg) var(--gh-space-2xl);
+    gap: 0;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 var(--gh-space-lg);
 }
 
 .gh-trust-badge {
     display: inline-flex;
     align-items: center;
     gap: var(--gh-space-sm);
+    padding: 0 var(--gh-space-xl);
     color: var(--gh-gray-600);
     transition: color 0.2s ease;
+    border-right: 1px solid var(--gh-gray-200);
+}
+
+.gh-trust-badge:last-child {
+    border-right: none;
 }
 
 .gh-trust-badge:hover {
@@ -1074,13 +1081,12 @@ html:has(.gh-social-buttons) {
 }
 
 .gh-trust-badge__icon {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     flex-shrink: 0;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    opacity: 0.7;
 }
 
 .gh-trust-badge__icon svg {
@@ -1095,23 +1101,275 @@ html:has(.gh-social-buttons) {
     white-space: nowrap;
 }
 
-/* Mobile: tighter spacing, smaller text */
-@media (max-width: 640px) {
+/* Mobile: horizontal scroll carousel */
+@media (max-width: 768px) {
     .gh-trust-badges {
-        padding: var(--gh-space-sm) var(--gh-space-md);
+        padding: var(--gh-space-sm) 0;
     }
 
     .gh-trust-badges__strip {
-        gap: var(--gh-space-sm) var(--gh-space-lg);
+        justify-content: flex-start;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        padding: 0 var(--gh-space-md);
+    }
+
+    .gh-trust-badges__strip::-webkit-scrollbar {
+        display: none;
+    }
+
+    .gh-trust-badge {
+        scroll-snap-align: start;
+        padding: 0 var(--gh-space-lg);
+        flex-shrink: 0;
     }
 
     .gh-trust-badge__icon {
-        width: 18px;
-        height: 18px;
+        width: 16px;
+        height: 16px;
     }
 
     .gh-trust-badge__label {
         font-size: var(--gh-text-xs);
+    }
+}
+
+/* ==========================================================================
+   TRUST BADGES CAROUSEL (Fancy Shopify-style variant)
+   Animated scrolling marquee effect
+   ========================================================================== */
+
+.gh-trust-badges--carousel {
+    padding: var(--gh-space-md) 0;
+    background: var(--gh-black);
+    border: none;
+    overflow: hidden;
+}
+
+.gh-trust-badges--carousel .gh-trust-badges__strip {
+    display: flex;
+    justify-content: flex-start;
+    gap: 0;
+    max-width: none;
+    padding: 0;
+    animation: gh-trust-scroll 25s linear infinite;
+    width: max-content;
+}
+
+.gh-trust-badges--carousel .gh-trust-badge {
+    color: var(--gh-gray-400);
+    border-right: none;
+    padding: 0 var(--gh-space-2xl);
+    position: relative;
+}
+
+.gh-trust-badges--carousel .gh-trust-badge::after {
+    content: '•';
+    position: absolute;
+    right: 0;
+    color: var(--gh-gray-600);
+    font-size: 8px;
+}
+
+.gh-trust-badges--carousel .gh-trust-badge:hover {
+    color: var(--gh-white);
+}
+
+.gh-trust-badges--carousel .gh-trust-badge__icon {
+    opacity: 0.8;
+}
+
+.gh-trust-badges--carousel:hover .gh-trust-badges__strip {
+    animation-play-state: paused;
+}
+
+@keyframes gh-trust-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* ==========================================================================
+   CATEGORY SLIDER
+   Shopify-style horizontal scrollable category showcase
+   ========================================================================== */
+
+.gh-category-slider {
+    padding: var(--gh-space-3xl) 0;
+    background: var(--gh-white);
+}
+
+.gh-category-slider__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--gh-space-xl);
+}
+
+.gh-category-slider__header {
+    margin-bottom: var(--gh-space-xl);
+}
+
+.gh-category-slider__title {
+    font-family: var(--gh-font-display);
+    font-size: var(--gh-text-2xl);
+    font-weight: 600;
+    color: var(--gh-black);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.gh-category-slider__wrapper {
+    position: relative;
+}
+
+.gh-category-slider__track {
+    display: flex;
+    gap: var(--gh-space-lg);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: var(--gh-space-sm);
+}
+
+.gh-category-slider__track::-webkit-scrollbar {
+    display: none;
+}
+
+.gh-category-slider__item {
+    flex: 0 0 auto;
+    width: calc(25% - var(--gh-space-lg) * 3 / 4);
+    min-width: 200px;
+    scroll-snap-align: start;
+    text-decoration: none;
+    color: inherit;
+}
+
+.gh-category-slider__image-wrapper {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: var(--gh-gray-100);
+    margin-bottom: var(--gh-space-md);
+}
+
+.gh-category-slider__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gh-category-slider__item:hover .gh-category-slider__image {
+    transform: scale(1.05);
+}
+
+.gh-category-slider__name {
+    font-size: var(--gh-text-base);
+    font-weight: 500;
+    color: var(--gh-black);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    text-align: center;
+    transition: color 0.2s ease;
+}
+
+.gh-category-slider__item:hover .gh-category-slider__name {
+    color: var(--gh-gray-600);
+}
+
+/* Navigation arrows */
+.gh-category-slider__nav {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-100%);
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+    padding: 0 var(--gh-space-sm);
+}
+
+.gh-category-slider__arrow {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gh-white);
+    border: 1px solid var(--gh-gray-200);
+    color: var(--gh-black);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    pointer-events: auto;
+}
+
+.gh-category-slider__arrow:hover {
+    background: var(--gh-black);
+    border-color: var(--gh-black);
+    color: var(--gh-white);
+}
+
+.gh-category-slider__arrow:focus-visible {
+    outline: 2px solid var(--gh-accent);
+    outline-offset: 2px;
+}
+
+.gh-category-slider__arrow:active {
+    transform: scale(0.95);
+}
+
+.gh-category-slider__arrow svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .gh-category-slider__item {
+        width: calc(33.333% - var(--gh-space-lg) * 2 / 3);
+        min-width: 180px;
+    }
+
+    .gh-category-slider__nav {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .gh-category-slider {
+        padding: var(--gh-space-2xl) 0;
+    }
+
+    .gh-category-slider__container {
+        padding: 0 var(--gh-space-md);
+    }
+
+    .gh-category-slider__item {
+        width: 70vw;
+        max-width: 280px;
+        min-width: 220px;
+    }
+
+    .gh-category-slider__track {
+        gap: var(--gh-space-md);
+    }
+
+    .gh-category-slider__title {
+        font-size: var(--gh-text-xl);
+    }
+
+    .gh-category-slider__name {
+        font-size: var(--gh-text-sm);
     }
 }
 
@@ -1951,6 +2209,15 @@ html:has(.gh-social-buttons) {
     pointer-events: none;
 }
 
+/* Ensure links styled as buttons don't inherit link colors */
+a.gh-btn,
+a.gh-btn:hover,
+a.gh-btn:focus,
+a.gh-btn:active,
+a.gh-btn:visited {
+    text-decoration: none;
+}
+
 /* Primary - solid black */
 .gh-btn--primary {
     background: var(--gh-black);
@@ -1959,13 +2226,15 @@ html:has(.gh-social-buttons) {
 }
 
 .gh-btn--primary:hover {
-    background: var(--gh-gray-800);
-    border-color: var(--gh-gray-800);
+    background: var(--gh-gray-700);
+    border-color: var(--gh-gray-700);
+    color: var(--gh-white);
 }
 
 .gh-btn--primary:active {
     background: var(--gh-black);
     transform: translateY(1px);
+    color: var(--gh-white);
 }
 
 /* Outline - transparent with border */

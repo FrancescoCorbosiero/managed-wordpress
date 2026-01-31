@@ -1,0 +1,141 @@
+<!--
+Category Slider Block - Demo
+Shopify-style horizontal scrollable category showcase
+-->
+
+<!-- ============================================
+     DEFAULT: Category slider with title
+     ============================================ -->
+<section class="gh-block gh-category-slider">
+    <div class="gh-category-slider__container">
+        <header class="gh-category-slider__header">
+            <h2 class="gh-category-slider__title">Categorie in Evidenza</h2>
+        </header>
+
+        <div class="gh-category-slider__wrapper">
+            <div class="gh-category-slider__track" data-gh-slider-track>
+                <a href="/collections/jordan-4" class="gh-category-slider__item">
+                    <div class="gh-category-slider__image-wrapper">
+                        <img src="https://via.placeholder.com/400x500/f5f5f5/333?text=Jordan+4"
+                             alt="Jordan 4"
+                             class="gh-category-slider__image"
+                             loading="eager">
+                    </div>
+                    <p class="gh-category-slider__name">Jordan 4</p>
+                </a>
+                <a href="/collections/adidas-spezial" class="gh-category-slider__item">
+                    <div class="gh-category-slider__image-wrapper">
+                        <img src="https://via.placeholder.com/400x500/f5f5f5/333?text=Spezial"
+                             alt="Adidas Spezial"
+                             class="gh-category-slider__image"
+                             loading="eager">
+                    </div>
+                    <p class="gh-category-slider__name">Spezial</p>
+                </a>
+                <a href="/collections/travis-scott" class="gh-category-slider__item">
+                    <div class="gh-category-slider__image-wrapper">
+                        <img src="https://via.placeholder.com/400x500/f5f5f5/333?text=Travis+Scott"
+                             alt="Travis Scott"
+                             class="gh-category-slider__image"
+                             loading="eager">
+                    </div>
+                    <p class="gh-category-slider__name">Travis Scott</p>
+                </a>
+                <a href="/collections/dunk-low" class="gh-category-slider__item">
+                    <div class="gh-category-slider__image-wrapper">
+                        <img src="https://via.placeholder.com/400x500/f5f5f5/333?text=Dunk+Low"
+                             alt="Dunk Low"
+                             class="gh-category-slider__image"
+                             loading="eager">
+                    </div>
+                    <p class="gh-category-slider__name">Dunk Low</p>
+                </a>
+                <a href="/collections/new-balance" class="gh-category-slider__item">
+                    <div class="gh-category-slider__image-wrapper">
+                        <img src="https://via.placeholder.com/400x500/f5f5f5/333?text=New+Balance"
+                             alt="New Balance"
+                             class="gh-category-slider__image"
+                             loading="lazy">
+                    </div>
+                    <p class="gh-category-slider__name">New Balance</p>
+                </a>
+                <a href="/collections/ugg" class="gh-category-slider__item">
+                    <div class="gh-category-slider__image-wrapper">
+                        <img src="https://via.placeholder.com/400x500/f5f5f5/333?text=UGG"
+                             alt="UGG"
+                             class="gh-category-slider__image"
+                             loading="lazy">
+                    </div>
+                    <p class="gh-category-slider__name">UGG</p>
+                </a>
+            </div>
+
+            <div class="gh-category-slider__nav">
+                <button class="gh-category-slider__arrow gh-category-slider__arrow--prev"
+                        data-gh-slider-prev
+                        aria-label="Precedente">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                </button>
+                <button class="gh-category-slider__arrow gh-category-slider__arrow--next"
+                        data-gh-slider-next
+                        aria-label="Seguente">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================
+     VARIANT: Without title (minimal)
+     ============================================ -->
+<section class="gh-block gh-category-slider">
+    <div class="gh-category-slider__container">
+        <div class="gh-category-slider__wrapper">
+            <div class="gh-category-slider__track" data-gh-slider-track>
+                <a href="/collections/sneakers" class="gh-category-slider__item">
+                    <div class="gh-category-slider__image-wrapper">
+                        <img src="https://via.placeholder.com/400x500/f5f5f5/333?text=Sneakers"
+                             alt="Sneakers"
+                             class="gh-category-slider__image">
+                    </div>
+                    <p class="gh-category-slider__name">Sneakers</p>
+                </a>
+                <a href="/collections/streetwear" class="gh-category-slider__item">
+                    <div class="gh-category-slider__image-wrapper">
+                        <img src="https://via.placeholder.com/400x500/f5f5f5/333?text=Streetwear"
+                             alt="Streetwear"
+                             class="gh-category-slider__image">
+                    </div>
+                    <p class="gh-category-slider__name">Streetwear</p>
+                </a>
+                <a href="/collections/accessori" class="gh-category-slider__item">
+                    <div class="gh-category-slider__image-wrapper">
+                        <img src="https://via.placeholder.com/400x500/f5f5f5/333?text=Accessori"
+                             alt="Accessori"
+                             class="gh-category-slider__image">
+                    </div>
+                    <p class="gh-category-slider__name">Accessori</p>
+                </a>
+            </div>
+
+            <div class="gh-category-slider__nav">
+                <button class="gh-category-slider__arrow gh-category-slider__arrow--prev" aria-label="Precedente">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                </button>
+                <button class="gh-category-slider__arrow gh-category-slider__arrow--next" aria-label="Seguente">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
