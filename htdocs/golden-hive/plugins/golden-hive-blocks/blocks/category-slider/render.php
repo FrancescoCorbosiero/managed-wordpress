@@ -2,10 +2,15 @@
 /**
  * Category Slider Block - Render lato server
  * Shopify-style horizontal scrollable category showcase
+ * Uses Swiper.js for carousel functionality
  */
 
 $title = $attributes['title'] ?? '';
 $categories = $attributes['categories'] ?? [];
+$show_nav = $attributes['showNav'] ?? true;
+$show_dots = $attributes['showDots'] ?? false;
+$autoplay = $attributes['autoplay'] ?? false;
+$loop = $attributes['loop'] ?? true;
 
 if (empty($categories)) {
     return;
@@ -21,42 +26,85 @@ $block_id = 'gh-cat-slider-' . wp_unique_id();
             </header>
         <?php endif; ?>
 
-        <div class="gh-category-slider__wrapper">
-            <div class="gh-category-slider__track" data-gh-slider-track>
-                <?php foreach ($categories as $index => $category) : ?>
-                    <a href="<?php echo esc_url($category['url'] ?? '#'); ?>"
-                       class="gh-category-slider__item">
-                        <div class="gh-category-slider__image-wrapper">
-                            <?php if (!empty($category['image'])) : ?>
-                                <img src="<?php echo esc_url($category['image']); ?>"
-                                     alt="<?php echo esc_attr($category['name'] ?? ''); ?>"
-                                     class="gh-category-slider__image"
-                                     loading="<?php echo $index < 4 ? 'eager' : 'lazy'; ?>">
-                            <?php endif; ?>
+        <div class="gh-category-slider__carousel">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <?php foreach ($categories as $index => $category) : ?>
+                        <div class="swiper-slide">
+                            <a href="<?php echo esc_url($category['url'] ?? '#'); ?>"
+                               class="gh-category-slider__item">
+                                <div class="gh-category-slider__image-wrapper">
+                                    <?php if (!empty($category['image'])) : ?>
+                                        <img src="<?php echo esc_url($category['image']); ?>"
+                                             alt="<?php echo esc_attr($category['name'] ?? ''); ?>"
+                                             class="gh-category-slider__image"
+                                             loading="<?php echo $index < 4 ? 'eager' : 'lazy'; ?>">
+                                    <?php endif; ?>
+                                </div>
+                                <?php if (!empty($category['name'])) : ?>
+                                    <p class="gh-category-slider__name"><?php echo esc_html($category['name']); ?></p>
+                                <?php endif; ?>
+                            </a>
                         </div>
-                        <?php if (!empty($category['name'])) : ?>
-                            <p class="gh-category-slider__name"><?php echo esc_html($category['name']); ?></p>
-                        <?php endif; ?>
-                    </a>
-                <?php endforeach; ?>
-            </div>
+                    <?php endforeach; ?>
+                </div>
 
-            <div class="gh-category-slider__nav">
-                <button class="gh-category-slider__arrow gh-category-slider__arrow--prev"
-                        data-gh-slider-prev
-                        aria-label="Precedente">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M19 12H5M12 19l-7-7 7-7"/>
-                    </svg>
-                </button>
-                <button class="gh-category-slider__arrow gh-category-slider__arrow--next"
-                        data-gh-slider-next
-                        aria-label="Seguente">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </button>
+                <?php if ($show_nav) : ?>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                <?php endif; ?>
+
+                <?php if ($show_dots) : ?>
+                    <div class="swiper-pagination"></div>
+                <?php endif; ?>
             </div>
         </div>
     </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof Swiper !== 'undefined') {
+        new Swiper('#<?php echo esc_js($block_id); ?> .swiper', {
+            slidesPerView: 2,
+            spaceBetween: 16,
+            loop: <?php echo $loop ? 'true' : 'false'; ?>,
+            autoplay: <?php echo $autoplay ? '{delay:4000,disableOnInteraction:false}' : 'false'; ?>,
+            <?php if ($show_nav) : ?>
+            navigation: {
+                nextEl: '#<?php echo esc_js($block_id); ?> .swiper-button-next',
+                prevEl: '#<?php echo esc_js($block_id); ?> .swiper-button-prev',
+            },
+            <?php endif; ?>
+            <?php if ($show_dots) : ?>
+            pagination: {
+                el: '#<?php echo esc_js($block_id); ?> .swiper-pagination',
+                clickable: true,
+            },
+            <?php endif; ?>
+            breakpoints: {
+                0: {
+                    slidesPerView: 2,
+                    spaceBetween: 12,
+                },
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 16,
+                },
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                },
+                1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 24,
+                },
+                1280: {
+                    slidesPerView: 5,
+                    spaceBetween: 24,
+                },
+            },
+        });
+    }
+});
+</script>

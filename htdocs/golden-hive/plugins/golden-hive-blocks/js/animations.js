@@ -599,38 +599,6 @@
     };
 
     /**
-     * Category Slider - Shopify style horizontal scroll
-     */
-    const CategorySlider = {
-        init() {
-            document.querySelectorAll('.gh-category-slider').forEach(slider => {
-                const track = slider.querySelector('[data-gh-slider-track]');
-                const prev = slider.querySelector('[data-gh-slider-prev]');
-                const next = slider.querySelector('[data-gh-slider-next]');
-
-                if (!track) return;
-
-                const scrollAmount = () => {
-                    const item = track.querySelector('.gh-category-slider__item');
-                    return item ? item.offsetWidth + 24 : 300; // item width + gap
-                };
-
-                if (prev) {
-                    prev.addEventListener('click', () => {
-                        track.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
-                    });
-                }
-
-                if (next) {
-                    next.addEventListener('click', () => {
-                        track.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
-                    });
-                }
-            });
-        }
-    };
-
-    /**
      * Initialize
      */
     const init = () => {
@@ -649,7 +617,6 @@
         ImageReveal.init();
         Newsletter.init();
         WhatsAppButton.init();
-        CategorySlider.init();
     };
 
     if (document.readyState === 'loading') {
