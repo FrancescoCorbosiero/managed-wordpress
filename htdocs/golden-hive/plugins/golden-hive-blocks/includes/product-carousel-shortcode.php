@@ -13,6 +13,7 @@
  * ║ SECTION STYLING                                                            ║
  * ║ ─────────────────────────────────────────────────────────────────────────  ║
  * ║ style          = default|dark|minimal                                     ║
+ * ║ header_align   = left|center (centered title & subtitle)                  ║
  * ║                                                                            ║
  * ║ NAVIGATION OPTIONS                                                         ║
  * ║ ─────────────────────────────────────────────────────────────────────────  ║
@@ -98,6 +99,9 @@
  *
  * // Bigger centered text
  * [carousel_section title="Collection" type="recent" card_text="centered"]
+ *
+ * // Centered header
+ * [carousel_section title="Our Collection" subtitle="Discover the latest" header_align="center" nav_style="bottom"]
  */
 
 if (!defined('ABSPATH')) {
@@ -252,6 +256,43 @@ function ghb_get_carousel_styles() {
 
     .ghb-carousel-section__link:hover svg {
         transform: translateX(3px);
+    }
+
+    /* ─────────────────────────────────────────────────────────
+       HEADER ALIGN: Center
+       ───────────────────────────────────────────────────────── */
+    .ghb-carousel-section--header-center .ghb-carousel-section__header {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .ghb-carousel-section--header-center .ghb-carousel-section__header-left {
+        justify-content: center;
+        flex: none;
+        width: 100%;
+    }
+
+    .ghb-carousel-section--header-center .ghb-carousel-section__title {
+        text-align: center;
+    }
+
+    .ghb-carousel-section--header-center .ghb-carousel-section__subtitle {
+        text-align: center;
+    }
+
+    .ghb-carousel-section--header-center .ghb-carousel-section__header-right {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .ghb-carousel-section--header-center .ghb-carousel-section__link {
+        margin-top: 0.5rem;
+    }
+
+    /* Hide link when header is centered (cleaner look) - can be overridden */
+    .ghb-carousel-section--header-center.ghb-carousel-section--hide-link .ghb-carousel-section__link {
+        display: none;
     }
 
     /* ═══════════════════════════════════════════════════════════
@@ -1118,6 +1159,7 @@ function ghb_carousel_section_shortcode($atts) {
         'link'           => '/shop',
         'link_text'      => 'Vedi Tutti',
         'style'          => 'default',      // default|dark|minimal
+        'header_align'   => 'left',         // left|center
 
         // Navigation
         'nav_style'      => 'bottom',       // bottom|sides|top-right|integrated|none
@@ -1189,6 +1231,11 @@ function ghb_carousel_section_shortcode($atts) {
         'ghb-carousel-section--layout-' . esc_attr($atts['layout']),
         'ghb-carousel-section--nav-' . esc_attr($atts['nav_style']),
     );
+
+    // Header alignment
+    if ($atts['header_align'] === 'center') {
+        $section_classes[] = 'ghb-carousel-section--header-center';
+    }
 
     $carousel_classes = array(
         'ghb-carousel',
