@@ -14,6 +14,8 @@
  * ║ ─────────────────────────────────────────────────────────────────────────  ║
  * ║ style          = default|dark|minimal                                     ║
  * ║ header_align   = left|center (centered title & subtitle)                  ║
+ * ║ title_size     = sm|md|lg|xl|xxl (title font size)                        ║
+ * ║ subtitle_size  = sm|md|lg (subtitle font size)                            ║
  * ║                                                                            ║
  * ║ NAVIGATION OPTIONS                                                         ║
  * ║ ─────────────────────────────────────────────────────────────────────────  ║
@@ -231,6 +233,38 @@ function ghb_get_carousel_styles() {
         font-size: 0.9rem;
         color: var(--ghb-text-muted);
         margin: 0.25rem 0 0;
+    }
+
+    /* ─────────────────────────────────────────────────────────
+       TITLE SIZE VARIATIONS
+       ───────────────────────────────────────────────────────── */
+    .ghb-carousel-section--title-sm .ghb-carousel-section__title {
+        font-size: clamp(1rem, 2.5vw, 1.25rem);
+    }
+    .ghb-carousel-section--title-md .ghb-carousel-section__title {
+        font-size: clamp(1.25rem, 3vw, 1.5rem);
+    }
+    .ghb-carousel-section--title-lg .ghb-carousel-section__title {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+    }
+    .ghb-carousel-section--title-xl .ghb-carousel-section__title {
+        font-size: clamp(1.75rem, 5vw, 2.5rem);
+    }
+    .ghb-carousel-section--title-xxl .ghb-carousel-section__title {
+        font-size: clamp(2rem, 6vw, 3rem);
+    }
+
+    /* ─────────────────────────────────────────────────────────
+       SUBTITLE SIZE VARIATIONS
+       ───────────────────────────────────────────────────────── */
+    .ghb-carousel-section--subtitle-sm .ghb-carousel-section__subtitle {
+        font-size: 0.8rem;
+    }
+    .ghb-carousel-section--subtitle-md .ghb-carousel-section__subtitle {
+        font-size: 0.95rem;
+    }
+    .ghb-carousel-section--subtitle-lg .ghb-carousel-section__subtitle {
+        font-size: 1.1rem;
     }
 
     .ghb-carousel-section__link {
@@ -1160,6 +1194,8 @@ function ghb_carousel_section_shortcode($atts) {
         'link_text'      => 'Vedi Tutti',
         'style'          => 'default',      // default|dark|minimal
         'header_align'   => 'left',         // left|center
+        'title_size'     => '',             // sm|md|lg|xl|xxl (empty = default)
+        'subtitle_size'  => '',             // sm|md|lg (empty = default)
 
         // Navigation
         'nav_style'      => 'bottom',       // bottom|sides|top-right|integrated|none
@@ -1235,6 +1271,16 @@ function ghb_carousel_section_shortcode($atts) {
     // Header alignment
     if ($atts['header_align'] === 'center') {
         $section_classes[] = 'ghb-carousel-section--header-center';
+    }
+
+    // Title size
+    if (!empty($atts['title_size'])) {
+        $section_classes[] = 'ghb-carousel-section--title-' . esc_attr($atts['title_size']);
+    }
+
+    // Subtitle size
+    if (!empty($atts['subtitle_size'])) {
+        $section_classes[] = 'ghb-carousel-section--subtitle-' . esc_attr($atts['subtitle_size']);
     }
 
     $carousel_classes = array(
