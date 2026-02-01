@@ -1304,7 +1304,7 @@ function ghb_carousel_section_shortcode($atts) {
 
     ob_start();
     ?>
-    <section class="<?php echo esc_attr(implode(' ', $section_classes)); ?>">
+    <section class="<?php echo esc_attr(implode(' ', $section_classes)); ?>" data-section-id="<?php echo esc_attr($carousel_id); ?>">
         <div class="ghb-carousel-section__container">
 
             <!-- Header -->
@@ -1514,29 +1514,27 @@ function ghb_generate_swiper_config($atts, $carousel_id, $total_products) {
         );
     }
 
-    // Navigation - use section selector for top-right since buttons are in header
+    // Navigation - always use unique section ID to avoid conflicts with multiple carousels
     if ($atts['show_nav'] === 'true' && $atts['nav_style'] !== 'none') {
-        if ($atts['nav_style'] === 'top-right') {
-            $container_selector = ".ghb-carousel-section--nav-top-right";
-        } else {
-            $container_selector = "[data-carousel-id=\"{$carousel_id}\"]";
-        }
+        // Use section ID for all nav styles to ensure uniqueness
+        $section_selector = "[data-section-id=\"{$carousel_id}\"]";
         $config['navigation'] = array(
-            'nextEl' => "{$container_selector} .ghb-carousel__nav-next",
-            'prevEl' => "{$container_selector} .ghb-carousel__nav-prev"
+            'nextEl' => "{$section_selector} .ghb-carousel__nav-next",
+            'prevEl' => "{$section_selector} .ghb-carousel__nav-prev"
         );
     }
 
-    // Pagination
+    // Pagination - use section selector for consistency
+    $section_selector = "[data-section-id=\"{$carousel_id}\"]";
     if ($atts['pagination'] === 'dots') {
         $config['pagination'] = array(
-            'el'             => "[data-carousel-id=\"{$carousel_id}\"] .ghb-carousel__pagination",
+            'el'             => "{$section_selector} .ghb-carousel__pagination",
             'clickable'      => true,
             'dynamicBullets' => $atts['dots_style'] === 'dynamic'
         );
     } elseif ($atts['pagination'] === 'progressbar') {
         $config['pagination'] = array(
-            'el'   => "[data-carousel-id=\"{$carousel_id}\"] .ghb-carousel__progressbar",
+            'el'   => "{$section_selector} .ghb-carousel__progressbar",
             'type' => 'progressbar'
         );
     }
@@ -1573,9 +1571,11 @@ function ghb_generate_swiper_config($atts, $carousel_id, $total_products) {
     if ($atts['pagination'] === 'fraction') {
         $js .= "
         swiper_{$carousel_id}.on('slideChange', function() {
-            var container = document.querySelector('[data-carousel-id=\"{$carousel_id}\"]');
-            var current = container.querySelector('.ghb-carousel__fraction-current');
-            if (current) current.textContent = this.realIndex + 1;
+            var section = document.querySelector('[data-section-id=\"{$carousel_id}\"]');
+            if (section) {
+                var current = section.querySelector('.ghb-carousel__fraction-current');
+                if (current) current.textContent = this.realIndex + 1;
+            }
         });";
     }
 
@@ -1583,8 +1583,11 @@ function ghb_generate_swiper_config($atts, $carousel_id, $total_products) {
     if ($atts['autoplay'] === 'true' && $atts['autoplay_bar'] === 'true') {
         $js .= "
         swiper_{$carousel_id}.on('autoplayTimeLeft', function(s, time, progress) {
-            var bar = document.querySelector('#{$carousel_id} .ghb-carousel__autoplay-progress-bar');
-            if (bar) bar.style.width = ((1 - progress) * 100) + '%';
+            var section = document.querySelector('[data-section-id=\"{$carousel_id}\"]');
+            if (section) {
+                var bar = section.querySelector('.ghb-carousel__autoplay-progress-bar');
+                if (bar) bar.style.width = ((1 - progress) * 100) + '%';
+            }
         });";
     }
 
