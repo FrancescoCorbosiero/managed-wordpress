@@ -105,3 +105,8 @@ function golden_hive_blocks_load_textdomain() {
     );
 }
 add_action('plugins_loaded', 'golden_hive_blocks_load_textdomain');
+
+/**
+ * Include shortcodes
+ */
+require_once GOLDEN_HIVE_BLOCKS_PATH . 'includes/product-carousel-shortcode.php';
