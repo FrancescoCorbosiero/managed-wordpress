@@ -221,7 +221,7 @@ function ghb_get_carousel_styles() {
         gap: 1rem;
     }
 
-    .ghb-carousel-section__title {
+    .ghb-carousel-section .ghb-carousel-section__title {
         font-size: clamp(1.25rem, 4vw, 1.75rem);
         font-weight: 700;
         margin: 0;
@@ -914,7 +914,7 @@ function ghb_get_carousel_styles() {
         margin-bottom: 4px;
     }
 
-    .ghb-product-card__title {
+    .ghb-carousel-section .ghb-product-card__title {
         font-size: 0.9rem;
         font-weight: 600;
         color: var(--ghb-text);
