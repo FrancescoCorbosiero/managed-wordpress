@@ -8,7 +8,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Plugin Stylesheet -->
     <link rel="stylesheet" href="style.css">
@@ -18,10 +18,10 @@
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
         body {
-            font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            color: #2A2725;
+            color: #1E2028;
             background: #fff;
         }
         img { max-width: 100%; height: auto; display: block; }
@@ -30,31 +30,38 @@
         /* Demo nav bar (not a real block) */
         .demo-nav {
             position: sticky; top: 0; z-index: 999;
-            background: #0B1D3A; color: #fff;
+            background: #0C0C14; color: #fff;
             padding: 0.75rem 2rem;
             display: flex; align-items: center; justify-content: space-between;
-            font-family: 'Montserrat', sans-serif; font-size: 0.85rem;
-            box-shadow: 0 2px 8px rgba(11,29,58,0.15);
+            font-family: 'Inter', sans-serif; font-size: 0.8rem;
+            box-shadow: 0 2px 8px rgba(12,12,20,0.2);
         }
-        .demo-nav__logo { font-weight: 800; font-size: 1rem; color: #C9A84C; }
+        .demo-nav__logo {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-weight: 400; font-size: 1.1rem; color: #B8973F;
+            letter-spacing: -0.01em;
+        }
         .demo-nav__links { display: flex; gap: 1.5rem; }
-        .demo-nav__links a { color: rgba(255,255,255,0.8); transition: color 0.2s; }
-        .demo-nav__links a:hover { color: #C9A84C; }
+        .demo-nav__links a {
+            color: rgba(255,255,255,0.6); transition: color 0.2s;
+            text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.7rem; font-weight: 500;
+        }
+        .demo-nav__links a:hover { color: #B8973F; }
 
         /* Demo section labels */
         .demo-label {
             max-width: 1200px; margin: 0 auto;
             padding: 3rem 2rem 0.5rem;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.75rem; font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem; font-weight: 600;
             text-transform: uppercase; letter-spacing: 0.15em;
-            color: #C9A84C;
+            color: #B8973F;
         }
-        .demo-label span { color: #9E9890; font-weight: 400; margin-left: 0.5rem; }
+        .demo-label span { color: #8B91A0; font-weight: 400; margin-left: 0.5rem; }
 
         /* Placeholder images via CSS gradient (no external deps) */
         .demo-placeholder-bg {
-            background: linear-gradient(135deg, #0B1D3A 0%, #132B50 50%, #0B1D3A 100%);
+            background: linear-gradient(135deg, #0C0C14 0%, #16161F 50%, #0C0C14 100%);
         }
     </style>
 </head>
@@ -62,7 +69,7 @@
 
 <!-- DEMO NAV (simulates site header) -->
 <nav class="demo-nav">
-    <div class="demo-nav__logo">CESANA ASSICURATORI</div>
+    <div class="demo-nav__logo">Cesana Assicuratori</div>
     <div class="demo-nav__links">
         <a href="#hero">Home</a>
         <a href="#services">Servizi</a>
@@ -81,7 +88,7 @@
 <section class="ca-block ca-hero-banner" data-ca-hero-banner data-ca-hero-autoplay="8000" id="ca-hero-demo">
 
     <div class="ca-hero-slide ca-hero-slide--active" data-ca-hero-slide>
-        <div class="ca-hero-slide__bg" style="background: linear-gradient(135deg, #0B1D3A 0%, #132B50 60%, #1a3a6a 100%); position: absolute; inset: 0;"></div>
+        <div class="ca-hero-slide__bg" style="background: linear-gradient(135deg, #0C0C14 0%, #16161F 60%, #1A1A28 100%); position: absolute; inset: 0;"></div>
         <div class="ca-hero-slide__overlay"></div>
         <div class="ca-hero-slide__content">
             <span class="ca-hero-slide__eyebrow">Cesana Assicuratori</span>
@@ -94,7 +101,7 @@
     </div>
 
     <div class="ca-hero-slide" data-ca-hero-slide>
-        <div class="ca-hero-slide__bg" style="background: linear-gradient(135deg, #132B50 0%, #0B1D3A 50%, #060F1F 100%); position: absolute; inset: 0;"></div>
+        <div class="ca-hero-slide__bg" style="background: linear-gradient(135deg, #16161F 0%, #0C0C14 50%, #08080E 100%); position: absolute; inset: 0;"></div>
         <div class="ca-hero-slide__overlay"></div>
         <div class="ca-hero-slide__content">
             <span class="ca-hero-slide__eyebrow">Risk Management</span>
@@ -260,7 +267,7 @@
 
 <section class="ca-block ca-stats ca-stats--navy">
     <div class="ca-stats__container">
-        <h2 class="ca-stats__title" data-ca-reveal="up">Perché scegliere Cesana Assicuratori</h2>
+        <h2 class="ca-stats__title" data-ca-reveal="up">Perch&eacute; scegliere Cesana Assicuratori</h2>
         <div class="ca-stats__grid">
             <div class="ca-stats__item" data-ca-reveal="up" data-ca-reveal-delay="0">
                 <div>
@@ -301,7 +308,7 @@
 <div class="demo-label">Block 6 <span>cesana/page-hero</span></div>
 
 <section class="ca-block ca-page-hero">
-    <div class="ca-page-hero__bg" style="background: linear-gradient(135deg, #0B1D3A 0%, #132B50 100%); position: absolute; inset: 0;"></div>
+    <div class="ca-page-hero__bg" style="background: linear-gradient(135deg, #0C0C14 0%, #16161F 100%); position: absolute; inset: 0;"></div>
     <div class="ca-page-hero__overlay"></div>
     <div class="ca-page-hero__content">
         <nav class="ca-page-hero__breadcrumbs" aria-label="Breadcrumb">
@@ -325,28 +332,28 @@
 <section class="ca-block ca-faq" data-ca-faq>
     <div class="ca-faq__header" data-ca-reveal="up">
         <h2 class="ca-faq__title">Domande Frequenti</h2>
-        <p class="ca-faq__subtitle">Le risposte alle domande più comuni sul brokeraggio assicurativo</p>
+        <p class="ca-faq__subtitle">Le risposte alle domande pi&ugrave; comuni sul brokeraggio assicurativo</p>
     </div>
     <div class="ca-faq__list">
         <div class="ca-faq__item" data-ca-faq-item data-ca-reveal="up" data-ca-reveal-delay="0">
             <button class="ca-faq__trigger" data-ca-faq-trigger aria-expanded="false" aria-controls="faq-demo-0">
-                <span class="ca-faq__question">Qual è la differenza tra un broker e un agente assicurativo?</span>
+                <span class="ca-faq__question">Qual &egrave; la differenza tra un broker e un agente assicurativo?</span>
                 <span class="ca-faq__icon" aria-hidden="true"></span>
             </button>
             <div class="ca-faq__content" data-ca-faq-content id="faq-demo-0" role="region">
                 <div class="ca-faq__answer">
-                    <p>Il broker è un intermediario <strong>indipendente</strong> che non rappresenta nessuna compagnia assicurativa. Lavora esclusivamente nell'interesse del cliente, cercando la migliore soluzione sul mercato. L'agente, invece, rappresenta una o più compagnie specifiche.</p>
+                    <p>Il broker &egrave; un intermediario <strong>indipendente</strong> che non rappresenta nessuna compagnia assicurativa. Lavora esclusivamente nell'interesse del cliente, cercando la migliore soluzione sul mercato. L'agente, invece, rappresenta una o pi&ugrave; compagnie specifiche.</p>
                 </div>
             </div>
         </div>
         <div class="ca-faq__item" data-ca-faq-item data-ca-reveal="up" data-ca-reveal-delay="80">
             <button class="ca-faq__trigger" data-ca-faq-trigger aria-expanded="false" aria-controls="faq-demo-1">
-                <span class="ca-faq__question">La consulenza iniziale è gratuita?</span>
+                <span class="ca-faq__question">La consulenza iniziale &egrave; gratuita?</span>
                 <span class="ca-faq__icon" aria-hidden="true"></span>
             </button>
             <div class="ca-faq__content" data-ca-faq-content id="faq-demo-1" role="region">
                 <div class="ca-faq__answer">
-                    <p>Sì, la prima consulenza è sempre gratuita e senza impegno. Analizziamo la tua situazione assicurativa e ti proponiamo le soluzioni più adatte alle tue reali esigenze.</p>
+                    <p>S&igrave;, la prima consulenza &egrave; sempre gratuita e senza impegno. Analizziamo la tua situazione assicurativa e ti proponiamo le soluzioni pi&ugrave; adatte alle tue reali esigenze.</p>
                 </div>
             </div>
         </div>
@@ -357,7 +364,7 @@
             </button>
             <div class="ca-faq__content" data-ca-faq-content id="faq-demo-2" role="region">
                 <div class="ca-faq__answer">
-                    <p>La nostra sede è a Lissone (MB), in Via G. Matteotti 10/A. Operiamo principalmente nelle province di Monza e Brianza, Varese e Milano, ma gestiamo clienti su tutto il territorio nazionale.</p>
+                    <p>La nostra sede &egrave; a Lissone (MB), in Via G. Matteotti 10/A. Operiamo principalmente nelle province di Monza e Brianza, Varese e Milano, ma gestiamo clienti su tutto il territorio nazionale.</p>
                 </div>
             </div>
         </div>
@@ -368,7 +375,7 @@
             </button>
             <div class="ca-faq__content" data-ca-faq-content id="faq-demo-3" role="region">
                 <div class="ca-faq__answer">
-                    <p>Siamo iscritti al RUI (Registro Unico degli Intermediari) con il numero <strong>B000148399</strong>. Puoi verificare la nostra iscrizione sul sito <a href="https://servizi.ivass.it/RuirPubblica/" target="_blank" style="color: #C9A84C; text-decoration: underline;">IVASS</a>.</p>
+                    <p>Siamo iscritti al RUI (Registro Unico degli Intermediari) con il numero <strong>B000148399</strong>. Puoi verificare la nostra iscrizione sul sito <a href="https://servizi.ivass.it/RuirPubblica/" target="_blank" style="color: #B8973F; text-decoration: underline;">IVASS</a>.</p>
                 </div>
             </div>
         </div>
@@ -398,7 +405,7 @@
     <div class="ca-cta-banner__content" data-ca-reveal="up">
         <h2 class="ca-cta-banner__title">Proteggi il tuo futuro oggi</h2>
         <p class="ca-cta-banner__text">Il broker lavora per te, non per la compagnia. Scopri la differenza.</p>
-        <a href="#" class="ca-btn ca-btn--primary ca-btn--large">Scopri di Più</a>
+        <a href="#" class="ca-btn ca-btn--primary ca-btn--large">Scopri di Pi&ugrave;</a>
     </div>
 </section>
 
@@ -487,7 +494,7 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M5 8l7-5 7 5M5 8l-2 8h6l-2-8M19 8l-2 8h6l-2-8"/></svg>
             </span>
             <div class="ca-trust-indicator__content">
-                <span class="ca-trust-indicator__title">Imparzialità</span>
+                <span class="ca-trust-indicator__title">Imparzialit&agrave;</span>
                 <span class="ca-trust-indicator__desc">nessun legame con compagnie</span>
             </div>
         </div>
@@ -555,10 +562,10 @@
 
 
 <!-- Demo footer -->
-<footer style="background: #0B1D3A; color: rgba(255,255,255,0.6); text-align: center; padding: 2rem; font-size: 0.8rem; font-family: 'Open Sans', sans-serif;">
-    <p style="color: #C9A84C; font-family: 'Montserrat', sans-serif; font-weight: 700; margin-bottom: 0.5rem;">CESANA ASSICURATORI</p>
-    <p>Via G. Matteotti, 10/A — 20851 Lissone (MB) — Tel. 039.484346 — info@cesanaassicuratori.it</p>
-    <p style="margin-top: 0.5rem; opacity: 0.5;">P.IVA 00151110962 — RUI N. B000148399 — Demo page — non è un sito in produzione</p>
+<footer style="background: #0C0C14; color: rgba(255,255,255,0.5); text-align: center; padding: 3rem 2rem; font-size: 0.8rem; font-family: 'Inter', sans-serif;">
+    <p style="color: #B8973F; font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 1.1rem; margin-bottom: 0.75rem; letter-spacing: -0.01em;">Cesana Assicuratori</p>
+    <p>Via G. Matteotti, 10/A &mdash; 20851 Lissone (MB) &mdash; Tel. 039.484346 &mdash; info@cesanaassicuratori.it</p>
+    <p style="margin-top: 0.5rem; opacity: 0.4;">P.IVA 00151110962 &mdash; RUI N. B000148399 &mdash; Demo page &mdash; non &egrave; un sito in produzione</p>
 </footer>
 
 
