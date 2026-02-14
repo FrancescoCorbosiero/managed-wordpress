@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Cesana Assicuratori Blocks
  * Plugin URI: https://www.cesanaassicuratori.it
- * Description: Blocchi Gutenberg per broker assicurativo indipendente. Design professionale con palette blu navy/oro.
+ * Description: Blocchi Gutenberg per broker assicurativo indipendente. Design editoriale con palette nero/oro.
  * Version: 1.0.0
  * Author: Cesana Assicuratori
  * Author URI: https://www.cesanaassicuratori.it
@@ -29,7 +29,7 @@ function cesana_blocks_enqueue_assets()
 {
     wp_enqueue_style(
         'cesana-blocks-fonts',
-        'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap',
+        'https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap',
         array(),
         null
     );
@@ -71,7 +71,7 @@ function cesana_blocks_editor_assets()
 {
     wp_enqueue_style(
         'cesana-blocks-fonts',
-        'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap',
+        'https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap',
         array(),
         null
     );

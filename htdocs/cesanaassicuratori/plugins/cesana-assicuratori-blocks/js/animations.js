@@ -29,7 +29,7 @@
                         observer.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.2, rootMargin: '0px 0px -30px 0px' });
+            }, { threshold: 0.2, rootMargin: '0px 0px -50px 0px' });
 
             elements.forEach(el => observer.observe(el));
         }
@@ -108,7 +108,7 @@
             const target = parseInt(el.dataset.caCounter, 10);
             if (isNaN(target)) return;
 
-            const duration = 1500;
+            const duration = 2000;
             const start = performance.now();
 
             const step = (now) => {
@@ -152,6 +152,14 @@
                     slides[current].classList.remove('ca-hero-slide--active');
                     current = (index + slides.length) % slides.length;
                     slides[current].classList.add('ca-hero-slide--active');
+
+                    // Restart Ken Burns animation on the new active slide
+                    const img = slides[current].querySelector('.ca-hero-slide__bg img');
+                    if (img) {
+                        img.style.animation = 'none';
+                        img.offsetHeight; // force reflow
+                        img.style.animation = '';
+                    }
 
                     if (dots) {
                         dots.querySelectorAll('button').forEach((d, i) => {
