@@ -25,7 +25,8 @@ define('GOLDEN_HIVE_BLOCKS_URL', plugin_dir_url(__FILE__));
 /**
  * Registra gli assets frontend
  */
-function golden_hive_blocks_enqueue_assets() {
+function golden_hive_blocks_enqueue_assets()
+{
     wp_enqueue_script(
         'golden-hive-animations',
         GOLDEN_HIVE_BLOCKS_URL . 'js/animations.js',
@@ -46,7 +47,8 @@ add_action('wp_enqueue_scripts', 'golden_hive_blocks_enqueue_assets');
 /**
  * Registra gli assets per l'editor
  */
-function golden_hive_blocks_editor_assets() {
+function golden_hive_blocks_editor_assets()
+{
     wp_enqueue_style(
         'golden-hive-blocks-editor',
         GOLDEN_HIVE_BLOCKS_URL . 'editor.css',
@@ -59,7 +61,8 @@ add_action('enqueue_block_editor_assets', 'golden_hive_blocks_editor_assets');
 /**
  * Registra tutti i blocchi automaticamente dalla directory blocks/
  */
-function golden_hive_blocks_register() {
+function golden_hive_blocks_register()
+{
     $blocks_dir = GOLDEN_HIVE_BLOCKS_PATH . 'blocks/';
 
     if (!is_dir($blocks_dir)) {
@@ -80,13 +83,14 @@ add_action('init', 'golden_hive_blocks_register');
 /**
  * Registra la categoria personalizzata per i blocchi
  */
-function golden_hive_blocks_category($categories) {
+function golden_hive_blocks_category($categories)
+{
     return array_merge(
         array(
             array(
-                'slug'  => 'golden-hive',
+                'slug' => 'golden-hive',
                 'title' => __('Golden Hive', 'golden-hive-blocks'),
-                'icon'  => 'star-filled',
+                'icon' => 'star-filled',
             ),
         ),
         $categories
@@ -97,7 +101,8 @@ add_filter('block_categories_all', 'golden_hive_blocks_category', 10, 1);
 /**
  * Carica le traduzioni
  */
-function golden_hive_blocks_load_textdomain() {
+function golden_hive_blocks_load_textdomain()
+{
     load_plugin_textdomain(
         'golden-hive-blocks',
         false,
@@ -110,3 +115,23 @@ add_action('plugins_loaded', 'golden_hive_blocks_load_textdomain');
  * Include shortcodes
  */
 require_once GOLDEN_HIVE_BLOCKS_PATH . 'includes/product-carousel-shortcode.php';
+
+// Load the newsletter module
+require_once plugin_dir_path(__FILE__) . 'includes/class-gh-newsletter.php';
+require_once plugin_dir_path(__FILE__) . 'includes/class-gh-newsletter-admin.php';
+
+// Initialize on plugins_loaded
+add_action('plugins_loaded', function () {
+    $newsletter = GH_Newsletter::init();
+
+    if (is_admin()) {
+        GH_Newsletter_Admin::init($newsletter);
+    }
+});
+
+// Create DB table on activation
+register_activation_hook(__FILE__, ['GH_Newsletter', 'activate']);
+
+add_filter('gh_newsletter_from_email', function () {
+    return 'noreply@sneakersselection.it'; // must be verified in SES
+});
