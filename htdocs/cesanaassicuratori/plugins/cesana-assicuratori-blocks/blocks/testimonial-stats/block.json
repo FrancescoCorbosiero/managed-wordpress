@@ -1,0 +1,33 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "cesana/testimonial-stats",
+    "version": "1.0.0",
+    "title": "Testimonial Stats",
+    "category": "cesana",
+    "icon": "chart-bar",
+    "description": "Sezione statistiche animate con contatore: anni di esperienza, soddisfazione clienti, convenzioni.",
+    "keywords": ["stats", "statistiche", "contatore", "numeri", "testimonial"],
+    "textdomain": "cesana-assicuratori-blocks",
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": ""
+        },
+        "stats": {
+            "type": "array",
+            "default": []
+        },
+        "variant": {
+            "type": "string",
+            "default": "navy",
+            "enum": ["navy", "light"]
+        }
+    },
+    "supports": {
+        "align": ["wide", "full"],
+        "html": false
+    },
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php"
+}

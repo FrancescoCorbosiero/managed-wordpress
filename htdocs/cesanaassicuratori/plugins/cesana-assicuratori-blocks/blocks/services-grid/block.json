@@ -1,0 +1,36 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "cesana/services-grid",
+    "version": "1.0.0",
+    "title": "Services Grid",
+    "category": "cesana",
+    "icon": "grid-view",
+    "description": "Griglia di card per i servizi assicurativi con icone e link alle pagine prodotto.",
+    "keywords": ["servizi", "grid", "card", "prodotti", "assicurazioni"],
+    "textdomain": "cesana-assicuratori-blocks",
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": "I Nostri Servizi"
+        },
+        "subtitle": {
+            "type": "string",
+            "default": ""
+        },
+        "services": {
+            "type": "array",
+            "default": []
+        },
+        "columns": {
+            "type": "number",
+            "default": 3
+        }
+    },
+    "supports": {
+        "align": ["wide"],
+        "html": false
+    },
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php"
+}
