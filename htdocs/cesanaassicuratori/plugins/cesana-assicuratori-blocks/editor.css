@@ -97,6 +97,12 @@
     color: #0C0C14;
 }
 
+/* Dark variant placeholder (for blocks with dark backgrounds) */
+.ca-editor-placeholder--dark {
+    background: linear-gradient(135deg, #08080E 0%, #0C0C14 100%);
+    border: 1px solid rgba(184, 151, 63, 0.15);
+}
+
 /* Loading state */
 .ca-editor-loading {
     display: flex;

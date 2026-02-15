@@ -1,0 +1,36 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "cesana/settori-servizi",
+    "version": "1.0.0",
+    "title": "Settori & Servizi",
+    "category": "cesana",
+    "icon": "layout",
+    "description": "Griglia bento asimmetrica per settori e servizi assicurativi con icone e layout moderno.",
+    "keywords": ["settori", "servizi", "bento", "grid", "mosaico"],
+    "textdomain": "cesana-assicuratori-blocks",
+    "attributes": {
+        "eyebrow": {
+            "type": "string",
+            "default": "I Nostri Settori"
+        },
+        "title": {
+            "type": "string",
+            "default": "Settori & Servizi"
+        },
+        "subtitle": {
+            "type": "string",
+            "default": ""
+        },
+        "sectors": {
+            "type": "array",
+            "default": []
+        }
+    },
+    "supports": {
+        "align": ["wide", "full"],
+        "html": false
+    },
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php"
+}
