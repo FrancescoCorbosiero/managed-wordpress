@@ -1,0 +1,36 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "cesana/testimonials",
+    "version": "1.0.0",
+    "title": "Testimonials Slider",
+    "category": "cesana",
+    "icon": "format-quote",
+    "description": "Slider di testimonianze con drag/swipe, citazioni in serif italic e navigazione avanzata.",
+    "keywords": ["testimonials", "slider", "citazioni", "recensioni", "clienti"],
+    "textdomain": "cesana-assicuratori-blocks",
+    "attributes": {
+        "eyebrow": {
+            "type": "string",
+            "default": "Testimonianze"
+        },
+        "title": {
+            "type": "string",
+            "default": "Cosa Dicono i Nostri Clienti"
+        },
+        "testimonials": {
+            "type": "array",
+            "default": []
+        },
+        "autoplay": {
+            "type": "number",
+            "default": 6000
+        }
+    },
+    "supports": {
+        "align": ["wide", "full"],
+        "html": false
+    },
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php"
+}

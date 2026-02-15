@@ -4,111 +4,113 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cesana Assicuratori — Block Demo</title>
-
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Plugin Stylesheet -->
     <link rel="stylesheet" href="style.css">
-
     <style>
-        /* Demo-only reset (replaces what WordPress normally provides) */
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            color: #1E2028;
-            background: #fff;
-        }
-        img { max-width: 100%; height: auto; display: block; }
-        a { color: inherit; text-decoration: none; }
-
-        /* Demo nav bar (not a real block) */
+        /* Demo-only styles */
+        body { margin: 0; background: #FFFFFF; color: #1E2028; }
         .demo-nav {
-            position: sticky; top: 0; z-index: 999;
-            background: #0C0C14; color: #fff;
-            padding: 0.75rem 2rem;
-            display: flex; align-items: center; justify-content: space-between;
-            font-family: 'Inter', sans-serif; font-size: 0.8rem;
-            box-shadow: 0 2px 8px rgba(12,12,20,0.2);
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(12,12,20,0.95); backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(184,151,63,0.15);
+            padding: 0 2rem; display: flex; align-items: center; height: 64px;
         }
         .demo-nav__logo {
-            font-family: 'DM Serif Display', Georgia, serif;
-            font-weight: 400; font-size: 1.1rem; color: #B8973F;
-            letter-spacing: -0.01em;
+            font-family: 'DM Serif Display', Georgia, serif; font-size: 1.1rem;
+            color: #fff; letter-spacing: 0.02em; margin-right: auto;
         }
+        .demo-nav__logo span { color: #B8973F; }
         .demo-nav__links { display: flex; gap: 1.5rem; }
         .demo-nav__links a {
-            color: rgba(255,255,255,0.6); transition: color 0.2s;
-            text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.7rem; font-weight: 500;
+            font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 500;
+            color: rgba(255,255,255,0.6); text-decoration: none; text-transform: uppercase;
+            letter-spacing: 0.1em; transition: color 0.3s;
         }
         .demo-nav__links a:hover { color: #B8973F; }
-
-        /* Demo section labels */
-        .demo-label {
-            max-width: 1200px; margin: 0 auto;
-            padding: 3rem 2rem 0.5rem;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.7rem; font-weight: 600;
-            text-transform: uppercase; letter-spacing: 0.15em;
-            color: #B8973F;
+        .demo-section-label {
+            padding: 3rem 2rem 1rem; max-width: 1200px; margin: 0 auto;
+            font-family: 'Inter', sans-serif; font-size: 0.6875rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.2em; color: #B8973F;
+            border-bottom: 1px solid #ECEEF2; padding-bottom: 0.5rem;
         }
-        .demo-label span { color: #8B91A0; font-weight: 400; margin-left: 0.5rem; }
-
-        /* Placeholder images via CSS gradient (no external deps) */
-        .demo-placeholder-bg {
-            background: linear-gradient(135deg, #0C0C14 0%, #16161F 50%, #0C0C14 100%);
+        .demo-section-label span {
+            color: #8B91A0; font-weight: 400; text-transform: none;
+            letter-spacing: 0; margin-left: 0.5rem;
         }
     </style>
 </head>
 <body>
 
-<!-- DEMO NAV (simulates site header) -->
+<!-- Fixed Nav -->
 <nav class="demo-nav">
-    <div class="demo-nav__logo">Cesana Assicuratori</div>
+    <div class="demo-nav__logo">CESANA <span>ASSICURATORI</span></div>
     <div class="demo-nav__links">
         <a href="#hero">Home</a>
-        <a href="#services">Servizi</a>
-        <a href="#stats">Chi Siamo</a>
-        <a href="#faq">FAQ</a>
-        <a href="#consulenza">Contatti</a>
+        <a href="#why">Perché Noi</a>
+        <a href="#settori">Settori</a>
+        <a href="#convenzioni">Convenzioni</a>
+        <a href="#testimonials">Clienti</a>
+        <a href="#contact">Contatti</a>
     </div>
 </nav>
 
 
-<!-- ================================================================
-     1. HERO BANNER — Homepage hero with 2 crossfade slides
-     ================================================================ -->
-<div class="demo-label" id="hero">Block 1 <span>cesana/hero-banner</span></div>
+<!-- ═══════════════════════════════════════════════════════
+     1. HERO BANNER
+     ═══════════════════════════════════════════════════════ -->
+<div class="demo-section-label" style="margin-top:64px;">
+    HERO BANNER <span>cesana/hero-banner — Full-height carousel with Ken Burns + text reveal</span>
+</div>
 
-<section class="ca-block ca-hero-banner" data-ca-hero-banner data-ca-hero-autoplay="8000" id="ca-hero-demo">
+<section class="ca-block ca-hero-banner" id="hero"
+    data-ca-hero-banner data-ca-hero-autoplay="8000"
+    style="margin-top:0;">
 
     <div class="ca-hero-slide ca-hero-slide--active" data-ca-hero-slide>
-        <div class="ca-hero-slide__bg" style="background: linear-gradient(135deg, #0C0C14 0%, #16161F 60%, #1A1A28 100%); position: absolute; inset: 0;"></div>
+        <div class="ca-hero-slide__bg">
+            <div style="width:100%;height:100%;background:linear-gradient(135deg,#0C0C14 0%,#16161F 30%,#1a1a2e 60%,#0C0C14 100%);"></div>
+        </div>
         <div class="ca-hero-slide__overlay"></div>
         <div class="ca-hero-slide__content">
-            <span class="ca-hero-slide__eyebrow">Cesana Assicuratori</span>
-            <h1 class="ca-hero-slide__title">Assicurati &amp; Rilassati</h1>
-            <p class="ca-hero-slide__subtitle">Da oltre 30 anni al fianco di aziende e professionisti. Broker assicurativo indipendente a Lissone.</p>
+            <span class="ca-hero-slide__eyebrow">Broker Assicurativo Indipendente</span>
+            <h1 class="ca-hero-slide__title" data-ca-text-reveal="words">Assicurati & Rilassati</h1>
+            <p class="ca-hero-slide__subtitle">Da oltre 30 anni tuteliamo il patrimonio di aziende, professionisti e privati con soluzioni su misura.</p>
             <div class="ca-hero-slide__cta">
-                <a href="#consulenza" class="ca-btn ca-btn--gold ca-btn--large">Richiedi Consulenza Gratuita</a>
+                <a href="#contact" class="ca-btn ca-btn--gold ca-btn--large" data-ca-magnetic>Consulenza Gratuita</a>
+                <a href="#why" class="ca-btn ca-btn--ghost-white ca-btn--large">Scopri di più</a>
             </div>
         </div>
     </div>
 
     <div class="ca-hero-slide" data-ca-hero-slide>
-        <div class="ca-hero-slide__bg" style="background: linear-gradient(135deg, #16161F 0%, #0C0C14 50%, #08080E 100%); position: absolute; inset: 0;"></div>
+        <div class="ca-hero-slide__bg">
+            <div style="width:100%;height:100%;background:linear-gradient(135deg,#08080E 0%,#0C0C14 40%,#1a1528 70%,#08080E 100%);"></div>
+        </div>
         <div class="ca-hero-slide__overlay"></div>
         <div class="ca-hero-slide__content">
             <span class="ca-hero-slide__eyebrow">Risk Management</span>
-            <h1 class="ca-hero-slide__title">Reputazione + Rispetto = Risultato</h1>
-            <p class="ca-hero-slide__subtitle">Analisi dei rischi, ottimizzazione polizze, riduzione costi. Il broker lavora per te, non per la compagnia.</p>
+            <h1 class="ca-hero-slide__title" data-ca-text-reveal="words">Il Tuo Patrimonio Merita Protezione</h1>
+            <p class="ca-hero-slide__subtitle">Analisi dei rischi, ottimizzazione delle polizze e accesso alle migliori condizioni del mercato.</p>
             <div class="ca-hero-slide__cta">
-                <a href="#services" class="ca-btn ca-btn--gold ca-btn--large">Scopri i Servizi</a>
+                <a href="#settori" class="ca-btn ca-btn--gold ca-btn--large" data-ca-magnetic>I Nostri Settori</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="ca-hero-slide" data-ca-hero-slide>
+        <div class="ca-hero-slide__bg">
+            <div style="width:100%;height:100%;background:linear-gradient(135deg,#0C0C14 0%,#121220 35%,#1a1a2e 65%,#08080E 100%);"></div>
+        </div>
+        <div class="ca-hero-slide__overlay"></div>
+        <div class="ca-hero-slide__content">
+            <span class="ca-hero-slide__eyebrow">Convenzioni Professionali</span>
+            <h1 class="ca-hero-slide__title" data-ca-text-reveal="words">Condizioni Esclusive per Ordini e CRAL</h1>
+            <p class="ca-hero-slide__subtitle">Coperture negoziate a tariffe vantaggiose per architetti, medici e dipendenti ospedalieri.</p>
+            <div class="ca-hero-slide__cta">
+                <a href="#convenzioni" class="ca-btn ca-btn--gold ca-btn--large" data-ca-magnetic>Le Convenzioni</a>
             </div>
         </div>
     </div>
@@ -126,451 +128,622 @@
 </section>
 
 
-<!-- ================================================================
-     2. TRUST INDICATORS — Dark variant
-     ================================================================ -->
-<div class="demo-label">Block 2 <span>cesana/trust-indicators (dark)</span></div>
+<!-- ═══════════════════════════════════════════════════════
+     2. TRUST INDICATORS
+     ═══════════════════════════════════════════════════════ -->
+<div class="demo-section-label">
+    TRUST INDICATORS <span>cesana/trust-indicators — Horizontal strip with thin dividers</span>
+</div>
 
-<section class="ca-block ca-trust-indicators ca-trust-indicators--dark">
-    <div class="ca-trust-indicators__container">
-        <div class="ca-trust-indicator" data-ca-reveal="up" data-ca-reveal-delay="0">
-            <span class="ca-trust-indicator__icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-            </span>
-            <div class="ca-trust-indicator__content">
+<section class="ca-block ca-trust-indicators">
+    <div class="ca-trust-indicators__container" data-ca-stagger data-ca-stagger-delay="100">
+        <div class="ca-trust-indicator">
+            <div class="ca-trust-indicator__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
                 <span class="ca-trust-indicator__title">30+ Anni</span>
-                <span class="ca-trust-indicator__desc">di esperienza</span>
+                <span class="ca-trust-indicator__desc">di esperienza nel settore</span>
             </div>
         </div>
-        <div class="ca-trust-indicator" data-ca-reveal="up" data-ca-reveal-delay="80">
-            <span class="ca-trust-indicator__icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            </span>
-            <div class="ca-trust-indicator__content">
+        <div class="ca-trust-indicator">
+            <div class="ca-trust-indicator__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <div>
                 <span class="ca-trust-indicator__title">98%</span>
                 <span class="ca-trust-indicator__desc">clienti soddisfatti</span>
             </div>
         </div>
-        <div class="ca-trust-indicator" data-ca-reveal="up" data-ca-reveal-delay="160">
-            <span class="ca-trust-indicator__icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-            </span>
-            <div class="ca-trust-indicator__content">
-                <span class="ca-trust-indicator__title">IVASS</span>
-                <span class="ca-trust-indicator__desc">N. B000148399</span>
+        <div class="ca-trust-indicator">
+            <div class="ca-trust-indicator__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+            </div>
+            <div>
+                <span class="ca-trust-indicator__title">RUI B000148399</span>
+                <span class="ca-trust-indicator__desc">iscrizione IVASS</span>
             </div>
         </div>
-        <div class="ca-trust-indicator" data-ca-reveal="up" data-ca-reveal-delay="240">
-            <span class="ca-trust-indicator__icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7l-4-4-3 3-3-3-4 4 3 3-3 3 7 7 3-3 3 3 4-4-3-3z"/><path d="M14 14l-2-2"/></svg>
-            </span>
-            <div class="ca-trust-indicator__content">
+        <div class="ca-trust-indicator">
+            <div class="ca-trust-indicator__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+            </div>
+            <div>
                 <span class="ca-trust-indicator__title">Indipendente</span>
-                <span class="ca-trust-indicator__desc">broker imparziale</span>
+                <span class="ca-trust-indicator__desc">nessun legame con compagnie</span>
             </div>
         </div>
     </div>
 </section>
 
 
-<!-- ================================================================
-     3. SERVICES GRID — 3 columns, 6 services
-     ================================================================ -->
-<div class="demo-label" id="services">Block 3 <span>cesana/services-grid</span></div>
+<!-- ═══════════════════════════════════════════════════════
+     3. WHY BROKER (NEW)
+     ═══════════════════════════════════════════════════════ -->
+<div class="demo-section-label" id="why">
+    WHY BROKER <span>cesana/why-broker — Editorial asymmetric layout with ghost numbers</span>
+</div>
 
-<section class="ca-block ca-services-grid">
-    <div class="ca-services-grid__container">
-        <div class="ca-services-grid__header" data-ca-reveal="up">
-            <h2 class="ca-services-grid__title">I Nostri Servizi</h2>
-            <p class="ca-services-grid__subtitle">Soluzioni assicurative personalizzate per ogni esigenza</p>
+<section class="ca-block ca-why-broker">
+    <div class="ca-why-broker__container">
+        <div class="ca-why-broker__header" data-ca-reveal="up">
+            <span class="ca-why-broker__eyebrow">Perché un Broker</span>
+            <h2 class="ca-why-broker__title" data-ca-text-reveal="words">Perché Scegliere Cesana Assicuratori</h2>
+            <p class="ca-why-broker__subtitle">Un broker indipendente lavora esclusivamente per tutelare i tuoi interessi.</p>
         </div>
-        <div class="ca-services-grid__grid ca-services-grid__grid--3col">
 
-            <a href="#" class="ca-service-card" data-ca-reveal="up" data-ca-reveal-delay="0">
-                <div class="ca-service-card__icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M8 10h.01M16 10h.01M12 10h.01M8 14h.01M16 14h.01M12 14h.01"/></svg>
+        <div class="ca-why-broker__grid" data-ca-stagger data-ca-stagger-delay="100">
+            <div class="ca-why-broker__item">
+                <span class="ca-why-broker__number" aria-hidden="true">01</span>
+                <div class="ca-why-broker__item-icon" data-ca-magnetic>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v18M3 12l9-9 9 9"/><path d="M3 18h6M15 18h6"/></svg>
                 </div>
-                <h3 class="ca-service-card__title">Aziende</h3>
-                <p class="ca-service-card__desc">RC, Property All Risk, D&amp;O, Infortuni cumulativa, Tutela Legale</p>
-                <span class="ca-service-card__link">Scopri di pi&ugrave; &rarr;</span>
-            </a>
+                <h3 class="ca-why-broker__item-title">Imparzialità Totale</h3>
+                <p class="ca-why-broker__item-desc">Non rappresentiamo nessuna compagnia assicurativa. Cerchiamo la migliore soluzione sul mercato, operando esclusivamente a tutela del cliente.</p>
+            </div>
 
-            <a href="#" class="ca-service-card" data-ca-reveal="up" data-ca-reveal-delay="80">
-                <div class="ca-service-card__icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+            <div class="ca-why-broker__item">
+                <span class="ca-why-broker__number" aria-hidden="true">02</span>
+                <div class="ca-why-broker__item-icon" data-ca-magnetic>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
                 </div>
-                <h3 class="ca-service-card__title">Artigiani</h3>
-                <p class="ca-service-card__desc">RC, Incendio, Furto, Trasporti, Assistenza, Tutela Legale</p>
-                <span class="ca-service-card__link">Scopri di pi&ugrave; &rarr;</span>
-            </a>
+                <h3 class="ca-why-broker__item-title">Risk Management</h3>
+                <p class="ca-why-broker__item-desc">Analisi approfondita dei rischi, ottimizzazione delle polizze esistenti, riduzione dei costi mantenendo le coperture essenziali.</p>
+            </div>
 
-            <a href="#" class="ca-service-card" data-ca-reveal="up" data-ca-reveal-delay="160">
-                <div class="ca-service-card__icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path d="M9 22V12h6v10"/></svg>
+            <div class="ca-why-broker__item">
+                <span class="ca-why-broker__number" aria-hidden="true">03</span>
+                <div class="ca-why-broker__item-icon" data-ca-magnetic>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
                 </div>
-                <h3 class="ca-service-card__title">Commercio</h3>
-                <p class="ca-service-card__desc">Incendio, Furto, Cristalli, RC, Tutela Legale, Assistenza</p>
-                <span class="ca-service-card__link">Scopri di pi&ugrave; &rarr;</span>
-            </a>
+                <h3 class="ca-why-broker__item-title">Potere Contrattuale</h3>
+                <p class="ca-why-broker__item-desc">Accesso a tassi vantaggiosi grazie a volumi gestiti e know-how trentennale. Monitoraggio continuo del mercato assicurativo.</p>
+            </div>
 
-            <a href="#" class="ca-service-card" data-ca-reveal="up" data-ca-reveal-delay="240">
-                <div class="ca-service-card__icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.8 2.3A.3.3 0 105 2H4a2 2 0 00-2 2v5a6 6 0 006 6 6 6 0 006-6V4a2 2 0 00-2-2h-1a.2.2 0 10.3.3"/><path d="M8 15v1a6 6 0 006 6 6 6 0 006-6v-4"/><circle cx="20" cy="10" r="2"/></svg>
+            <div class="ca-why-broker__item">
+                <span class="ca-why-broker__number" aria-hidden="true">04</span>
+                <div class="ca-why-broker__item-icon" data-ca-magnetic>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
                 </div>
-                <h3 class="ca-service-card__title">RC Professionale</h3>
-                <p class="ca-service-card__desc">Area Tecnica, Giuridica e Medica (Malpractice)</p>
-                <span class="ca-service-card__link">Scopri di pi&ugrave; &rarr;</span>
-            </a>
-
-            <a href="#" class="ca-service-card" data-ca-reveal="up" data-ca-reveal-delay="320">
-                <div class="ca-service-card__icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-                </div>
-                <h3 class="ca-service-card__title">Cyber Risks</h3>
-                <p class="ca-service-card__desc">Protezione patrimonio informatico, furto dati, interruzione business</p>
-                <span class="ca-service-card__link">Scopri di pi&ugrave; &rarr;</span>
-            </a>
-
-            <a href="#" class="ca-service-card" data-ca-reveal="up" data-ca-reveal-delay="400">
-                <div class="ca-service-card__icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 17h14v-5H5v5zM2 12l3-7h14l3 7"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/></svg>
-                </div>
-                <h3 class="ca-service-card__title">Auto Storiche</h3>
-                <p class="ca-service-card__desc">Polizze All Risks per veicoli d'epoca, rievocazioni e raduni</p>
-                <span class="ca-service-card__link">Scopri di pi&ugrave; &rarr;</span>
-            </a>
-
+                <h3 class="ca-why-broker__item-title">Approccio Su Misura</h3>
+                <p class="ca-why-broker__item-desc">Contratti adeguati alle reali esigenze, niente prodotti superflui. Collaborazione con società specializzate per ogni tipologia di rischio.</p>
+            </div>
         </div>
     </div>
 </section>
 
 
-<!-- ================================================================
-     4. CTA BANNER — Navy variant
-     ================================================================ -->
-<div class="demo-label">Block 4 <span>cesana/cta-banner (navy)</span></div>
+<!-- ═══════════════════════════════════════════════════════
+     4. SETTORI & SERVIZI (NEW)
+     ═══════════════════════════════════════════════════════ -->
+<div class="demo-section-label" id="settori">
+    SETTORI & SERVIZI <span>cesana/settori-servizi — Bento grid / asymmetric mosaic with magnetic icons</span>
+</div>
 
-<section class="ca-block ca-cta-banner ca-cta-banner--navy">
-    <div class="ca-cta-banner__content" data-ca-reveal="up">
-        <span class="ca-cta-banner__eyebrow">Cesana Assicuratori</span>
-        <h2 class="ca-cta-banner__title">Reputazione + Rispetto = Risultato</h2>
-        <p class="ca-cta-banner__text">Da oltre 30 anni al fianco di aziende e professionisti. Richiedi una consulenza gratuita senza impegno.</p>
-        <a href="#consulenza" class="ca-btn ca-btn--gold ca-btn--large">Contattaci Ora</a>
+<section class="ca-block ca-settori">
+    <div class="ca-settori__container">
+        <div class="ca-settori__header" data-ca-reveal="up">
+            <span class="ca-settori__eyebrow">I Nostri Settori</span>
+            <h2 class="ca-settori__title" data-ca-text-reveal="words">Settori & Servizi</h2>
+            <p class="ca-settori__subtitle">Soluzioni assicurative specializzate per ogni esigenza professionale e privata.</p>
+        </div>
+
+        <div class="ca-settori__grid" data-ca-stagger data-ca-stagger-delay="60">
+            <a href="#" class="ca-settori__item ca-settori__item--featured">
+                <div class="ca-settori__item-icon" data-ca-magnetic>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M8 10h.01M16 10h.01M12 10h.01M8 14h.01M16 14h.01M12 14h.01"/></svg>
+                </div>
+                <span class="ca-settori__item-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></span>
+                <h3 class="ca-settori__item-title">Aziende</h3>
+                <p class="ca-settori__item-desc">RC, Property All Risk, D&O, infortuni cumulativa, tutela legale. Coperture complete per la protezione del patrimonio aziendale.</p>
+            </a>
+            <a href="#" class="ca-settori__item">
+                <div class="ca-settori__item-icon" data-ca-magnetic>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+                </div>
+                <span class="ca-settori__item-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></span>
+                <h3 class="ca-settori__item-title">RC Professionale</h3>
+                <p class="ca-settori__item-desc">Area tecnica, giuridica e medica.</p>
+            </a>
+            <a href="#" class="ca-settori__item">
+                <div class="ca-settori__item-icon" data-ca-magnetic>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 10l3 3 7-7"/></svg>
+                </div>
+                <span class="ca-settori__item-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></span>
+                <h3 class="ca-settori__item-title">Cyber Risks</h3>
+                <p class="ca-settori__item-desc">Protezione patrimonio informatico.</p>
+            </a>
+            <a href="#" class="ca-settori__item">
+                <div class="ca-settori__item-icon" data-ca-magnetic>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+                </div>
+                <span class="ca-settori__item-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></span>
+                <h3 class="ca-settori__item-title">Artigiani</h3>
+                <p class="ca-settori__item-desc">RC, incendio, furto, trasporti.</p>
+            </a>
+            <a href="#" class="ca-settori__item">
+                <div class="ca-settori__item-icon" data-ca-magnetic>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path d="M9 22V12h6v10"/></svg>
+                </div>
+                <span class="ca-settori__item-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></span>
+                <h3 class="ca-settori__item-title">Commercio</h3>
+                <p class="ca-settori__item-desc">Incendio, furto, cristalli, RC.</p>
+            </a>
+            <a href="#" class="ca-settori__item ca-settori__item--featured">
+                <div class="ca-settori__item-icon" data-ca-magnetic>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                </div>
+                <span class="ca-settori__item-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></span>
+                <h3 class="ca-settori__item-title">Salute</h3>
+                <p class="ca-settori__item-desc">Polizze sanitarie personalizzate per individui e famiglie. Copertura ricovero, visite specialistiche, interventi chirurgici.</p>
+            </a>
+            <a href="#" class="ca-settori__item">
+                <div class="ca-settori__item-icon" data-ca-magnetic>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 17h14v-5H5v5zM2 12l3-7h14l3 7"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/></svg>
+                </div>
+                <span class="ca-settori__item-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></span>
+                <h3 class="ca-settori__item-title">Auto Storiche</h3>
+                <p class="ca-settori__item-desc">All risks per veicoli d'epoca.</p>
+            </a>
+            <a href="#" class="ca-settori__item">
+                <div class="ca-settori__item-icon" data-ca-magnetic>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                </div>
+                <span class="ca-settori__item-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></span>
+                <h3 class="ca-settori__item-title">Trasporti</h3>
+                <p class="ca-settori__item-desc">Merci in transito e logistica.</p>
+            </a>
+        </div>
     </div>
 </section>
 
 
-<!-- ================================================================
-     5. TESTIMONIAL STATS — Navy variant with counters
-     ================================================================ -->
-<div class="demo-label" id="stats">Block 5 <span>cesana/testimonial-stats (navy)</span></div>
+<!-- ═══════════════════════════════════════════════════════
+     5. CONVENZIONI (NEW)
+     ═══════════════════════════════════════════════════════ -->
+<div class="demo-section-label" id="convenzioni">
+    CONVENZIONI <span>cesana/convenzioni — Image cards with frosted glass overlay and wipe reveal</span>
+</div>
+
+<section class="ca-block ca-convenzioni">
+    <div class="ca-convenzioni__container">
+        <div class="ca-convenzioni__header" data-ca-reveal="up">
+            <span class="ca-convenzioni__eyebrow">Convenzioni</span>
+            <h2 class="ca-convenzioni__title" data-ca-text-reveal="words">Le Nostre Convenzioni</h2>
+            <p class="ca-convenzioni__subtitle">Coperture assicurative a condizioni vantaggiose per ordini professionali e CRAL ospedalieri.</p>
+        </div>
+
+        <div class="ca-convenzioni__grid" data-ca-stagger data-ca-stagger-delay="120">
+            <a href="#" class="ca-convenzione" data-ca-image-reveal="up">
+                <div class="ca-convenzione__image-wrap">
+                    <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a2332 0%,#0C0C14 50%,#16161F 100%);display:flex;align-items:center;justify-content:center;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="rgba(184,151,63,0.3)" stroke-width="1" style="width:80px;height:80px;"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+                    </div>
+                </div>
+                <div class="ca-convenzione__overlay">
+                    <span class="ca-convenzione__category">Architetti</span>
+                    <h3 class="ca-convenzione__title">RC Professionale Architetti Varese</h3>
+                    <p class="ca-convenzione__desc">Copertura all risks & all inclusive con retroattività illimitata. Fasce agevolate per giovani architetti.</p>
+                    <span class="ca-convenzione__arrow">Scopri <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
+            </a>
+
+            <a href="#" class="ca-convenzione" data-ca-image-reveal="up" data-ca-image-reveal-delay="150">
+                <div class="ca-convenzione__image-wrap">
+                    <div style="width:100%;height:100%;background:linear-gradient(135deg,#16161F 0%,#1a1528 50%,#0C0C14 100%);display:flex;align-items:center;justify-content:center;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="rgba(184,151,63,0.3)" stroke-width="1" style="width:80px;height:80px;"><path d="M4.8 2.3A.3.3 0 105 2H4a2 2 0 00-2 2v5a6 6 0 006 6 6 6 0 006-6V4a2 2 0 00-2-2h-1a.2.2 0 10.3.3"/><path d="M8 15v1a6 6 0 006 6 6 6 0 006-6v-4"/><circle cx="20" cy="10" r="2"/></svg>
+                    </div>
+                </div>
+                <div class="ca-convenzione__overlay">
+                    <span class="ca-convenzione__category">Medici</span>
+                    <h3 class="ca-convenzione__title">CRAL San Gerardo Monza</h3>
+                    <p class="ca-convenzione__desc">RC Professionale I e II rischio, tutela legale civile e penale, coperture infortuni per dipendenti ospedalieri.</p>
+                    <span class="ca-convenzione__arrow">Scopri <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
+            </a>
+
+            <a href="#" class="ca-convenzione" data-ca-image-reveal="up" data-ca-image-reveal-delay="300">
+                <div class="ca-convenzione__image-wrap">
+                    <div style="width:100%;height:100%;background:linear-gradient(135deg,#0C0C14 0%,#1a2332 50%,#16161F 100%);display:flex;align-items:center;justify-content:center;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="rgba(184,151,63,0.3)" stroke-width="1" style="width:80px;height:80px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                </div>
+                <div class="ca-convenzione__overlay">
+                    <span class="ca-convenzione__category">Architetti</span>
+                    <h3 class="ca-convenzione__title">RC Professionale Architetti MB</h3>
+                    <p class="ca-convenzione__desc">Polizza dedicata all'Ordine degli Architetti della Provincia di Monza e Brianza.</p>
+                    <span class="ca-convenzione__arrow">Scopri <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
+            </a>
+
+            <a href="#" class="ca-convenzione" data-ca-image-reveal="up" data-ca-image-reveal-delay="100">
+                <div class="ca-convenzione__image-wrap">
+                    <div style="width:100%;height:100%;background:linear-gradient(135deg,#121220 0%,#0C0C14 50%,#1a1a2e 100%);display:flex;align-items:center;justify-content:center;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="rgba(184,151,63,0.3)" stroke-width="1" style="width:80px;height:80px;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                    </div>
+                </div>
+                <div class="ca-convenzione__overlay">
+                    <span class="ca-convenzione__category">Medici</span>
+                    <h3 class="ca-convenzione__title">Infortuni Medici Arti Superiori</h3>
+                    <p class="ca-convenzione__desc">Copertura specifica per chirurghi specialisti con protezione dedicata alle arti superiori.</p>
+                    <span class="ca-convenzione__arrow">Scopri <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
+            </a>
+
+            <a href="#" class="ca-convenzione" data-ca-image-reveal="up" data-ca-image-reveal-delay="200">
+                <div class="ca-convenzione__image-wrap">
+                    <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1528 0%,#0C0C14 50%,#16161F 100%);display:flex;align-items:center;justify-content:center;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="rgba(184,151,63,0.3)" stroke-width="1" style="width:80px;height:80px;"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+                    </div>
+                </div>
+                <div class="ca-convenzione__overlay">
+                    <span class="ca-convenzione__category">Medici</span>
+                    <h3 class="ca-convenzione__title">CRAL Desio e Vimercate</h3>
+                    <p class="ca-convenzione__desc">Coperture dedicate ai dipendenti dell'Azienda Ospedaliera di Desio e Vimercate.</p>
+                    <span class="ca-convenzione__arrow">Scopri <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
+            </a>
+
+            <a href="#" class="ca-convenzione" data-ca-image-reveal="up" data-ca-image-reveal-delay="300">
+                <div class="ca-convenzione__image-wrap">
+                    <div style="width:100%;height:100%;background:linear-gradient(135deg,#0C0C14 0%,#121220 50%,#1a2332 100%);display:flex;align-items:center;justify-content:center;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="rgba(184,151,63,0.3)" stroke-width="1" style="width:80px;height:80px;"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+                    </div>
+                </div>
+                <div class="ca-convenzione__overlay">
+                    <span class="ca-convenzione__category">Architetti</span>
+                    <h3 class="ca-convenzione__title">Tutela Legale Architetti</h3>
+                    <p class="ca-convenzione__desc">Polizza di tutela legale dedicata agli iscritti agli Ordini di Varese e Monza-Brianza.</p>
+                    <span class="ca-convenzione__arrow">Scopri <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     6. TESTIMONIAL STATS
+     ═══════════════════════════════════════════════════════ -->
+<div class="demo-section-label">
+    TESTIMONIAL STATS <span>cesana/testimonial-stats — Animated counters with gold accent lines</span>
+</div>
 
 <section class="ca-block ca-stats ca-stats--navy">
     <div class="ca-stats__container">
-        <h2 class="ca-stats__title" data-ca-reveal="up">Perch&eacute; scegliere Cesana Assicuratori</h2>
-        <div class="ca-stats__grid">
-            <div class="ca-stats__item" data-ca-reveal="up" data-ca-reveal-delay="0">
+        <h2 class="ca-stats__title" data-ca-text-reveal="words">I Numeri di Cesana Assicuratori</h2>
+        <div class="ca-stats__grid" data-ca-stagger data-ca-stagger-delay="120">
+            <div class="ca-stats__item" data-ca-reveal="up">
                 <div>
                     <span class="ca-stats__value" data-ca-counter="30">0</span>
                     <span class="ca-stats__suffix">+</span>
                 </div>
-                <span class="ca-stats__label">Anni di Esperienza</span>
+                <span class="ca-stats__label">Anni di esperienza</span>
             </div>
-            <div class="ca-stats__item" data-ca-reveal="up" data-ca-reveal-delay="80">
+            <div class="ca-stats__item" data-ca-reveal="up" data-ca-reveal-delay="100">
                 <div>
                     <span class="ca-stats__value" data-ca-counter="98">0</span>
                     <span class="ca-stats__suffix">%</span>
                 </div>
-                <span class="ca-stats__label">Clienti Soddisfatti</span>
+                <span class="ca-stats__label">Clienti soddisfatti</span>
             </div>
-            <div class="ca-stats__item" data-ca-reveal="up" data-ca-reveal-delay="160">
+            <div class="ca-stats__item" data-ca-reveal="up" data-ca-reveal-delay="200">
                 <div>
                     <span class="ca-stats__value" data-ca-counter="500">0</span>
                     <span class="ca-stats__suffix">+</span>
                 </div>
-                <span class="ca-stats__label">Polizze Gestite</span>
+                <span class="ca-stats__label">Polizze gestite</span>
             </div>
-            <div class="ca-stats__item" data-ca-reveal="up" data-ca-reveal-delay="240">
+            <div class="ca-stats__item" data-ca-reveal="up" data-ca-reveal-delay="300">
                 <div>
-                    <span class="ca-stats__value" data-ca-counter="15">0</span>
+                    <span class="ca-stats__value" data-ca-counter="12">0</span>
                     <span class="ca-stats__suffix">+</span>
                 </div>
-                <span class="ca-stats__label">Convenzioni Attive</span>
+                <span class="ca-stats__label">Settori assicurativi</span>
             </div>
         </div>
     </div>
 </section>
 
 
-<!-- ================================================================
-     6. PAGE HERO — Inner page header example
-     ================================================================ -->
-<div class="demo-label">Block 6 <span>cesana/page-hero</span></div>
+<!-- ═══════════════════════════════════════════════════════
+     7. TESTIMONIALS SLIDER (NEW)
+     ═══════════════════════════════════════════════════════ -->
+<div class="demo-section-label" id="testimonials">
+    TESTIMONIALS <span>cesana/testimonials — Drag/swipe slider with giant gold quote, peek effect</span>
+</div>
 
-<section class="ca-block ca-page-hero">
-    <div class="ca-page-hero__bg" style="background: linear-gradient(135deg, #0C0C14 0%, #16161F 100%); position: absolute; inset: 0;"></div>
-    <div class="ca-page-hero__overlay"></div>
-    <div class="ca-page-hero__content">
-        <nav class="ca-page-hero__breadcrumbs" aria-label="Breadcrumb">
-            <a href="#">Home</a>
-            <span class="ca-page-hero__breadcrumb-sep" aria-hidden="true">/</span>
-            <a href="#">Prodotti</a>
-            <span class="ca-page-hero__breadcrumb-sep" aria-hidden="true">/</span>
-            <span aria-current="page">Polizze Aziende</span>
-        </nav>
-        <h1 class="ca-page-hero__title">Polizze Aziende</h1>
-        <p class="ca-page-hero__subtitle">Soluzioni assicurative su misura per la tua impresa</p>
+<section class="ca-block ca-testimonials"
+    data-ca-testimonial-slider
+    data-ca-slider-autoplay="6000">
+
+    <div class="ca-testimonials__container">
+        <span class="ca-testimonials__quote-deco" aria-hidden="true">&ldquo;</span>
+
+        <div class="ca-testimonials__header" data-ca-reveal="fade">
+            <span class="ca-testimonials__eyebrow">Testimonianze</span>
+            <h2 class="ca-testimonials__title">Cosa Dicono i Nostri Clienti</h2>
+        </div>
+
+        <div class="ca-testimonials__viewport">
+            <div class="ca-testimonials__track" data-ca-slider-track>
+                <div class="ca-testimonial-slide ca-testimonial-slide--active" data-ca-slider-slide>
+                    <div class="ca-testimonial-slide__quote-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10H0z"/></svg>
+                    </div>
+                    <blockquote class="ca-testimonial-slide__text">
+                        Cesana Assicuratori ci ha permesso di ottimizzare le nostre coperture aziendali risparmiando il 25% sui premi, senza rinunciare a nessuna garanzia essenziale.
+                    </blockquote>
+                    <div class="ca-testimonial-slide__author">
+                        <div class="ca-testimonial-slide__photo ca-testimonial-slide__photo--placeholder">M</div>
+                        <div class="ca-testimonial-slide__info">
+                            <div class="ca-testimonial-slide__name">Marco Bianchi</div>
+                            <div class="ca-testimonial-slide__role">CEO, TechVenture Srl</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ca-testimonial-slide" data-ca-slider-slide>
+                    <div class="ca-testimonial-slide__quote-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10H0z"/></svg>
+                    </div>
+                    <blockquote class="ca-testimonial-slide__text">
+                        La convenzione per l'Ordine degli Architetti è impeccabile. Retroattività illimitata e un servizio di assistenza che fa davvero la differenza.
+                    </blockquote>
+                    <div class="ca-testimonial-slide__author">
+                        <div class="ca-testimonial-slide__photo ca-testimonial-slide__photo--placeholder">L</div>
+                        <div class="ca-testimonial-slide__info">
+                            <div class="ca-testimonial-slide__name">Laura Colombo</div>
+                            <div class="ca-testimonial-slide__role">Architetto, Studio Colombo & Partners</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ca-testimonial-slide" data-ca-slider-slide>
+                    <div class="ca-testimonial-slide__quote-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10H0z"/></svg>
+                    </div>
+                    <blockquote class="ca-testimonial-slide__text">
+                        Come chirurgo, avere una copertura specifica per le arti superiori mi dà una tranquillità che non ha prezzo. Grazie alla professionalità di Mauro Cesana.
+                    </blockquote>
+                    <div class="ca-testimonial-slide__author">
+                        <div class="ca-testimonial-slide__photo ca-testimonial-slide__photo--placeholder">A</div>
+                        <div class="ca-testimonial-slide__info">
+                            <div class="ca-testimonial-slide__name">Dr. Andrea Ferretti</div>
+                            <div class="ca-testimonial-slide__role">Chirurgo, AO San Gerardo Monza</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ca-testimonial-slide" data-ca-slider-slide>
+                    <div class="ca-testimonial-slide__quote-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10H0z"/></svg>
+                    </div>
+                    <blockquote class="ca-testimonial-slide__text">
+                        Reputazione, rispetto e risultati concreti. Cesana ha trovato per il nostro negozio una polizza cristalli che ci ha salvato due volte in un anno.
+                    </blockquote>
+                    <div class="ca-testimonial-slide__author">
+                        <div class="ca-testimonial-slide__photo ca-testimonial-slide__photo--placeholder">G</div>
+                        <div class="ca-testimonial-slide__info">
+                            <div class="ca-testimonial-slide__name">Giuseppe Rizzo</div>
+                            <div class="ca-testimonial-slide__role">Titolare, Ottica Rizzo — Lissone</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ca-testimonials__nav">
+            <button class="ca-testimonials__arrow" data-ca-slider-prev aria-label="Precedente">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            </button>
+            <div class="ca-testimonials__dots" data-ca-slider-dots></div>
+            <button class="ca-testimonials__arrow" data-ca-slider-next aria-label="Successiva">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+        </div>
     </div>
 </section>
 
 
-<!-- ================================================================
-     7. FAQ SCHEMA — Accordion with real insurance questions
-     ================================================================ -->
-<div class="demo-label" id="faq">Block 7 <span>cesana/faq-schema</span></div>
+<!-- ═══════════════════════════════════════════════════════
+     8. SERVICES GRID
+     ═══════════════════════════════════════════════════════ -->
+<div class="demo-section-label">
+    SERVICES GRID <span>cesana/services-grid — Type-driven cards with rule dividers</span>
+</div>
 
-<section class="ca-block ca-faq" data-ca-faq>
-    <div class="ca-faq__header" data-ca-reveal="up">
-        <h2 class="ca-faq__title">Domande Frequenti</h2>
-        <p class="ca-faq__subtitle">Le risposte alle domande pi&ugrave; comuni sul brokeraggio assicurativo</p>
-    </div>
-    <div class="ca-faq__list">
-        <div class="ca-faq__item" data-ca-faq-item data-ca-reveal="up" data-ca-reveal-delay="0">
-            <button class="ca-faq__trigger" data-ca-faq-trigger aria-expanded="false" aria-controls="faq-demo-0">
-                <span class="ca-faq__question">Qual &egrave; la differenza tra un broker e un agente assicurativo?</span>
-                <span class="ca-faq__icon" aria-hidden="true"></span>
-            </button>
-            <div class="ca-faq__content" data-ca-faq-content id="faq-demo-0" role="region">
-                <div class="ca-faq__answer">
-                    <p>Il broker &egrave; un intermediario <strong>indipendente</strong> che non rappresenta nessuna compagnia assicurativa. Lavora esclusivamente nell'interesse del cliente, cercando la migliore soluzione sul mercato. L'agente, invece, rappresenta una o pi&ugrave; compagnie specifiche.</p>
-                </div>
-            </div>
+<section class="ca-block ca-services-grid">
+    <div class="ca-services-grid__container">
+        <div class="ca-services-grid__header" data-ca-reveal="up">
+            <h2 class="ca-services-grid__title" data-ca-text-reveal="words">I Nostri Servizi</h2>
+            <p class="ca-services-grid__subtitle">Soluzioni assicurative su misura per ogni esigenza professionale e privata.</p>
         </div>
-        <div class="ca-faq__item" data-ca-faq-item data-ca-reveal="up" data-ca-reveal-delay="80">
-            <button class="ca-faq__trigger" data-ca-faq-trigger aria-expanded="false" aria-controls="faq-demo-1">
-                <span class="ca-faq__question">La consulenza iniziale &egrave; gratuita?</span>
-                <span class="ca-faq__icon" aria-hidden="true"></span>
-            </button>
-            <div class="ca-faq__content" data-ca-faq-content id="faq-demo-1" role="region">
-                <div class="ca-faq__answer">
-                    <p>S&igrave;, la prima consulenza &egrave; sempre gratuita e senza impegno. Analizziamo la tua situazione assicurativa e ti proponiamo le soluzioni pi&ugrave; adatte alle tue reali esigenze.</p>
-                </div>
-            </div>
-        </div>
-        <div class="ca-faq__item" data-ca-faq-item data-ca-reveal="up" data-ca-reveal-delay="160">
-            <button class="ca-faq__trigger" data-ca-faq-trigger aria-expanded="false" aria-controls="faq-demo-2">
-                <span class="ca-faq__question">In quali zone operate?</span>
-                <span class="ca-faq__icon" aria-hidden="true"></span>
-            </button>
-            <div class="ca-faq__content" data-ca-faq-content id="faq-demo-2" role="region">
-                <div class="ca-faq__answer">
-                    <p>La nostra sede &egrave; a Lissone (MB), in Via G. Matteotti 10/A. Operiamo principalmente nelle province di Monza e Brianza, Varese e Milano, ma gestiamo clienti su tutto il territorio nazionale.</p>
-                </div>
-            </div>
-        </div>
-        <div class="ca-faq__item" data-ca-faq-item data-ca-reveal="up" data-ca-reveal-delay="240">
-            <button class="ca-faq__trigger" data-ca-faq-trigger aria-expanded="false" aria-controls="faq-demo-3">
-                <span class="ca-faq__question">Come posso verificare la vostra iscrizione al RUI?</span>
-                <span class="ca-faq__icon" aria-hidden="true"></span>
-            </button>
-            <div class="ca-faq__content" data-ca-faq-content id="faq-demo-3" role="region">
-                <div class="ca-faq__answer">
-                    <p>Siamo iscritti al RUI (Registro Unico degli Intermediari) con il numero <strong>B000148399</strong>. Puoi verificare la nostra iscrizione sul sito <a href="https://servizi.ivass.it/RuirPubblica/" target="_blank" style="color: #B8973F; text-decoration: underline;">IVASS</a>.</p>
-                </div>
-            </div>
+        <div class="ca-services-grid__grid ca-services-grid__grid--3col" data-ca-stagger data-ca-stagger-delay="80">
+            <a href="#" class="ca-service-card">
+                <div class="ca-service-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M8 10h.01M16 10h.01M12 10h.01M8 14h.01M16 14h.01M12 14h.01"/></svg></div>
+                <h3 class="ca-service-card__title">Polizze Aziende</h3>
+                <p class="ca-service-card__desc">RC, Property All Risk, D&O, infortuni cumulativa e tutela legale per imprese.</p>
+                <span class="ca-service-card__link">Scopri di più &rarr;</span>
+            </a>
+            <a href="#" class="ca-service-card">
+                <div class="ca-service-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
+                <h3 class="ca-service-card__title">RC Professionale</h3>
+                <p class="ca-service-card__desc">Copertura responsabilità civile per area tecnica, giuridica e medica.</p>
+                <span class="ca-service-card__link">Scopri di più &rarr;</span>
+            </a>
+            <a href="#" class="ca-service-card">
+                <div class="ca-service-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+                <h3 class="ca-service-card__title">Cyber Risks</h3>
+                <p class="ca-service-card__desc">Protezione del patrimonio informatico aziendale con consulenza iniziale gratuita.</p>
+                <span class="ca-service-card__link">Scopri di più &rarr;</span>
+            </a>
         </div>
     </div>
 </section>
 
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-        {"@type": "Question", "name": "Qual è la differenza tra un broker e un agente assicurativo?", "acceptedAnswer": {"@type": "Answer", "text": "Il broker è un intermediario indipendente che non rappresenta nessuna compagnia assicurativa."}},
-        {"@type": "Question", "name": "La consulenza iniziale è gratuita?", "acceptedAnswer": {"@type": "Answer", "text": "Sì, la prima consulenza è sempre gratuita e senza impegno."}},
-        {"@type": "Question", "name": "In quali zone operate?", "acceptedAnswer": {"@type": "Answer", "text": "Sede a Lissone (MB). Operiamo in Monza e Brianza, Varese e Milano."}},
-        {"@type": "Question", "name": "Come posso verificare la vostra iscrizione al RUI?", "acceptedAnswer": {"@type": "Answer", "text": "Iscrizione RUI N. B000148399. Verificabile su servizi.ivass.it."}}
-    ]
-}
-</script>
 
+<!-- ═══════════════════════════════════════════════════════
+     9. CTA BANNER
+     ═══════════════════════════════════════════════════════ -->
+<div class="demo-section-label">
+    CTA BANNER <span>cesana/cta-banner — Left-aligned, editorial, navy variant</span>
+</div>
 
-<!-- ================================================================
-     8. CTA BANNER — Gold variant
-     ================================================================ -->
-<div class="demo-label">Block 8 <span>cesana/cta-banner (gold)</span></div>
-
-<section class="ca-block ca-cta-banner ca-cta-banner--gold">
+<section class="ca-block ca-cta-banner ca-cta-banner--navy">
     <div class="ca-cta-banner__content" data-ca-reveal="up">
-        <h2 class="ca-cta-banner__title">Proteggi il tuo futuro oggi</h2>
-        <p class="ca-cta-banner__text">Il broker lavora per te, non per la compagnia. Scopri la differenza.</p>
-        <a href="#" class="ca-btn ca-btn--primary ca-btn--large">Scopri di Pi&ugrave;</a>
+        <span class="ca-cta-banner__eyebrow">Richiedi Informazioni</span>
+        <h2 class="ca-cta-banner__title" data-ca-text-reveal="words">Proteggi Ciò Che Conta</h2>
+        <p class="ca-cta-banner__text">Contattaci per una consulenza gratuita e personalizzata. Il nostro team è a tua disposizione.</p>
+        <a href="#contact" class="ca-btn ca-btn--gold ca-btn--large" data-ca-magnetic>Consulenza Gratuita</a>
     </div>
 </section>
 
 
-<!-- ================================================================
-     9. CONSULTATION FORM — Dark variant
-     ================================================================ -->
-<div class="demo-label" id="consulenza">Block 9 <span>cesana/consultation-form (dark)</span></div>
+<!-- ═══════════════════════════════════════════════════════
+     10. CONSULTATION FORM (Dark)
+     ═══════════════════════════════════════════════════════ -->
+<div class="demo-section-label" id="contact">
+    CONSULTATION FORM <span>cesana/consultation-form — Dark variant with bottom-border inputs</span>
+</div>
 
-<section class="ca-block ca-consultation-form ca-consultation-form--dark" id="consulenza-section">
-    <div class="ca-consultation-form__container">
-        <div class="ca-consultation-form__header" data-ca-reveal="up">
-            <h2 class="ca-consultation-form__title">Ottieni una consulenza gratuita</h2>
+<section class="ca-block ca-consultation-form ca-consultation-form--dark">
+    <div class="ca-consultation-form__container" data-ca-reveal="up">
+        <div class="ca-consultation-form__header">
+            <h2 class="ca-consultation-form__title">Ottieni una Consulenza Gratuita</h2>
             <p class="ca-consultation-form__subtitle">Compila il modulo e ti ricontatteremo entro 24 ore.</p>
         </div>
-        <form class="ca-consultation-form__form" data-ca-contact-form id="ca-form-demo" novalidate onsubmit="event.preventDefault(); alert('Demo: form inviato!');">
+        <form class="ca-consultation-form__form">
             <div class="ca-consultation-form__row">
                 <div class="ca-consultation-form__field">
-                    <label for="demo-name" class="ca-consultation-form__label">Nome e Cognome *</label>
-                    <input type="text" id="demo-name" name="name" required autocomplete="name" class="ca-consultation-form__input">
+                    <label class="ca-consultation-form__label">Nome *</label>
+                    <input type="text" class="ca-consultation-form__input" placeholder="Il tuo nome">
                 </div>
                 <div class="ca-consultation-form__field">
-                    <label for="demo-email" class="ca-consultation-form__label">Email *</label>
-                    <input type="email" id="demo-email" name="email" required autocomplete="email" class="ca-consultation-form__input">
+                    <label class="ca-consultation-form__label">Cognome *</label>
+                    <input type="text" class="ca-consultation-form__input" placeholder="Il tuo cognome">
                 </div>
             </div>
             <div class="ca-consultation-form__row">
                 <div class="ca-consultation-form__field">
-                    <label for="demo-phone" class="ca-consultation-form__label">Telefono</label>
-                    <input type="tel" id="demo-phone" name="phone" autocomplete="tel" class="ca-consultation-form__input">
+                    <label class="ca-consultation-form__label">Email *</label>
+                    <input type="email" class="ca-consultation-form__input" placeholder="email@esempio.it">
                 </div>
                 <div class="ca-consultation-form__field">
-                    <label for="demo-subject" class="ca-consultation-form__label">Oggetto</label>
-                    <input type="text" id="demo-subject" name="subject" class="ca-consultation-form__input">
+                    <label class="ca-consultation-form__label">Telefono</label>
+                    <input type="tel" class="ca-consultation-form__input" placeholder="+39 039 484346">
                 </div>
             </div>
             <div class="ca-consultation-form__field ca-consultation-form__field--full">
-                <label for="demo-message" class="ca-consultation-form__label">Messaggio *</label>
-                <textarea id="demo-message" name="message" rows="5" required class="ca-consultation-form__textarea"></textarea>
+                <label class="ca-consultation-form__label">Messaggio</label>
+                <textarea class="ca-consultation-form__textarea" rows="4" placeholder="Descrivi le tue esigenze assicurative..."></textarea>
             </div>
-            <div class="ca-consultation-form__field ca-consultation-form__field--full">
-                <label class="ca-consultation-form__checkbox">
-                    <input type="checkbox" name="privacy" required>
-                    <span>Ho letto e accetto la <a href="#" target="_blank" rel="noopener">Privacy Policy</a> *</span>
-                </label>
-            </div>
-            <div class="ca-consultation-form__hp" aria-hidden="true">
-                <input type="text" name="website" tabindex="-1" autocomplete="off">
-            </div>
+            <label class="ca-consultation-form__checkbox">
+                <input type="checkbox">
+                <span>Acconsento al trattamento dei dati personali ai sensi del GDPR. <a href="#">Informativa Privacy</a></span>
+            </label>
             <div class="ca-consultation-form__submit">
-                <button type="submit" class="ca-btn ca-btn--gold ca-btn--large" data-ca-form-submit>Invia Richiesta</button>
+                <button type="button" class="ca-btn ca-btn--gold ca-btn--large" data-ca-magnetic>Invia Richiesta</button>
             </div>
-            <div class="ca-consultation-form__feedback" data-ca-form-feedback aria-live="polite"></div>
         </form>
     </div>
 </section>
 
 
-<!-- ================================================================
-     TRUST INDICATORS — Default (light) variant
-     ================================================================ -->
-<div class="demo-label">Variant <span>cesana/trust-indicators (default / light)</span></div>
+<!-- ═══════════════════════════════════════════════════════
+     11. FAQ SCHEMA
+     ═══════════════════════════════════════════════════════ -->
+<div class="demo-section-label">
+    FAQ SCHEMA <span>cesana/faq-schema — Accordion with JSON-LD structured data</span>
+</div>
 
-<section class="ca-block ca-trust-indicators">
-    <div class="ca-trust-indicators__container">
-        <div class="ca-trust-indicator" data-ca-reveal="up">
-            <span class="ca-trust-indicator__icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-            </span>
-            <div class="ca-trust-indicator__content">
-                <span class="ca-trust-indicator__title">Monitoraggio</span>
-                <span class="ca-trust-indicator__desc">mercato assicurativo</span>
+<section class="ca-block ca-faq">
+    <div class="ca-faq__header" data-ca-reveal="up">
+        <h2 class="ca-faq__title" data-ca-text-reveal="words">Domande Frequenti</h2>
+        <p class="ca-faq__subtitle">Le risposte alle domande più comuni sulla nostra attività.</p>
+    </div>
+    <div class="ca-faq__list" data-ca-faq>
+        <div class="ca-faq__item" data-ca-faq-item>
+            <button class="ca-faq__trigger" data-ca-faq-trigger aria-expanded="false">
+                <span>Qual è la differenza tra un broker e un agente assicurativo?</span>
+                <span class="ca-faq__icon"></span>
+            </button>
+            <div class="ca-faq__content" data-ca-faq-content style="max-height:0;overflow:hidden;">
+                <div class="ca-faq__answer">
+                    <p>Un broker assicurativo è un intermediario indipendente che lavora esclusivamente per il cliente, senza legami con compagnie assicurative. Un agente, invece, rappresenta una o più compagnie specifiche.</p>
+                </div>
             </div>
         </div>
-        <div class="ca-trust-indicator" data-ca-reveal="up" data-ca-reveal-delay="80">
-            <span class="ca-trust-indicator__icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
-            </span>
-            <div class="ca-trust-indicator__content">
-                <span class="ca-trust-indicator__title">Risk Management</span>
-                <span class="ca-trust-indicator__desc">analisi e ottimizzazione</span>
+        <div class="ca-faq__item" data-ca-faq-item>
+            <button class="ca-faq__trigger" data-ca-faq-trigger aria-expanded="false">
+                <span>La consulenza iniziale è davvero gratuita?</span>
+                <span class="ca-faq__icon"></span>
+            </button>
+            <div class="ca-faq__content" data-ca-faq-content style="max-height:0;overflow:hidden;">
+                <div class="ca-faq__answer">
+                    <p>Sì, la prima consulenza è completamente gratuita e senza impegno. Analizziamo la tua situazione assicurativa e proponiamo soluzioni su misura.</p>
+                </div>
             </div>
         </div>
-        <div class="ca-trust-indicator" data-ca-reveal="up" data-ca-reveal-delay="160">
-            <span class="ca-trust-indicator__icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M5 8l7-5 7 5M5 8l-2 8h6l-2-8M19 8l-2 8h6l-2-8"/></svg>
-            </span>
-            <div class="ca-trust-indicator__content">
-                <span class="ca-trust-indicator__title">Imparzialit&agrave;</span>
-                <span class="ca-trust-indicator__desc">nessun legame con compagnie</span>
-            </div>
-        </div>
-        <div class="ca-trust-indicator" data-ca-reveal="up" data-ca-reveal-delay="240">
-            <span class="ca-trust-indicator__icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-            </span>
-            <div class="ca-trust-indicator__content">
-                <span class="ca-trust-indicator__title">Su Misura</span>
-                <span class="ca-trust-indicator__desc">contratti personalizzati</span>
+        <div class="ca-faq__item" data-ca-faq-item>
+            <button class="ca-faq__trigger" data-ca-faq-trigger aria-expanded="false">
+                <span>Come funzionano le convenzioni per ordini professionali?</span>
+                <span class="ca-faq__icon"></span>
+            </button>
+            <div class="ca-faq__content" data-ca-faq-content style="max-height:0;overflow:hidden;">
+                <div class="ca-faq__answer">
+                    <p>Abbiamo negoziato condizioni vantaggiose con primarie compagnie per gli iscritti a specifici ordini professionali. Le condizioni sono riservate e offrono massimali elevati a tariffe agevolate.</p>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
 
-<!-- ================================================================
-     CTA BANNER — Light variant
-     ================================================================ -->
-<div class="demo-label">Variant <span>cesana/cta-banner (light)</span></div>
+<!-- ═══════════════════════════════════════════════════════
+     12. CTA BANNER — Gold Variant
+     ═══════════════════════════════════════════════════════ -->
+<div class="demo-section-label">
+    CTA BANNER GOLD <span>cesana/cta-banner — Gold variant</span>
+</div>
 
-<section class="ca-block ca-cta-banner ca-cta-banner--light">
+<section class="ca-block ca-cta-banner ca-cta-banner--gold">
     <div class="ca-cta-banner__content" data-ca-reveal="up">
-        <span class="ca-cta-banner__eyebrow">Risk Management</span>
-        <h2 class="ca-cta-banner__title">Analisi gratuita delle tue polizze</h2>
-        <p class="ca-cta-banner__text">Ottimizziamo costi e coperture. Potresti risparmiare senza perdere protezione.</p>
-        <a href="#consulenza" class="ca-btn ca-btn--gold ca-btn--large">Richiedi Analisi</a>
-    </div>
-</section>
-
-
-<!-- ================================================================
-     TESTIMONIAL STATS — Light variant
-     ================================================================ -->
-<div class="demo-label">Variant <span>cesana/testimonial-stats (light)</span></div>
-
-<section class="ca-block ca-stats ca-stats--light">
-    <div class="ca-stats__container">
-        <h2 class="ca-stats__title" data-ca-reveal="up">I Numeri Parlano</h2>
-        <div class="ca-stats__grid">
-            <div class="ca-stats__item" data-ca-reveal="up" data-ca-reveal-delay="0">
-                <div>
-                    <span class="ca-stats__value" data-ca-counter="30">0</span>
-                    <span class="ca-stats__suffix">+</span>
-                </div>
-                <span class="ca-stats__label">Anni di Esperienza</span>
-            </div>
-            <div class="ca-stats__item" data-ca-reveal="up" data-ca-reveal-delay="80">
-                <div>
-                    <span class="ca-stats__value" data-ca-counter="98">0</span>
-                    <span class="ca-stats__suffix">%</span>
-                </div>
-                <span class="ca-stats__label">Clienti Soddisfatti</span>
-            </div>
-            <div class="ca-stats__item" data-ca-reveal="up" data-ca-reveal-delay="160">
-                <div>
-                    <span class="ca-stats__value" data-ca-counter="500">0</span>
-                    <span class="ca-stats__suffix">+</span>
-                </div>
-                <span class="ca-stats__label">Polizze Gestite</span>
-            </div>
-        </div>
+        <span class="ca-cta-banner__eyebrow">Contattaci Oggi</span>
+        <h2 class="ca-cta-banner__title" data-ca-text-reveal="words">Reputazione + Rispetto = Risultato</h2>
+        <p class="ca-cta-banner__text">Da oltre 30 anni al fianco di aziende, professionisti e privati nel territorio di Monza e Brianza.</p>
+        <a href="#" class="ca-btn ca-btn--primary ca-btn--large" data-ca-magnetic>Chiamaci: 039.484346</a>
     </div>
 </section>
 
 
 <!-- Demo footer -->
-<footer style="background: #0C0C14; color: rgba(255,255,255,0.5); text-align: center; padding: 3rem 2rem; font-size: 0.8rem; font-family: 'Inter', sans-serif;">
-    <p style="color: #B8973F; font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 1.1rem; margin-bottom: 0.75rem; letter-spacing: -0.01em;">Cesana Assicuratori</p>
-    <p>Via G. Matteotti, 10/A &mdash; 20851 Lissone (MB) &mdash; Tel. 039.484346 &mdash; info@cesanaassicuratori.it</p>
-    <p style="margin-top: 0.5rem; opacity: 0.4;">P.IVA 00151110962 &mdash; RUI N. B000148399 &mdash; Demo page &mdash; non &egrave; un sito in produzione</p>
+<footer style="background:#08080E;color:rgba(255,255,255,0.4);padding:3rem 2rem;text-align:center;font-family:'Inter',sans-serif;font-size:0.75rem;">
+    <div style="color:#B8973F;font-family:'DM Serif Display',serif;font-size:1.1rem;margin-bottom:0.5rem;">CESANA ASSICURATORI</div>
+    <p>Via G. Matteotti, 10/A — 20851 Lissone (MB) — P.IVA 00151110962 — RUI B000148399</p>
+    <p style="margin-top:0.5rem;">Demo Block Plugin — Non un sito di produzione</p>
 </footer>
 
-
-<!-- Plugin JavaScript -->
 <script src="js/animations.js"></script>
-
 </body>
 </html>
