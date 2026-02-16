@@ -383,7 +383,7 @@
             const autoplayDelay = parseInt(container.dataset.caSliderAutoplay) || 6000;
 
             const getSlideWidth = () => {
-                return slides[0].getBoundingClientRect().width;
+                return slides[0].offsetWidth;
             };
 
             const setPosition = (animate = true) => {
