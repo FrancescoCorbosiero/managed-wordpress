@@ -27,7 +27,7 @@ $arrow_svg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-
             <?php endif; ?>
         </div>
 
-        <div class="ca-convenzioni__grid" data-ca-stagger data-ca-stagger-delay="120">
+        <div class="ca-convenzioni__grid" data-ca-stagger data-ca-stagger-delay="80">
             <?php foreach ($convenzioni as $index => $conv) :
                 $tag = !empty($conv['url']) ? 'a' : 'div';
                 $href = !empty($conv['url']) ? ' href="' . esc_url($conv['url']) . '"' : '';

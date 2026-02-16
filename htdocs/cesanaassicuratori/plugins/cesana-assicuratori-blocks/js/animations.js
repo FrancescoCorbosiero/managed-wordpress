@@ -723,8 +723,48 @@
     };
 
 
+    /* ═══════════════════════════════════════════════════════════════
+       12. PageLoader — Animated splash screen (once per session)
+       ═══════════════════════════════════════════════════════════════ */
+    const PageLoader = {
+        init() {
+            const loader = document.querySelector('[data-ca-page-loader]');
+            if (!loader) return;
+
+            // Only show once per session
+            if (sessionStorage.getItem('ca-loader-shown')) {
+                loader.remove();
+                return;
+            }
+
+            const duration = parseInt(loader.dataset.caLoaderDuration) || 2800;
+
+            // Prevent scrolling while loader is active
+            document.documentElement.style.overflow = 'hidden';
+
+            // Run entrance animation
+            requestAnimationFrame(() => {
+                loader.classList.add('ca-page-loader--active');
+            });
+
+            // Start exit after duration
+            setTimeout(() => {
+                loader.classList.add('ca-page-loader--exit');
+                document.documentElement.style.overflow = '';
+            }, duration);
+
+            // Remove from DOM after exit animation
+            setTimeout(() => {
+                loader.remove();
+                sessionStorage.setItem('ca-loader-shown', '1');
+            }, duration + 800);
+        }
+    };
+
+
     /* ─── Initialize All Modules ─── */
     const init = () => {
+        PageLoader.init();
         ScrollReveal.init();
         TextReveal.init();
         ImageReveal.init();
@@ -744,5 +784,5 @@
         init();
     }
 
-    window.CesanaBlocks = { init, TextReveal, ImageReveal, TestimonialSlider };
+    window.CesanaBlocks = { init, TextReveal, ImageReveal, TestimonialSlider, PageLoader };
 })();
