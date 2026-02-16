@@ -93,6 +93,21 @@
 
 <body>
 
+    <!-- ═══════════════════════════════════════════════════════
+     PAGE LOADER — Shows once per session
+     ═══════════════════════════════════════════════════════ -->
+    <div class="ca-page-loader" data-ca-page-loader data-ca-loader-duration="2800" aria-hidden="true">
+        <div class="ca-page-loader__inner">
+            <div class="ca-page-loader__brand">
+                <span class="ca-page-loader__name">CESANA</span>
+                <span class="ca-page-loader__name ca-page-loader__name--gold">ASSICURATORI</span>
+            </div>
+            <div class="ca-page-loader__divider"></div>
+            <p class="ca-page-loader__tagline">Broker Assicurativo Indipendente</p>
+        </div>
+    </div>
+
+
     <!-- Fixed Nav -->
     <nav class="demo-nav">
         <div class="demo-nav__logo">CESANA <span>ASSICURATORI</span></div>
@@ -183,6 +198,47 @@
                     <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
             </button>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════════════
+     LOGO HERO
+     ═══════════════════════════════════════════════════════ -->
+    <div class="demo-section-label" id="logo-hero">
+        LOGO HERO <span>cesana/logo-hero — Brand-focused hero with logo, tagline, and CTA</span>
+    </div>
+
+    <section class="ca-block ca-logo-hero" data-ca-logo-hero>
+        <div class="ca-logo-hero__bg-pattern" aria-hidden="true"></div>
+        <div class="ca-logo-hero__corner ca-logo-hero__corner--tl" aria-hidden="true"></div>
+        <div class="ca-logo-hero__corner ca-logo-hero__corner--tr" aria-hidden="true"></div>
+        <div class="ca-logo-hero__corner ca-logo-hero__corner--bl" aria-hidden="true"></div>
+        <div class="ca-logo-hero__corner ca-logo-hero__corner--br" aria-hidden="true"></div>
+
+        <div class="ca-logo-hero__container">
+            <span class="ca-logo-hero__eyebrow" data-ca-reveal="fade">Broker Assicurativo Indipendente</span>
+
+            <div class="ca-logo-hero__brand" data-ca-reveal="up">
+                <div class="ca-logo-hero__shield" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                </div>
+                <h1 class="ca-logo-hero__title">
+                    <span class="ca-logo-hero__title-line">CESANA</span>
+                    <span class="ca-logo-hero__title-line ca-logo-hero__title-line--gold">ASSICURATORI</span>
+                </h1>
+            </div>
+
+            <div class="ca-logo-hero__divider" data-ca-reveal="fade"></div>
+
+            <p class="ca-logo-hero__tagline" data-ca-text-reveal="words">Reputazione + Rispetto = Risultato</p>
+
+            <div class="ca-logo-hero__cta" data-ca-reveal="up">
+                <a href="#contact" class="ca-btn ca-btn--gold ca-btn--large" data-ca-magnetic>Consulenza Gratuita</a>
+                <a href="#why" class="ca-btn ca-btn--ghost-white ca-btn--large">Scopri di più</a>
+            </div>
         </div>
     </section>
 
@@ -480,7 +536,7 @@
                     professionali e CRAL ospedalieri.</p>
             </div>
 
-            <div class="ca-convenzioni__grid" data-ca-stagger data-ca-stagger-delay="120">
+            <div class="ca-convenzioni__grid" data-ca-stagger data-ca-stagger-delay="80">
                 <a href="#" class="ca-convenzione">
                     <div class="ca-convenzione__image-wrap">
                         <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&h=600&fit=crop&q=80"
