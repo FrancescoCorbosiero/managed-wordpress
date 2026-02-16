@@ -27,12 +27,12 @@ $arrow_svg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-
             <?php endif; ?>
         </div>
 
-        <div class="ca-convenzioni__grid">
+        <div class="ca-convenzioni__grid" data-ca-stagger data-ca-stagger-delay="120">
             <?php foreach ($convenzioni as $index => $conv) :
                 $tag = !empty($conv['url']) ? 'a' : 'div';
                 $href = !empty($conv['url']) ? ' href="' . esc_url($conv['url']) . '"' : '';
             ?>
-                <<?php echo $tag; ?><?php echo $href; ?> class="ca-convenzione" data-ca-image-reveal="up" data-ca-image-reveal-delay="<?php echo $index * 150; ?>">
+                <<?php echo $tag; ?><?php echo $href; ?> class="ca-convenzione">
                     <div class="ca-convenzione__image-wrap">
                         <?php if (!empty($conv['image'])) : ?>
                             <img src="<?php echo esc_url($conv['image']); ?>"
