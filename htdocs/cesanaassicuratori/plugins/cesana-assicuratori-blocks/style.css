@@ -1900,7 +1900,6 @@
 
 .ca-convenzione {
     position: relative;
-    aspect-ratio: 1;
     border-radius: var(--ca-radius-md);
     overflow: hidden;
     text-decoration: none;
@@ -1909,15 +1908,12 @@
 }
 
 .ca-convenzione__image-wrap {
-    position: absolute;
-    inset: 0;
+    aspect-ratio: 1;
     overflow: hidden;
     background: var(--ca-navy);
-    z-index: 0;
 }
 
 .ca-convenzione__image-wrap img {
-    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -1940,7 +1936,6 @@
     -webkit-backdrop-filter: blur(var(--ca-blur-md));
     transform: translateY(calc(100% - 4.5rem));
     transition: transform 0.6s var(--ca-ease-premium);
-    z-index: 1;
 }
 
 .ca-convenzione:hover .ca-convenzione__overlay {
