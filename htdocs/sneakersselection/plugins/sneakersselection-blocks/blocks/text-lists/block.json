@@ -1,0 +1,28 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "sneakersselection/text-lists",
+    "version": "1.0.0",
+    "title": "Text with Lists",
+    "category": "sneakersselection",
+    "icon": "editor-ul",
+    "description": "Rich text sections with titled paragraphs and styled lists — ideal for policy pages, authentication details, and informational content.",
+    "keywords": ["text", "lists", "content", "policy", "authentication"],
+    "textdomain": "sneakersselection-blocks",
+    "attributes": {
+        "sections": {
+            "type": "array",
+            "default": []
+        },
+        "closingText": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "supports": {
+        "align": ["wide", "full"],
+        "html": false
+    },
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php"
+}
