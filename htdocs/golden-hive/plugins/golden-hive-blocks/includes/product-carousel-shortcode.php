@@ -223,7 +223,7 @@ function ghb_get_carousel_styles() {
 
     .ghb-carousel-section__title {
         font-size: clamp(1.25rem, 4vw, 1.75rem);
-        font-weight: 700;
+        font-weight: 700 !important;
         margin: 0;
         letter-spacing: -0.02em;
         line-height: 1.2;
@@ -916,7 +916,7 @@ function ghb_get_carousel_styles() {
 
     .ghb-product-card__title {
         font-size: 0.9rem;
-        font-weight: 600;
+        font-weight: 600 !important;
         color: var(--ghb-text);
         margin: 0 0 auto;
         line-height: 1.4;

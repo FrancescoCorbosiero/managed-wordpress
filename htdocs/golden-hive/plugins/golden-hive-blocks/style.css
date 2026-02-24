@@ -186,7 +186,7 @@ html:has(.gh-social-buttons) {
 .gh-hero-slide__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-7xl);
-    font-weight: 800;
+    font-weight: 800 !important;
     line-height: 0.9;
     letter-spacing: -0.02em;
     text-transform: uppercase;
@@ -390,7 +390,7 @@ html:has(.gh-social-buttons) {
 .gh-hero-video__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-6xl);
-    font-weight: 800;
+    font-weight: 800 !important;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     color: var(--gh-white);
@@ -497,7 +497,7 @@ html:has(.gh-social-buttons) {
 .gh-parallax-section__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-6xl);
-    font-weight: 800;
+    font-weight: 800 !important;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     line-height: 0.95;
@@ -556,7 +556,7 @@ html:has(.gh-social-buttons) {
 .gh-faq__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-4xl);
-    font-weight: 800;
+    font-weight: 800 !important;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     color: var(--gh-black);
@@ -714,7 +714,7 @@ html:has(.gh-social-buttons) {
 .gh-cta-banner__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-5xl);
-    font-weight: 800;
+    font-weight: 800 !important;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     color: var(--gh-white);
@@ -798,7 +798,7 @@ html:has(.gh-social-buttons) {
 .gh-cta-image__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-4xl);
-    font-weight: 800;
+    font-weight: 800 !important;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     line-height: 1;
@@ -963,7 +963,7 @@ html:has(.gh-social-buttons) {
 .gh-modal__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-xl);
-    font-weight: 700;
+    font-weight: 700 !important;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     color: var(--gh-black);
@@ -1219,7 +1219,7 @@ html:has(.gh-social-buttons) {
 .gh-category-slider__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-2xl);
-    font-weight: 600;
+    font-weight: 600 !important;
     color: var(--gh-black);
     text-transform: uppercase;
     letter-spacing: 0.02em;
@@ -1442,7 +1442,7 @@ html:has(.gh-social-buttons) {
 .gh-product-spotlight__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-4xl);
-    font-weight: 800;
+    font-weight: 800 !important;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     line-height: 1;
@@ -1546,7 +1546,7 @@ html:has(.gh-social-buttons) {
 .gh-newsletter__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-3xl);
-    font-weight: 800;
+    font-weight: 800 !important;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     color: var(--gh-white);
@@ -1691,7 +1691,7 @@ html:has(.gh-social-buttons) {
 .gh-authenticity__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-4xl);
-    font-weight: 800;
+    font-weight: 800 !important;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     color: var(--gh-black);
@@ -1734,7 +1734,7 @@ html:has(.gh-social-buttons) {
 
 .gh-authenticity__step-content h4 {
     font-size: var(--gh-text-base);
-    font-weight: 700;
+    font-weight: 700 !important;
     color: var(--gh-black);
     margin-bottom: var(--gh-space-xs);
 }
@@ -1855,7 +1855,7 @@ html:has(.gh-social-buttons) {
 .gh-shortcode-wrapper__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-3xl);
-    font-weight: 800;
+    font-weight: 800 !important;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     color: var(--gh-black);
@@ -1989,7 +1989,7 @@ html:has(.gh-social-buttons) {
 .gh-promo-modal__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-4xl);
-    font-weight: 800;
+    font-weight: 800 !important;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     color: var(--gh-black);
