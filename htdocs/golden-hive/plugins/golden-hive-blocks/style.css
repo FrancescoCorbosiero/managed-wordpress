@@ -183,10 +183,10 @@ html:has(.gh-social-buttons) {
     transform: translateY(0);
 }
 
-.gh-block .gh-hero-slide__title {
+.gh-hero-slide__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-7xl);
-    font-weight: 800;
+    font-weight: 800 !important;
     line-height: 0.9;
     letter-spacing: -0.02em;
     text-transform: uppercase;
@@ -387,10 +387,10 @@ html:has(.gh-social-buttons) {
     color: var(--gh-accent);
 }
 
-.gh-block .gh-hero-video__title {
+.gh-hero-video__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-6xl);
-    font-weight: 800;
+    font-weight: 800 !important;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     color: var(--gh-white);
@@ -494,10 +494,10 @@ html:has(.gh-social-buttons) {
     max-width: 900px;
 }
 
-.gh-block .gh-parallax-section__title {
+.gh-parallax-section__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-6xl);
-    font-weight: 800;
+    font-weight: 800 !important;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     line-height: 0.95;
@@ -553,10 +553,10 @@ html:has(.gh-social-buttons) {
     margin-bottom: var(--gh-space-3xl);
 }
 
-.gh-block .gh-faq__title {
+.gh-faq__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-4xl);
-    font-weight: 800;
+    font-weight: 800 !important;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     color: var(--gh-black);
@@ -711,10 +711,10 @@ html:has(.gh-social-buttons) {
     margin-bottom: var(--gh-space-lg);
 }
 
-.gh-block .gh-cta-banner__title {
+.gh-cta-banner__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-5xl);
-    font-weight: 800;
+    font-weight: 800 !important;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     color: var(--gh-white);
@@ -795,10 +795,10 @@ html:has(.gh-social-buttons) {
     margin-bottom: var(--gh-space-lg);
 }
 
-.gh-block .gh-cta-image__title {
+.gh-cta-image__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-4xl);
-    font-weight: 800;
+    font-weight: 800 !important;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     line-height: 1;
@@ -960,10 +960,10 @@ html:has(.gh-social-buttons) {
     border-bottom: 1px solid var(--gh-gray-200);
 }
 
-.gh-block .gh-modal__title {
+.gh-modal__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-xl);
-    font-weight: 700;
+    font-weight: 700 !important;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     color: var(--gh-black);
@@ -1216,10 +1216,10 @@ html:has(.gh-social-buttons) {
     margin-bottom: var(--gh-space-xl);
 }
 
-.gh-block .gh-category-slider__title {
+.gh-category-slider__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-2xl);
-    font-weight: 600;
+    font-weight: 600 !important;
     color: var(--gh-black);
     text-transform: uppercase;
     letter-spacing: 0.02em;
@@ -1439,10 +1439,10 @@ html:has(.gh-social-buttons) {
     display: block;
 }
 
-.gh-block .gh-product-spotlight__title {
+.gh-product-spotlight__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-4xl);
-    font-weight: 800;
+    font-weight: 800 !important;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     line-height: 1;
@@ -1543,10 +1543,10 @@ html:has(.gh-social-buttons) {
     height: 32px;
 }
 
-.gh-block .gh-newsletter__title {
+.gh-newsletter__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-3xl);
-    font-weight: 800;
+    font-weight: 800 !important;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     color: var(--gh-white);
@@ -1688,10 +1688,10 @@ html:has(.gh-social-buttons) {
     display: block;
 }
 
-.gh-block .gh-authenticity__title {
+.gh-authenticity__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-4xl);
-    font-weight: 800;
+    font-weight: 800 !important;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     color: var(--gh-black);
@@ -1732,9 +1732,9 @@ html:has(.gh-social-buttons) {
     flex-shrink: 0;
 }
 
-.gh-block .gh-authenticity__step-content h4 {
+.gh-authenticity__step-content h4 {
     font-size: var(--gh-text-base);
-    font-weight: 700;
+    font-weight: 700 !important;
     color: var(--gh-black);
     margin-bottom: var(--gh-space-xs);
 }
@@ -1852,10 +1852,10 @@ html:has(.gh-social-buttons) {
     display: block;
 }
 
-.gh-block .gh-shortcode-wrapper__title {
+.gh-shortcode-wrapper__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-3xl);
-    font-weight: 800;
+    font-weight: 800 !important;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     color: var(--gh-black);
@@ -1986,10 +1986,10 @@ html:has(.gh-social-buttons) {
     margin-bottom: var(--gh-space-lg);
 }
 
-.gh-block .gh-promo-modal__title {
+.gh-promo-modal__title {
     font-family: var(--gh-font-display);
     font-size: var(--gh-text-4xl);
-    font-weight: 800;
+    font-weight: 800 !important;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     color: var(--gh-black);
