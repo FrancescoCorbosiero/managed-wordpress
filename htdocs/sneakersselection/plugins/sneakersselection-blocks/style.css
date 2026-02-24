@@ -1234,6 +1234,120 @@
 }
 
 /* ==========================================================================
+   TEXT WITH LISTS
+   Rich text sections with titled paragraphs and styled lists
+   ========================================================================== */
+
+.ss-text-lists {
+    padding: var(--ss-space-5xl) var(--ss-space-xl);
+}
+
+.ss-text-lists__container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.ss-text-lists__section {
+    margin-bottom: var(--ss-space-3xl);
+}
+
+.ss-text-lists__section:last-child {
+    margin-bottom: var(--ss-space-2xl);
+}
+
+.ss-text-lists__title {
+    font-size: var(--ss-text-2xl);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--ss-black);
+    margin-bottom: var(--ss-space-md);
+}
+
+.ss-text-lists__intro {
+    font-size: var(--ss-text-base);
+    line-height: 1.8;
+    color: var(--ss-gray-600);
+    margin-bottom: var(--ss-space-lg);
+}
+
+.ss-text-lists__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--ss-space-md);
+}
+
+.ss-text-lists__item {
+    position: relative;
+    padding-left: var(--ss-space-xl);
+    font-size: var(--ss-text-base);
+    line-height: 1.7;
+    color: var(--ss-gray-600);
+}
+
+/* Dash style (label - description) */
+.ss-text-lists__list--dash .ss-text-lists__item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7em;
+    width: 12px;
+    height: 2px;
+    background: var(--ss-accent);
+}
+
+.ss-text-lists__item-label {
+    color: var(--ss-black);
+    font-weight: 700;
+}
+
+.ss-text-lists__item-sep {
+    color: var(--ss-gray-400);
+}
+
+/* Check style */
+.ss-text-lists__list--check .ss-text-lists__item::before {
+    content: '\2713';
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: 700;
+    color: var(--ss-success);
+    font-size: var(--ss-text-base);
+}
+
+/* Bullet style */
+.ss-text-lists__list--bullet .ss-text-lists__item::before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 0.65em;
+    width: 6px;
+    height: 6px;
+    background: var(--ss-black);
+    border-radius: 50%;
+}
+
+/* Closing text */
+.ss-text-lists__closing {
+    font-size: var(--ss-text-base);
+    line-height: 1.8;
+    color: var(--ss-gray-600);
+    padding-top: var(--ss-space-lg);
+    border-top: 1px solid var(--ss-gray-200);
+}
+
+@media (max-width: 768px) {
+    .ss-text-lists {
+        padding: var(--ss-space-3xl) var(--ss-space-lg);
+    }
+
+    .ss-text-lists__title {
+        font-size: var(--ss-text-xl);
+    }
+}
+
+/* ==========================================================================
    REDUCED MOTION
    ========================================================================== */
 
