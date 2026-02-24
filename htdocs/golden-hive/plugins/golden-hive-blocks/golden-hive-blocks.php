@@ -115,23 +115,3 @@ add_action('plugins_loaded', 'golden_hive_blocks_load_textdomain');
  * Include shortcodes
  */
 require_once GOLDEN_HIVE_BLOCKS_PATH . 'includes/product-carousel-shortcode.php';
-
-// Load the newsletter module
-require_once plugin_dir_path(__FILE__) . 'includes/class-gh-newsletter.php';
-require_once plugin_dir_path(__FILE__) . 'includes/class-gh-newsletter-admin.php';
-
-// Initialize on plugins_loaded
-add_action('plugins_loaded', function () {
-    $newsletter = GH_Newsletter::init();
-
-    if (is_admin()) {
-        GH_Newsletter_Admin::init($newsletter);
-    }
-});
-
-// Create DB table on activation
-register_activation_hook(__FILE__, ['GH_Newsletter', 'activate']);
-
-add_filter('gh_newsletter_from_email', function () {
-    return 'noreply@sneakersselection.it'; // must be verified in SES
-});
