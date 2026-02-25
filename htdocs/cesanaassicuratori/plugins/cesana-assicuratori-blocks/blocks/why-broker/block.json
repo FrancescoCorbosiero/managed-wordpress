@@ -24,7 +24,23 @@
         },
         "reasons": {
             "type": "array",
-            "default": []
+            "default": [
+                {
+                    "title": "Indipendenza Totale",
+                    "description": "Non siamo legati a nessuna compagnia. Scegliamo la soluzione migliore per te, sempre.",
+                    "icon": "balance"
+                },
+                {
+                    "title": "Analisi del Mercato",
+                    "description": "Confrontiamo oltre 50 compagnie per offrirti le condizioni più vantaggiose.",
+                    "icon": "chart"
+                },
+                {
+                    "title": "Assistenza Dedicata",
+                    "description": "Un referente unico che ti segue in ogni fase, dalla consulenza alla gestione del sinistro.",
+                    "icon": "handshake"
+                }
+            ]
         }
     },
     "supports": {

@@ -12,7 +12,28 @@
     "attributes": {
         "indicators": {
             "type": "array",
-            "default": []
+            "default": [
+                {
+                    "icon": "clock",
+                    "title": "25+ Anni",
+                    "description": "di esperienza"
+                },
+                {
+                    "icon": "users",
+                    "title": "1500+",
+                    "description": "clienti attivi"
+                },
+                {
+                    "icon": "shield",
+                    "title": "100%",
+                    "description": "indipendente"
+                },
+                {
+                    "icon": "star",
+                    "title": "4.9/5",
+                    "description": "valutazione media"
+                }
+            ]
         },
         "variant": {
             "type": "string",

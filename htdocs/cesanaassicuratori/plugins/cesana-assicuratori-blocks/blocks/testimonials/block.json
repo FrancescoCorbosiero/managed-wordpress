@@ -20,7 +20,20 @@
         },
         "testimonials": {
             "type": "array",
-            "default": []
+            "default": [
+                {
+                    "quote": "Professionalità e disponibilità fuori dal comune. Cesana Assicuratori ha trovato la soluzione perfetta per la nostra azienda.",
+                    "author": "Marco Rossi",
+                    "role": "Amministratore Delegato, Rossi S.r.l.",
+                    "photo": ""
+                },
+                {
+                    "quote": "Finalmente un broker che ascolta davvero le esigenze del cliente. Consigliato a chiunque cerchi trasparenza e competenza.",
+                    "author": "Laura Bianchi",
+                    "role": "Libera Professionista",
+                    "photo": ""
+                }
+            ]
         },
         "autoplay": {
             "type": "number",

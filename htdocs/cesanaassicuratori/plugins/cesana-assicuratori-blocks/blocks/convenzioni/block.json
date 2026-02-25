@@ -24,7 +24,22 @@
         },
         "convenzioni": {
             "type": "array",
-            "default": []
+            "default": [
+                {
+                    "image": "",
+                    "title": "Ordine degli Ingegneri",
+                    "description": "Polizze RC Professionale a condizioni riservate.",
+                    "category": "Ordini Professionali",
+                    "url": ""
+                },
+                {
+                    "image": "",
+                    "title": "CRAL Ospedaliero",
+                    "description": "Coperture sanitarie e infortuni per dipendenti.",
+                    "category": "CRAL",
+                    "url": ""
+                }
+            ]
         }
     },
     "supports": {
