@@ -16,7 +16,23 @@
         },
         "stats": {
             "type": "array",
-            "default": []
+            "default": [
+                {
+                    "value": "25",
+                    "suffix": "+",
+                    "label": "Anni di Esperienza"
+                },
+                {
+                    "value": "98",
+                    "suffix": "%",
+                    "label": "Clienti Soddisfatti"
+                },
+                {
+                    "value": "50",
+                    "suffix": "+",
+                    "label": "Compagnie Partner"
+                }
+            ]
         },
         "variant": {
             "type": "string",

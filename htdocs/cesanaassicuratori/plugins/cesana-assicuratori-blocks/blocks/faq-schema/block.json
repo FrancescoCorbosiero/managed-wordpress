@@ -20,7 +20,16 @@
         },
         "items": {
             "type": "array",
-            "default": []
+            "default": [
+                {
+                    "question": "Cos'è un broker assicurativo?",
+                    "answer": "Un broker assicurativo è un professionista indipendente che opera nell'interesse del cliente, analizzando il mercato per trovare le migliori soluzioni assicurative."
+                },
+                {
+                    "question": "La consulenza è gratuita?",
+                    "answer": "Sì, la nostra consulenza iniziale è completamente gratuita e senza impegno. Analizzeremo le vostre esigenze per proporvi le soluzioni più adatte."
+                }
+            ]
         },
         "allowMultiple": {
             "type": "boolean",

@@ -16,11 +16,11 @@
         },
         "title": {
             "type": "string",
-            "default": ""
+            "default": "Proteggi Ciò Che Conta"
         },
         "text": {
             "type": "string",
-            "default": ""
+            "default": "Richiedi una consulenza gratuita e senza impegno con i nostri esperti."
         },
         "buttonText": {
             "type": "string",

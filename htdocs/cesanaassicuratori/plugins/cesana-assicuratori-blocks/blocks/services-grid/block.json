@@ -20,7 +20,26 @@
         },
         "services": {
             "type": "array",
-            "default": []
+            "default": [
+                {
+                    "title": "Assicurazioni Aziendali",
+                    "description": "Soluzioni complete per proteggere la tua attività, i dipendenti e il patrimonio aziendale.",
+                    "icon": "building",
+                    "url": ""
+                },
+                {
+                    "title": "RC Professionale",
+                    "description": "Copertura della responsabilità civile per professionisti e studi associati.",
+                    "icon": "briefcase",
+                    "url": ""
+                },
+                {
+                    "title": "Polizze Salute",
+                    "description": "Piani sanitari individuali e collettivi con le migliori compagnie del mercato.",
+                    "icon": "heart",
+                    "url": ""
+                }
+            ]
         },
         "columns": {
             "type": "number",

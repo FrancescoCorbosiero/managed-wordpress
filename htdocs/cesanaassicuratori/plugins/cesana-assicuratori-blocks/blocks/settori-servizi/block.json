@@ -24,7 +24,29 @@
         },
         "sectors": {
             "type": "array",
-            "default": []
+            "default": [
+                {
+                    "title": "Aziende & PMI",
+                    "description": "Protezione completa per imprese di ogni dimensione.",
+                    "icon": "building",
+                    "url": "",
+                    "featured": true
+                },
+                {
+                    "title": "Professionisti",
+                    "description": "RC Professionale e tutela legale per liberi professionisti.",
+                    "icon": "briefcase",
+                    "url": "",
+                    "featured": false
+                },
+                {
+                    "title": "Privati & Famiglie",
+                    "description": "Casa, auto, salute e previdenza per te e la tua famiglia.",
+                    "icon": "heart",
+                    "url": "",
+                    "featured": false
+                }
+            ]
         }
     },
     "supports": {
