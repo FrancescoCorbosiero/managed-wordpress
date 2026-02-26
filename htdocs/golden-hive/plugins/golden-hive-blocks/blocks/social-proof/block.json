@@ -12,7 +12,22 @@
     "attributes": {
         "notifications": {
             "type": "array",
-            "default": []
+            "default": [
+                {
+                    "name": "Marco da Milano",
+                    "product": "Nike Air Force 1 '07",
+                    "image": "",
+                    "location": "Milano, IT",
+                    "time": "2 minuti fa"
+                },
+                {
+                    "name": "Sara da Roma",
+                    "product": "Adidas Yeezy Boost 350",
+                    "image": "",
+                    "location": "Roma, IT",
+                    "time": "5 minuti fa"
+                }
+            ]
         },
         "interval": {
             "type": "number",

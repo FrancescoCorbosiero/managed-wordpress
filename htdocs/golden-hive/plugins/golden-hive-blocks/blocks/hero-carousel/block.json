@@ -12,7 +12,24 @@
     "attributes": {
         "slides": {
             "type": "array",
-            "default": []
+            "default": [
+                {
+                    "image": "",
+                    "eyebrow": "Nuova Collezione",
+                    "title": "Sneakers Premium Autentiche",
+                    "subtitle": "Scopri le ultime release verificate e certificate dal nostro team di esperti.",
+                    "buttonText": "Shop Now",
+                    "buttonUrl": "#shop"
+                },
+                {
+                    "image": "",
+                    "eyebrow": "Edizione Limitata",
+                    "title": "Drop Esclusivi Ogni Settimana",
+                    "subtitle": "Registrati per accedere in anteprima ai drop pi\u00f9 ricercati.",
+                    "buttonText": "Scopri di Pi\u00f9",
+                    "buttonUrl": "#drops"
+                }
+            ]
         },
         "autoplay": {
             "type": "number",

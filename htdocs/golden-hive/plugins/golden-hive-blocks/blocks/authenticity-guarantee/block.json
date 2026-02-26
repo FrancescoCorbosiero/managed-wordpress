@@ -28,7 +28,20 @@
         },
         "steps": {
             "type": "array",
-            "default": []
+            "default": [
+                {
+                    "title": "Ispezione Visiva",
+                    "text": "Ogni dettaglio viene esaminato dai nostri esperti certificati."
+                },
+                {
+                    "title": "Verifica Materiali",
+                    "text": "Controlliamo qualit\u00e0 dei materiali, cuciture e finiture."
+                },
+                {
+                    "title": "Certificazione",
+                    "text": "Solo i prodotti che superano tutti i controlli ricevono il nostro sigillo."
+                }
+            ]
         },
         "buttonText": {
             "type": "string",

@@ -16,7 +16,13 @@
         },
         "brands": {
             "type": "array",
-            "default": []
+            "default": [
+                { "name": "Nike", "logo": "", "url": "" },
+                { "name": "Adidas", "logo": "", "url": "" },
+                { "name": "Jordan", "logo": "", "url": "" },
+                { "name": "New Balance", "logo": "", "url": "" },
+                { "name": "Puma", "logo": "", "url": "" }
+            ]
         },
         "speed": {
             "type": "number",
