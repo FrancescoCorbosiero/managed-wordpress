@@ -36,7 +36,7 @@ $block_id = 'gh-hero-' . wp_unique_id();
                 <?php endif; ?>
 
                 <?php if (!empty($slide['title'])) : ?>
-                    <h2 class="gh-hero-slide__title" data-gh-split="chars"><?php echo esc_html($slide['title']); ?></h2>
+                    <h2 class="gh-hero-slide__title" data-gh-split="words"><?php echo esc_html($slide['title']); ?></h2>
                 <?php endif; ?>
 
                 <?php if (!empty($slide['subtitle'])) : ?>
