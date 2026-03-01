@@ -5,7 +5,7 @@
 
 /* Icona categoria blocchi */
 .block-editor-block-types-list__list-item[data-type^="golden-hive"] .block-editor-block-types-list__item-icon {
-    color: #ff3c00;
+    color: #721124;
 }
 
 /* Editor Block Wrapper */
@@ -59,11 +59,11 @@
 }
 
 .gh-editor-editable:focus {
-    box-shadow: 0 0 0 2px #ff3c00;
+    box-shadow: 0 0 0 2px #721124;
 }
 
 .gh-editor-editable:hover:not(:focus) {
-    box-shadow: 0 0 0 1px rgba(255, 60, 0, 0.3);
+    box-shadow: 0 0 0 1px rgba(114, 17, 36, 0.3);
 }
 
 /* Block Preview Labels */
@@ -72,7 +72,7 @@
     top: -24px;
     left: 0;
     padding: 2px 8px;
-    background-color: #ff3c00;
+    background-color: #721124;
     color: #fff;
     font-size: 11px;
     font-weight: 600;
@@ -139,7 +139,7 @@
 }
 
 .gh-editor-size-input:focus {
-    border-color: #ff3c00;
+    border-color: #721124;
     outline: none;
 }
 
@@ -179,14 +179,14 @@
     padding: 12px;
     border: none;
     background: none;
-    color: #ff3c00;
+    color: #721124;
     font-size: 13px;
     font-weight: 500;
     cursor: pointer;
 }
 
 .gh-editor-repeater__add:hover {
-    background-color: #fff5f0;
+    background-color: #fdf2f4;
 }
 
 /* Preview Notice */
@@ -229,8 +229,8 @@
 }
 
 .gh-editor-align-button.is-active {
-    background-color: #ff3c00;
-    border-color: #ff3c00;
+    background-color: #721124;
+    border-color: #721124;
     color: #fff;
 }
 
@@ -274,7 +274,7 @@
 
 /* Selected State Highlight */
 .wp-block[data-type^="golden-hive"].is-selected > * {
-    outline: 2px solid #ff3c00;
+    outline: 2px solid #721124;
     outline-offset: 2px;
 }
 
@@ -297,7 +297,7 @@
     width: 24px;
     height: 24px;
     border: 3px solid #e0e0e0;
-    border-top-color: #ff3c00;
+    border-top-color: #721124;
     border-radius: 50%;
     animation: gh-spin 0.8s linear infinite;
 }
@@ -341,7 +341,7 @@
     width: 48px;
     height: 48px;
     margin: 0 auto 16px;
-    color: #ff3c00;
+    color: #721124;
 }
 
 .gh-editor-placeholder__title {

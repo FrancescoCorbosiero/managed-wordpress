@@ -11,8 +11,8 @@
     /* Colori principali */
     --gh-black: #000000;
     --gh-white: #ffffff;
-    --gh-accent: #ff3c00;
-    --gh-accent-dark: #cc3000;
+    --gh-accent: #721124;
+    --gh-accent-dark: #520c1a;
     --gh-success: #00c853;
     --gh-warning: #ffc107;
     --gh-error: #f44336;
@@ -192,6 +192,8 @@ html:has(.gh-social-buttons) {
     text-transform: uppercase;
     color: var(--gh-white);
     margin-bottom: var(--gh-space-xl);
+    overflow-wrap: normal;
+    word-break: normal;
 }
 
 .gh-hero-slide__title .gh-char {
@@ -203,6 +205,19 @@ html:has(.gh-social-buttons) {
 }
 
 .gh-hero-slide--active .gh-hero-slide__title .gh-char {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+}
+
+.gh-hero-slide__title .gh-word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100%) rotateX(-90deg);
+    transition: all 0.7s var(--gh-ease-out);
+    transition-delay: calc(var(--word-index, 0) * 0.12s + 0.4s);
+}
+
+.gh-hero-slide--active .gh-hero-slide__title .gh-word {
     opacity: 1;
     transform: translateY(0) rotateX(0);
 }
@@ -288,37 +303,46 @@ html:has(.gh-social-buttons) {
 }
 
 .gh-hero-arrow {
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(255,255,255,0.4);
-    border-radius: 4px;
-    background: rgba(0,0,0,0.2);
+    border: 1.5px solid rgba(255,255,255,0.25);
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
     color: var(--gh-white);
     cursor: pointer;
-    transition: all 0.2s ease;
-    backdrop-filter: blur(4px);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 .gh-hero-arrow:hover {
-    background: rgba(255,255,255,0.15);
-    border-color: rgba(255,255,255,0.6);
+    background: var(--gh-accent);
+    border-color: var(--gh-accent);
+    color: var(--gh-white);
+    transform: scale(1.1);
+    box-shadow: 0 0 24px rgba(114,17,36,0.4);
+}
+
+.gh-hero-arrow:hover svg {
+    transform: scale(1.15);
 }
 
 .gh-hero-arrow:focus-visible {
     outline: 2px solid var(--gh-accent);
-    outline-offset: 2px;
+    outline-offset: 4px;
 }
 
 .gh-hero-arrow:active {
-    transform: scale(0.95);
+    transform: scale(0.92);
 }
 
 .gh-hero-arrow svg {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ==========================================================================
@@ -1282,26 +1306,28 @@ html:has(.gh-social-buttons) {
 /* Swiper Navigation */
 .gh-category-slider__carousel .swiper-button-prev,
 .gh-category-slider__carousel .swiper-button-next {
-    width: 44px;
-    height: 44px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.95);
+    background: var(--gh-white);
     color: var(--gh-black);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    transition: all 0.2s ease;
+    border: 1.5px solid var(--gh-gray-200);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .gh-category-slider__carousel .swiper-button-prev:hover,
 .gh-category-slider__carousel .swiper-button-next:hover {
-    background: var(--gh-black);
+    background: var(--gh-accent);
     color: var(--gh-white);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    transform: scale(1.05);
+    border-color: var(--gh-accent);
+    box-shadow: 0 6px 20px rgba(114,17,36,0.3);
+    transform: scale(1.1);
 }
 
 .gh-category-slider__carousel .swiper-button-prev::after,
 .gh-category-slider__carousel .swiper-button-next::after {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 700;
 }
 
@@ -2550,6 +2576,16 @@ a.gh-btn:visited {
         right: 12px !important;
         bottom: 12px !important;
         max-width: none !important;
+    }
+}
+
+/* ==========================================================================
+   DESKTOP ENHANCEMENTS
+   ========================================================================== */
+
+@media (min-width: 1200px) {
+    .gh-hero-slide__title {
+        font-size: clamp(6rem, 4rem + 8vw, 12rem);
     }
 }
 

@@ -148,7 +148,7 @@ function ghb_get_carousel_styles() {
        ═══════════════════════════════════════════════════════════ */
     :root {
         --ghb-primary: #0a0a0a;
-        --ghb-accent: #f5a623;
+        --ghb-accent: #721124;
         --ghb-danger: #e53e3e;
         --ghb-success: #38a169;
         --ghb-light: #f5f5f5;
@@ -423,13 +423,14 @@ function ghb_get_carousel_styles() {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        border: 1px solid var(--ghb-border);
+        border: 1.5px solid var(--ghb-border);
         background: var(--ghb-white);
         color: var(--ghb-text);
         cursor: pointer;
-        transition: var(--ghb-transition);
+        transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         flex-shrink: 0;
         z-index: 10;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
 
     .ghb-carousel__nav-btn:disabled {
@@ -438,14 +439,20 @@ function ghb_get_carousel_styles() {
     }
 
     .ghb-carousel__nav-btn:hover:not(:disabled) {
-        background: var(--ghb-primary);
-        border-color: var(--ghb-primary);
+        background: var(--ghb-accent);
+        border-color: var(--ghb-accent);
         color: var(--ghb-white);
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(114,17,36,0.3);
     }
 
     .ghb-carousel__nav-btn svg {
         stroke-width: 2;
-        transition: transform 0.2s ease;
+        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .ghb-carousel__nav-btn:hover:not(:disabled) svg {
+        transform: scale(1.15);
     }
 
     /* Navigation Shapes */
