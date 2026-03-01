@@ -67,7 +67,7 @@
     --gh-shadow-md: 0 4px 12px rgba(0,0,0,0.1);
     --gh-shadow-lg: 0 12px 40px rgba(0,0,0,0.15);
     --gh-shadow-xl: 0 24px 60px rgba(0,0,0,0.2);
-    --gh-shadow-glow: 0 0 60px rgba(255,60,0,0.3);
+    --gh-shadow-glow: 0 0 60px rgba(114,17,36,0.3);
 
     /* Z-Index */
     --gh-z-dropdown: 100;
@@ -95,6 +95,15 @@
     font-family: var(--gh-font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+/* Force thick headings — override Shoptimizer theme resets */
+.gh-block h1,
+.gh-block h2,
+.gh-block h3,
+.gh-block h4 {
+    font-weight: 800 !important;
+    font-family: var(--gh-font-display) !important;
 }
 
 /* Prevent horizontal overflow from fixed positioned elements */
@@ -171,7 +180,7 @@ html:has(.gh-social-buttons) {
     font-weight: 700;
     letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: var(--gh-accent);
+    color: rgba(255,255,255,0.85);
     margin-bottom: var(--gh-space-lg);
     opacity: 0;
     transform: translateY(20px);
@@ -408,7 +417,7 @@ html:has(.gh-social-buttons) {
 }
 
 .gh-hero-video__badge svg {
-    color: var(--gh-accent);
+    color: var(--gh-white);
 }
 
 .gh-hero-video__title {
@@ -714,7 +723,7 @@ html:has(.gh-social-buttons) {
     background: linear-gradient(135deg,
         rgba(0,0,0,0.9) 0%,
         rgba(0,0,0,0.6) 40%,
-        rgba(255,60,0,0.2) 100%
+        rgba(114,17,36,0.25) 100%
     );
 }
 
@@ -731,7 +740,7 @@ html:has(.gh-social-buttons) {
     font-weight: 700;
     letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: var(--gh-accent);
+    color: rgba(255,255,255,0.85);
     margin-bottom: var(--gh-space-lg);
 }
 
@@ -1058,7 +1067,7 @@ html:has(.gh-social-buttons) {
 }
 
 .gh-size-chart__highlight {
-    background: rgba(255,60,0,0.1) !important;
+    background: rgba(114,17,36,0.1) !important;
     font-weight: 600;
     color: var(--gh-accent) !important;
 }
@@ -1399,8 +1408,8 @@ html:has(.gh-social-buttons) {
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(circle at 20% 80%, rgba(255,60,0,0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255,60,0,0.05) 0%, transparent 50%);
+        radial-gradient(circle at 20% 80%, rgba(114,17,36,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(114,17,36,0.05) 0%, transparent 50%);
 }
 
 .gh-product-spotlight__container {
@@ -1677,8 +1686,8 @@ html:has(.gh-social-buttons) {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--gh-black);
-    color: var(--gh-accent);
+    background: var(--gh-accent);
+    color: var(--gh-white);
     border-radius: 50%;
     margin-bottom: var(--gh-space-lg);
 }
@@ -2580,16 +2589,6 @@ a.gh-btn:visited {
 }
 
 /* ==========================================================================
-   DESKTOP ENHANCEMENTS
-   ========================================================================== */
-
-@media (min-width: 1200px) {
-    .gh-hero-slide__title {
-        font-size: clamp(6rem, 4rem + 8vw, 12rem);
-    }
-}
-
-/* ==========================================================================
    RESPONSIVE
    ========================================================================== */
 
@@ -2609,7 +2608,7 @@ a.gh-btn:visited {
     }
 
     .gh-hero-slide__title {
-        font-size: var(--gh-text-4xl);
+        font-size: var(--gh-text-5xl);
     }
 
     .gh-hero-arrows {
@@ -2617,7 +2616,7 @@ a.gh-btn:visited {
     }
 
     .gh-hero-video__title {
-        font-size: var(--gh-text-4xl);
+        font-size: var(--gh-text-5xl);
     }
 
     .gh-parallax-section__title {
@@ -2796,6 +2795,439 @@ a.gh-btn:visited {
     height: 100% !important;
     display: block;
     border: 0;
+}
+
+/* ==========================================================================
+   DROP COUNTDOWN
+   Premium sneaker release countdown
+   ========================================================================== */
+
+.gh-drop-countdown {
+    background: var(--gh-black);
+    color: var(--gh-white);
+    padding: var(--gh-space-5xl) var(--gh-space-lg);
+    overflow: hidden;
+    font-family: var(--gh-font-sans);
+}
+
+.gh-drop-countdown__inner {
+    max-width: var(--gh-max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gh-space-3xl);
+    align-items: center;
+}
+
+.gh-drop-countdown__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gh-space-lg);
+}
+
+.gh-drop-countdown__eyebrow {
+    font-size: var(--gh-text-xs);
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+}
+
+.gh-drop-countdown__title {
+    font-family: var(--gh-font-display);
+    font-size: var(--gh-text-5xl);
+    font-weight: 800 !important;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+}
+
+.gh-drop-countdown__timer {
+    display: flex;
+    gap: var(--gh-space-md);
+    margin: var(--gh-space-lg) 0;
+}
+
+/* Countdown digits inherit from existing .gh-countdown__item/value/label styles */
+
+.gh-drop-countdown .gh-countdown__value {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    color: var(--gh-white);
+}
+
+.gh-drop-countdown .gh-countdown__label {
+    color: rgba(255,255,255,0.5);
+}
+
+.gh-drop-countdown__image {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    aspect-ratio: 1;
+}
+
+.gh-drop-countdown__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 24px;
+}
+
+.gh-drop-countdown__image-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    background: linear-gradient(135deg, rgba(114,17,36,0.2) 0%, rgba(255,255,255,0.03) 100%);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gh-drop-countdown__image-placeholder svg {
+    width: 80px;
+    height: 80px;
+    color: rgba(255,255,255,0.15);
+}
+
+@media (max-width: 768px) {
+    .gh-drop-countdown__inner {
+        grid-template-columns: 1fr;
+    }
+
+    .gh-drop-countdown__image {
+        order: -1;
+        aspect-ratio: 4/3;
+    }
+
+    .gh-drop-countdown__timer {
+        gap: var(--gh-space-sm);
+    }
+
+    .gh-drop-countdown .gh-countdown__value {
+        font-size: var(--gh-text-2xl);
+    }
+
+    .gh-drop-countdown__title {
+        font-size: var(--gh-text-3xl);
+    }
+}
+
+/* ==========================================================================
+   LEGIT CHECK
+   Authentication comparison cards
+   ========================================================================== */
+
+.gh-legit-check {
+    padding: var(--gh-space-5xl) var(--gh-space-lg);
+    font-family: var(--gh-font-sans);
+    background: var(--gh-gray-50);
+}
+
+.gh-legit-check__container {
+    max-width: var(--gh-max-width);
+    margin: 0 auto;
+}
+
+.gh-legit-check__header {
+    text-align: center;
+    margin-bottom: var(--gh-space-3xl);
+}
+
+.gh-legit-check__eyebrow {
+    font-size: var(--gh-text-xs);
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gh-accent);
+    margin-bottom: var(--gh-space-md);
+    display: block;
+}
+
+.gh-legit-check__title {
+    font-family: var(--gh-font-display);
+    font-size: var(--gh-text-4xl);
+    font-weight: 800 !important;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--gh-space-md);
+}
+
+.gh-legit-check__subtitle {
+    font-size: var(--gh-text-lg);
+    color: var(--gh-gray-500);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.gh-legit-check__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--gh-space-xl);
+    margin-bottom: var(--gh-space-3xl);
+}
+
+.gh-legit-check__card {
+    background: var(--gh-white);
+    border-radius: 16px;
+    padding: var(--gh-space-xl);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gh-legit-check__card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+
+.gh-legit-check__card-area {
+    font-family: var(--gh-font-display);
+    font-size: var(--gh-text-xl);
+    font-weight: 800 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: var(--gh-space-lg);
+    padding-bottom: var(--gh-space-md);
+    border-bottom: 2px solid var(--gh-gray-100);
+}
+
+.gh-legit-check__columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gh-space-md);
+}
+
+.gh-legit-check__col {
+    padding: var(--gh-space-md);
+    border-radius: 12px;
+}
+
+.gh-legit-check__col--real {
+    background: rgba(56, 161, 105, 0.06);
+    border: 1px solid rgba(56, 161, 105, 0.15);
+}
+
+.gh-legit-check__col--fake {
+    background: rgba(229, 62, 62, 0.06);
+    border: 1px solid rgba(229, 62, 62, 0.15);
+}
+
+.gh-legit-check__col-header {
+    display: flex;
+    align-items: center;
+    gap: var(--gh-space-xs);
+    margin-bottom: var(--gh-space-sm);
+}
+
+.gh-legit-check__icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.gh-legit-check__icon--check {
+    background: #38a169;
+    color: var(--gh-white);
+}
+
+.gh-legit-check__icon--x {
+    background: #e53e3e;
+    color: var(--gh-white);
+}
+
+.gh-legit-check__icon svg {
+    width: 12px;
+    height: 12px;
+}
+
+.gh-legit-check__col-label {
+    font-size: var(--gh-text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.gh-legit-check__col--real .gh-legit-check__col-label {
+    color: #38a169;
+}
+
+.gh-legit-check__col--fake .gh-legit-check__col-label {
+    color: #e53e3e;
+}
+
+.gh-legit-check__col-text {
+    font-size: var(--gh-text-sm);
+    line-height: 1.6;
+    color: var(--gh-gray-600);
+}
+
+.gh-legit-check__cta {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .gh-legit-check__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gh-legit-check__columns {
+        grid-template-columns: 1fr;
+    }
+
+    .gh-legit-check__title {
+        font-size: var(--gh-text-3xl);
+    }
+}
+
+/* ==========================================================================
+   INSTAGRAM FEED
+   IG teaser grid with CTA
+   ========================================================================== */
+
+.gh-instagram-feed {
+    padding: var(--gh-space-5xl) var(--gh-space-lg);
+    font-family: var(--gh-font-sans);
+}
+
+.gh-instagram-feed__container {
+    max-width: var(--gh-max-width);
+    margin: 0 auto;
+}
+
+.gh-instagram-feed__header {
+    text-align: center;
+    margin-bottom: var(--gh-space-3xl);
+}
+
+.gh-instagram-feed__title {
+    font-family: var(--gh-font-display);
+    font-size: var(--gh-text-3xl);
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--gh-space-sm);
+}
+
+.gh-instagram-feed__subtitle {
+    font-size: var(--gh-text-lg);
+    color: var(--gh-gray-500);
+}
+
+.gh-instagram-feed__grid {
+    display: grid;
+    grid-template-columns: repeat(var(--gh-ig-columns, 3), 1fr);
+    gap: var(--gh-space-sm);
+    margin-bottom: var(--gh-space-3xl);
+}
+
+.gh-instagram-feed__cell {
+    position: relative;
+    aspect-ratio: 1;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+}
+
+.gh-instagram-feed__cell .gh-instagram-feed__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.gh-instagram-feed__cell:hover .gh-instagram-feed__image {
+    transform: scale(1.08);
+}
+
+.gh-instagram-feed__placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--gh-gray-100) 0%, var(--gh-gray-200) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gh-instagram-feed__placeholder-icon {
+    color: var(--gh-gray-400);
+}
+
+.gh-instagram-feed__placeholder-icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+.gh-instagram-feed__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gh-space-sm);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: var(--gh-white);
+}
+
+.gh-instagram-feed__cell:hover .gh-instagram-feed__overlay {
+    opacity: 1;
+}
+
+.gh-instagram-feed__overlay-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.gh-instagram-feed__overlay-text {
+    font-size: var(--gh-text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.gh-instagram-feed__cta {
+    text-align: center;
+}
+
+.gh-instagram-feed__cta .gh-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--gh-space-sm);
+    background: var(--gh-black);
+    color: var(--gh-white);
+    border-color: var(--gh-black);
+}
+
+.gh-instagram-feed__cta .gh-btn:hover {
+    background: var(--gh-accent);
+    border-color: var(--gh-accent);
+}
+
+.gh-instagram-feed__cta .gh-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+@media (max-width: 768px) {
+    .gh-instagram-feed__grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .gh-instagram-feed__title {
+        font-size: var(--gh-text-2xl);
+    }
 }
 
 /* ==========================================================================
