@@ -12,15 +12,15 @@
     "attributes": {
         "eyebrow": {
             "type": "string",
-            "default": ""
+            "default": "Offerta Speciale"
         },
         "title": {
             "type": "string",
-            "default": ""
+            "default": "Spedizione Gratuita su Tutti gli Ordini"
         },
         "text": {
             "type": "string",
-            "default": ""
+            "default": "Approfitta della spedizione gratuita su tutti gli ordini superiori a \u20ac99. Solo per tempo limitato."
         },
         "buttonText": {
             "type": "string",

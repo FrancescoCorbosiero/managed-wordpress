@@ -12,7 +12,13 @@
     "attributes": {
         "badges": {
             "type": "array",
-            "default": []
+            "default": [
+                { "icon": "authentic", "title": "100% Autentico" },
+                { "icon": "shipping", "title": "Spedizione Gratuita" },
+                { "icon": "returns", "title": "Reso Facile" },
+                { "icon": "secure", "title": "Pagamento Sicuro" },
+                { "icon": "support", "title": "Supporto 24/7" }
+            ]
         },
         "variant": {
             "type": "string",

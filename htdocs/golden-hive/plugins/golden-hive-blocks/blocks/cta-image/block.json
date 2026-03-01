@@ -16,15 +16,15 @@
         },
         "eyebrow": {
             "type": "string",
-            "default": ""
+            "default": "Nuovi Arrivi"
         },
         "title": {
             "type": "string",
-            "default": ""
+            "default": "Streetwear Selezionato per Te"
         },
         "text": {
             "type": "string",
-            "default": ""
+            "default": "Ogni capo \u00e8 scelto con cura per garantirti stile, qualit\u00e0 e autenticit\u00e0."
         },
         "buttonText": {
             "type": "string",

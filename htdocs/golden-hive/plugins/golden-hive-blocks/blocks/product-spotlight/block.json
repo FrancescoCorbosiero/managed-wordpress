@@ -20,11 +20,11 @@
         },
         "title": {
             "type": "string",
-            "default": ""
+            "default": "Air Jordan 1 Retro High OG"
         },
         "description": {
             "type": "string",
-            "default": ""
+            "default": "Un'icona dello streetwear che non passa mai di moda. Materiali premium e design intramontabile."
         },
         "condition": {
             "type": "string",
@@ -40,7 +40,7 @@
         },
         "currentPrice": {
             "type": "string",
-            "default": ""
+            "default": "\u20ac189,00"
         },
         "originalPrice": {
             "type": "string",

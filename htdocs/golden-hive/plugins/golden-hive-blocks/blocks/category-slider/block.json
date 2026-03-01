@@ -12,11 +12,16 @@
     "attributes": {
         "title": {
             "type": "string",
-            "default": ""
+            "default": "Esplora le Categorie"
         },
         "categories": {
             "type": "array",
-            "default": []
+            "default": [
+                { "name": "Sneakers", "image": "", "url": "#sneakers" },
+                { "name": "Streetwear", "image": "", "url": "#streetwear" },
+                { "name": "Accessori", "image": "", "url": "#accessori" },
+                { "name": "Limited Edition", "image": "", "url": "#limited" }
+            ]
         },
         "showNav": {
             "type": "boolean",

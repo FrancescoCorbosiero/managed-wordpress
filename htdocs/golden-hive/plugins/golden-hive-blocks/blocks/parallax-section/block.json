@@ -20,15 +20,15 @@
         },
         "title": {
             "type": "string",
-            "default": ""
+            "default": "Il Tuo Stile, La Nostra Passione"
         },
         "text": {
             "type": "string",
-            "default": ""
+            "default": "Scopri una selezione curata di sneakers e streetwear premium, verificati e garantiti."
         },
         "buttonText": {
             "type": "string",
-            "default": ""
+            "default": "Esplora la Collezione"
         },
         "buttonUrl": {
             "type": "string",
