@@ -583,7 +583,9 @@
 
                 let current = 0;
                 let timer = null;
-                const autoplay = parseInt(carousel.dataset.caHeroAutoplay) || 8000;
+                const autoplay = carousel.hasAttribute('data-ca-hero-autoplay')
+                    ? (parseInt(carousel.dataset.caHeroAutoplay) || 8000)
+                    : 0;
 
                 const goTo = (index) => {
                     slides[current].classList.remove('ca-hero-slide--active');

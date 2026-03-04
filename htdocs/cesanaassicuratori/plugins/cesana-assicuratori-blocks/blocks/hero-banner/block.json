@@ -23,6 +23,10 @@
                 }
             ]
         },
+        "enableAutoplay": {
+            "type": "boolean",
+            "default": true
+        },
         "autoplay": {
             "type": "number",
             "default": 8000

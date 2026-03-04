@@ -8,10 +8,11 @@
 
     registerBlockType('cesana/hero-banner', {
         edit: function({ attributes, setAttributes }) {
-            var slides     = attributes.slides || [];
-            var autoplay   = attributes.autoplay;
-            var showDots   = attributes.showDots;
-            var showArrows = attributes.showArrows;
+            var slides         = attributes.slides || [];
+            var enableAutoplay = attributes.enableAutoplay;
+            var autoplay       = attributes.autoplay;
+            var showDots       = attributes.showDots;
+            var showArrows     = attributes.showArrows;
 
             function updateSlide(index, key, value) {
                 var updated = slides.map(function(s, i) {
@@ -47,14 +48,20 @@
                 // ── Sidebar ──────────────────────────────────────────────
                 el(InspectorControls, null,
                     el(PanelBody, { title: 'Impostazioni Slider', initialOpen: true },
-                        el(RangeControl, {
-                            label: 'Autoplay (ms)',
+                        el(ToggleControl, {
+                            label: 'Autoplay',
+                            help: enableAutoplay ? 'Le slide scorrono automaticamente.' : 'Scorrimento manuale.',
+                            checked: enableAutoplay,
+                            onChange: function(val) { setAttributes({ enableAutoplay: val }); }
+                        }),
+                        enableAutoplay ? el(RangeControl, {
+                            label: 'Velocità (ms)',
                             value: autoplay,
                             min: 2000,
                             max: 15000,
                             step: 500,
                             onChange: function(val) { setAttributes({ autoplay: val }); }
-                        }),
+                        }) : null,
                         el(ToggleControl, {
                             label: 'Mostra indicatori',
                             checked: showDots,
@@ -173,7 +180,7 @@
                     el('div', { className: 'ca-editor-placeholder__title' }, 'Hero Banner'),
                     el('div', { className: 'ca-editor-placeholder__text' },
                         slides.length > 0
-                            ? slides.length + ' slide configurate \u2014 autoplay ' + (autoplay / 1000).toFixed(1) + 's'
+                            ? slides.length + ' slide configurate' + (enableAutoplay ? ' \u2014 autoplay ' + (autoplay / 1000).toFixed(1) + 's' : '')
                             : 'Aggiungi slide dal pannello laterale.'
                     )
                 )

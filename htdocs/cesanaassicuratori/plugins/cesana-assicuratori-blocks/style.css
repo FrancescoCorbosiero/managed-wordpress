@@ -573,6 +573,108 @@
 }
 
 /* ==========================================================================
+   PAGE COVER
+   Elegant cover for pages/posts — eyebrow + title + decorative line
+   ========================================================================== */
+
+.ca-page-cover {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    min-height: 320px;
+    max-height: 480px;
+    overflow: hidden;
+    background: var(--ca-navy);
+}
+
+.ca-page-cover__bg {
+    position: absolute;
+    inset: 0;
+}
+
+.ca-page-cover__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ca-page-cover__overlay {
+    position: absolute;
+    inset: 0;
+}
+
+.ca-page-cover__content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    height: 100%;
+    max-width: var(--ca-max-width);
+    margin: 0 auto;
+    padding: var(--ca-space-2xl) var(--ca-space-2xl) var(--ca-space-3xl);
+    color: var(--ca-white);
+}
+
+.ca-page-cover--center .ca-page-cover__content {
+    align-items: center;
+    text-align: center;
+}
+
+.ca-page-cover__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--ca-font-sans);
+    font-size: var(--ca-text-xs);
+    font-weight: 500;
+    letter-spacing: var(--ca-tracking-eyebrow);
+    text-transform: uppercase;
+    color: var(--ca-gold);
+    margin-bottom: var(--ca-space-md);
+}
+
+.ca-page-cover__eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 2rem;
+    height: 1px;
+    background: var(--ca-gold);
+    margin-right: 0.75rem;
+}
+
+.ca-page-cover--center .ca-page-cover__eyebrow::before {
+    display: none;
+}
+
+.ca-page-cover__title {
+    font-family: var(--ca-font-display);
+    font-size: var(--ca-text-4xl);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: var(--ca-tracking-tight);
+    margin-bottom: var(--ca-space-lg);
+    max-width: 800px;
+}
+
+.ca-page-cover__line {
+    width: 3rem;
+    height: 2px;
+    background: var(--ca-gold);
+}
+
+@media (max-width: 768px) {
+    .ca-page-cover {
+        height: 45vh;
+        min-height: 260px;
+    }
+
+    .ca-page-cover__content {
+        padding: var(--ca-space-xl) var(--ca-space-lg) var(--ca-space-2xl);
+    }
+}
+
+/* ==========================================================================
    TRUST INDICATORS
    Horizontal strip with thin dividers — editorial, not bubbly
    ========================================================================== */
