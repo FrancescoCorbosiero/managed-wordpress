@@ -89,11 +89,47 @@
     };
 
 
+    /* ═══════════════════════════════════════════════════════════════
+       4. FaqAccordion — Expand/collapse FAQ items
+       Usage: data-er-faq on container, data-er-faq-trigger on buttons
+       ═══════════════════════════════════════════════════════════════ */
+    var FaqAccordion = {
+        init: function() {
+            document.querySelectorAll('[data-er-faq]').forEach(function(faq) {
+                var allowMultiple = faq.hasAttribute('data-er-faq-multiple');
+
+                faq.querySelectorAll('[data-er-faq-trigger]').forEach(function(trigger) {
+                    trigger.addEventListener('click', function() {
+                        var expanded = trigger.getAttribute('aria-expanded') === 'true';
+                        var contentId = trigger.getAttribute('aria-controls');
+                        var content = contentId ? document.getElementById(contentId) : null;
+
+                        if (!allowMultiple) {
+                            faq.querySelectorAll('[data-er-faq-trigger]').forEach(function(other) {
+                                if (other !== trigger) {
+                                    other.setAttribute('aria-expanded', 'false');
+                                    var otherId = other.getAttribute('aria-controls');
+                                    var otherContent = otherId ? document.getElementById(otherId) : null;
+                                    if (otherContent) otherContent.hidden = true;
+                                }
+                            });
+                        }
+
+                        trigger.setAttribute('aria-expanded', String(!expanded));
+                        if (content) content.hidden = expanded;
+                    });
+                });
+            });
+        }
+    };
+
+
     /* ─── Initialize All Modules ─── */
     var init = function() {
         ScrollReveal.init();
         HeaderScroll.init();
         SmoothScroll.init();
+        FaqAccordion.init();
     };
 
     if (document.readyState === 'loading') {

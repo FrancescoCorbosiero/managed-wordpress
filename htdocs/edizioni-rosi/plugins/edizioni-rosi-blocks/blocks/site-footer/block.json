@@ -1,0 +1,40 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "edizioni-rosi/site-footer",
+    "version": "1.0.0",
+    "title": "Site Footer",
+    "category": "edizioni-rosi",
+    "icon": "admin-generic",
+    "description": "Footer del sito con crediti, anno e link sviluppatore.",
+    "keywords": ["footer", "piè di pagina", "crediti"],
+    "textdomain": "edizioni-rosi-blocks",
+    "attributes": {
+        "copyrightText": {
+            "type": "string",
+            "default": "Edizioni Rosi"
+        },
+        "developerName": {
+            "type": "string",
+            "default": "alpacode.studio"
+        },
+        "developerUrl": {
+            "type": "string",
+            "default": "https://wa.me/393514003240"
+        },
+        "navItems": {
+            "type": "array",
+            "default": [
+                { "href": "/", "label": "Libri" },
+                { "href": "/autori", "label": "Autori" },
+                { "href": "/contatti", "label": "Contatti" }
+            ]
+        }
+    },
+    "supports": {
+        "align": ["full"],
+        "html": false
+    },
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php"
+}
