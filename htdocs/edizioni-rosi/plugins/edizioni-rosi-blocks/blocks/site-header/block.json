@@ -1,0 +1,36 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "edizioni-rosi/site-header",
+    "version": "1.0.0",
+    "title": "Site Header",
+    "category": "edizioni-rosi",
+    "icon": "admin-home",
+    "description": "Header del sito con logo e navigazione per Edizioni Rosi.",
+    "keywords": ["header", "logo", "navigazione", "menu"],
+    "textdomain": "edizioni-rosi-blocks",
+    "attributes": {
+        "logoUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "siteName": {
+            "type": "string",
+            "default": "Edizioni Rosi"
+        },
+        "navItems": {
+            "type": "array",
+            "default": [
+                { "href": "/", "label": "Libri" },
+                { "href": "/autori", "label": "Autori" },
+                { "href": "/contatti", "label": "Contatti" }
+            ]
+        }
+    },
+    "supports": {
+        "align": ["full"],
+        "html": false
+    },
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php"
+}

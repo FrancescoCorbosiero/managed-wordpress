@@ -1,0 +1,41 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "edizioni-rosi/editor-card",
+    "version": "1.0.0",
+    "title": "Editor Card",
+    "category": "edizioni-rosi",
+    "icon": "admin-users",
+    "description": "Card singola autore/editore con foto, nome, ruolo e bio.",
+    "keywords": ["autore", "editore", "card", "profilo"],
+    "textdomain": "edizioni-rosi-blocks",
+    "attributes": {
+        "url": {
+            "type": "string",
+            "default": ""
+        },
+        "photo": {
+            "type": "string",
+            "default": ""
+        },
+        "name": {
+            "type": "string",
+            "default": ""
+        },
+        "role": {
+            "type": "string",
+            "default": ""
+        },
+        "bio": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "supports": {
+        "html": false
+    },
+    "parent": ["edizioni-rosi/editor-grid"],
+    "usesContext": ["edizioni-rosi/editorGrid"],
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php"
+}

@@ -1,0 +1,40 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "edizioni-rosi/contact-info",
+    "version": "1.0.0",
+    "title": "Contact Info",
+    "category": "edizioni-rosi",
+    "icon": "email",
+    "description": "Sezione contatti con email, telefono, indirizzo e social links.",
+    "keywords": ["contatti", "email", "telefono", "social"],
+    "textdomain": "edizioni-rosi-blocks",
+    "attributes": {
+        "sectionTitle": {
+            "type": "string",
+            "default": "Contatti"
+        },
+        "email": {
+            "type": "string",
+            "default": ""
+        },
+        "phone": {
+            "type": "string",
+            "default": ""
+        },
+        "address": {
+            "type": "string",
+            "default": ""
+        },
+        "socialLinks": {
+            "type": "array",
+            "default": []
+        }
+    },
+    "supports": {
+        "align": ["wide", "full"],
+        "html": false
+    },
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php"
+}
