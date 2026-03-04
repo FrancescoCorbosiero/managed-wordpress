@@ -1,0 +1,41 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "edizioni-rosi/quote-banner",
+    "version": "1.0.0",
+    "title": "Quote Banner",
+    "category": "edizioni-rosi",
+    "icon": "format-quote",
+    "description": "Citazione in evidenza — estratto di un libro, recensione o frase d'autore con sfondo decorativo.",
+    "keywords": ["citazione", "quote", "autore", "recensione", "estratto"],
+    "textdomain": "edizioni-rosi-blocks",
+    "attributes": {
+        "quote": {
+            "type": "string",
+            "default": ""
+        },
+        "authorName": {
+            "type": "string",
+            "default": ""
+        },
+        "authorRole": {
+            "type": "string",
+            "default": ""
+        },
+        "sourceTitle": {
+            "type": "string",
+            "default": ""
+        },
+        "variant": {
+            "type": "string",
+            "default": "dark",
+            "enum": ["dark", "gold"]
+        }
+    },
+    "supports": {
+        "align": ["wide", "full"],
+        "html": false
+    },
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php"
+}

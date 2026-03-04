@@ -1,0 +1,45 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "edizioni-rosi/faq-section",
+    "version": "1.0.0",
+    "title": "FAQ Section",
+    "category": "edizioni-rosi",
+    "icon": "editor-help",
+    "description": "Sezione domande frequenti con accordion e markup JSON-LD FAQPage per SEO.",
+    "keywords": ["faq", "domande", "frequenti", "accordion", "schema"],
+    "textdomain": "edizioni-rosi-blocks",
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": "Domande Frequenti"
+        },
+        "subtitle": {
+            "type": "string",
+            "default": ""
+        },
+        "items": {
+            "type": "array",
+            "default": [
+                {
+                    "question": "Come posso acquistare i vostri libri?",
+                    "answer": "Tutti i nostri libri sono disponibili su Amazon. Clicca sulla copertina nel catalogo per essere reindirizzato alla pagina di acquisto."
+                },
+                {
+                    "question": "Come posso proporre un manoscritto?",
+                    "answer": "Inviaci il tuo manoscritto via email. Il nostro team editoriale valuterà la proposta e ti risponderà entro 30 giorni."
+                }
+            ]
+        },
+        "allowMultiple": {
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "supports": {
+        "align": ["wide"],
+        "html": false
+    },
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php"
+}
