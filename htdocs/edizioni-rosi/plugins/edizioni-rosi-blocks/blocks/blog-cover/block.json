@@ -1,0 +1,56 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "edizioni-rosi/blog-cover",
+    "version": "1.0.0",
+    "title": "Blog Cover",
+    "category": "edizioni-rosi",
+    "icon": "format-image",
+    "description": "Cover cinematografica per articoli e pagine del blog editoriale, con eyebrow, titolo, autore e data.",
+    "keywords": ["cover", "copertina", "blog", "articolo", "header"],
+    "textdomain": "edizioni-rosi-blocks",
+    "attributes": {
+        "eyebrow": {
+            "type": "string",
+            "default": ""
+        },
+        "title": {
+            "type": "string",
+            "default": ""
+        },
+        "excerpt": {
+            "type": "string",
+            "default": ""
+        },
+        "authorName": {
+            "type": "string",
+            "default": ""
+        },
+        "date": {
+            "type": "string",
+            "default": ""
+        },
+        "readingTime": {
+            "type": "string",
+            "default": ""
+        },
+        "backgroundImage": {
+            "type": "string",
+            "default": ""
+        },
+        "overlayOpacity": {
+            "type": "number",
+            "default": 70
+        },
+        "textAlign": {
+            "type": "string",
+            "default": "left"
+        }
+    },
+    "supports": {
+        "align": ["full"],
+        "html": false
+    },
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php"
+}
