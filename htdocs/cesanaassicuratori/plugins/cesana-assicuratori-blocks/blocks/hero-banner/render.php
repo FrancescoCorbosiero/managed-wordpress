@@ -4,10 +4,11 @@
  * Full-height homepage hero with optional crossfade slides
  */
 
-$slides     = $attributes['slides'] ?? [];
-$autoplay   = $attributes['autoplay'] ?? 8000;
-$show_dots  = $attributes['showDots'] ?? true;
-$show_arrows = $attributes['showArrows'] ?? true;
+$slides          = $attributes['slides'] ?? [];
+$enable_autoplay = $attributes['enableAutoplay'] ?? true;
+$autoplay        = $attributes['autoplay'] ?? 8000;
+$show_dots       = $attributes['showDots'] ?? true;
+$show_arrows     = $attributes['showArrows'] ?? true;
 
 if (empty($slides)) {
     return;
@@ -17,7 +18,7 @@ $block_id = 'ca-hero-' . wp_unique_id();
 ?>
 <section class="ca-block ca-hero-banner"
     data-ca-hero-banner
-    data-ca-hero-autoplay="<?php echo esc_attr($autoplay); ?>"
+    <?php if ($enable_autoplay) : ?>data-ca-hero-autoplay="<?php echo esc_attr($autoplay); ?>"<?php endif; ?>
     id="<?php echo esc_attr($block_id); ?>">
 
     <?php foreach ($slides as $index => $slide) : ?>
