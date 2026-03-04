@@ -578,6 +578,7 @@
                 const dots = carousel.querySelector('[data-ca-hero-dots]');
                 const prev = carousel.querySelector('[data-ca-hero-prev]');
                 const next = carousel.querySelector('[data-ca-hero-next]');
+                const progressBar = carousel.querySelector('[data-ca-hero-progress]');
 
                 if (slides.length < 2) return;
 
@@ -586,6 +587,17 @@
                 const autoplay = carousel.hasAttribute('data-ca-hero-autoplay')
                     ? (parseInt(carousel.dataset.caHeroAutoplay) || 8000)
                     : 0;
+
+                const restartProgress = () => {
+                    if (!progressBar || autoplay <= 0) return;
+                    const bar = progressBar.querySelector('.ca-hero-progress__bar');
+                    if (!bar) return;
+                    bar.style.animation = 'none';
+                    void bar.offsetHeight;
+                    bar.style.animation = '';
+                    bar.style.animationDuration = autoplay + 'ms';
+                    progressBar.classList.remove('ca-hero-progress--paused');
+                };
 
                 const goTo = (index) => {
                     slides[current].classList.remove('ca-hero-slide--active');
@@ -616,7 +628,16 @@
 
                 const resetTimer = () => {
                     if (timer) clearInterval(timer);
-                    if (autoplay > 0) timer = setInterval(() => goTo(current + 1), autoplay);
+                    if (autoplay > 0) {
+                        timer = setInterval(() => goTo(current + 1), autoplay);
+                        restartProgress();
+                    }
+                };
+
+                const pauseTimer = () => {
+                    if (timer) clearInterval(timer);
+                    timer = null;
+                    if (progressBar) progressBar.classList.add('ca-hero-progress--paused');
                 };
 
                 if (dots) {
@@ -641,7 +662,7 @@
                     if (Math.abs(diff) > 50) goTo(current + (diff > 0 ? 1 : -1));
                 }, { passive: true });
 
-                carousel.addEventListener('mouseenter', () => timer && clearInterval(timer));
+                carousel.addEventListener('mouseenter', pauseTimer);
                 carousel.addEventListener('mouseleave', resetTimer);
 
                 slides[0].classList.add('ca-hero-slide--active');
