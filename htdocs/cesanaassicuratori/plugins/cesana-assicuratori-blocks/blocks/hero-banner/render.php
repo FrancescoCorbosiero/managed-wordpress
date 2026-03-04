@@ -27,7 +27,7 @@ $block_id = 'ca-hero-' . wp_unique_id();
                 <?php if (!empty($slide['image'])) : ?>
                     <img src="<?php echo esc_url($slide['image']); ?>"
                          alt=""
-                         loading="<?php echo $index === 0 ? 'eager' : 'lazy'; ?>">
+                         loading="<?php echo $index < 2 ? 'eager' : 'lazy'; ?>">
                 <?php endif; ?>
             </div>
             <div class="ca-hero-slide__overlay"></div>
@@ -57,7 +57,13 @@ $block_id = 'ca-hero-' . wp_unique_id();
     <?php endforeach; ?>
 
     <?php if ($show_dots && count($slides) > 1) : ?>
-        <nav class="ca-hero-nav" data-ca-hero-dots aria-label="Navigazione slides"></nav>
+        <nav class="ca-hero-nav" data-ca-hero-dots aria-label="Navigazione slides">
+            <?php if ($enable_autoplay) : ?>
+                <div class="ca-hero-progress" data-ca-hero-progress>
+                    <div class="ca-hero-progress__bar" style="animation-duration: <?php echo esc_attr($autoplay); ?>ms;"></div>
+                </div>
+            <?php endif; ?>
+        </nav>
     <?php endif; ?>
 
     <?php if ($show_arrows && count($slides) > 1) : ?>

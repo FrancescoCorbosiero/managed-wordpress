@@ -443,6 +443,33 @@
     width: 40px;
 }
 
+/* Autoplay progress bar */
+.ca-hero-progress {
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.ca-hero-progress__bar {
+    height: 100%;
+    width: 0%;
+    background: var(--ca-gold);
+    animation: ca-hero-progress-fill linear forwards;
+}
+
+.ca-hero-progress--paused .ca-hero-progress__bar {
+    animation-play-state: paused;
+}
+
+@keyframes ca-hero-progress-fill {
+    from { width: 0%; }
+    to   { width: 100%; }
+}
+
 .ca-hero-arrows {
     position: absolute;
     top: 50%;
@@ -2777,6 +2804,10 @@
 
     .ca-hero-dot {
         transition: none;
+    }
+
+    .ca-hero-progress__bar {
+        animation: none;
     }
 
     .ca-hero-arrow {
