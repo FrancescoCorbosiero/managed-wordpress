@@ -1,0 +1,37 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "edizioni-rosi/book-card",
+    "version": "1.0.0",
+    "title": "Book Card",
+    "category": "edizioni-rosi",
+    "icon": "book",
+    "description": "Card singola libro con copertina, autore, titolo e link.",
+    "keywords": ["libro", "card", "book", "copertina"],
+    "textdomain": "edizioni-rosi-blocks",
+    "attributes": {
+        "url": {
+            "type": "string",
+            "default": ""
+        },
+        "cover": {
+            "type": "string",
+            "default": ""
+        },
+        "author": {
+            "type": "string",
+            "default": ""
+        },
+        "title": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "supports": {
+        "html": false
+    },
+    "parent": ["edizioni-rosi/book-grid"],
+    "usesContext": ["edizioni-rosi/bookGrid"],
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php"
+}

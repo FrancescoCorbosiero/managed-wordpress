@@ -1,0 +1,28 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "edizioni-rosi/editor-grid",
+    "version": "1.0.0",
+    "title": "Editor Grid",
+    "category": "edizioni-rosi",
+    "icon": "groups",
+    "description": "Griglia autori/editori con foto, nome, ruolo e bio.",
+    "keywords": ["autori", "editori", "griglia", "team"],
+    "textdomain": "edizioni-rosi-blocks",
+    "attributes": {
+        "sectionTitle": {
+            "type": "string",
+            "default": "Autori"
+        }
+    },
+    "supports": {
+        "align": ["wide", "full"],
+        "html": false
+    },
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php",
+    "providesContext": {
+        "edizioni-rosi/editorGrid": true
+    },
+    "allowedBlocks": ["edizioni-rosi/editor-card"]
+}
