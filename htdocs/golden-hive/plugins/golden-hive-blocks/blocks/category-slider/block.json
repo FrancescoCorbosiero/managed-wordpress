@@ -38,6 +38,18 @@
         "loop": {
             "type": "boolean",
             "default": true
+        },
+        "imageRatio": {
+            "type": "string",
+            "default": "4 / 5"
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 40
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 40
         }
     },
     "supports": {
