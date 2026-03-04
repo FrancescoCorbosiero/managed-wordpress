@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edizioni Rosi — Block Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Demo-only overrides — make stagger animations visible immediately */
+        .er-book,
+        .er-editor,
+        .er-contact__item,
+        .er-contact__social,
+        .er-section-title,
+        .er-footer {
+            opacity: 1 !important;
+            transform: none !important;
+            animation: none !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ════════════════════════════════════════════════════════════
+         SITE HEADER
+         ════════════════════════════════════════════════════════════ -->
+
+    <header class="er-header">
+        <div class="er-header__container">
+            <a href="/" class="er-logo">
+                <span class="er-logo__glow"></span>
+                <img class="er-logo__img"
+                     src="https://edizionirosi.it/wp-content/uploads/2025/12/Rosi-Edizioni-logo-nero.png"
+                     alt="Edizioni Rosi"
+                     loading="eager">
+            </a>
+            <nav class="er-nav" aria-label="Navigazione principale">
+                <a href="/" class="er-nav__link er-nav__link--active" aria-current="page">Libri</a>
+                <a href="/autori" class="er-nav__link">Autori</a>
+                <a href="/contatti" class="er-nav__link">Contatti</a>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- ════════════════════════════════════════════════════════════
+         BOOK GRID — Catalogo Amazon
+         ════════════════════════════════════════════════════════════ -->
+
+    <div class="er-main">
+        <h2 class="er-section-title">Catalogo Amazon</h2>
+
+        <div class="er-books">
+
+            <a class="er-book" href="https://amzn.eu/d/6DyQonD" target="_blank" rel="noopener">
+                <div class="er-book__cover">
+                    <img src="https://edizionirosi.it/wp-content/uploads/2025/12/libro4.jpg"
+                         alt="Webcracy: La Verità Sorvegliata" loading="lazy">
+                </div>
+                <div class="er-book__info">
+                    <span class="er-book__author">Glauco Benigni</span>
+                    <span class="er-book__title">Webcracy: La Verità Sorvegliata</span>
+                </div>
+                <span class="er-book__arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                </span>
+            </a>
+
+            <a class="er-book" href="https://amzn.eu/d/1dNvEw6" target="_blank" rel="noopener">
+                <div class="er-book__cover">
+                    <img src="https://edizionirosi.it/wp-content/uploads/2025/12/libro7.jpg"
+                         alt="Frontiere" loading="lazy">
+                </div>
+                <div class="er-book__info">
+                    <span class="er-book__author">Francesco Neri</span>
+                    <span class="er-book__title">Frontiere</span>
+                </div>
+                <span class="er-book__arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                </span>
+            </a>
+
+            <a class="er-book" href="https://amzn.eu/d/hd6HB0N" target="_blank" rel="noopener">
+                <div class="er-book__cover">
+                    <img src="https://edizionirosi.it/wp-content/uploads/2025/12/libro6.jpg"
+                         alt="Sulla Pelle dei Papi" loading="lazy">
+                </div>
+                <div class="er-book__info">
+                    <span class="er-book__author">Glauco Benigni</span>
+                    <span class="er-book__title">Sulla Pelle dei Papi</span>
+                </div>
+                <span class="er-book__arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                </span>
+            </a>
+
+            <a class="er-book" href="https://amzn.eu/d/dXLbWfj" target="_blank" rel="noopener">
+                <div class="er-book__cover">
+                    <img src="https://edizionirosi.it/wp-content/uploads/2025/12/libro9.jpg"
+                         alt="Liberi dal Denaro" loading="lazy">
+                </div>
+                <div class="er-book__info">
+                    <span class="er-book__author">Francesco Neri</span>
+                    <span class="er-book__title">Liberi dal Denaro</span>
+                </div>
+                <span class="er-book__arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                </span>
+            </a>
+
+            <a class="er-book" href="https://amzn.eu/d/8D0fdbD" target="_blank" rel="noopener">
+                <div class="er-book__cover">
+                    <img src="https://edizionirosi.it/wp-content/uploads/2025/12/libro5.jpg"
+                         alt="Uno Sguardo dal Fronte" loading="lazy">
+                </div>
+                <div class="er-book__info">
+                    <span class="er-book__author">Fulvio Grimaldi</span>
+                    <span class="er-book__title">Uno Sguardo dal Fronte</span>
+                </div>
+                <span class="er-book__arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                </span>
+            </a>
+
+            <a class="er-book" href="https://amzn.eu/d/75PmImZ" target="_blank" rel="noopener">
+                <div class="er-book__cover">
+                    <img src="https://edizionirosi.it/wp-content/uploads/2025/12/libro3.jpg"
+                         alt="YouTube: La Genesi" loading="lazy">
+                </div>
+                <div class="er-book__info">
+                    <span class="er-book__author">Glauco Benigni</span>
+                    <span class="er-book__title">YouTube: La Genesi</span>
+                </div>
+                <span class="er-book__arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                </span>
+            </a>
+
+            <a class="er-book" href="https://amzn.eu/d/38FW6nI" target="_blank" rel="noopener">
+                <div class="er-book__cover">
+                    <img src="https://edizionirosi.it/wp-content/uploads/2025/12/libro10.jpg"
+                         alt="Il Nodo Gordiano" loading="lazy">
+                </div>
+                <div class="er-book__info">
+                    <span class="er-book__author">Maria Micaela Bartolucci</span>
+                    <span class="er-book__title">Il Nodo Gordiano</span>
+                </div>
+                <span class="er-book__arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                </span>
+            </a>
+
+            <a class="er-book" href="https://amzn.eu/d/8ghRV9r" target="_blank" rel="noopener">
+                <div class="er-book__cover">
+                    <img src="https://edizionirosi.it/wp-content/uploads/2025/12/libro11.jpg"
+                         alt="Meccanica Taoica Universale" loading="lazy">
+                </div>
+                <div class="er-book__info">
+                    <span class="er-book__author">Eros Poeta</span>
+                    <span class="er-book__title">Meccanica Taoica Universale</span>
+                </div>
+                <span class="er-book__arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                </span>
+            </a>
+
+            <a class="er-book" href="https://amzn.eu/d/4ow8v2L" target="_blank" rel="noopener">
+                <div class="er-book__cover">
+                    <img src="https://edizionirosi.it/wp-content/uploads/2025/12/libro8.jpg"
+                         alt="Guilty Books: Una Raccolta di Rant Ossessionati dalla Libertà" loading="lazy">
+                </div>
+                <div class="er-book__info">
+                    <span class="er-book__author">Collettivo Anonimo</span>
+                    <span class="er-book__title">Guilty Books: Una Raccolta di Rant Ossessionati dalla Libertà</span>
+                </div>
+                <span class="er-book__arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                </span>
+            </a>
+
+            <a class="er-book" href="https://amzn.eu/d/4dHmoyJ" target="_blank" rel="noopener">
+                <div class="er-book__cover">
+                    <img src="https://edizionirosi.it/wp-content/uploads/2025/12/libro2.jpg"
+                         alt="Tremenda Mulatta" loading="lazy">
+                </div>
+                <div class="er-book__info">
+                    <span class="er-book__author">Glauco Benigni</span>
+                    <span class="er-book__title">Tremenda Mulatta</span>
+                </div>
+                <span class="er-book__arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                </span>
+            </a>
+
+        </div>
+    </div>
+
+
+    <!-- ════════════════════════════════════════════════════════════
+         EDITOR/AUTHOR GRID
+         ════════════════════════════════════════════════════════════ -->
+
+    <div class="er-main">
+        <h2 class="er-section-title">Autori</h2>
+
+        <div class="er-editors">
+
+            <a class="er-editor" href="#">
+                <div class="er-editor__photo">
+                    <img src="https://edizionirosi.it/wp-content/uploads/2025/12/libro4.jpg"
+                         alt="Glauco Benigni" loading="lazy">
+                </div>
+                <div class="er-editor__info">
+                    <span class="er-editor__name">Glauco Benigni</span>
+                    <span class="er-editor__role">Autore</span>
+                    <p class="er-editor__bio">Giornalista e scrittore, autore di numerose opere su media, potere e comunicazione digitale.</p>
+                </div>
+                <span class="er-editor__arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                </span>
+            </a>
+
+            <a class="er-editor" href="#">
+                <div class="er-editor__photo">
+                    <img src="https://edizionirosi.it/wp-content/uploads/2025/12/libro7.jpg"
+                         alt="Francesco Neri" loading="lazy">
+                </div>
+                <div class="er-editor__info">
+                    <span class="er-editor__name">Francesco Neri</span>
+                    <span class="er-editor__role">Autore</span>
+                    <p class="er-editor__bio">Scrittore e pensatore indipendente, esplora temi di libertà, economia e confini sociali.</p>
+                </div>
+                <span class="er-editor__arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                </span>
+            </a>
+
+            <div class="er-editor">
+                <div class="er-editor__photo">
+                    <img src="https://edizionirosi.it/wp-content/uploads/2025/12/libro5.jpg"
+                         alt="Fulvio Grimaldi" loading="lazy">
+                </div>
+                <div class="er-editor__info">
+                    <span class="er-editor__name">Fulvio Grimaldi</span>
+                    <span class="er-editor__role">Autore</span>
+                    <p class="er-editor__bio">Giornalista, documentarista e reporter di guerra con decenni di esperienza internazionale.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- ════════════════════════════════════════════════════════════
+         CONTACT INFO
+         ════════════════════════════════════════════════════════════ -->
+
+    <div class="er-main er-main--contact">
+        <h2 class="er-section-title">Contatti</h2>
+
+        <div class="er-contact">
+
+            <a href="mailto:info@edizionirosi.it" class="er-contact__item">
+                <svg class="er-contact__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                <span>info@edizionirosi.it</span>
+            </a>
+
+            <a href="tel:+390000000000" class="er-contact__item">
+                <svg class="er-contact__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>+39 000 000 0000</span>
+            </a>
+
+            <div class="er-contact__item er-contact__item--address">
+                <svg class="er-contact__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Roma, Italia</span>
+            </div>
+
+            <div class="er-contact__social">
+                <a href="#" class="er-contact__social-link" target="_blank" rel="noopener" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </a>
+                <a href="#" class="er-contact__social-link" target="_blank" rel="noopener" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                </a>
+                <a href="https://wa.me/393514003240" class="er-contact__social-link" target="_blank" rel="noopener" aria-label="WhatsApp">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- ════════════════════════════════════════════════════════════
+         FOOTER
+         ════════════════════════════════════════════════════════════ -->
+
+    <footer class="er-footer">
+        <div style="text-align: center; padding: 10px 0; font-size: 10px; opacity: 0.7;">
+            <span style="margin-right: 6px;">{ }</span>
+            Developed by <a href="https://wa.me/393514003240" target="_blank" rel="noopener"
+                style="color: inherit; text-decoration: none; font-weight: 500; border-bottom: 1px solid currentColor;">alpacode.studio</a>
+        </div>
+    </footer>
+
+    <script src="js/animations.js"></script>
+</body>
+
+</html>
