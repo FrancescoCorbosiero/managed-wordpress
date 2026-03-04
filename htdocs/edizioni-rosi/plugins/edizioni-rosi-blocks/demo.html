@@ -18,7 +18,9 @@
         .er-contact__item,
         .er-contact__social,
         .er-section-title,
-        .er-footer {
+        .er-footer,
+        .er-cta,
+        .er-blog-cover {
             opacity: 1 !important;
             transform: none !important;
             animation: none !important;
@@ -48,6 +50,33 @@
             </nav>
         </div>
     </header>
+
+
+    <!-- ════════════════════════════════════════════════════════════
+         BLOG COVER — Cinematic editorial article header
+         ════════════════════════════════════════════════════════════ -->
+
+    <section class="er-blog-cover">
+        <div class="er-blog-cover__bg">
+            <img src="https://edizionirosi.it/wp-content/uploads/2025/12/libro4.jpg" alt="" loading="eager">
+        </div>
+        <div class="er-blog-cover__overlay"
+             style="background: linear-gradient(to top, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.4) 50%, rgba(10,10,10,0.2) 100%);">
+        </div>
+        <div class="er-blog-cover__content">
+            <span class="er-blog-cover__eyebrow">Recensione</span>
+            <h1 class="er-blog-cover__title">Il Potere della Parola Scritta nell'Era Digitale</h1>
+            <p class="er-blog-cover__excerpt">Come la letteratura indipendente sta ridefinendo il panorama editoriale italiano, una pubblicazione alla volta.</p>
+            <div class="er-blog-cover__line"></div>
+            <div class="er-blog-cover__meta">
+                <span class="er-blog-cover__meta-author">Glauco Benigni</span>
+                <span class="er-blog-cover__meta-sep">&middot;</span>
+                <time class="er-blog-cover__meta-date">15 Gennaio 2026</time>
+                <span class="er-blog-cover__meta-sep">&middot;</span>
+                <span class="er-blog-cover__meta-reading">5 min di lettura</span>
+            </div>
+        </div>
+    </section>
 
 
     <!-- ════════════════════════════════════════════════════════════
@@ -201,6 +230,44 @@
 
         </div>
     </div>
+
+
+    <!-- ════════════════════════════════════════════════════════════
+         CTA BANNER — Dark variant
+         ════════════════════════════════════════════════════════════ -->
+
+    <section class="er-cta er-cta--dark">
+        <div class="er-cta__bg">
+            <img src="https://edizionirosi.it/wp-content/uploads/2025/12/libro6.jpg" alt="" loading="lazy">
+        </div>
+        <div class="er-cta__overlay"></div>
+        <div class="er-cta__content">
+            <span class="er-cta__eyebrow">Novità in Libreria</span>
+            <h2 class="er-cta__title">Scopri il Nostro Catalogo</h2>
+            <p class="er-cta__text">Esplora le opere dei nostri autori e trova la tua prossima lettura su Amazon.</p>
+            <a href="#" class="er-cta__btn">
+                Sfoglia i Libri
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+        </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════════════════════════
+         CTA BANNER — Gold variant
+         ════════════════════════════════════════════════════════════ -->
+
+    <section class="er-cta er-cta--gold">
+        <div class="er-cta__content">
+            <span class="er-cta__eyebrow">Per gli Autori</span>
+            <h2 class="er-cta__title">Pubblica con Edizioni Rosi</h2>
+            <p class="er-cta__text">Hai un manoscritto? Siamo sempre alla ricerca di voci nuove e storie da raccontare.</p>
+            <a href="#" class="er-cta__btn">
+                Invia il Tuo Manoscritto
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+        </div>
+    </section>
 
 
     <!-- ════════════════════════════════════════════════════════════

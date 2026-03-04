@@ -676,6 +676,312 @@ a.er-contact__item:hover::before {
 
 
 /* ==========================================================================
+   CTA Banner
+   ========================================================================== */
+
+.er-cta {
+    position: relative;
+    padding: var(--er-space-3xl) 0;
+    overflow: hidden;
+    margin: var(--er-space-xl) 0;
+}
+
+/* Dark variant (default) */
+.er-cta--dark {
+    background: var(--er-color-ink);
+    color: var(--er-color-pearl);
+}
+
+/* Gold variant */
+.er-cta--gold {
+    background: linear-gradient(135deg, #a8873a, var(--er-color-gold));
+    color: var(--er-color-void);
+}
+
+/* Background image layer */
+.er-cta__bg {
+    position: absolute;
+    inset: 0;
+}
+
+.er-cta__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(30%);
+}
+
+.er-cta__overlay {
+    position: absolute;
+    inset: 0;
+}
+
+.er-cta--dark .er-cta__overlay {
+    background: rgba(10, 10, 10, 0.85);
+}
+
+.er-cta--gold .er-cta__overlay {
+    background: rgba(160, 130, 50, 0.88);
+}
+
+/* Content */
+.er-cta__content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 var(--er-space-lg);
+    text-align: center;
+}
+
+.er-cta__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--er-font-body);
+    font-size: var(--er-text-xs);
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: var(--er-space-md);
+}
+
+.er-cta--dark .er-cta__eyebrow {
+    color: var(--er-color-gold);
+}
+
+.er-cta--gold .er-cta__eyebrow {
+    color: var(--er-color-void);
+    opacity: 0.7;
+}
+
+.er-cta__eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 1.5rem;
+    height: 1px;
+    background: currentColor;
+    margin-right: 0.75rem;
+}
+
+.er-cta__eyebrow::after {
+    content: '';
+    display: inline-block;
+    width: 1.5rem;
+    height: 1px;
+    background: currentColor;
+    margin-left: 0.75rem;
+}
+
+.er-cta__title {
+    font-family: var(--er-font-display);
+    font-size: var(--er-text-2xl);
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: var(--er-space-md);
+}
+
+.er-cta__text {
+    font-size: var(--er-text-base);
+    line-height: 1.6;
+    opacity: 0.75;
+    margin-bottom: var(--er-space-xl);
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Button */
+.er-cta__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
+    font-family: var(--er-font-body);
+    font-size: var(--er-text-sm);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: all 0.3s var(--er-ease-out-expo);
+}
+
+.er-cta__btn svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s var(--er-ease-out-expo);
+}
+
+.er-cta__btn:hover svg {
+    transform: translateX(3px);
+}
+
+/* Dark variant button */
+.er-cta--dark .er-cta__btn {
+    color: var(--er-color-void);
+    background: var(--er-color-gold);
+    border-color: var(--er-color-gold);
+}
+
+.er-cta--dark .er-cta__btn:hover {
+    background: transparent;
+    color: var(--er-color-gold);
+}
+
+/* Gold variant button */
+.er-cta--gold .er-cta__btn {
+    color: var(--er-color-gold);
+    background: var(--er-color-void);
+    border-color: var(--er-color-void);
+}
+
+.er-cta--gold .er-cta__btn:hover {
+    background: transparent;
+    color: var(--er-color-void);
+}
+
+
+/* ==========================================================================
+   Blog Cover
+   ========================================================================== */
+
+.er-blog-cover {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    min-height: 380px;
+    max-height: 560px;
+    overflow: hidden;
+    background: var(--er-color-void);
+}
+
+.er-blog-cover__bg {
+    position: absolute;
+    inset: 0;
+}
+
+.er-blog-cover__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(15%) contrast(1.05);
+    transition: transform 8s ease-out;
+}
+
+/* Subtle Ken Burns on reveal */
+.er-blog-cover[data-er-revealed] .er-blog-cover__bg img {
+    transform: scale(1.04);
+}
+
+.er-blog-cover__overlay {
+    position: absolute;
+    inset: 0;
+}
+
+/* Content */
+.er-blog-cover__content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    height: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: var(--er-space-xl) var(--er-space-lg) var(--er-space-2xl);
+    color: var(--er-color-pearl);
+}
+
+.er-blog-cover--center .er-blog-cover__content {
+    align-items: center;
+    text-align: center;
+}
+
+/* Eyebrow */
+.er-blog-cover__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--er-font-body);
+    font-size: var(--er-text-xs);
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--er-color-gold);
+    margin-bottom: var(--er-space-md);
+}
+
+.er-blog-cover__eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 2rem;
+    height: 1px;
+    background: var(--er-color-gold);
+    margin-right: 0.75rem;
+}
+
+.er-blog-cover--center .er-blog-cover__eyebrow::before {
+    display: none;
+}
+
+/* Title */
+.er-blog-cover__title {
+    font-family: var(--er-font-display);
+    font-size: clamp(1.75rem, 1.5rem + 1.5vw, 2.75rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-bottom: var(--er-space-md);
+    max-width: 650px;
+}
+
+/* Excerpt */
+.er-blog-cover__excerpt {
+    font-size: var(--er-text-base);
+    line-height: 1.6;
+    color: var(--er-color-cloud);
+    max-width: 520px;
+    margin-bottom: var(--er-space-md);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Decorative line */
+.er-blog-cover__line {
+    width: 2.5rem;
+    height: 2px;
+    background: var(--er-color-gold);
+    margin-bottom: var(--er-space-md);
+}
+
+.er-blog-cover--center .er-blog-cover__line {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Meta row */
+.er-blog-cover__meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: var(--er-text-xs);
+    color: var(--er-color-mist);
+    letter-spacing: 0.04em;
+}
+
+.er-blog-cover__meta-author {
+    color: var(--er-color-gold);
+    font-weight: 500;
+}
+
+.er-blog-cover__meta-sep {
+    opacity: 0.4;
+}
+
+
+/* ==========================================================================
    Footer
    ========================================================================== */
 
@@ -867,6 +1173,26 @@ a.er-contact__item:hover::before {
 
 
 /* ==========================================================================
+   Responsive — CTA Banner
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .er-cta {
+        padding: var(--er-space-2xl) 0;
+    }
+
+    .er-blog-cover {
+        height: 50vh;
+        min-height: 320px;
+    }
+
+    .er-blog-cover__content {
+        padding: var(--er-space-lg) var(--er-space-md) var(--er-space-xl);
+    }
+}
+
+
+/* ==========================================================================
    Reduced Motion
    ========================================================================== */
 
@@ -888,6 +1214,10 @@ a.er-contact__item:hover::before {
         opacity: 1;
         transform: none;
     }
+
+    .er-blog-cover__bg img {
+        transform: none !important;
+    }
 }
 
 
@@ -899,7 +1229,8 @@ a.er-contact__item:hover::before {
 .er-book:focus-visible,
 .er-editor:focus-visible,
 .er-contact__item:focus-visible,
-.er-contact__social-link:focus-visible {
+.er-contact__social-link:focus-visible,
+.er-cta__btn:focus-visible {
     outline: 1px solid var(--er-color-gold);
     outline-offset: 2px;
 }
@@ -914,7 +1245,9 @@ a.er-contact__item:hover::before {
 .editor-styles-wrapper .er-contact__item,
 .editor-styles-wrapper .er-contact__social,
 .editor-styles-wrapper .er-header,
-.editor-styles-wrapper .er-footer {
+.editor-styles-wrapper .er-footer,
+.editor-styles-wrapper .er-cta,
+.editor-styles-wrapper .er-blog-cover {
     opacity: 1;
     transform: none;
 }

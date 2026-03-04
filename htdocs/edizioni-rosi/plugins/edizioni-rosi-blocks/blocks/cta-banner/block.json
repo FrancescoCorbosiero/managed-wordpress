@@ -1,0 +1,49 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "edizioni-rosi/cta-banner",
+    "version": "1.0.0",
+    "title": "CTA Banner",
+    "category": "edizioni-rosi",
+    "icon": "megaphone",
+    "description": "Banner call-to-action a larghezza piena con immagine di sfondo, ideale per promuovere libri o invitare autori.",
+    "keywords": ["cta", "banner", "azione", "promozione", "libro"],
+    "textdomain": "edizioni-rosi-blocks",
+    "attributes": {
+        "eyebrow": {
+            "type": "string",
+            "default": ""
+        },
+        "title": {
+            "type": "string",
+            "default": "Scopri il Nostro Catalogo"
+        },
+        "text": {
+            "type": "string",
+            "default": "Esplora le opere dei nostri autori e trova la tua prossima lettura."
+        },
+        "buttonText": {
+            "type": "string",
+            "default": "Sfoglia i Libri"
+        },
+        "buttonUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "backgroundImage": {
+            "type": "string",
+            "default": ""
+        },
+        "variant": {
+            "type": "string",
+            "default": "dark",
+            "enum": ["dark", "gold"]
+        }
+    },
+    "supports": {
+        "align": ["full"],
+        "html": false
+    },
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php"
+}
