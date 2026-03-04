@@ -2,11 +2,11 @@
     const { registerBlockType } = wp.blocks;
     const { createElement: el, Fragment } = wp.element;
     const { InspectorControls, MediaUpload, MediaUploadCheck } = wp.blockEditor;
-    const { PanelBody, TextControl, ToggleControl, Button } = wp.components;
+    const { PanelBody, TextControl, ToggleControl, Button, SelectControl, RangeControl } = wp.components;
 
     registerBlockType('golden-hive/category-slider', {
         edit: function({ attributes, setAttributes }) {
-            const { title, categories, showNav, showDots, autoplay, loop } = attributes;
+            const { title, categories, showNav, showDots, autoplay, loop, imageRatio, paddingTop, paddingBottom } = attributes;
 
             var updateCategory = function(index, field, value) {
                 var updated = categories.map(function(cat, i) {
@@ -67,6 +67,34 @@
                             label: 'Loop',
                             checked: loop,
                             onChange: function(val) { setAttributes({ loop: val }); }
+                        }),
+                        el(SelectControl, {
+                            label: 'Proporzione immagine',
+                            value: imageRatio || '4 / 5',
+                            options: [
+                                { label: 'Verticale (3:4)', value: '3 / 4' },
+                                { label: 'Standard (4:5)', value: '4 / 5' },
+                                { label: 'Alto (2:3)', value: '2 / 3' },
+                                { label: 'Molto alto (9:16)', value: '9 / 16' },
+                                { label: 'Quadrato (1:1)', value: '1 / 1' }
+                            ],
+                            onChange: function(val) { setAttributes({ imageRatio: val }); }
+                        }),
+                        el(RangeControl, {
+                            label: 'Padding superiore (px)',
+                            value: paddingTop !== undefined ? paddingTop : 40,
+                            onChange: function(val) { setAttributes({ paddingTop: val }); },
+                            min: 0,
+                            max: 120,
+                            step: 4
+                        }),
+                        el(RangeControl, {
+                            label: 'Padding inferiore (px)',
+                            value: paddingBottom !== undefined ? paddingBottom : 40,
+                            onChange: function(val) { setAttributes({ paddingBottom: val }); },
+                            min: 0,
+                            max: 120,
+                            step: 4
                         })
                     ),
                     el(PanelBody, { title: 'Categorie (' + categories.length + ')', initialOpen: false },
