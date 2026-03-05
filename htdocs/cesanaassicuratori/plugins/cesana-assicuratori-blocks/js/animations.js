@@ -585,12 +585,10 @@
 
                 let current = 0;
                 let timer = null;
-                const autoplay = carousel.hasAttribute('data-ca-hero-autoplay')
-                    ? (parseInt(carousel.dataset.caHeroAutoplay) || 8000)
-                    : 0;
+                const autoplay = parseInt(carousel.dataset.caHeroAutoplay) || 8000;
 
                 const restartProgress = () => {
-                    if (!progressBar || autoplay <= 0) return;
+                    if (!progressBar) return;
                     const bar = progressBar.querySelector('.ca-hero-progress__bar');
                     if (!bar) return;
                     bar.style.animation = 'none';
@@ -635,10 +633,8 @@
 
                 const resetTimer = () => {
                     if (timer) clearInterval(timer);
-                    if (autoplay > 0) {
-                        timer = setInterval(() => goTo(current + 1), autoplay);
-                        restartProgress();
-                    }
+                    timer = setInterval(() => goTo(current + 1), autoplay);
+                    restartProgress();
                 };
 
                 if (dots) {

@@ -18,7 +18,7 @@ $block_id = 'ca-hero-' . wp_unique_id();
 ?>
 <section class="ca-block ca-hero-banner"
     data-ca-hero-banner
-    <?php if ($enable_autoplay) : ?>data-ca-hero-autoplay="<?php echo esc_attr($autoplay); ?>"<?php endif; ?>
+    data-ca-hero-autoplay="<?php echo esc_attr($autoplay); ?>"
     id="<?php echo esc_attr($block_id); ?>">
 
     <div class="ca-hero-track" data-ca-hero-track>
@@ -60,11 +60,9 @@ $block_id = 'ca-hero-' . wp_unique_id();
 
     <?php if ($show_dots && count($slides) > 1) : ?>
         <nav class="ca-hero-nav" data-ca-hero-dots aria-label="Navigazione slides">
-            <?php if ($enable_autoplay) : ?>
-                <div class="ca-hero-progress" data-ca-hero-progress>
-                    <div class="ca-hero-progress__bar" style="animation-duration: <?php echo esc_attr($autoplay); ?>ms;"></div>
-                </div>
-            <?php endif; ?>
+            <div class="ca-hero-progress" data-ca-hero-progress>
+                <div class="ca-hero-progress__bar" style="animation-duration: <?php echo esc_attr($autoplay); ?>ms;"></div>
+            </div>
         </nav>
     <?php endif; ?>
 
