@@ -618,8 +618,10 @@
                     }
 
                     // Re-trigger text reveals on new slide
-                    const textEls = slides[current].querySelectorAll('[data-ca-text-reveal]');
-                    textEls.forEach(el => TextReveal.revealElement(el));
+                    try {
+                        const textEls = slides[current].querySelectorAll('[data-ca-text-reveal]');
+                        textEls.forEach(el => TextReveal.revealElement(el));
+                    } catch (_) { /* don't let text animation errors break autoplay */ }
 
                     if (dots) {
                         dots.querySelectorAll('button').forEach((d, i) => {
@@ -627,14 +629,15 @@
                             d.setAttribute('aria-current', i === current ? 'true' : 'false');
                         });
                     }
-
-                    resetTimer();
                 };
 
-                const resetTimer = () => {
-                    if (timer) clearInterval(timer);
-                    timer = setInterval(() => goTo(current + 1), autoplay);
-                    restartProgress();
+                const scheduleNext = () => {
+                    if (timer) clearTimeout(timer);
+                    timer = setTimeout(() => {
+                        goTo(current + 1);
+                        restartProgress();
+                        scheduleNext();
+                    }, autoplay);
                 };
 
                 if (dots) {
@@ -643,13 +646,13 @@
                         btn.className = 'ca-hero-dot' + (i === 0 ? ' ca-hero-dot--active' : '');
                         btn.setAttribute('aria-label', 'Slide ' + (i + 1));
                         if (i === 0) btn.setAttribute('aria-current', 'true');
-                        btn.addEventListener('click', () => goTo(i));
+                        btn.addEventListener('click', () => { goTo(i); restartProgress(); scheduleNext(); });
                         dots.appendChild(btn);
                     });
                 }
 
-                if (prev) prev.addEventListener('click', () => goTo(current - 1));
-                if (next) next.addEventListener('click', () => goTo(current + 1));
+                if (prev) prev.addEventListener('click', () => { goTo(current - 1); restartProgress(); scheduleNext(); });
+                if (next) next.addEventListener('click', () => { goTo(current + 1); restartProgress(); scheduleNext(); });
 
                 // Touch/swipe support with drag feedback
                 let startX = 0;
@@ -682,16 +685,25 @@
                         track.style.transform = `translate3d(-${current * 100}%, 0, 0)`;
                     }
                     dragOffset = 0;
+                    restartProgress();
+                    scheduleNext();
                 }, { passive: true });
 
+                // Set explicit initial transform so CSS transition has a starting value
+                track.style.transform = 'translate3d(0%, 0, 0)';
                 slides[0].classList.add('ca-hero-slide--active');
-                resetTimer();
+
+                // Start autoplay immediately
+                restartProgress();
+                scheduleNext();
 
                 // Init text reveals on first slide
                 if (!prefersReducedMotion) {
                     setTimeout(() => {
-                        const textEls = slides[0].querySelectorAll('[data-ca-text-reveal]');
-                        textEls.forEach(el => TextReveal.revealElement(el));
+                        try {
+                            const textEls = slides[0].querySelectorAll('[data-ca-text-reveal]');
+                            textEls.forEach(el => TextReveal.revealElement(el));
+                        } catch (_) {}
                     }, 300);
                 }
             });
