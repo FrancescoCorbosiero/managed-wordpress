@@ -6,7 +6,7 @@
     "title": "Hero Banner",
     "category": "cesana",
     "icon": "slides",
-    "description": "Banner hero full-screen con crossfade e CTA per homepage broker assicurativo.",
+    "description": "Banner hero full-screen con slider orizzontale e CTA per homepage broker assicurativo.",
     "keywords": ["hero", "banner", "slider", "homepage"],
     "textdomain": "cesana-assicuratori-blocks",
     "attributes": {

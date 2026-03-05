@@ -1,7 +1,7 @@
 <?php
 /**
  * Hero Banner Block - Server-side render
- * Full-height homepage hero with optional crossfade slides
+ * Full-height homepage hero with horizontal slide transitions
  */
 
 $slides          = $attributes['slides'] ?? [];
@@ -21,6 +21,7 @@ $block_id = 'ca-hero-' . wp_unique_id();
     <?php if ($enable_autoplay) : ?>data-ca-hero-autoplay="<?php echo esc_attr($autoplay); ?>"<?php endif; ?>
     id="<?php echo esc_attr($block_id); ?>">
 
+    <div class="ca-hero-track" data-ca-hero-track>
     <?php foreach ($slides as $index => $slide) : ?>
         <div class="ca-hero-slide<?php echo $index === 0 ? ' ca-hero-slide--active' : ''; ?>" data-ca-hero-slide>
             <div class="ca-hero-slide__bg">
@@ -55,6 +56,7 @@ $block_id = 'ca-hero-' . wp_unique_id();
             </div>
         </div>
     <?php endforeach; ?>
+    </div>
 
     <?php if ($show_dots && count($slides) > 1) : ?>
         <nav class="ca-hero-nav" data-ca-hero-dots aria-label="Navigazione slides">
