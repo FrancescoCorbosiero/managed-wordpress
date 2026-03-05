@@ -641,12 +641,6 @@
                     }
                 };
 
-                const pauseTimer = () => {
-                    if (timer) clearInterval(timer);
-                    timer = null;
-                    if (progressBar) progressBar.classList.add('ca-hero-progress--paused');
-                };
-
                 if (dots) {
                     slides.forEach((_, i) => {
                         const btn = document.createElement('button');
@@ -693,9 +687,6 @@
                     }
                     dragOffset = 0;
                 }, { passive: true });
-
-                carousel.addEventListener('mouseenter', pauseTimer);
-                carousel.addEventListener('mouseleave', resetTimer);
 
                 slides[0].classList.add('ca-hero-slide--active');
                 resetTimer();
