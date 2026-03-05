@@ -1869,12 +1869,12 @@ html:has(.gh-social-buttons) {
    ========================================================================== */
 
 .gh-shortcode-wrapper {
-    padding: var(--gh-space-3xl) var(--gh-space-xl);
+    padding: var(--gh-space-xl) var(--gh-space-xl) 0;
 }
 
 .gh-shortcode-wrapper__header {
     text-align: center;
-    margin-bottom: var(--gh-space-2xl);
+    margin-bottom: var(--gh-space-sm);
 }
 
 .gh-shortcode-wrapper__eyebrow {
@@ -3228,6 +3228,280 @@ a.gh-btn:visited {
     .gh-instagram-feed__title {
         font-size: var(--gh-text-2xl);
     }
+}
+
+/* ==========================================================================
+   CTA IMAGE - VARIANT STYLES
+   ========================================================================== */
+
+.gh-cta-image--alt {
+    background: #111;
+}
+
+.gh-cta-image--light {
+    background: var(--gh-gray-50, #f5f5f5);
+}
+
+.gh-cta-image--light .gh-cta-image__title {
+    color: var(--gh-black, #0a0a0a) !important;
+}
+
+.gh-cta-image--light .gh-cta-image__eyebrow {
+    color: #555;
+}
+
+.gh-cta-image--light .gh-cta-image__text {
+    color: #333;
+}
+
+/* ==========================================================================
+   SERVICES GRID
+   Bento-style grid for service/category showcase cards
+   ========================================================================== */
+
+.gh-services-grid {
+    padding: 80px 24px;
+}
+
+.gh-services-grid__container {
+    max-width: 1380px;
+    margin: 0 auto;
+}
+
+.gh-services-grid__header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.gh-services-grid__title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin: 0 0 12px;
+}
+
+.gh-services-grid__subtitle {
+    font-size: 1.05rem;
+    opacity: 0.7;
+    margin: 0;
+    max-width: 520px;
+    margin-inline: auto;
+}
+
+.gh-services-grid__items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .gh-services-grid__items {
+        grid-template-columns: 1fr;
+    }
+}
+
+.gh-services-grid__item {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    min-height: 380px;
+    display: flex;
+    align-items: flex-end;
+    cursor: pointer;
+    transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.gh-services-grid__item:hover {
+    transform: scale(1.015);
+}
+
+.gh-services-grid__item-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.gh-services-grid__item-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.gh-services-grid__item:hover .gh-services-grid__item-bg img {
+    transform: scale(1.06);
+}
+
+.gh-services-grid__item-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 100%);
+}
+
+.gh-services-grid__item-content {
+    position: relative;
+    z-index: 2;
+    padding: 32px;
+    color: #fff;
+    width: 100%;
+}
+
+.gh-services-grid__item-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(8px);
+    margin-bottom: 16px;
+}
+
+.gh-services-grid__item-icon svg {
+    width: 22px;
+    height: 22px;
+    stroke: #fff;
+}
+
+.gh-services-grid__item-title {
+    font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+    font-weight: 700;
+    margin: 0 0 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    color: #fff;
+}
+
+.gh-services-grid__item-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.85;
+    margin: 0 0 20px;
+    max-width: 440px;
+}
+
+.gh-services-grid__item .gh-btn--outline {
+    border: 1.5px solid rgba(255,255,255,0.5);
+    color: #fff;
+    background: transparent;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.gh-services-grid__item .gh-btn--outline:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+/* ==========================================================================
+   AUTHENTICITY BANNER
+   Full-width banner with background image
+   ========================================================================== */
+
+.gh-auth-banner {
+    position: relative;
+    padding: 80px 24px;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+}
+
+.gh-auth-banner__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.gh-auth-banner__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gh-auth-banner__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(135deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.65) 100%);
+}
+
+.gh-auth-banner__container {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.gh-auth-banner__icon-ring {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(8px);
+    margin-bottom: 24px;
+}
+
+.gh-auth-banner__icon-ring svg {
+    width: 36px;
+    height: 36px;
+    stroke: #fff;
+}
+
+.gh-auth-banner__title {
+    font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin: 0 0 16px;
+    color: #fff;
+}
+
+.gh-auth-banner__text {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    opacity: 0.85;
+    margin: 0 0 32px;
+    color: #fff;
+}
+
+.gh-auth-banner__badges {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.gh-auth-banner__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+}
+
+.gh-auth-banner__badge svg {
+    stroke: #fff;
+    flex-shrink: 0;
 }
 
 /* ==========================================================================
