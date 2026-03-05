@@ -569,18 +569,19 @@
 
 
     /* ═══════════════════════════════════════════════════════════════
-       9. HeroBanner — Enhanced crossfade carousel with text reveals
+       9. HeroBanner — Horizontal slide carousel with text reveals
        ═══════════════════════════════════════════════════════════════ */
     const HeroBanner = {
         init() {
             document.querySelectorAll('[data-ca-hero-banner]').forEach(carousel => {
+                const track = carousel.querySelector('[data-ca-hero-track]');
                 const slides = carousel.querySelectorAll('[data-ca-hero-slide]');
                 const dots = carousel.querySelector('[data-ca-hero-dots]');
                 const prev = carousel.querySelector('[data-ca-hero-prev]');
                 const next = carousel.querySelector('[data-ca-hero-next]');
                 const progressBar = carousel.querySelector('[data-ca-hero-progress]');
 
-                if (slides.length < 2) return;
+                if (!track || slides.length < 2) return;
 
                 let current = 0;
                 let timer = null;
@@ -600,11 +601,17 @@
                 };
 
                 const goTo = (index) => {
-                    slides[current].classList.remove('ca-hero-slide--active');
+                    const prevIndex = current;
                     current = (index + slides.length) % slides.length;
+
+                    // Slide the track horizontally
+                    track.style.transform = `translate3d(-${current * 100}%, 0, 0)`;
+
+                    // Update active class
+                    slides[prevIndex].classList.remove('ca-hero-slide--active');
                     slides[current].classList.add('ca-hero-slide--active');
 
-                    // Restart Ken Burns animation
+                    // Restart Ken Burns animation on new slide
                     const img = slides[current].querySelector('.ca-hero-slide__bg img');
                     if (img) {
                         img.style.animation = 'none';
@@ -654,12 +661,37 @@
                 if (prev) prev.addEventListener('click', () => goTo(current - 1));
                 if (next) next.addEventListener('click', () => goTo(current + 1));
 
-                // Touch support
+                // Touch/swipe support with drag feedback
                 let startX = 0;
-                carousel.addEventListener('touchstart', e => startX = e.touches[0].clientX, { passive: true });
+                let isDragging = false;
+                let dragOffset = 0;
+
+                carousel.addEventListener('touchstart', e => {
+                    startX = e.touches[0].clientX;
+                    isDragging = true;
+                    track.style.transition = 'none';
+                }, { passive: true });
+
+                carousel.addEventListener('touchmove', e => {
+                    if (!isDragging) return;
+                    dragOffset = e.touches[0].clientX - startX;
+                    const base = -(current * 100);
+                    const dragPercent = (dragOffset / carousel.offsetWidth) * 100;
+                    track.style.transform = `translate3d(${base + dragPercent}%, 0, 0)`;
+                }, { passive: true });
+
                 carousel.addEventListener('touchend', e => {
+                    if (!isDragging) return;
+                    isDragging = false;
+                    track.style.transition = '';
                     const diff = startX - e.changedTouches[0].clientX;
-                    if (Math.abs(diff) > 50) goTo(current + (diff > 0 ? 1 : -1));
+                    if (Math.abs(diff) > 50) {
+                        goTo(current + (diff > 0 ? 1 : -1));
+                    } else {
+                        // Snap back
+                        track.style.transform = `translate3d(-${current * 100}%, 0, 0)`;
+                    }
+                    dragOffset = 0;
                 }, { passive: true });
 
                 carousel.addEventListener('mouseenter', pauseTimer);
