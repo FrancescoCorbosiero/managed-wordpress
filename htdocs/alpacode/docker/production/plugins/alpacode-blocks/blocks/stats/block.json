@@ -1,83 +1,106 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "alpacode/stats",
-    "version": "0.0.2",
-    "title": "Stats Counter",
-    "category": "alpacode",
-    "description": "Animated statistics and metrics counter to showcase achievements.",
-    "keywords": [
-        "stats",
-        "statistics",
-        "metrics",
-        "counter",
-        "numbers",
-        "achievements"
-    ],
-    "textdomain": "alpacode-blocks",
-    "editorScript": {
-        "handle": "alpacode-stats-editor",
-        "src": "file:./editor.js",
-        "dependencies": [
-            "wp-blocks",
-            "wp-element",
-            "wp-block-editor",
-            "wp-components",
-            "wp-server-side-render"
-        ]
-    },
-    "style": "file:./style.css",
-    "viewScript": "file:./view.js",
-    "render": "file:./render.php",
-    "attributes": {
-        "stats": {
-            "type": "array",
-            "default": [
-                {
-                    "number": "500",
-                    "suffix": "+",
-                    "label": "Projects Completed",
-                    "description": "Successfully delivered worldwide"
-                },
-                {
-                    "number": "50",
-                    "suffix": "+",
-                    "label": "Happy Clients",
-                    "description": "Across multiple industries"
-                },
-                {
-                    "number": "15",
-                    "suffix": "",
-                    "label": "Years Experience",
-                    "description": "Of excellence in tech"
-                },
-                {
-                    "number": "99",
-                    "suffix": "%",
-                    "label": "Client Satisfaction",
-                    "description": "Based on client feedback"
-                }
-            ]
-        },
-        "animationDuration": {
-            "type": "number",
-            "default": 2000
-        }
-    },
-    "supports": {
-        "html": false,
-        "align": [
-            "wide",
-            "full"
-        ],
-        "color": {
-            "background": true,
-            "text": true,
-            "gradient": true
-        },
-        "spacing": {
-            "padding": true,
-            "margin": true
-        }
-    }
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "alpacode/stats",
+	"version": "1.0.0",
+	"title": "Stats Counter",
+	"category": "alpacode",
+	"description": "Premium animated statistics with count-up animation and progress bars.",
+	"keywords": [
+		"stats",
+		"statistics",
+		"metrics",
+		"counter",
+		"numbers",
+		"achievements"
+	],
+	"textdomain": "alpacode-blocks",
+	"editorScript": {
+		"handle": "alpacode-stats-editor",
+		"src": "file:./editor.js",
+		"dependencies": [
+			"wp-blocks",
+			"wp-element",
+			"wp-block-editor",
+			"wp-components",
+			"wp-server-side-render"
+		]
+	},
+	"style": "file:./style.css",
+	"render": "file:./render.php",
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "By the Numbers"
+		},
+		"heading": {
+			"type": "string",
+			"default": "Results That Speak"
+		},
+		"stats": {
+			"type": "array",
+			"default": [
+				{
+					"number": "500",
+					"prefix": "",
+					"suffix": "+",
+					"label": "Projects Delivered",
+					"showProgress": false,
+					"progressValue": 0
+				},
+				{
+					"number": "98",
+					"prefix": "",
+					"suffix": "%",
+					"label": "Client Satisfaction",
+					"showProgress": true,
+					"progressValue": 98
+				},
+				{
+					"number": "15",
+					"prefix": "",
+					"suffix": "+",
+					"label": "Years Experience",
+					"showProgress": false,
+					"progressValue": 0
+				},
+				{
+					"number": "24",
+					"prefix": "",
+					"suffix": "/7",
+					"label": "Support Available",
+					"showProgress": false,
+					"progressValue": 0
+				}
+			]
+		},
+		"layout": {
+			"type": "string",
+			"default": "grid",
+			"enum": ["grid", "inline"]
+		},
+		"animationDuration": {
+			"type": "number",
+			"default": 2000
+		},
+		"enableStagger": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [
+			"wide",
+			"full"
+		],
+		"color": {
+			"background": true,
+			"text": true
+		},
+		"spacing": {
+			"padding": true,
+			"margin": true
+		}
+	}
 }

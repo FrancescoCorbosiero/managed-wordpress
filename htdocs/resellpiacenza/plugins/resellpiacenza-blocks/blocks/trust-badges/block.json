@@ -1,0 +1,32 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "resellpiacenza/trust-badges",
+    "version": "1.0.0",
+    "title": "Trust Badges",
+    "category": "resellpiacenza",
+    "icon": "shield",
+    "description": "Display verification and trust indicators to build customer confidence.",
+    "keywords": ["trust", "badges", "verification", "authentic", "guarantee"],
+    "textdomain": "resellpiacenza-blocks",
+    "attributes": {
+        "eyebrow": {
+            "type": "string",
+            "default": "Why Trust Us"
+        },
+        "title": {
+            "type": "string",
+            "default": "Your Confidence, Guaranteed"
+        },
+        "badges": {
+            "type": "array",
+            "default": []
+        }
+    },
+    "supports": {
+        "align": ["wide", "full"],
+        "html": false
+    },
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php"
+}

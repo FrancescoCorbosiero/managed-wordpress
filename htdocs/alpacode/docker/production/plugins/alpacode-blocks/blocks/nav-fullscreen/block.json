@@ -1,0 +1,127 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "alpacode/nav-fullscreen",
+    "version": "1.0.0",
+    "title": "Navigation Fullscreen",
+    "category": "alpacode",
+    "icon": "screenoptions",
+    "description": "A standalone fullscreen navigation overlay with dramatic animations. Perfect for triggering from any menu button or WordPress native header.",
+    "keywords": ["navigation", "menu", "fullscreen", "overlay", "immersive"],
+    "textdomain": "alpacode",
+    "editorScript": {
+        "handle": "alpacode-nav-fullscreen-editor",
+        "src": "file:./editor.js"
+    },
+    "render": "file:./render.php",
+    "style": "file:./style.css",
+    "viewScript": "file:./view.js",
+    "attributes": {
+        "menuItems": {
+            "type": "array",
+            "default": [
+                {
+                    "label": "Web",
+                    "url": "#web",
+                    "description": "Soluzioni web complete",
+                    "children": [
+                        { "label": "Sito Web", "url": "#sito-web", "description": "Siti web professionali e responsive" },
+                        { "label": "SEO e Digital Marketing", "url": "#seo", "description": "Visibilità e crescita online" },
+                        { "label": "E-commerce", "url": "#ecommerce-web", "description": "Vendita online che converte" }
+                    ]
+                },
+                {
+                    "label": "Applicazioni",
+                    "url": "#applicazioni",
+                    "description": "Software su misura",
+                    "children": [
+                        { "label": "Piattaforme Personalizzate", "url": "#piattaforme", "description": "Soluzioni enterprise custom" },
+                        { "label": "E-commerce", "url": "#ecommerce-app", "description": "App per vendita mobile" }
+                    ]
+                },
+                {
+                    "label": "Servizi",
+                    "url": "#servizi",
+                    "description": "Servizi creativi",
+                    "children": [
+                        { "label": "Servizi Fotografici", "url": "#fotografia", "description": "Fotografia professionale" }
+                    ]
+                },
+                {
+                    "label": "Visione",
+                    "url": "#visione",
+                    "description": "Chi siamo",
+                    "children": [
+                        { "label": "Mission", "url": "#mission", "description": "La nostra missione" },
+                        { "label": "Metodo", "url": "#metodo", "description": "Come lavoriamo" },
+                        { "label": "Network & Portfolio", "url": "#portfolio", "description": "I nostri clienti e progetti" },
+                        { "label": "Lavora con Noi", "url": "#careers", "description": "Unisciti al team" }
+                    ]
+                },
+                {
+                    "label": "Blog",
+                    "url": "#blog",
+                    "description": "Insights e novità",
+                    "children": []
+                },
+                {
+                    "label": "Contatti",
+                    "url": "#contatti",
+                    "description": "Parliamo del tuo progetto",
+                    "children": []
+                }
+            ]
+        },
+        "triggerId": {
+            "type": "string",
+            "default": "nav-trigger"
+        },
+        "ctaText": {
+            "type": "string",
+            "default": "Inizia un Progetto"
+        },
+        "ctaUrl": {
+            "type": "string",
+            "default": "#contact"
+        },
+        "colorScheme": {
+            "type": "string",
+            "default": "dark"
+        },
+        "accentColor": {
+            "type": "string",
+            "default": "#6366f1"
+        },
+        "showSocialLinks": {
+            "type": "boolean",
+            "default": true
+        },
+        "socialLinks": {
+            "type": "array",
+            "default": [
+                { "platform": "linkedin", "url": "" },
+                { "platform": "instagram", "url": "" }
+            ]
+        },
+        "footerText": {
+            "type": "string",
+            "default": "© 2024 Alpacode Studio"
+        },
+        "enableCursorEffect": {
+            "type": "boolean",
+            "default": true
+        },
+        "enableNumbering": {
+            "type": "boolean",
+            "default": true
+        },
+        "animationStyle": {
+            "type": "string",
+            "default": "stagger"
+        }
+    },
+    "supports": {
+        "align": ["full"],
+        "html": false
+    }
+}

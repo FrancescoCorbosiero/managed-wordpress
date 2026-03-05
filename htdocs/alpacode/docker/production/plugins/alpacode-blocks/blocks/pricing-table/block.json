@@ -2,16 +2,17 @@
     "$schema": "https://schemas.wp.org/trunk/block.json",
     "apiVersion": 3,
     "name": "alpacode/pricing",
-    "version": "0.0.2",
+    "version": "1.0.0",
     "title": "Pricing Table",
     "category": "alpacode",
-    "description": "Modern pricing table with features comparison and highlight effects.",
+    "description": "Modern pricing table with monthly/annual toggle and premium animations.",
     "keywords": [
         "pricing",
         "plans",
         "comparison",
         "subscription",
-        "packages"
+        "packages",
+        "toggle"
     ],
     "textdomain": "alpacode-blocks",
     "editorScript": {
@@ -26,29 +27,52 @@
         ]
     },
     "style": "file:./style.css",
+    "viewScript": "file:./view.js",
     "render": "file:./render.php",
     "attributes": {
-        "sectionTitle": {
+        "eyebrow": {
+            "type": "string",
+            "default": "Pricing"
+        },
+        "heading": {
             "type": "string",
             "default": "Simple, Transparent Pricing"
         },
-        "sectionSubtitle": {
+        "description": {
             "type": "string",
-            "default": "Choose the perfect plan for your needs"
+            "default": "Choose the perfect plan for your needs. No hidden fees."
+        },
+        "enableToggle": {
+            "type": "boolean",
+            "default": true
+        },
+        "monthlyLabel": {
+            "type": "string",
+            "default": "Monthly"
+        },
+        "annualLabel": {
+            "type": "string",
+            "default": "Annual"
+        },
+        "annualDiscount": {
+            "type": "number",
+            "default": 20
         },
         "plans": {
             "type": "array",
             "default": [
                 {
                     "name": "Starter",
-                    "price": "49",
-                    "period": "month",
+                    "monthlyPrice": "49",
+                    "annualPrice": "39",
+                    "currency": "$",
                     "description": "Perfect for small projects and startups",
                     "features": [
-                        "Up to 5 projects",
-                        "Basic support",
-                        "1 GB storage",
-                        "Community access"
+                        { "text": "Up to 5 projects", "included": true },
+                        { "text": "Basic support", "included": true },
+                        { "text": "1 GB storage", "included": true },
+                        { "text": "Community access", "included": true },
+                        { "text": "API access", "included": false }
                     ],
                     "buttonText": "Get Started",
                     "buttonUrl": "#",
@@ -56,38 +80,45 @@
                 },
                 {
                     "name": "Professional",
-                    "price": "99",
-                    "period": "month",
+                    "monthlyPrice": "99",
+                    "annualPrice": "79",
+                    "currency": "$",
                     "description": "Best for growing businesses",
                     "features": [
-                        "Unlimited projects",
-                        "Priority support",
-                        "50 GB storage",
-                        "Advanced analytics",
-                        "API access"
+                        { "text": "Unlimited projects", "included": true },
+                        { "text": "Priority support", "included": true },
+                        { "text": "50 GB storage", "included": true },
+                        { "text": "Advanced analytics", "included": true },
+                        { "text": "API access", "included": true }
                     ],
                     "buttonText": "Get Started",
                     "buttonUrl": "#",
-                    "featured": true
+                    "featured": true,
+                    "badge": "Most Popular"
                 },
                 {
                     "name": "Enterprise",
-                    "price": "199",
-                    "period": "month",
+                    "monthlyPrice": "199",
+                    "annualPrice": "159",
+                    "currency": "$",
                     "description": "For large organizations",
                     "features": [
-                        "Unlimited everything",
-                        "24/7 dedicated support",
-                        "500 GB storage",
-                        "Custom integrations",
-                        "SLA guarantee",
-                        "Dedicated manager"
+                        { "text": "Unlimited everything", "included": true },
+                        { "text": "24/7 dedicated support", "included": true },
+                        { "text": "500 GB storage", "included": true },
+                        { "text": "Custom integrations", "included": true },
+                        { "text": "SLA guarantee", "included": true }
                     ],
                     "buttonText": "Contact Sales",
                     "buttonUrl": "#",
                     "featured": false
                 }
             ]
+        },
+        "cardStyle": {
+            "type": "string",
+            "default": "default",
+            "enum": ["default", "bordered", "glass"]
         }
     },
     "supports": {

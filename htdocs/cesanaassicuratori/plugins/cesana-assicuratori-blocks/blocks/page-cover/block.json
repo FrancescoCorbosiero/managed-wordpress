@@ -1,0 +1,40 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "cesana/page-cover",
+    "version": "1.0.0",
+    "title": "Page Cover",
+    "category": "cesana",
+    "icon": "format-image",
+    "description": "Cover elegante per pagine e articoli con eyebrow e titolo.",
+    "keywords": ["cover", "copertina", "pagina", "articolo", "header"],
+    "textdomain": "cesana-assicuratori-blocks",
+    "attributes": {
+        "eyebrow": {
+            "type": "string",
+            "default": ""
+        },
+        "title": {
+            "type": "string",
+            "default": ""
+        },
+        "backgroundImage": {
+            "type": "string",
+            "default": ""
+        },
+        "overlayOpacity": {
+            "type": "number",
+            "default": 70
+        },
+        "textAlign": {
+            "type": "string",
+            "default": "left"
+        }
+    },
+    "supports": {
+        "align": ["full"],
+        "html": false
+    },
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php"
+}

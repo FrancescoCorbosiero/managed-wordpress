@@ -1,0 +1,127 @@
+/**
+ * Edizioni Rosi Blocks - Editor Styles
+ * Stili per l'editor WordPress
+ */
+
+/* Block category icon color */
+.block-editor-block-types-list__list-item[data-type^="edizioni-rosi"] .block-editor-block-types-list__item-icon {
+    color: #c9a55c;
+}
+
+/* Editor Block Wrapper */
+.wp-block[data-type^="edizioni-rosi"] {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Block placeholder message */
+.er-editor-placeholder {
+    padding: 48px 24px;
+    background: linear-gradient(135deg, #0a0a0a 0%, #111111 100%);
+    border-radius: 2px;
+    text-align: center;
+    color: #fff;
+    font-family: 'Playfair Display', Georgia, serif;
+}
+
+.er-editor-placeholder__icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 16px;
+    color: #c9a55c;
+}
+
+.er-editor-placeholder__title {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+.er-editor-placeholder__text {
+    font-size: 14px;
+    color: #8a8a8a;
+    font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Selected state highlight */
+.wp-block[data-type^="edizioni-rosi"].is-selected > * {
+    outline: 2px solid #c9a55c;
+    outline-offset: 2px;
+}
+
+/* Block Preview Labels */
+.er-editor-block-label {
+    position: absolute;
+    top: -24px;
+    left: 0;
+    padding: 2px 8px;
+    background-color: #0a0a0a;
+    color: #c9a55c;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 2px 2px 0 0;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.wp-block[data-type^="edizioni-rosi"]:hover .er-editor-block-label,
+.wp-block[data-type^="edizioni-rosi"].is-selected .er-editor-block-label {
+    opacity: 1;
+}
+
+/* Help text */
+.er-editor-help {
+    margin-top: 0.5rem;
+    font-size: 12px;
+    color: #757575;
+    font-style: italic;
+}
+
+/* Preview notice */
+.er-editor-preview-notice {
+    padding: 12px;
+    background-color: #FFF8E1;
+    border: 1px solid #c9a55c;
+    border-radius: 2px;
+    font-size: 13px;
+    color: #4a4a4a;
+    margin-bottom: 1rem;
+}
+
+.er-editor-preview-notice strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #0a0a0a;
+}
+
+/* Dark variant placeholder */
+.er-editor-placeholder--dark {
+    background: linear-gradient(135deg, #0a0a0a 0%, #111111 100%);
+    border: 1px solid rgba(201, 165, 92, 0.15);
+}
+
+/* Loading state */
+.er-editor-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background-color: #f5f5f5;
+    border-radius: 2px;
+}
+
+.er-editor-loading__spinner {
+    width: 24px;
+    height: 24px;
+    border: 3px solid #e8e8e8;
+    border-top-color: #c9a55c;
+    border-radius: 50%;
+    animation: er-spin 0.8s linear infinite;
+}
+
+@keyframes er-spin {
+    to { transform: rotate(360deg); }
+}

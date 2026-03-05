@@ -2,19 +2,20 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "alpacode/cta",
-	"version": "0.0.2",
+	"version": "1.0.0",
 	"title": "Call to Action",
 	"category": "alpacode",
-	"description": "A compelling call-to-action section to convert visitors.",
+	"description": "Premium CTA with animated gradients, glow effects, and ripple animations.",
 	"keywords": [
 		"cta",
 		"call to action",
 		"contact",
-		"conversion"
+		"conversion",
+		"gradient"
 	],
 	"textdomain": "alpacode-blocks",
 	"editorScript": {
-		"handle": "alpacode-hero-editor",
+		"handle": "alpacode-cta-editor",
 		"src": "file:./editor.js",
 		"dependencies": [
 			"wp-blocks",
@@ -25,13 +26,17 @@
 		]
 	},
 	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "Get Started Today"
+		},
 		"heading": {
 			"type": "string",
-			"default": "Ready to get started?"
+			"default": "Ready to Transform Your Business?"
 		},
 		"description": {
 			"type": "string",
-			"default": "Let's discuss how we can help transform your business with the right technology solutions."
+			"default": "Let's discuss how we can help you achieve your goals with cutting-edge technology solutions and expert guidance."
 		},
 		"buttonText": {
 			"type": "string",
@@ -41,9 +46,30 @@
 			"type": "string",
 			"default": "#contact"
 		},
+		"secondaryButtonText": {
+			"type": "string",
+			"default": ""
+		},
+		"secondaryButtonUrl": {
+			"type": "string",
+			"default": ""
+		},
 		"variant": {
 			"type": "string",
-			"default": "default"
+			"default": "gradient",
+			"enum": ["default", "gradient", "glow", "minimal"]
+		},
+		"enableAnimatedGradient": {
+			"type": "boolean",
+			"default": true
+		},
+		"enableGlow": {
+			"type": "boolean",
+			"default": true
+		},
+		"enableTextScramble": {
+			"type": "boolean",
+			"default": false
 		}
 	},
 	"supports": {
@@ -61,7 +87,6 @@
 			"margin": true
 		}
 	},
-	"editorScript": "file:./editor.js",
 	"style": "file:./style.css",
 	"render": "file:./render.php"
 }

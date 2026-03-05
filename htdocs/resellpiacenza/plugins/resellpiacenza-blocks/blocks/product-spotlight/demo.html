@@ -1,0 +1,219 @@
+<!--
+Product Spotlight Block - Demo & Variants
+Copy-paste ready examples for Resell Piacenza
+
+This block creates a featured product showcase with elegant presentation,
+verification badge, product metadata, and pricing display.
+-->
+
+<!-- ============================================
+     WORDPRESS CODE EDITOR SNIPPETS
+     ============================================ -->
+
+<!--
+VARIANT 1: Full product spotlight with all details
+-->
+<!-- wp:resellpiacenza/product-spotlight {"imageUrl":"https://images.unsplash.com/photo-1600269452121-4f2416e55c28?w=800&q=80","category":"Featured Release","title":"Air Jordan 1 Retro High OG \"Chicago\"","description":"The legendary Chicago colorway returns in pristine condition. A must-have for any serious collector seeking timeless style and iconic heritage.","condition":"Deadstock","size":"US 10 / EU 44","authenticity":"Verified","currentPrice":"€1,299","originalPrice":"€1,599","buttonText":"View Product","buttonUrl":"/product/jordan-1-chicago"} /-->
+
+<!--
+VARIANT 2: New arrival without discount
+-->
+<!-- wp:resellpiacenza/product-spotlight {"imageUrl":"https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=800&q=80","category":"New Arrival","title":"Travis Scott × Nike Air Jordan 1 Low","description":"The highly coveted Cactus Jack collaboration. Reverse Swoosh design in premium materials.","condition":"New","size":"US 9.5 / EU 43","authenticity":"Authenticated","currentPrice":"€1,850","originalPrice":"","buttonText":"Shop Now","buttonUrl":"/product/travis-scott-aj1-low"} /-->
+
+<!--
+VARIANT 3: Pre-owned item
+-->
+<!-- wp:resellpiacenza/product-spotlight {"imageUrl":"https://images.unsplash.com/photo-1597045566677-8cf032ed6634?w=800&q=80","category":"Pre-Owned","title":"Yeezy Boost 350 V2 \"Zebra\"","description":"The iconic zebra pattern in excellent pre-owned condition. Minor sole wear, uppers pristine.","condition":"Excellent","size":"US 11 / EU 45","authenticity":"Verified","currentPrice":"€380","originalPrice":"€450","buttonText":"View Details","buttonUrl":"/product/yeezy-zebra"} /-->
+
+<!--
+VARIANT 4: Limited edition highlight
+-->
+<!-- wp:resellpiacenza/product-spotlight {"imageUrl":"https://images.unsplash.com/photo-1549298916-b41d501d3772?w=800&q=80","category":"Limited Edition","title":"Nike Dunk Low \"Panda\"","description":"The most sought-after Dunk colorway of the decade. Brand new with original box and tags.","condition":"Deadstock","size":"Multiple Sizes","authenticity":"Certified","currentPrice":"€320","originalPrice":"","buttonText":"Check Availability","buttonUrl":"/product/dunk-panda"} /-->
+
+<!--
+VARIANT 5: Minimal (category + title + price only)
+-->
+<!-- wp:resellpiacenza/product-spotlight {"imageUrl":"https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800&q=80","category":"Staff Pick","title":"New Balance 550","description":"","condition":"","size":"","authenticity":"Verified","currentPrice":"€189","originalPrice":"","buttonText":"Shop Now","buttonUrl":"/product/nb-550"} /-->
+
+
+<!-- ============================================
+     HTML VARIANTS FOR VISUAL TESTING
+     ============================================ -->
+
+<!-- DEFAULT: Full product spotlight -->
+<section class="rp-block rp-product-spotlight">
+    <div class="rp-product-spotlight__bg-pattern" aria-hidden="true"></div>
+    <div class="rp-product-spotlight__container">
+        <div class="rp-product-spotlight__image-wrapper" data-rp-reveal="left">
+            <div class="rp-product-spotlight__image">
+                <img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?w=800&q=80" alt="Air Jordan 1 Retro High OG Chicago" loading="lazy">
+                <span class="rp-product-spotlight__verified">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 12l2 2 4-4"/>
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                    Verified
+                </span>
+            </div>
+        </div>
+        <div class="rp-product-spotlight__content" data-rp-reveal="right">
+            <span class="rp-product-spotlight__category">Featured Release</span>
+            <h2 class="rp-product-spotlight__title">Air Jordan 1 Retro High OG "Chicago"</h2>
+            <p class="rp-product-spotlight__description">The legendary Chicago colorway returns in pristine condition. A must-have for any serious collector seeking timeless style and iconic heritage.</p>
+            <div class="rp-product-spotlight__meta">
+                <div class="rp-product-spotlight__meta-item">
+                    <span class="rp-product-spotlight__meta-label">Condition</span>
+                    <span class="rp-product-spotlight__meta-value">Deadstock</span>
+                </div>
+                <div class="rp-product-spotlight__meta-item">
+                    <span class="rp-product-spotlight__meta-label">Size</span>
+                    <span class="rp-product-spotlight__meta-value">US 10 / EU 44</span>
+                </div>
+                <div class="rp-product-spotlight__meta-item">
+                    <span class="rp-product-spotlight__meta-label">Status</span>
+                    <span class="rp-product-spotlight__meta-value">Verified</span>
+                </div>
+            </div>
+            <div class="rp-product-spotlight__price">
+                <span class="rp-product-spotlight__price-current">€1,299</span>
+                <span class="rp-product-spotlight__price-original">€1,599</span>
+            </div>
+            <a href="/product/jordan-1-chicago" class="rp-btn rp-btn--primary rp-btn--large">
+                View Product
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- VARIANT: New arrival without discount -->
+<section class="rp-block rp-product-spotlight">
+    <div class="rp-product-spotlight__bg-pattern" aria-hidden="true"></div>
+    <div class="rp-product-spotlight__container">
+        <div class="rp-product-spotlight__image-wrapper" data-rp-reveal="left">
+            <div class="rp-product-spotlight__image">
+                <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=800&q=80" alt="Travis Scott x Nike Air Jordan 1 Low" loading="lazy">
+                <span class="rp-product-spotlight__verified">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 12l2 2 4-4"/>
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                    Authenticated
+                </span>
+            </div>
+        </div>
+        <div class="rp-product-spotlight__content" data-rp-reveal="right">
+            <span class="rp-product-spotlight__category">New Arrival</span>
+            <h2 class="rp-product-spotlight__title">Travis Scott × Nike Air Jordan 1 Low</h2>
+            <p class="rp-product-spotlight__description">The highly coveted Cactus Jack collaboration. Reverse Swoosh design in premium materials.</p>
+            <div class="rp-product-spotlight__meta">
+                <div class="rp-product-spotlight__meta-item">
+                    <span class="rp-product-spotlight__meta-label">Condition</span>
+                    <span class="rp-product-spotlight__meta-value">New</span>
+                </div>
+                <div class="rp-product-spotlight__meta-item">
+                    <span class="rp-product-spotlight__meta-label">Size</span>
+                    <span class="rp-product-spotlight__meta-value">US 9.5 / EU 43</span>
+                </div>
+                <div class="rp-product-spotlight__meta-item">
+                    <span class="rp-product-spotlight__meta-label">Status</span>
+                    <span class="rp-product-spotlight__meta-value">Authenticated</span>
+                </div>
+            </div>
+            <div class="rp-product-spotlight__price">
+                <span class="rp-product-spotlight__price-current">€1,850</span>
+            </div>
+            <a href="/product/travis-scott-aj1-low" class="rp-btn rp-btn--primary rp-btn--large">
+                Shop Now
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- VARIANT: Pre-owned item -->
+<section class="rp-block rp-product-spotlight">
+    <div class="rp-product-spotlight__bg-pattern" aria-hidden="true"></div>
+    <div class="rp-product-spotlight__container">
+        <div class="rp-product-spotlight__image-wrapper" data-rp-reveal="left">
+            <div class="rp-product-spotlight__image">
+                <img src="https://images.unsplash.com/photo-1597045566677-8cf032ed6634?w=800&q=80" alt="Yeezy Boost 350 V2 Zebra" loading="lazy">
+                <span class="rp-product-spotlight__verified">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 12l2 2 4-4"/>
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                    Verified
+                </span>
+            </div>
+        </div>
+        <div class="rp-product-spotlight__content" data-rp-reveal="right">
+            <span class="rp-product-spotlight__category">Pre-Owned</span>
+            <h2 class="rp-product-spotlight__title">Yeezy Boost 350 V2 "Zebra"</h2>
+            <p class="rp-product-spotlight__description">The iconic zebra pattern in excellent pre-owned condition. Minor sole wear, uppers pristine.</p>
+            <div class="rp-product-spotlight__meta">
+                <div class="rp-product-spotlight__meta-item">
+                    <span class="rp-product-spotlight__meta-label">Condition</span>
+                    <span class="rp-product-spotlight__meta-value">Excellent</span>
+                </div>
+                <div class="rp-product-spotlight__meta-item">
+                    <span class="rp-product-spotlight__meta-label">Size</span>
+                    <span class="rp-product-spotlight__meta-value">US 11 / EU 45</span>
+                </div>
+                <div class="rp-product-spotlight__meta-item">
+                    <span class="rp-product-spotlight__meta-label">Status</span>
+                    <span class="rp-product-spotlight__meta-value">Verified</span>
+                </div>
+            </div>
+            <div class="rp-product-spotlight__price">
+                <span class="rp-product-spotlight__price-current">€380</span>
+                <span class="rp-product-spotlight__price-original">€450</span>
+            </div>
+            <a href="/product/yeezy-zebra" class="rp-btn rp-btn--primary rp-btn--large">
+                View Details
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- VARIANT: Minimal (no meta, no description) -->
+<section class="rp-block rp-product-spotlight">
+    <div class="rp-product-spotlight__bg-pattern" aria-hidden="true"></div>
+    <div class="rp-product-spotlight__container">
+        <div class="rp-product-spotlight__image-wrapper" data-rp-reveal="left">
+            <div class="rp-product-spotlight__image">
+                <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800&q=80" alt="New Balance 550" loading="lazy">
+                <span class="rp-product-spotlight__verified">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 12l2 2 4-4"/>
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                    Verified
+                </span>
+            </div>
+        </div>
+        <div class="rp-product-spotlight__content" data-rp-reveal="right">
+            <span class="rp-product-spotlight__category">Staff Pick</span>
+            <h2 class="rp-product-spotlight__title">New Balance 550</h2>
+            <div class="rp-product-spotlight__price">
+                <span class="rp-product-spotlight__price-current">€189</span>
+            </div>
+            <a href="/product/nb-550" class="rp-btn rp-btn--primary rp-btn--large">
+                Shop Now
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>

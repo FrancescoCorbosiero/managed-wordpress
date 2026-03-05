@@ -1,0 +1,88 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "alpacode/countdown",
+    "version": "1.0.0",
+    "title": "Countdown Timer",
+    "category": "alpacode",
+    "description": "Countdown timer with urgency messaging and spots remaining.",
+    "keywords": ["countdown", "timer", "urgency", "launch", "deadline", "spots"],
+    "textdomain": "alpacode-blocks",
+    "style": "file:./style.css",
+    "viewScript": "file:./view.js",
+    "render": "file:./render.php",
+    "attributes": {
+        "eyebrow": {
+            "type": "string",
+            "default": "Limited Time Offer"
+        },
+        "heading": {
+            "type": "string",
+            "default": "Don't Miss Out"
+        },
+        "description": {
+            "type": "string",
+            "default": "This exclusive offer ends soon. Secure your spot before it's too late."
+        },
+        "targetDate": {
+            "type": "string",
+            "default": ""
+        },
+        "showDays": {
+            "type": "boolean",
+            "default": true
+        },
+        "showHours": {
+            "type": "boolean",
+            "default": true
+        },
+        "showMinutes": {
+            "type": "boolean",
+            "default": true
+        },
+        "showSeconds": {
+            "type": "boolean",
+            "default": true
+        },
+        "expiredMessage": {
+            "type": "string",
+            "default": "This offer has expired"
+        },
+        "showSpots": {
+            "type": "boolean",
+            "default": true
+        },
+        "spotsRemaining": {
+            "type": "number",
+            "default": 7
+        },
+        "spotsLabel": {
+            "type": "string",
+            "default": "spots remaining"
+        },
+        "buttonText": {
+            "type": "string",
+            "default": "Claim Your Spot"
+        },
+        "buttonUrl": {
+            "type": "string",
+            "default": "#"
+        },
+        "style": {
+            "type": "string",
+            "default": "default",
+            "enum": ["default", "compact", "minimal", "urgent"]
+        },
+        "layout": {
+            "type": "string",
+            "default": "center",
+            "enum": ["center", "left", "split"]
+        }
+    },
+    "supports": {
+        "html": false,
+        "align": ["wide", "full"],
+        "color": { "background": true },
+        "spacing": { "padding": true, "margin": true }
+    }
+}

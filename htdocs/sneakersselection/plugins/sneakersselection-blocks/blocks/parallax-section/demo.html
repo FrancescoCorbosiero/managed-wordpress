@@ -1,0 +1,230 @@
+<!--
+Parallax Section Block - Demo & Variants
+Copy-paste ready examples for Sneaker Selection
+-->
+
+<!-- ============================================
+     DEFAULT: Full parallax with mouse tracking
+     ============================================ -->
+<section class="ss-block ss-parallax-section" data-ss-mouse-parallax>
+    <!-- Background layer (slowest movement) -->
+    <div class="ss-parallax-section__layer ss-parallax-section__layer--bg" data-ss-mouse-layer="10" data-ss-depth="0.3">
+        <img src="https://images.unsplash.com/photo-1556906781-9a412961c28c?w=1920" alt="" loading="lazy">
+    </div>
+
+    <!-- Foreground/Mid layer (faster movement) -->
+    <div class="ss-parallax-section__layer ss-parallax-section__layer--mid" data-ss-mouse-layer="40">
+        <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=800" alt="" loading="lazy" data-ss-depth="0.6">
+    </div>
+
+    <!-- Floating particles -->
+    <div class="ss-parallax-section__particles" aria-hidden="true">
+        <div class="ss-parallax-section__particle" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 25%; animation-delay: 3s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 40%; animation-delay: 7s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 55%; animation-delay: 2s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 70%; animation-delay: 9s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 85%; animation-delay: 5s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 15%; animation-delay: 12s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 60%; animation-delay: 15s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 90%; animation-delay: 8s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 35%; animation-delay: 18s;"></div>
+    </div>
+
+    <!-- Content layer -->
+    <div class="ss-parallax-section__content" data-ss-mouse-layer="20">
+        <h2 class="ss-parallax-section__title" data-ss-reveal="up">Experience The Difference</h2>
+        <p class="ss-parallax-section__text" data-ss-reveal="up" data-ss-reveal-delay="200">
+            Premium materials. Unmatched comfort. Every pair tells a story.
+        </p>
+        <div data-ss-reveal="up" data-ss-reveal-delay="400">
+            <a href="/about" class="ss-btn ss-btn--outline ss-btn--large" data-ss-magnetic="0.2">
+                Learn More
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================
+     VARIANT 1: Background only (no foreground)
+     ============================================ -->
+<section class="ss-block ss-parallax-section" data-ss-mouse-parallax>
+    <div class="ss-parallax-section__layer ss-parallax-section__layer--bg" data-ss-mouse-layer="10" data-ss-depth="0.3">
+        <img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=1920" alt="" loading="lazy">
+    </div>
+
+    <div class="ss-parallax-section__particles" aria-hidden="true">
+        <div class="ss-parallax-section__particle" style="left: 20%; animation-delay: 1s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 50%; animation-delay: 4s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 80%; animation-delay: 8s;"></div>
+    </div>
+
+    <div class="ss-parallax-section__content" data-ss-mouse-layer="20">
+        <h2 class="ss-parallax-section__title" data-ss-reveal="up">Built For Performance</h2>
+        <p class="ss-parallax-section__text" data-ss-reveal="up" data-ss-reveal-delay="200">
+            From the court to the street. Engineered for athletes.
+        </p>
+        <div data-ss-reveal="up" data-ss-reveal-delay="400">
+            <a href="/performance" class="ss-btn ss-btn--outline ss-btn--large" data-ss-magnetic="0.2">
+                Shop Performance
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================
+     VARIANT 2: No mouse tracking (scroll only)
+     ============================================ -->
+<section class="ss-block ss-parallax-section">
+    <div class="ss-parallax-section__layer ss-parallax-section__layer--bg" data-ss-depth="0.3">
+        <img src="https://images.unsplash.com/photo-1579338559194-a162d19bf842?w=1920" alt="" loading="lazy">
+    </div>
+
+    <div class="ss-parallax-section__layer ss-parallax-section__layer--mid">
+        <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800" alt="" loading="lazy" data-ss-depth="0.6">
+    </div>
+
+    <div class="ss-parallax-section__particles" aria-hidden="true">
+        <div class="ss-parallax-section__particle" style="left: 15%; animation-delay: 2s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 45%; animation-delay: 6s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 75%; animation-delay: 10s;"></div>
+    </div>
+
+    <div class="ss-parallax-section__content">
+        <h2 class="ss-parallax-section__title" data-ss-reveal="up">Comfort Redefined</h2>
+        <p class="ss-parallax-section__text" data-ss-reveal="up" data-ss-reveal-delay="200">
+            All-day wearability meets head-turning style.
+        </p>
+        <div data-ss-reveal="up" data-ss-reveal-delay="400">
+            <a href="/comfort" class="ss-btn ss-btn--outline ss-btn--large" data-ss-magnetic="0.2">
+                Discover Comfort
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================
+     VARIANT 3: Text only (no button)
+     ============================================ -->
+<section class="ss-block ss-parallax-section" data-ss-mouse-parallax>
+    <div class="ss-parallax-section__layer ss-parallax-section__layer--bg" data-ss-mouse-layer="10" data-ss-depth="0.3">
+        <img src="https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=1920" alt="" loading="lazy">
+    </div>
+
+    <div class="ss-parallax-section__particles" aria-hidden="true">
+        <div class="ss-parallax-section__particle" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 30%; animation-delay: 5s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 50%; animation-delay: 10s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 70%; animation-delay: 15s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 90%; animation-delay: 20s;"></div>
+    </div>
+
+    <div class="ss-parallax-section__content" data-ss-mouse-layer="20">
+        <h2 class="ss-parallax-section__title" data-ss-reveal="up">Sneaker Culture Lives Here</h2>
+        <p class="ss-parallax-section__text" data-ss-reveal="up" data-ss-reveal-delay="200">
+            Where passion meets style. Join the movement.
+        </p>
+    </div>
+</section>
+
+
+<!-- ============================================
+     VARIANT 4: Minimal (title only)
+     ============================================ -->
+<section class="ss-block ss-parallax-section" data-ss-mouse-parallax>
+    <div class="ss-parallax-section__layer ss-parallax-section__layer--bg" data-ss-mouse-layer="10" data-ss-depth="0.3">
+        <img src="https://images.unsplash.com/photo-1607853202273-797f1c22a38e?w=1920" alt="" loading="lazy">
+    </div>
+
+    <div class="ss-parallax-section__particles" aria-hidden="true">
+        <div class="ss-parallax-section__particle" style="left: 25%; animation-delay: 3s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 75%; animation-delay: 9s;"></div>
+    </div>
+
+    <div class="ss-parallax-section__content" data-ss-mouse-layer="20">
+        <h2 class="ss-parallax-section__title" data-ss-reveal="up">Step Into Greatness</h2>
+    </div>
+</section>
+
+
+<!-- ============================================
+     VARIANT 5: Dense particles effect
+     ============================================ -->
+<section class="ss-block ss-parallax-section" data-ss-mouse-parallax>
+    <div class="ss-parallax-section__layer ss-parallax-section__layer--bg" data-ss-mouse-layer="10" data-ss-depth="0.3">
+        <img src="https://images.unsplash.com/photo-1491553895911-0055uj8fc0pj3?w=1920" alt="" loading="lazy">
+    </div>
+
+    <!-- Many particles for dramatic effect -->
+    <div class="ss-parallax-section__particles" aria-hidden="true">
+        <div class="ss-parallax-section__particle" style="left: 5%; animation-delay: 0s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 10%; animation-delay: 1s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 15%; animation-delay: 2s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 20%; animation-delay: 3s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 25%; animation-delay: 4s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 30%; animation-delay: 5s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 35%; animation-delay: 6s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 40%; animation-delay: 7s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 45%; animation-delay: 8s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 50%; animation-delay: 9s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 55%; animation-delay: 10s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 60%; animation-delay: 11s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 65%; animation-delay: 12s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 70%; animation-delay: 13s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 75%; animation-delay: 14s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 80%; animation-delay: 15s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 85%; animation-delay: 16s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 90%; animation-delay: 17s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 95%; animation-delay: 18s;"></div>
+    </div>
+
+    <div class="ss-parallax-section__content" data-ss-mouse-layer="20">
+        <h2 class="ss-parallax-section__title" data-ss-reveal="up">Limited Edition Drops</h2>
+        <p class="ss-parallax-section__text" data-ss-reveal="up" data-ss-reveal-delay="200">
+            Rare finds. Exclusive releases. First access for members.
+        </p>
+        <div data-ss-reveal="up" data-ss-reveal-delay="400">
+            <a href="/members" class="ss-btn ss-btn--outline ss-btn--large" data-ss-magnetic="0.2">
+                Become A Member
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================
+     VARIANT 6: Two buttons
+     ============================================ -->
+<section class="ss-block ss-parallax-section" data-ss-mouse-parallax>
+    <div class="ss-parallax-section__layer ss-parallax-section__layer--bg" data-ss-mouse-layer="10" data-ss-depth="0.3">
+        <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=1920" alt="" loading="lazy">
+    </div>
+
+    <div class="ss-parallax-section__layer ss-parallax-section__layer--mid" data-ss-mouse-layer="40">
+        <img src="https://images.unsplash.com/photo-1587563871167-1ee9c731aefb?w=800" alt="" loading="lazy" data-ss-depth="0.6">
+    </div>
+
+    <div class="ss-parallax-section__particles" aria-hidden="true">
+        <div class="ss-parallax-section__particle" style="left: 20%; animation-delay: 2s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 50%; animation-delay: 6s;"></div>
+        <div class="ss-parallax-section__particle" style="left: 80%; animation-delay: 10s;"></div>
+    </div>
+
+    <div class="ss-parallax-section__content" data-ss-mouse-layer="20">
+        <h2 class="ss-parallax-section__title" data-ss-reveal="up">Men's vs Women's</h2>
+        <p class="ss-parallax-section__text" data-ss-reveal="up" data-ss-reveal-delay="200">
+            Curated collections for everyone.
+        </p>
+        <div data-ss-reveal="up" data-ss-reveal-delay="400" style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+            <a href="/shop/mens" class="ss-btn ss-btn--outline ss-btn--large" data-ss-magnetic="0.2">
+                Shop Men's
+            </a>
+            <a href="/shop/womens" class="ss-btn ss-btn--outline ss-btn--large" data-ss-magnetic="0.2">
+                Shop Women's
+            </a>
+        </div>
+    </div>
+</section>

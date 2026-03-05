@@ -1,52 +1,83 @@
 <?php
 /**
- * Stats Counter Block - Server Side Render
- *
- * @param array    $attributes Block attributes.
- * @param string   $content    Block content.
- * @param WP_Block $block      Block instance.
+ * Stats Block - Premium Server Side Render
  */
 
 defined('ABSPATH') || exit;
 
-$stats = $attributes['stats'] ?? [];
-$animation_duration = $attributes['animationDuration'] ?? 2000;
+$eyebrow = esc_html($attributes['eyebrow'] ?? '');
+$heading = esc_html($attributes['heading'] ?? '');
+$stats = $attributes['stats'] ?? array();
+$layout = esc_attr($attributes['layout'] ?? 'grid');
+$animation_duration = intval($attributes['animationDuration'] ?? 2000);
+$enable_stagger = $attributes['enableStagger'] ?? true;
 
-$wrapper_attributes = get_block_wrapper_attributes([
-    'class' => 'alpacode-stats',
-    'data-duration' => $animation_duration,
-]);
+$classes = array('alpacode-stats');
+$classes[] = 'alpacode-stats--' . $layout;
+
+$wrapper_attributes = get_block_wrapper_attributes(array(
+    'class' => implode(' ', $classes),
+));
 ?>
 
 <section <?php echo $wrapper_attributes; ?>>
     <div class="alpacode-stats__container">
-        <div class="alpacode-stats__grid">
-            <?php foreach ($stats as $index => $stat): ?>
-                <div class="alpacode-stats__item" data-index="<?php echo $index; ?>">
-                    <div class="alpacode-stats__icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                            <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2" opacity="0.1" />
-                            <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2" stroke-dasharray="126"
-                                stroke-dashoffset="126" class="alpacode-stats__circle"
-                                style="animation-delay: <?php echo $index * 0.1; ?>s" />
-                            <path d="M24 14v20m-10-10h20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
-                        </svg>
+        <!-- Header -->
+        <?php if ($eyebrow || $heading) : ?>
+            <div class="alpacode-stats__header" data-alpacode-animate="fade-up">
+                <?php if ($eyebrow) : ?>
+                    <span class="alpacode-stats__eyebrow"><?php echo $eyebrow; ?></span>
+                <?php endif; ?>
+                <?php if ($heading) : ?>
+                    <h2 class="alpacode-stats__heading"><?php echo $heading; ?></h2>
+                <?php endif; ?>
+            </div>
+        <?php endif; ?>
+
+        <!-- Stats Grid -->
+        <?php if (!empty($stats)) : ?>
+            <div class="alpacode-stats__grid" <?php echo $enable_stagger ? 'data-alpacode-stagger="0.15"' : ''; ?>>
+                <?php foreach ($stats as $index => $stat) :
+                    $number = esc_html($stat['number'] ?? '0');
+                    $prefix = esc_html($stat['prefix'] ?? '');
+                    $suffix = esc_html($stat['suffix'] ?? '');
+                    $label = esc_html($stat['label'] ?? '');
+                    $show_progress = $stat['showProgress'] ?? false;
+                    $progress_value = intval($stat['progressValue'] ?? 0);
+                ?>
+                    <div class="alpacode-stats__item">
+                        <div class="alpacode-stats__value">
+                            <?php if ($prefix) : ?>
+                                <span class="alpacode-stats__prefix"><?php echo $prefix; ?></span>
+                            <?php endif; ?>
+                            <span
+                                class="alpacode-stats__number"
+                                data-alpacode-count="<?php echo $number; ?>"
+                                data-count-duration="<?php echo $animation_duration; ?>"
+                                data-prefix="<?php echo $prefix; ?>"
+                                data-suffix="<?php echo $suffix; ?>"
+                            >
+                                0
+                            </span>
+                            <?php if ($suffix) : ?>
+                                <span class="alpacode-stats__suffix"><?php echo $suffix; ?></span>
+                            <?php endif; ?>
+                        </div>
+
+                        <?php if ($label) : ?>
+                            <div class="alpacode-stats__label"><?php echo $label; ?></div>
+                        <?php endif; ?>
+
+                        <?php if ($show_progress && $progress_value > 0) : ?>
+                            <div class="alpacode-stats__progress" data-alpacode-progress="<?php echo $progress_value; ?>">
+                                <div class="alpacode-stats__progress-bar"></div>
+                            </div>
+                        <?php endif; ?>
+
+                        <div class="alpacode-stats__decoration"></div>
                     </div>
-
-                    <div class="alpacode-stats__number-wrapper">
-                        <span class="alpacode-stats__number" data-target="<?php echo esc_attr($stat['number']); ?>">
-                            0
-                        </span>
-                        <span class="alpacode-stats__suffix"><?php echo esc_html($stat['suffix']); ?></span>
-                    </div>
-
-                    <h3 class="alpacode-stats__label"><?php echo esc_html($stat['label']); ?></h3>
-
-                    <?php if (!empty($stat['description'])): ?>
-                        <p class="alpacode-stats__description"><?php echo esc_html($stat['description']); ?></p>
-                    <?php endif; ?>
-                </div>
-            <?php endforeach; ?>
-        </div>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
     </div>
 </section>

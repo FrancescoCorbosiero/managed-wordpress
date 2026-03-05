@@ -2,16 +2,17 @@
     "$schema": "https://schemas.wp.org/trunk/block.json",
     "apiVersion": 3,
     "name": "alpacode/testimonials",
-    "version": "0.0.2",
+    "version": "1.0.0",
     "title": "Testimonials",
     "category": "alpacode",
-    "description": "Showcase client testimonials with an elegant carousel layout.",
+    "description": "Showcase client testimonials with elegant carousel and infinite scroll layouts.",
     "keywords": [
         "testimonials",
         "reviews",
         "clients",
         "feedback",
-        "carousel"
+        "carousel",
+        "infinite"
     ],
     "textdomain": "alpacode-blocks",
     "editorScript": {
@@ -29,13 +30,17 @@
     "viewScript": "file:./view.js",
     "render": "file:./render.php",
     "attributes": {
-        "sectionTitle": {
+        "eyebrow": {
+            "type": "string",
+            "default": "Testimonials"
+        },
+        "heading": {
             "type": "string",
             "default": "What Our Clients Say"
         },
-        "sectionSubtitle": {
+        "description": {
             "type": "string",
-            "default": "Testimonials"
+            "default": ""
         },
         "testimonials": {
             "type": "array",
@@ -45,23 +50,51 @@
                     "author": "Sarah Johnson",
                     "role": "CEO, TechCorp",
                     "avatar": "",
-                    "rating": 5
+                    "rating": 5,
+                    "company": ""
                 },
                 {
                     "quote": "Professional, responsive, and incredibly talented. They delivered a solution that perfectly matched our vision.",
                     "author": "Michael Chen",
                     "role": "CTO, Innovation Labs",
                     "avatar": "",
-                    "rating": 5
+                    "rating": 5,
+                    "company": ""
                 },
                 {
                     "quote": "The attention to detail and commitment to quality is unmatched. Highly recommend for any serious project.",
                     "author": "Emily Rodriguez",
                     "role": "Product Manager, StartupXYZ",
                     "avatar": "",
-                    "rating": 5
+                    "rating": 5,
+                    "company": ""
+                },
+                {
+                    "quote": "Outstanding communication and technical expertise. They turned our complex requirements into an elegant solution.",
+                    "author": "David Park",
+                    "role": "Founder, NextGen Solutions",
+                    "avatar": "",
+                    "rating": 5,
+                    "company": ""
                 }
             ]
+        },
+        "layout": {
+            "type": "string",
+            "default": "carousel",
+            "enum": ["carousel", "infinite", "grid"]
+        },
+        "columns": {
+            "type": "number",
+            "default": 3
+        },
+        "showRating": {
+            "type": "boolean",
+            "default": true
+        },
+        "showQuoteIcon": {
+            "type": "boolean",
+            "default": true
         },
         "autoplay": {
             "type": "boolean",
@@ -70,6 +103,23 @@
         "autoplaySpeed": {
             "type": "number",
             "default": 5000
+        },
+        "infiniteSpeed": {
+            "type": "number",
+            "default": 30
+        },
+        "pauseOnHover": {
+            "type": "boolean",
+            "default": true
+        },
+        "showFadeEdges": {
+            "type": "boolean",
+            "default": true
+        },
+        "cardStyle": {
+            "type": "string",
+            "default": "default",
+            "enum": ["default", "bordered", "glass", "minimal"]
         }
     },
     "supports": {

@@ -1,156 +1,297 @@
 /**
- * Testimonials Block - Frontend Script
+ * Testimonials Block - Premium Frontend Script
  */
 
-document.addEventListener('DOMContentLoaded', function () {
-    const carousels = document.querySelectorAll('.alpacode-testimonials');
+(function () {
+    'use strict';
 
-    carousels.forEach(carousel => {
-        const track = carousel.querySelector('.alpacode-testimonials__track');
-        const cards = carousel.querySelectorAll('.alpacode-testimonials__card');
-        const prevBtn = carousel.querySelector('.alpacode-testimonials__nav--prev');
-        const nextBtn = carousel.querySelector('.alpacode-testimonials__nav--next');
-        const dots = carousel.querySelectorAll('.alpacode-testimonials__dot');
+    /**
+     * Initialize carousel functionality
+     */
+    function initCarousel(container) {
+        var carousel = container.querySelector('.alpacode-testimonials__carousel');
+        if (!carousel) return;
 
-        const autoplay = carousel.dataset.autoplay === 'true';
-        const autoplaySpeed = parseInt(carousel.dataset.autoplaySpeed) || 5000;
+        var track = carousel.querySelector('.alpacode-testimonials__track');
+        var slides = container.querySelectorAll('.alpacode-testimonials__slide');
+        var prevBtn = container.querySelector('.alpacode-testimonials__nav--prev');
+        var nextBtn = container.querySelector('.alpacode-testimonials__nav--next');
+        var dots = container.querySelectorAll('.alpacode-testimonials__dot');
 
-        let currentIndex = 0;
-        let autoplayInterval = null;
+        var autoplay = container.dataset.autoplay === 'true';
+        var autoplaySpeed = parseInt(container.dataset.autoplaySpeed, 10) || 5000;
+        var pauseOnHover = container.dataset.pauseHover === 'true';
 
-        function updateCarousel(index) {
-            // Ensure index is within bounds
-            if (index < 0) index = 0;
-            if (index >= cards.length) index = cards.length - 1;
+        var currentIndex = 0;
+        var autoplayTimer = null;
+        var isPaused = false;
+
+        // Set CSS variable for progress animation
+        container.style.setProperty('--autoplay-speed', autoplaySpeed + 'ms');
+
+        function updateCarousel(index, animate) {
+            if (animate === undefined) animate = true;
+
+            // Wrap index
+            if (index < 0) index = slides.length - 1;
+            if (index >= slides.length) index = 0;
 
             currentIndex = index;
 
-            // Move track
-            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            // Update track position
+            if (animate) {
+                track.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+            } else {
+                track.style.transition = 'none';
+            }
+            track.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
 
-            // Update cards opacity and scale
-            cards.forEach((card, i) => {
+            // Update slide states
+            slides.forEach(function (slide, i) {
                 if (i === currentIndex) {
-                    card.style.opacity = '1';
-                    card.style.transform = 'scale(1)';
+                    slide.classList.add('alpacode-testimonials__slide--active');
                 } else {
-                    card.style.opacity = '0.4';
-                    card.style.transform = 'scale(0.95)';
+                    slide.classList.remove('alpacode-testimonials__slide--active');
                 }
             });
 
             // Update dots
-            dots.forEach((dot, i) => {
+            dots.forEach(function (dot, i) {
+                var progress = dot.querySelector('.alpacode-testimonials__dot-progress');
                 if (i === currentIndex) {
-                    dot.classList.add('active');
+                    dot.classList.add('alpacode-testimonials__dot--active');
+                    dot.setAttribute('aria-selected', 'true');
+                    // Reset progress animation
+                    if (progress && autoplay) {
+                        progress.style.animation = 'none';
+                        progress.offsetHeight; // Trigger reflow
+                        progress.style.animation = '';
+                    }
                 } else {
-                    dot.classList.remove('active');
+                    dot.classList.remove('alpacode-testimonials__dot--active');
+                    dot.setAttribute('aria-selected', 'false');
+                    if (progress) {
+                        progress.style.width = '0';
+                    }
                 }
             });
-
-            // Update navigation buttons
-            if (prevBtn) {
-                prevBtn.disabled = currentIndex === 0;
-            }
-            if (nextBtn) {
-                nextBtn.disabled = currentIndex === cards.length - 1;
-            }
         }
 
         function nextSlide() {
-            if (currentIndex < cards.length - 1) {
-                updateCarousel(currentIndex + 1);
-            } else if (autoplay) {
-                // Loop back to start if autoplay is enabled
-                updateCarousel(0);
-            }
+            updateCarousel(currentIndex + 1);
         }
 
         function prevSlide() {
-            if (currentIndex > 0) {
-                updateCarousel(currentIndex - 1);
-            }
+            updateCarousel(currentIndex - 1);
+        }
+
+        function goToSlide(index) {
+            updateCarousel(index);
         }
 
         function startAutoplay() {
-            if (autoplay && cards.length > 1) {
-                autoplayInterval = setInterval(nextSlide, autoplaySpeed);
-            }
+            if (!autoplay || slides.length <= 1) return;
+
+            stopAutoplay();
+            autoplayTimer = setInterval(function () {
+                if (!isPaused) {
+                    nextSlide();
+                }
+            }, autoplaySpeed);
         }
 
         function stopAutoplay() {
-            if (autoplayInterval) {
-                clearInterval(autoplayInterval);
-                autoplayInterval = null;
+            if (autoplayTimer) {
+                clearInterval(autoplayTimer);
+                autoplayTimer = null;
             }
         }
 
         // Event listeners
         if (prevBtn) {
-            prevBtn.addEventListener('click', () => {
+            prevBtn.addEventListener('click', function () {
                 prevSlide();
-                stopAutoplay();
+                startAutoplay();
             });
         }
 
         if (nextBtn) {
-            nextBtn.addEventListener('click', () => {
+            nextBtn.addEventListener('click', function () {
                 nextSlide();
-                stopAutoplay();
+                startAutoplay();
             });
         }
 
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                updateCarousel(index);
-                stopAutoplay();
+        dots.forEach(function (dot, index) {
+            dot.addEventListener('click', function () {
+                goToSlide(index);
+                startAutoplay();
             });
         });
 
         // Touch/swipe support
-        let touchStartX = 0;
-        let touchEndX = 0;
+        var touchStartX = 0;
+        var touchEndX = 0;
+        var isDragging = false;
 
-        track.addEventListener('touchstart', (e) => {
+        track.addEventListener('touchstart', function (e) {
             touchStartX = e.changedTouches[0].screenX;
+            isDragging = true;
         }, { passive: true });
 
-        track.addEventListener('touchend', (e) => {
+        track.addEventListener('touchmove', function (e) {
+            if (!isDragging) return;
             touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
         }, { passive: true });
 
-        function handleSwipe() {
-            const swipeThreshold = 50;
-            const diff = touchStartX - touchEndX;
+        track.addEventListener('touchend', function () {
+            if (!isDragging) return;
+            isDragging = false;
 
-            if (Math.abs(diff) > swipeThreshold) {
-                stopAutoplay();
+            var diff = touchStartX - touchEndX;
+            var threshold = 50;
+
+            if (Math.abs(diff) > threshold) {
                 if (diff > 0) {
                     nextSlide();
                 } else {
                     prevSlide();
                 }
+                startAutoplay();
             }
+        }, { passive: true });
+
+        // Pause on hover
+        if (pauseOnHover) {
+            container.addEventListener('mouseenter', function () {
+                isPaused = true;
+            });
+
+            container.addEventListener('mouseleave', function () {
+                isPaused = false;
+            });
         }
 
         // Keyboard navigation
-        carousel.addEventListener('keydown', (e) => {
+        container.setAttribute('tabindex', '0');
+        container.addEventListener('keydown', function (e) {
             if (e.key === 'ArrowLeft') {
                 prevSlide();
-                stopAutoplay();
+                startAutoplay();
             } else if (e.key === 'ArrowRight') {
                 nextSlide();
-                stopAutoplay();
+                startAutoplay();
             }
         });
 
-        // Pause autoplay on hover
-        carousel.addEventListener('mouseenter', stopAutoplay);
-        carousel.addEventListener('mouseleave', startAutoplay);
+        // Intersection Observer to pause when not visible
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    startAutoplay();
+                } else {
+                    stopAutoplay();
+                }
+            });
+        }, { threshold: 0.3 });
+
+        observer.observe(container);
 
         // Initialize
-        updateCarousel(0);
+        updateCarousel(0, false);
         startAutoplay();
-    });
-});
+    }
+
+    /**
+     * Initialize infinite scroll
+     */
+    function initInfiniteScroll(container) {
+        var track = container.querySelector('.alpacode-testimonials__infinite-track');
+        if (!track) return;
+
+        var pauseOnHover = container.dataset.pauseHover === 'true';
+
+        // Check for reduced motion preference
+        var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (prefersReducedMotion) {
+            track.style.animation = 'none';
+            return;
+        }
+
+        // Pause/resume handled by CSS hover, but we can add focus handling
+        var cards = track.querySelectorAll('.alpacode-testimonials__card');
+        cards.forEach(function (card) {
+            card.setAttribute('tabindex', '0');
+
+            card.addEventListener('focus', function () {
+                if (pauseOnHover) {
+                    track.style.animationPlayState = 'paused';
+                }
+            });
+
+            card.addEventListener('blur', function () {
+                track.style.animationPlayState = 'running';
+            });
+        });
+
+        // Pause when not visible
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    track.style.animationPlayState = 'running';
+                } else {
+                    track.style.animationPlayState = 'paused';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        observer.observe(container);
+    }
+
+    /**
+     * Initialize grid layout with stagger
+     */
+    function initGrid(container) {
+        var grid = container.querySelector('.alpacode-testimonials__grid');
+        if (!grid) return;
+
+        var cards = grid.querySelectorAll('.alpacode-testimonials__card');
+
+        // Add stagger delay via inline style
+        cards.forEach(function (card, index) {
+            card.style.transitionDelay = (index * 0.1) + 's';
+        });
+    }
+
+    /**
+     * Initialize all testimonials blocks
+     */
+    function init() {
+        var containers = document.querySelectorAll('.alpacode-testimonials');
+
+        containers.forEach(function (container) {
+            var layout = container.dataset.layout || 'carousel';
+
+            switch (layout) {
+                case 'carousel':
+                    initCarousel(container);
+                    break;
+                case 'infinite':
+                    initInfiniteScroll(container);
+                    break;
+                case 'grid':
+                    initGrid(container);
+                    break;
+            }
+        });
+    }
+
+    // Initialize on DOM ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+
+})();

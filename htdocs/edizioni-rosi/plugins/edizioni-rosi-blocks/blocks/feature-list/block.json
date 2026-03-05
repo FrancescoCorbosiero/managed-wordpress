@@ -1,0 +1,52 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "edizioni-rosi/feature-list",
+    "version": "1.0.0",
+    "title": "Feature List",
+    "category": "edizioni-rosi",
+    "icon": "list-view",
+    "description": "Lista numerata di valori editoriali, servizi o punti di forza con icone decorative.",
+    "keywords": ["feature", "valori", "lista", "perché", "servizi"],
+    "textdomain": "edizioni-rosi-blocks",
+    "attributes": {
+        "eyebrow": {
+            "type": "string",
+            "default": ""
+        },
+        "title": {
+            "type": "string",
+            "default": "Perché Edizioni Rosi"
+        },
+        "subtitle": {
+            "type": "string",
+            "default": ""
+        },
+        "items": {
+            "type": "array",
+            "default": [
+                {
+                    "title": "Indipendenza Editoriale",
+                    "description": "Pubblichiamo senza condizionamenti, scegliendo le opere per il loro valore letterario e culturale.",
+                    "icon": "book"
+                },
+                {
+                    "title": "Cura Artigianale",
+                    "description": "Ogni libro riceve un'attenzione editoriale meticolosa, dalla revisione del testo alla progettazione grafica.",
+                    "icon": "pen"
+                },
+                {
+                    "title": "Distribuzione Globale",
+                    "description": "I nostri titoli sono disponibili su Amazon e nelle principali piattaforme di distribuzione digitale.",
+                    "icon": "globe"
+                }
+            ]
+        }
+    },
+    "supports": {
+        "align": ["wide"],
+        "html": false
+    },
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php"
+}

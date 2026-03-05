@@ -1,0 +1,36 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "sneakersselection/social-proof",
+    "version": "1.0.0",
+    "title": "Social Proof Popup",
+    "category": "sneakersselection",
+    "icon": "megaphone",
+    "description": "Conversion-boosting popup showing recent purchases to build trust and urgency.",
+    "keywords": ["social proof", "notification", "popup", "fomo", "conversion"],
+    "textdomain": "sneakersselection-blocks",
+    "attributes": {
+        "notifications": {
+            "type": "array",
+            "default": []
+        },
+        "interval": {
+            "type": "number",
+            "default": 8000
+        },
+        "initialDelay": {
+            "type": "number",
+            "default": 5000
+        },
+        "title": {
+            "type": "string",
+            "default": "Someone just purchased"
+        }
+    },
+    "supports": {
+        "html": false,
+        "multiple": false
+    },
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php"
+}

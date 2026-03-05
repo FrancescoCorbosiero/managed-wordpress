@@ -2,16 +2,18 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "alpacode/hero",
-	"version": "0.0.2",
+	"version": "1.0.0",
 	"title": "Hero",
 	"category": "alpacode",
-	"description": "Professional hero section for landing pages and service pages.",
+	"description": "Premium hero section with parallax, particles, and scroll animations.",
 	"keywords": [
 		"hero",
 		"banner",
 		"header",
 		"landing",
-		"intro"
+		"intro",
+		"parallax",
+		"particles"
 	],
 	"textdomain": "alpacode-blocks",
 	"editorScript": {
@@ -38,7 +40,7 @@
 		},
 		"description": {
 			"type": "string",
-			"default": "We help businesses transform their ideas into powerful digital products."
+			"default": "We help businesses transform their ideas into powerful digital products with cutting-edge technology and expert consulting."
 		},
 		"primaryButtonText": {
 			"type": "string",
@@ -50,15 +52,45 @@
 		},
 		"secondaryButtonText": {
 			"type": "string",
-			"default": "Learn More"
+			"default": "View Our Work"
 		},
 		"secondaryButtonUrl": {
 			"type": "string",
-			"default": "#services"
+			"default": "#portfolio"
 		},
 		"showButtons": {
 			"type": "boolean",
 			"default": true
+		},
+		"backgroundType": {
+			"type": "string",
+			"default": "gradient",
+			"enum": ["gradient", "particles", "video"]
+		},
+		"videoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"particleDensity": {
+			"type": "number",
+			"default": 30
+		},
+		"enableParallax": {
+			"type": "boolean",
+			"default": true
+		},
+		"enableTextAnimation": {
+			"type": "boolean",
+			"default": true
+		},
+		"showScrollIndicator": {
+			"type": "boolean",
+			"default": true
+		},
+		"alignment": {
+			"type": "string",
+			"default": "center",
+			"enum": ["left", "center"]
 		}
 	},
 	"supports": {

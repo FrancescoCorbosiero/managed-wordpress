@@ -1,75 +1,56 @@
 /**
- * Stats Counter Block - Frontend Script
+ * Stats Counter - Simple Frontend Script
  */
+(function() {
+    'use strict';
 
-document.addEventListener('DOMContentLoaded', function () {
-    const statsBlocks = document.querySelectorAll('.alpacode-stats');
+    function animateCounters() {
+        var counters = document.querySelectorAll('[data-alpacode-count]');
 
-    statsBlocks.forEach(block => {
-        const duration = parseInt(block.dataset.duration) || 2000;
-        const items = block.querySelectorAll('.alpacode-stats__item');
-        const numbers = block.querySelectorAll('.alpacode-stats__number');
+        counters.forEach(function(counter) {
+            var target = parseFloat(counter.getAttribute('data-alpacode-count')) || 0;
+            var duration = parseInt(counter.getAttribute('data-count-duration')) || 2000;
+            var hasRun = counter.getAttribute('data-counted') === 'true';
 
-        let hasAnimated = false;
+            if (hasRun) return;
 
-        // Intersection Observer for scroll animation
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !hasAnimated) {
-                    hasAnimated = true;
+            var rect = counter.getBoundingClientRect();
+            var inView = rect.top < window.innerHeight && rect.bottom > 0;
 
-                    // Animate items visibility
-                    items.forEach((item, index) => {
-                        setTimeout(() => {
-                            item.classList.add('visible');
-                        }, index * 100);
-                    });
+            if (!inView) return;
 
-                    // Animate numbers
-                    numbers.forEach((numberEl) => {
-                        animateNumber(numberEl, duration);
-                    });
-                }
-            });
-        }, {
-            threshold: 0.2
-        });
+            counter.setAttribute('data-counted', 'true');
 
-        observer.observe(block);
+            var start = 0;
+            var startTime = null;
 
-        function animateNumber(element, animationDuration) {
-            const target = parseFloat(element.dataset.target);
-            const startTime = performance.now();
-            const isDecimal = target % 1 !== 0;
-            const decimalPlaces = isDecimal ? target.toString().split('.')[1]?.length || 1 : 0;
+            function step(timestamp) {
+                if (!startTime) startTime = timestamp;
+                var progress = Math.min((timestamp - startTime) / duration, 1);
+                var eased = 1 - Math.pow(1 - progress, 3);
+                var current = Math.floor(target * eased);
 
-            function update(currentTime) {
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / animationDuration, 1);
-
-                // Easing function (ease-out)
-                const easeOut = 1 - Math.pow(1 - progress, 3);
-                const current = target * easeOut;
-
-                if (isDecimal) {
-                    element.textContent = current.toFixed(decimalPlaces);
-                } else {
-                    element.textContent = Math.floor(current).toLocaleString();
-                }
+                counter.textContent = current.toLocaleString();
 
                 if (progress < 1) {
-                    requestAnimationFrame(update);
+                    requestAnimationFrame(step);
                 } else {
-                    // Ensure final value is exact
-                    if (isDecimal) {
-                        element.textContent = target.toFixed(decimalPlaces);
-                    } else {
-                        element.textContent = Math.floor(target).toLocaleString();
-                    }
+                    counter.textContent = target.toLocaleString();
                 }
             }
 
-            requestAnimationFrame(update);
-        }
-    });
-});
+            requestAnimationFrame(step);
+        });
+    }
+
+    function init() {
+        animateCounters();
+        window.addEventListener('scroll', animateCounters, { passive: true });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();

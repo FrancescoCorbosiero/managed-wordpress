@@ -1,0 +1,313 @@
+/**
+ * Alpacode Blocks - Editor Styles
+ * Styles for the Gutenberg block editor
+ *
+ * @version 1.0.0
+ * @author Alpacode Studio
+ */
+
+/* ============================================
+   Block Category Icon
+   ============================================ */
+
+.block-editor-block-types-list__item[data-category="alpacode"] .block-editor-block-types-list__item-icon {
+    background: linear-gradient(135deg, #3b82f6, #60a5fa);
+    border-radius: 6px;
+}
+
+/* ============================================
+   Inspector Panel Styles
+   ============================================ */
+
+.alpacode-inspector-panel .components-panel__body-title .components-button {
+    font-weight: 600;
+}
+
+.alpacode-inspector-panel .components-base-control {
+    margin-bottom: 1rem;
+}
+
+.alpacode-inspector-panel .components-base-control__label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+/* Help text styling */
+.alpacode-inspector-panel .components-base-control__help {
+    font-size: 12px;
+    color: #757575;
+    margin-top: 0.25rem;
+}
+
+/* ============================================
+   Block Preview Placeholder
+   ============================================ */
+
+.alpacode-block-preview-placeholder {
+    padding: 2rem;
+    background: linear-gradient(135deg, #18181b, #0a0a0b);
+    border: 1px dashed #27272a;
+    border-radius: 12px;
+    text-align: center;
+    color: #a1a1aa;
+}
+
+.alpacode-block-preview-placeholder__icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.alpacode-block-preview-placeholder__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #fafafa;
+    margin-bottom: 0.5rem;
+}
+
+.alpacode-block-preview-placeholder__description {
+    font-size: 0.875rem;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+/* ============================================
+   ServerSideRender Loading State
+   ============================================ */
+
+.wp-block-alpacode-hero .components-spinner,
+.wp-block-alpacode-services .components-spinner,
+.wp-block-alpacode-cta .components-spinner,
+.wp-block-alpacode-stats .components-spinner,
+.wp-block-alpacode-testimonials .components-spinner,
+.wp-block-alpacode-logos .components-spinner,
+.wp-block-alpacode-timeline .components-spinner,
+.wp-block-alpacode-pricing .components-spinner,
+.wp-block-alpacode-contact-split .components-spinner,
+.wp-block-alpacode-bento .components-spinner {
+    margin: 2rem auto;
+    display: block;
+}
+
+/* ============================================
+   Array Field Styling (Services, Testimonials, etc.)
+   ============================================ */
+
+.alpacode-array-field {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: #f9f9f9;
+}
+
+.alpacode-array-field__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.alpacode-array-field__title {
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.alpacode-array-field__actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.alpacode-array-field__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* Add item button */
+.alpacode-add-item-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.75rem;
+    background: transparent;
+    border: 2px dashed #c4c4c4;
+    border-radius: 8px;
+    color: #757575;
+    font-weight: 500;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+}
+
+.alpacode-add-item-button:hover {
+    border-color: #3b82f6;
+    color: #3b82f6;
+    background-color: rgba(59, 130, 246, 0.05);
+}
+
+/* ============================================
+   Color Picker Enhancement
+   ============================================ */
+
+.alpacode-color-picker-wrapper {
+    margin-bottom: 1rem;
+}
+
+.alpacode-color-picker-wrapper .components-color-palette {
+    margin-top: 0.5rem;
+}
+
+/* ============================================
+   Toggle Group
+   ============================================ */
+
+.alpacode-toggle-group {
+    display: flex;
+    gap: 0;
+    background: #f0f0f0;
+    border-radius: 6px;
+    padding: 4px;
+}
+
+.alpacode-toggle-group__button {
+    flex: 1;
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.alpacode-toggle-group__button--active {
+    background: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   Image Upload Preview
+   ============================================ */
+
+.alpacode-image-preview {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.alpacode-image-preview img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.alpacode-image-preview__remove {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ============================================
+   Block Toolbar Styles
+   ============================================ */
+
+.alpacode-block-toolbar {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* ============================================
+   Notice/Info Box
+   ============================================ */
+
+.alpacode-info-box {
+    padding: 1rem;
+    background: #e7f3ff;
+    border-left: 4px solid #3b82f6;
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 1rem;
+}
+
+.alpacode-info-box__title {
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+    color: #1e40af;
+}
+
+.alpacode-info-box__text {
+    font-size: 0.8125rem;
+    color: #1e3a8a;
+    margin: 0;
+}
+
+/* ============================================
+   Drag Handle
+   ============================================ */
+
+.alpacode-drag-handle {
+    cursor: grab;
+    color: #a0a0a0;
+    padding: 0.25rem;
+}
+
+.alpacode-drag-handle:active {
+    cursor: grabbing;
+}
+
+/* ============================================
+   Block Wrapper in Editor
+   ============================================ */
+
+[data-type="alpacode/hero"],
+[data-type="alpacode/services"],
+[data-type="alpacode/cta"],
+[data-type="alpacode/stats"],
+[data-type="alpacode/testimonials"],
+[data-type="alpacode/logos"],
+[data-type="alpacode/timeline"],
+[data-type="alpacode/pricing"],
+[data-type="alpacode/contact-split"],
+[data-type="alpacode/bento"] {
+    max-width: none !important;
+}
+
+/* Selection outline */
+[data-type^="alpacode/"].is-selected::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid #3b82f6;
+    border-radius: 4px;
+    pointer-events: none;
+}
+
+/* ============================================
+   Responsive Editor Styles
+   ============================================ */
+
+@media (max-width: 782px) {
+    .alpacode-array-field {
+        padding: 0.75rem;
+    }
+
+    .alpacode-toggle-group {
+        flex-direction: column;
+    }
+}

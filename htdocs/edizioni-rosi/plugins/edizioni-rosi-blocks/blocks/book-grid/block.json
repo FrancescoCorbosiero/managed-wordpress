@@ -1,0 +1,28 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "edizioni-rosi/book-grid",
+    "version": "1.0.0",
+    "title": "Book Grid",
+    "category": "edizioni-rosi",
+    "icon": "grid-view",
+    "description": "Griglia catalogo libri con titolo sezione e card animate.",
+    "keywords": ["libri", "catalogo", "griglia", "books"],
+    "textdomain": "edizioni-rosi-blocks",
+    "attributes": {
+        "sectionTitle": {
+            "type": "string",
+            "default": "Catalogo"
+        }
+    },
+    "supports": {
+        "align": ["wide", "full"],
+        "html": false
+    },
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php",
+    "providesContext": {
+        "edizioni-rosi/bookGrid": true
+    },
+    "allowedBlocks": ["edizioni-rosi/book-card"]
+}

@@ -1,0 +1,183 @@
+<!--
+Category Slider Block - Demo
+Swiper.js category carousel - Shopify style
+Requires: Swiper.js loaded on the page
+-->
+
+<!-- ============================================
+     DEFAULT: Category slider with title + nav
+     ============================================ -->
+<section class="gh-block gh-category-slider" id="gh-cat-demo-1">
+    <div class="gh-category-slider__container">
+        <header class="gh-category-slider__header">
+            <h2 class="gh-category-slider__title">Categorie in Evidenza</h2>
+        </header>
+
+        <div class="gh-category-slider__carousel">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="/collections/jordan-4" class="gh-category-slider__item">
+                            <div class="gh-category-slider__image-wrapper">
+                                <img src="https://via.placeholder.com/400x500/f5f5f5/333?text=Jordan+4"
+                                     alt="Jordan 4"
+                                     class="gh-category-slider__image">
+                            </div>
+                            <p class="gh-category-slider__name">Jordan 4</p>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="/collections/adidas-spezial" class="gh-category-slider__item">
+                            <div class="gh-category-slider__image-wrapper">
+                                <img src="https://via.placeholder.com/400x500/f5f5f5/333?text=Spezial"
+                                     alt="Adidas Spezial"
+                                     class="gh-category-slider__image">
+                            </div>
+                            <p class="gh-category-slider__name">Spezial</p>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="/collections/travis-scott" class="gh-category-slider__item">
+                            <div class="gh-category-slider__image-wrapper">
+                                <img src="https://via.placeholder.com/400x500/f5f5f5/333?text=Travis+Scott"
+                                     alt="Travis Scott"
+                                     class="gh-category-slider__image">
+                            </div>
+                            <p class="gh-category-slider__name">Travis Scott</p>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="/collections/dunk-low" class="gh-category-slider__item">
+                            <div class="gh-category-slider__image-wrapper">
+                                <img src="https://via.placeholder.com/400x500/f5f5f5/333?text=Dunk+Low"
+                                     alt="Dunk Low"
+                                     class="gh-category-slider__image">
+                            </div>
+                            <p class="gh-category-slider__name">Dunk Low</p>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="/collections/new-balance" class="gh-category-slider__item">
+                            <div class="gh-category-slider__image-wrapper">
+                                <img src="https://via.placeholder.com/400x500/f5f5f5/333?text=New+Balance"
+                                     alt="New Balance"
+                                     class="gh-category-slider__image">
+                            </div>
+                            <p class="gh-category-slider__name">New Balance</p>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="/collections/ugg" class="gh-category-slider__item">
+                            <div class="gh-category-slider__image-wrapper">
+                                <img src="https://via.placeholder.com/400x500/f5f5f5/333?text=UGG"
+                                     alt="UGG"
+                                     class="gh-category-slider__image">
+                            </div>
+                            <p class="gh-category-slider__name">UGG</p>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof Swiper !== 'undefined') {
+        new Swiper('#gh-cat-demo-1 .swiper', {
+            slidesPerView: 2,
+            spaceBetween: 16,
+            loop: true,
+            navigation: {
+                nextEl: '#gh-cat-demo-1 .swiper-button-next',
+                prevEl: '#gh-cat-demo-1 .swiper-button-prev',
+            },
+            breakpoints: {
+                0: { slidesPerView: 2, spaceBetween: 12 },
+                640: { slidesPerView: 2, spaceBetween: 16 },
+                768: { slidesPerView: 3, spaceBetween: 20 },
+                1024: { slidesPerView: 4, spaceBetween: 24 },
+                1280: { slidesPerView: 5, spaceBetween: 24 },
+            },
+        });
+    }
+});
+</script>
+
+
+<!-- ============================================
+     VARIANT: With pagination dots (no nav arrows)
+     ============================================ -->
+<section class="gh-block gh-category-slider" id="gh-cat-demo-2">
+    <div class="gh-category-slider__container">
+        <header class="gh-category-slider__header">
+            <h2 class="gh-category-slider__title">Shop by Brand</h2>
+        </header>
+
+        <div class="gh-category-slider__carousel">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="/collections/nike" class="gh-category-slider__item">
+                            <div class="gh-category-slider__image-wrapper">
+                                <img src="https://via.placeholder.com/400x500/f5f5f5/333?text=Nike"
+                                     alt="Nike"
+                                     class="gh-category-slider__image">
+                            </div>
+                            <p class="gh-category-slider__name">Nike</p>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="/collections/adidas" class="gh-category-slider__item">
+                            <div class="gh-category-slider__image-wrapper">
+                                <img src="https://via.placeholder.com/400x500/f5f5f5/333?text=Adidas"
+                                     alt="Adidas"
+                                     class="gh-category-slider__image">
+                            </div>
+                            <p class="gh-category-slider__name">Adidas</p>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="/collections/jordan" class="gh-category-slider__item">
+                            <div class="gh-category-slider__image-wrapper">
+                                <img src="https://via.placeholder.com/400x500/f5f5f5/333?text=Jordan"
+                                     alt="Jordan"
+                                     class="gh-category-slider__image">
+                            </div>
+                            <p class="gh-category-slider__name">Jordan</p>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof Swiper !== 'undefined') {
+        new Swiper('#gh-cat-demo-2 .swiper', {
+            slidesPerView: 2,
+            spaceBetween: 16,
+            loop: true,
+            pagination: {
+                el: '#gh-cat-demo-2 .swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                0: { slidesPerView: 2, spaceBetween: 12 },
+                640: { slidesPerView: 2, spaceBetween: 16 },
+                768: { slidesPerView: 3, spaceBetween: 20 },
+                1024: { slidesPerView: 4, spaceBetween: 24 },
+                1280: { slidesPerView: 5, spaceBetween: 24 },
+            },
+        });
+    }
+});
+</script>

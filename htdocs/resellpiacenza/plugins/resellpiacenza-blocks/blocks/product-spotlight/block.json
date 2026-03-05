@@ -1,0 +1,64 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "resellpiacenza/product-spotlight",
+    "version": "1.0.0",
+    "title": "Product Spotlight",
+    "category": "resellpiacenza",
+    "icon": "star-filled",
+    "description": "Featured product showcase with elegant presentation for highlighted items.",
+    "keywords": ["product", "spotlight", "featured", "showcase", "highlight"],
+    "textdomain": "resellpiacenza-blocks",
+    "attributes": {
+        "imageUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "category": {
+            "type": "string",
+            "default": "Featured Release"
+        },
+        "title": {
+            "type": "string",
+            "default": ""
+        },
+        "description": {
+            "type": "string",
+            "default": ""
+        },
+        "condition": {
+            "type": "string",
+            "default": "New"
+        },
+        "size": {
+            "type": "string",
+            "default": ""
+        },
+        "authenticity": {
+            "type": "string",
+            "default": "Verified"
+        },
+        "currentPrice": {
+            "type": "string",
+            "default": ""
+        },
+        "originalPrice": {
+            "type": "string",
+            "default": ""
+        },
+        "buttonText": {
+            "type": "string",
+            "default": "View Product"
+        },
+        "buttonUrl": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "supports": {
+        "align": ["wide", "full"],
+        "html": false
+    },
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php"
+}

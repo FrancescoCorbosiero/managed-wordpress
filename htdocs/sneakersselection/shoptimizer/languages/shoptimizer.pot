@@ -1,0 +1,2710 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2025-10-20 16:23+0530\n"
+"PO-Revision-Date: 2021-02-24 20:05+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: "
+"__;_e;esc_html__;esc_attr;esc_attr_e;esc_html_e;esc_attr__;_nx\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: node_modules\n"
+
+#: comments.php:21
+msgid "Post Comments"
+msgstr ""
+
+#: comments.php:28
+msgid "One comment"
+msgstr ""
+
+#: comments.php:36
+msgid "Comment Navigation Above"
+msgstr ""
+
+#: comments.php:37 comments.php:55
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:38 comments.php:56
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: comments.php:39 comments.php:57
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: comments.php:54
+msgid "Comment Navigation Below"
+msgstr ""
+
+#: comments.php:64
+msgid "Comments are closed."
+msgstr ""
+
+#: content-404.php:28
+msgid "That page can&rsquo;t be found."
+msgstr ""
+
+#: content-404.php:31
+msgid ""
+"Nothing was found at this location. Try searching, or check out the popular "
+"items below."
+msgstr ""
+
+#: content-404.php:36 content-404.php:38
+msgid "Popular Products"
+msgstr ""
+
+#: content-none.php:14
+msgid "Nothing Found"
+msgstr ""
+
+#: content-none.php:21
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: content-none.php:26
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: functions.php:250
+msgid "Elementor"
+msgstr ""
+
+#: functions.php:255 inc/setup/sections/intro.php:35
+msgid "Kirki"
+msgstr ""
+
+#: functions.php:267
+msgid "One Click Demo Import"
+msgstr ""
+
+#: functions.php:272 inc/customizer/fields/layout.php:1066
+#: inc/customizer/sections/color.php:43 inc/customizer/sections/layout.php:30
+#: inc/customizer/sections/typography.php:122
+#: inc/customizer/shoptimizer-customizer-extensions.php:185
+msgid "WooCommerce"
+msgstr ""
+
+#: functions.php:290 inc/core/functions/class-tgm-plugin-activation.php:334
+msgid "Install Required Plugins"
+msgstr ""
+
+#: functions.php:291 inc/core/functions/class-tgm-plugin-activation.php:335
+msgid "Install Plugins"
+msgstr ""
+
+#: functions.php:292 inc/core/functions/class-tgm-plugin-activation.php:337
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#: functions.php:293 inc/core/functions/class-tgm-plugin-activation.php:340
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#: functions.php:304 inc/core/functions/class-tgm-plugin-activation.php:392
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: functions.php:305 inc/core/functions/class-tgm-plugin-activation.php:394
+#: inc/core/functions/class-tgm-plugin-activation.php:3263
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: functions.php:306
+#, php-format
+msgid "All plugins installed and activated successfully. %s"
+msgstr ""
+
+#: functions.php:335
+msgid "Shoptimizer Demo Data"
+msgstr ""
+
+#: functions.php:411
+msgid "Shoptimizer demo content imported!"
+msgstr ""
+
+#: functions.php:587
+msgid "-preload"
+msgstr ""
+
+#: inc/class-shoptimizer.php:138
+msgid "Primary Menu"
+msgstr ""
+
+#: inc/class-shoptimizer.php:139
+msgid "Secondary Menu"
+msgstr ""
+
+#: inc/class-shoptimizer.php:140
+msgid "Mobile Menu"
+msgstr ""
+
+#: inc/class-shoptimizer.php:220
+msgid "Sidebar"
+msgstr ""
+
+#: inc/class-shoptimizer.php:226
+msgid "Sidebar Posts"
+msgstr ""
+
+#: inc/class-shoptimizer.php:228
+msgid "The posts sidebar."
+msgstr ""
+
+#: inc/class-shoptimizer.php:232
+msgid "Sidebar Pages"
+msgstr ""
+
+#: inc/class-shoptimizer.php:234
+msgid "The pages sidebar."
+msgstr ""
+
+#: inc/class-shoptimizer.php:238 inc/customizer/sections/color.php:25
+#: inc/customizer/sections/mainmenu.php:50
+msgid "Below Header"
+msgstr ""
+
+#: inc/class-shoptimizer.php:240
+msgid ""
+"Widgets added to this region will appear beneath the header and above the "
+"main content."
+msgstr ""
+
+#: inc/class-shoptimizer.php:244
+msgid "Top Bar Left"
+msgstr ""
+
+#: inc/class-shoptimizer.php:246
+msgid ""
+"A widget added to this region will appear at the very top of the site to the "
+"left."
+msgstr ""
+
+#: inc/class-shoptimizer.php:252
+msgid "Top Bar Center"
+msgstr ""
+
+#: inc/class-shoptimizer.php:254
+msgid ""
+"A widget added to this region will appear at the very top of the site in the "
+"center."
+msgstr ""
+
+#: inc/class-shoptimizer.php:260
+msgid "Top Bar Right"
+msgstr ""
+
+#: inc/class-shoptimizer.php:262
+msgid ""
+"A widget added to this region will appear at the very top of the site to the "
+"right."
+msgstr ""
+
+#: inc/class-shoptimizer.php:268
+msgid "Single Product Custom Area"
+msgstr ""
+
+#: inc/class-shoptimizer.php:270
+msgid ""
+"A widget added to this region will appear below the \"Add to cart\" button "
+"on a product page."
+msgstr ""
+
+#: inc/class-shoptimizer.php:274
+msgid "Floating Button Modal Content"
+msgstr ""
+
+#: inc/class-shoptimizer.php:276
+msgid ""
+"A widget added to this region will appear within a modal window on a single "
+"product page. It is intended for a form shortcode, e.g. Contact Form 7 - but "
+"you can add any content you wish."
+msgstr ""
+
+#: inc/class-shoptimizer.php:280
+msgid "Below Cart Summary"
+msgstr ""
+
+#: inc/class-shoptimizer.php:282
+msgid "A widget added to this region will appear below the cart summary."
+msgstr ""
+
+#: inc/class-shoptimizer.php:286
+msgid "Cart Custom Area"
+msgstr ""
+
+#: inc/class-shoptimizer.php:288
+msgid ""
+"A widget added to this region will appear below the \"Proceed to checkout\" "
+"button on the Cart page."
+msgstr ""
+
+#: inc/class-shoptimizer.php:292
+msgid "Checkout Custom Area"
+msgstr ""
+
+#: inc/class-shoptimizer.php:294
+msgid ""
+"A widget added to this region will appear below the \"Place order\" button "
+"on the Checkout page."
+msgstr ""
+
+#: inc/class-shoptimizer.php:298
+msgid "Thank You Custom Area"
+msgstr ""
+
+#: inc/class-shoptimizer.php:300
+msgid ""
+"A widget added to this region will appear at the bottom of the thank you "
+"page after an order has been placed."
+msgstr ""
+
+#: inc/class-shoptimizer.php:304
+msgid "Below Content"
+msgstr ""
+
+#: inc/class-shoptimizer.php:306
+msgid "A widget added to this region will appear below the main content area."
+msgstr ""
+
+#: inc/class-shoptimizer.php:310 inc/customizer/sections/color.php:49
+#: inc/customizer/sections/layout.php:37
+msgid "Footer"
+msgstr ""
+
+#: inc/class-shoptimizer.php:312
+msgid "A widget added to this region will appear within the footer area."
+msgstr ""
+
+#: inc/class-shoptimizer.php:316
+msgid "Copyright"
+msgstr ""
+
+#: inc/class-shoptimizer.php:318
+msgid "A widget added to this region will appear within the copyright area."
+msgstr ""
+
+#: inc/class-shoptimizer.php:322
+msgid "Mobile Extra"
+msgstr ""
+
+#: inc/class-shoptimizer.php:324
+msgid ""
+"A widget added to this region will appear below the mobile navigation area."
+msgstr ""
+
+#: inc/class-shoptimizer.php:328
+msgid "Empty Mini Cart"
+msgstr ""
+
+#: inc/class-shoptimizer.php:330
+msgid ""
+"A widget added to this region will appear within the mini cart if there are "
+"no products in it."
+msgstr ""
+
+#: inc/class-shoptimizer.php:566
+msgid "Post Navigation"
+msgstr ""
+
+#: inc/compatibility/elementor-pro/class-shoptimizer-cart-elementor-widget.php:42
+msgid "Shoptimizer Cart"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:339
+#, php-format
+msgid "Updating Plugin: %s"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:393
+#: inc/core/functions/class-tgm-plugin-activation.php:914
+#: inc/core/functions/class-tgm-plugin-activation.php:2637
+#: inc/core/functions/class-tgm-plugin-activation.php:3687
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:395
+msgid "The following plugin was activated successfully:"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:397
+#, php-format
+msgid "No action taken. Plugin %1$s was already active."
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:399
+#, php-format
+msgid ""
+"Plugin not activated. A higher version of %s is needed for this theme. "
+"Please update the plugin."
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:401
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:402
+msgid "Dismiss this notice"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:403
+msgid ""
+"There are one or more required or recommended plugins to install, update or "
+"activate."
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:404
+msgid "Please contact the administrator of this site for help."
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:607
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:608
+msgid "Update Required"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:1022
+msgid ""
+"The remote plugin package does not contain a folder with the desired slug "
+"and renaming did not work."
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:1022
+#: inc/core/functions/class-tgm-plugin-activation.php:1030
+msgid ""
+"Please contact the plugin provider and ask them to package their plugin "
+"according to the WordPress guidelines."
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:1030
+msgid ""
+"The remote plugin package consists of more than one file, but the files are "
+"not packaged in a folder."
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:2086
+#, php-format
+msgid "TGMPA v%s"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:2377
+msgid "Required"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:2380
+msgid "Recommended"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:2396
+msgid "WordPress Repository"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:2399
+msgid "External Source"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:2402
+msgid "Pre-Packaged"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:2419
+msgid "Not Installed"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:2423
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:2425
+msgid "Active"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:2431
+msgid "Required Update not Available"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:2434
+msgid "Requires Update"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:2437
+msgid "Update recommended"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:2492
+#, php-format
+msgid "All <span class=\"count\">(%s)</span>"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:2594
+msgid "Installed version:"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:2602
+msgid "Minimum required version:"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:2614
+msgid "Available version:"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:2637
+msgid "No plugins to install, update or activate."
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:2651
+msgid "Plugin"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:2652
+msgid "Source"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:2653
+msgid "Type"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:2657
+msgid "Version"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:2658
+msgid "Status"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:2707
+#, php-format
+msgid "Install %2$s"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:2712
+#, php-format
+msgid "Update %2$s"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:2718
+#, php-format
+msgid "Activate %2$s"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:2788
+msgid "Upgrade message from the plugin author:"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:2821
+msgid "Install"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:2827
+msgid "Update"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:2830
+msgid "Activate"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:2861
+msgid "No plugins were selected to be installed. No action taken."
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:2863
+msgid "No plugins were selected to be updated. No action taken."
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:2904
+msgid "No plugins are available to be installed at this time."
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:2906
+msgid "No plugins are available to be updated at this time."
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:3012
+msgid "No plugins were selected to be activated. No action taken."
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:3038
+msgid "No plugins are available to be activated at this time."
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:3262
+msgid "Plugin activation failed."
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:3604
+#, php-format
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:3607
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:3609
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:3613
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:3615
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:3616
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:3618
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:3621
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:3623
+#, php-format
+msgid "%1$s installed."
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:3624
+msgid "All installations have been completed."
+msgstr ""
+
+#: inc/core/functions/class-tgm-plugin-activation.php:3626
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: inc/customizer/controls/custom-controls.php:189
+msgid "Select weight & style"
+msgstr ""
+
+#: inc/customizer/fields/color.php:18
+msgid "Primary swatch color"
+msgstr ""
+
+#: inc/customizer/fields/color.php:19
+msgid "Select the primary color of your brand."
+msgstr ""
+
+#: inc/customizer/fields/color.php:110
+msgid "General links"
+msgstr ""
+
+#: inc/customizer/fields/color.php:136
+msgid "General links hover"
+msgstr ""
+
+#: inc/customizer/fields/color.php:162
+msgid "Body background color"
+msgstr ""
+
+#: inc/customizer/fields/color.php:163
+msgid "Visible if the grid is contained."
+msgstr ""
+
+#: inc/customizer/fields/color.php:189
+msgid "Top bar background"
+msgstr ""
+
+#: inc/customizer/fields/color.php:215
+msgid "Top Bar text color"
+msgstr ""
+
+#: inc/customizer/fields/color.php:241
+msgid "Top bar border"
+msgstr ""
+
+#: inc/customizer/fields/color.php:270
+msgid "Header background"
+msgstr ""
+
+#: inc/customizer/fields/color.php:308
+msgid "Header border color"
+msgstr ""
+
+#: inc/customizer/fields/color.php:336
+msgid "Mobile"
+msgstr ""
+
+#: inc/customizer/fields/color.php:346
+msgid "Navigation icon"
+msgstr ""
+
+#: inc/customizer/fields/color.php:395 inc/customizer/fields/mainmenu.php:792
+#: inc/customizer/fields/mainmenu.php:977
+#: inc/customizer/fields/mainmenu.php:985
+msgid "Cart icon"
+msgstr ""
+
+#: inc/customizer/fields/color.php:457
+msgid "Mobile navigation background"
+msgstr ""
+
+#: inc/customizer/fields/color.php:486
+msgid "Mobile navigation text"
+msgstr ""
+
+#: inc/customizer/fields/color.php:530
+msgid "Mobile navigation divider"
+msgstr ""
+
+#: inc/customizer/fields/color.php:560
+msgid "Navigation background"
+msgstr ""
+
+#: inc/customizer/fields/color.php:596
+msgid "Navigation border"
+msgstr ""
+
+#: inc/customizer/fields/color.php:644
+msgid "Below header background"
+msgstr ""
+
+#: inc/customizer/fields/color.php:670
+msgid "Below header text color"
+msgstr ""
+
+#: inc/customizer/fields/color.php:699
+msgid "Primary Button"
+msgstr ""
+
+#: inc/customizer/fields/color.php:709
+msgid "Primary button text color"
+msgstr ""
+
+#: inc/customizer/fields/color.php:792
+msgid "Primary button background"
+msgstr ""
+
+#: inc/customizer/fields/color.php:859
+msgid "Primary button background hover"
+msgstr ""
+
+#: inc/customizer/fields/color.php:928
+msgid "Sale Flash"
+msgstr ""
+
+#: inc/customizer/fields/color.php:938
+msgid "Sale flash background"
+msgstr ""
+
+#: inc/customizer/fields/color.php:990
+msgid "Sale flash text color"
+msgstr ""
+
+#: inc/customizer/fields/color.php:1017
+msgid " Ratings"
+msgstr ""
+
+#: inc/customizer/fields/color.php:1027
+msgid "Star ratings color"
+msgstr ""
+
+#: inc/customizer/fields/color.php:1070
+msgid " Product Archives"
+msgstr ""
+
+#: inc/customizer/fields/color.php:1080
+msgid "Archive description background"
+msgstr ""
+
+#: inc/customizer/fields/color.php:1106
+msgid "Archive description text"
+msgstr ""
+
+#: inc/customizer/fields/color.php:1133
+msgid " Single Product"
+msgstr ""
+
+#: inc/customizer/fields/color.php:1143
+msgid "Product container background"
+msgstr ""
+
+#: inc/customizer/fields/color.php:1169
+msgid "Floating button background"
+msgstr ""
+
+#: inc/customizer/fields/color.php:1196
+msgid "Floating button text color"
+msgstr ""
+
+#: inc/customizer/fields/color.php:1223
+msgid " Cart and Checkout"
+msgstr ""
+
+#: inc/customizer/fields/color.php:1234
+msgid "Progress bar color"
+msgstr ""
+
+#: inc/customizer/fields/color.php:1260
+msgid "Below content icons"
+msgstr ""
+
+#: inc/customizer/fields/color.php:1294
+msgid "Footer background"
+msgstr ""
+
+#: inc/customizer/fields/color.php:1321
+msgid "Footer headings color"
+msgstr ""
+
+#: inc/customizer/fields/color.php:1347
+msgid "Footer text color"
+msgstr ""
+
+#: inc/customizer/fields/color.php:1374
+msgid "Footer links"
+msgstr ""
+
+#: inc/customizer/fields/color.php:1401
+msgid "Footer links hover"
+msgstr ""
+
+#: inc/customizer/fields/general.php:18 inc/customizer/fields/general.php:50
+msgid "Logo height"
+msgstr ""
+
+#: inc/customizer/fields/general.php:19 inc/customizer/fields/general.php:51
+msgid ""
+"Adjust the height of your logo in pixels. You can upload your logo image "
+"within the \"Site Identity\" panel."
+msgstr ""
+
+#: inc/customizer/fields/general.php:82
+msgid "Display tagline under logo"
+msgstr ""
+
+#: inc/customizer/fields/general.php:83
+msgid "This is set within Settings > General"
+msgstr ""
+
+#: inc/customizer/fields/general.php:97
+msgid "Sticky logo"
+msgstr ""
+
+#: inc/customizer/fields/general.php:117
+msgid "Sticky logo width"
+msgstr ""
+
+#: inc/customizer/fields/general.php:118
+msgid "Suggested width of at least 60"
+msgstr ""
+
+#: inc/customizer/fields/general.php:155
+msgid "Mobile header height"
+msgstr ""
+
+#: inc/customizer/fields/general.php:156
+msgid "Adjust height of your mobile header (px)"
+msgstr ""
+
+#: inc/customizer/fields/general.php:219
+msgid "Mobile logo height"
+msgstr ""
+
+#: inc/customizer/fields/general.php:220
+msgid "Adjust height of your mobile logo (px)"
+msgstr ""
+
+#: inc/customizer/fields/general.php:246
+msgid "Mobile sticky header"
+msgstr ""
+
+#: inc/customizer/fields/general.php:250 inc/customizer/fields/general.php:267
+#: inc/customizer/fields/general.php:307 inc/customizer/fields/layout.php:1102
+#: inc/customizer/fields/mainmenu.php:25 inc/customizer/fields/mainmenu.php:342
+#: inc/customizer/fields/mainmenu.php:438
+#: inc/customizer/fields/mainmenu.php:453
+msgid "Enable"
+msgstr ""
+
+#: inc/customizer/fields/general.php:251 inc/customizer/fields/general.php:268
+#: inc/customizer/fields/general.php:308 inc/customizer/fields/layout.php:1103
+#: inc/customizer/fields/mainmenu.php:26 inc/customizer/fields/mainmenu.php:279
+#: inc/customizer/fields/mainmenu.php:343
+#: inc/customizer/fields/mainmenu.php:439
+#: inc/customizer/fields/mainmenu.php:454
+msgid "Disable"
+msgstr ""
+
+#: inc/customizer/fields/general.php:263
+msgid "Show search on mobile"
+msgstr ""
+
+#: inc/customizer/fields/general.php:280
+msgid "Mobile search position"
+msgstr ""
+
+#: inc/customizer/fields/general.php:290
+msgid "Within navigation"
+msgstr ""
+
+#: inc/customizer/fields/general.php:291
+msgid "Below header bar"
+msgstr ""
+
+#: inc/customizer/fields/general.php:292
+msgid "Header icon and toggle"
+msgstr ""
+
+#: inc/customizer/fields/general.php:303
+msgid "Show my account on mobile"
+msgstr ""
+
+#: inc/customizer/fields/general.php:320
+msgid "Display mobile menu label"
+msgstr ""
+
+#: inc/customizer/fields/general.php:324 inc/customizer/fields/general.php:379
+#: inc/customizer/fields/general.php:409 inc/customizer/fields/general.php:437
+#: inc/customizer/fields/layout.php:32
+msgid "Yes"
+msgstr ""
+
+#: inc/customizer/fields/general.php:325 inc/customizer/fields/general.php:380
+#: inc/customizer/fields/general.php:410 inc/customizer/fields/general.php:438
+#: inc/customizer/fields/layout.php:33
+msgid "No"
+msgstr ""
+
+#: inc/customizer/fields/general.php:337
+msgid "Mobile menu label text"
+msgstr ""
+
+#: inc/customizer/fields/general.php:365
+msgid "Critical CSS"
+msgstr ""
+
+#: inc/customizer/fields/general.php:375
+msgid "Enable critical CSS?"
+msgstr ""
+
+#: inc/customizer/fields/general.php:395
+msgid "Minification Settings"
+msgstr ""
+
+#: inc/customizer/fields/general.php:405
+msgid "Load minified CSS files?"
+msgstr ""
+
+#: inc/customizer/fields/general.php:423
+msgid "Icon Font"
+msgstr ""
+
+#: inc/customizer/fields/general.php:433
+msgid "Load Rivolicons icon font?"
+msgstr ""
+
+#: inc/customizer/fields/general.php:449
+msgid "Reduced Motion"
+msgstr ""
+
+#: inc/customizer/fields/general.php:450
+msgid ""
+"Enable reduced motion for users who prefer less animation. This respects the "
+"user's system preference and provides a more accessible experience."
+msgstr ""
+
+#: inc/customizer/fields/layout.php:19
+msgid "Wrapper"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:28
+msgid "Contain the grid?"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:45
+msgid "Wraper container width"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:46
+msgid "Adjust wrapper width in px."
+msgstr ""
+
+#: inc/customizer/fields/layout.php:78
+msgid "Content container"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:88
+msgid "Content container width"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:89
+msgid ""
+"Adjust the width of your content container in pixels. Default is 1170px."
+msgstr ""
+
+#: inc/customizer/fields/layout.php:153
+msgid "Breadcrumbs"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:163
+msgid "Display breadcrumbs"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:176
+msgid "Breadcrumbs type"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:187 inc/customizer/fields/layout.php:442
+#: inc/customizer/js/wp-color-picker-alpha.js:48
+msgid "Default"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:188
+msgid "AIOSEO"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:189
+msgid "Rank Math"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:190
+msgid "SEO Framework"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:191
+msgid "SEOPress"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:192
+msgid "Yoast"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:204
+msgid "Mobile product grid"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:213
+msgid "Products per row on mobile"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:217
+msgid "One per row"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:218
+msgid "Two per row"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:230
+msgid "Widgets"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:240
+msgid "Disable block editor for widgets"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:254 inc/customizer/panels/panels.php:13
+#: inc/customizer/sections/color.php:37 inc/customizer/sections/layout.php:12
+msgid "General"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:264
+msgid "Enable sidebar cart drawer"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:277
+msgid "Enable single product ajax"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:278
+msgid "Add directly to the cart on single products"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:292
+msgid "Shop"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:302
+msgid "Display shop heading"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:316
+msgid "Display product results count"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:329
+msgid "Display product sorting"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:342
+msgid "Display sale % discount"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:354
+msgid "Sale badge design"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:365
+msgid "Circle"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:366
+msgid "Bubble"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:377
+msgid "Display rating"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:390
+msgid "Display rating count"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:410
+msgid "Display category"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:423
+msgid "Image change on hover"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:436
+msgid "Product card display"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:443
+msgid "Slide up"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:453
+msgid "Button display"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:459
+msgid "On hover (desktop only)"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:460
+msgid "Static"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:461
+msgid "Remove buttons"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:471
+msgid "Product text alignment"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:477 inc/customizer/fields/layout.php:1083
+#: inc/customizer/fields/layout.php:1138 inc/customizer/fields/layout.php:1195
+#: inc/customizer/fields/layout.php:1232
+msgid "Left"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:478
+msgid "Center"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:489
+msgid "Product Categories"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:513
+msgid "Category description layout"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:519
+msgid "Below header"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:520
+msgid "Within content"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:530
+msgid "Display category description"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:550
+msgid "Display category image"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:571
+msgid "Single Product"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:581
+msgid "Enable block editor"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:594
+msgid "Product gallery width"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:600
+msgid "Skinny"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:601
+msgid "Regular"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:602
+msgid "Wide (default)"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:612
+#: inc/metaboxes/shoptimizer-metaboxes.php:73
+msgid "Product short description position"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:618 inc/customizer/fields/layout.php:664
+#: inc/customizer/fields/layout.php:1046
+#: inc/metaboxes/shoptimizer-metaboxes.php:77
+msgid "Top"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:619 inc/customizer/fields/layout.php:665
+#: inc/customizer/fields/layout.php:1047
+#: inc/metaboxes/shoptimizer-metaboxes.php:78
+msgid "Bottom"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:639
+msgid "Legacy sticky add to cart bar"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:640
+msgid "We recommend adding a sticky add to cart bar via CommerceKit"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:653
+msgid "Sticky add to cart bar position"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:687
+msgid "Display product meta data"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:700
+msgid "Display previous/next"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:723
+msgid "Display cross-sells carousel"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:736
+msgid "Cross-sells carousel heading:"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:772
+msgid "Product description container width"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:778 inc/customizer/fields/mainmenu.php:149
+msgid "Full width"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:779 inc/customizer/fields/mainmenu.php:148
+msgid "Contained"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:799
+msgid "Display floating button"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:812
+msgid "Floating button title:"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:813
+msgid "Content is added within the widget: \"Floating Button Modal Content\""
+msgstr ""
+
+#: inc/customizer/fields/layout.php:849
+msgid "Display related"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:862
+msgid "Number of related items to show"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:887
+msgid "Display upsells before related"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:900
+msgid "Upsells title"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:919
+msgid "Number of upsells to show"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:935
+msgid "Cart and Checkout"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:945
+msgid "Display progress bar"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:957
+msgid "Display cross-sells"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:970
+msgid "Number of cross-sells to show"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:992
+msgid "Mobile-optimized cart page"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:993
+msgid "Collapses the cart table on mobile"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1005
+msgid "Ajax update cart page quantity"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1027
+msgid "Distraction-free checkout"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1028
+msgid "Simplifies the checkout experience for better conversions."
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1040
+msgid "Checkout coupon code position"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1077
+msgid "WooCommerce Sidebar"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1084 inc/customizer/fields/layout.php:1139
+#: inc/customizer/fields/layout.php:1196 inc/customizer/fields/layout.php:1233
+msgid "Right"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1085 inc/customizer/fields/layout.php:1140
+#: inc/customizer/fields/layout.php:1197 inc/customizer/fields/layout.php:1234
+msgid "None"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1095
+msgid "Product Category Widget Toggle"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1096
+msgid ""
+"Include expand/collapse buttons to the core WooCommerce product category "
+"widget."
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1122
+msgid "Pages"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1132
+msgid "Page Sidebar"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1179
+msgid "Blog Archives"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1189
+msgid "Blog Archives Sidebar"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1216
+msgid "Single Post"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1226
+msgid "Post Sidebar"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1244
+msgid "Sidebar Width (%)."
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1245
+msgid "Adjust the width of the sidebar."
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1270
+msgid "Content Width (%)."
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1271
+msgid "Adjust the width of the content."
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1297
+msgid "Blog Layout"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1303
+msgid "List"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1304
+msgid "Flow"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1305
+msgid "Grid of 2"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1306
+msgid "Grid of 3"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1316
+msgid "Display blog page title"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1329
+msgid "Display blog post summary"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1351
+msgid "Single Posts"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1361
+msgid "Display blog author"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1374
+msgid "Display blog meta"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1387
+msgid "Display blog previous/next"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1399
+msgid "Display featured image"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1413
+msgid "Single Post Layout."
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1414
+msgid "Layout Two is full width and better with the Block Editor."
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1420
+msgid "Layout One"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1421
+msgid "Layout Two"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1433
+msgid "Show Below Content?"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1439 inc/customizer/fields/layout.php:1456
+#: inc/customizer/fields/layout.php:1473 inc/customizer/fields/mainmenu.php:49
+msgid "Show"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1440 inc/customizer/fields/layout.php:1457
+#: inc/customizer/fields/layout.php:1474 inc/customizer/fields/mainmenu.php:50
+msgid "Hide"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1450
+msgid "Show Footer?"
+msgstr ""
+
+#: inc/customizer/fields/layout.php:1467
+msgid "Show Copyright?"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:18
+msgid "Display top bar?"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:19
+msgid "Enable or disable the top bar"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:36
+msgid "Hide top bar on mobile?"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:60
+msgid "Top bar padding"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:61
+#: inc/customizer/fields/mainmenu.php:1062
+msgid "Adjusts the top and bottom padding."
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:92
+msgid "Top bar font size"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:113
+msgid "Header Layout"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:114
+msgid "Change the header layout"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:120
+msgid "Logo / Search / Secondary"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:121
+msgid "Logo / Search / Secondary / Cart"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:122
+msgid "Search / Logo / Secondary"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:123
+msgid "Secondary / Logo / Search"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:124
+msgid "Logo / Navigation / Cart"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:134
+msgid "Header Container"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:135
+msgid "Change the header container"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:160
+msgid "Header Top Padding"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:161
+msgid "Adjust the header top padding"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:194
+msgid "Header Bottom Padding"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:195
+msgid "Adjust the header bottom padding"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:227
+msgid "Header Height"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:228
+msgid "Adjust the header height"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:266
+msgid "Display the search?"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:267
+msgid ""
+"Enable or disable the search. (Ajaxify your product search in CommerceKit!)"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:273
+#: inc/woocommerce/template-functions/search.php:51
+#: inc/woocommerce/template-functions/search.php:61
+#: inc/woocommerce/template-functions/search.php:71
+#: inc/woocommerce/template-functions/search.php:81
+#: inc/woocommerce/template-functions/search.php:91
+#: inc/woocommerce/template-functions/search.php:101
+msgid "Product Search"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:274
+msgid "Advanced Woo Search Plugin"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:275
+msgid "FiboSearch Plugin"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:276
+msgid "Smart Search PRO Plugin"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:277
+msgid "YITH WooCommerce Ajax Search Plugin"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:278
+msgid "Regular Search"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:289
+msgid "Search modal title"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:315
+msgid "Search design"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:326
+msgid "Filled"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:327
+msgid "Outline"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:338
+msgid "Display account icon on desktop"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:363
+msgid "Navigation Height"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:364
+msgid "Adjust the navigation height"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:402
+msgid "Enable hover intent"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:403
+msgid ""
+"Tracks cursor movement to interpret when it is likely a user intended to "
+"hover over menu"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:417
+msgid "Display menu descriptions"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:431
+msgid "Sticky Navigation"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:432
+msgid "Stick the navigation on scroll"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:449
+msgid "Mobile Sticky Header"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:467
+#: inc/customizer/fields/mainmenu.php:512
+msgid "Navigation links"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:557
+msgid "Navigation links hover/selected"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:582
+msgid "Fade out other links on hover"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:583
+msgid "Opacity (%)."
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:624
+msgid "Dropdowns"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:635
+msgid "Navigation dropdown background"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:663
+msgid "Navigation dropdown text"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:691
+msgid "Navigation dropdown hover"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:728
+#: inc/shoptimizer-template-functions.php:616
+msgid "Secondary Navigation"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:739
+msgid "Secondary navigation color"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:782
+#: inc/customizer/sections/mainmenu.php:43
+msgid "Cart"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:844
+msgid "Cart text"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:870
+msgid "Cart text hover color"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:898
+msgid "Cart quantity background color"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:931
+msgid "Cart quantity border color"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:964
+msgid "Display cart"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:978
+msgid "If adjusting, test in an incognito window"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:984
+msgid "Basket (Default)"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:986
+msgid "Bag icon"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:996
+msgid "Cart sidebar title"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:1015
+msgid "Cart sidebar quantity arrows"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:1016
+msgid "Display quantity arrows in mini cart"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:1029
+msgid "Cart sidebar - hide \"View Cart\""
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:1042
+msgid "Cart sidebar below text"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:1061
+msgid "Below header padding"
+msgstr ""
+
+#: inc/customizer/fields/mainmenu.php:1092
+msgid "Below header font size"
+msgstr ""
+
+#: inc/customizer/fields/typography.php:15
+msgid "Select a Typography Preset"
+msgstr ""
+
+#: inc/customizer/fields/typography.php:16
+msgid "Change your font style with one click."
+msgstr ""
+
+#: inc/customizer/fields/typography.php:280
+#: inc/customizer/shoptimizer-customizer-extensions.php:213
+msgid "Font settings"
+msgstr ""
+
+#: inc/customizer/fields/typography.php:316
+msgid "Primary Navigation Font"
+msgstr ""
+
+#: inc/customizer/fields/typography.php:342
+msgid "Navigation Dropdown Font"
+msgstr ""
+
+#: inc/customizer/fields/typography.php:367
+msgid "Mega Menu Heading Font"
+msgstr ""
+
+#: inc/customizer/fields/typography.php:395
+#: inc/customizer/fields/typography.php:429
+#: inc/customizer/fields/typography.php:462
+#: inc/customizer/fields/typography.php:496
+#: inc/customizer/fields/typography.php:530
+#: inc/customizer/fields/typography.php:565
+#: inc/customizer/fields/typography.php:594
+#: inc/customizer/fields/typography.php:628
+msgid "Font Settings"
+msgstr ""
+
+#: inc/customizer/fields/typography.php:657
+msgid "Blog Post Title"
+msgstr ""
+
+#: inc/customizer/fields/typography.php:686
+msgid "Archives Category Description"
+msgstr ""
+
+#: inc/customizer/fields/typography.php:714
+msgid "Archives Product Title"
+msgstr ""
+
+#: inc/customizer/fields/typography.php:744
+msgid "Single Product Title"
+msgstr ""
+
+#: inc/customizer/fields/typography.php:772
+msgid "Primary Buttons"
+msgstr ""
+
+#: inc/customizer/js/wp-color-picker-alpha.js:46
+msgid "Color value"
+msgstr ""
+
+#: inc/customizer/js/wp-color-picker-alpha.js:47
+msgid "Select Color"
+msgstr ""
+
+#: inc/customizer/js/wp-color-picker-alpha.js:49
+msgid "Select default color"
+msgstr ""
+
+#: inc/customizer/js/wp-color-picker-alpha.js:50
+msgid "Clear"
+msgstr ""
+
+#: inc/customizer/js/wp-color-picker-alpha.js:51
+msgid "Clear color"
+msgstr ""
+
+#: inc/customizer/panels/panels.php:14
+msgid "Manage general theme settings"
+msgstr ""
+
+#: inc/customizer/panels/panels.php:18
+msgid "Colors"
+msgstr ""
+
+#: inc/customizer/panels/panels.php:19
+msgid "Manage theme colors"
+msgstr ""
+
+#: inc/customizer/panels/panels.php:23
+msgid "Header and Navigation"
+msgstr ""
+
+#: inc/customizer/panels/panels.php:24
+msgid "Manage the header and navigation"
+msgstr ""
+
+#: inc/customizer/panels/panels.php:28
+msgid "Page Heading"
+msgstr ""
+
+#: inc/customizer/panels/panels.php:29
+msgid "Manage the page heading"
+msgstr ""
+
+#: inc/customizer/panels/panels.php:33
+msgid "Typography"
+msgstr ""
+
+#: inc/customizer/panels/panels.php:34
+#: inc/customizer/shoptimizer-customizer-extensions.php:50
+msgid "Manage theme typography"
+msgstr ""
+
+#: inc/customizer/panels/panels.php:38
+msgid "Layout"
+msgstr ""
+
+#: inc/customizer/panels/panels.php:39
+msgid "Manage theme header, footer and more"
+msgstr ""
+
+#: inc/customizer/panels/panels.php:43 inc/customizer/sections/layout.php:24
+#: inc/customizer/sections/typography.php:113
+#: inc/customizer/shoptimizer-customizer-extensions.php:175
+msgid "Blog"
+msgstr ""
+
+#: inc/customizer/panels/panels.php:44
+msgid "Manage blog settings"
+msgstr ""
+
+#: inc/customizer/sections/color.php:13 inc/customizer/sections/mainmenu.php:13
+msgid "Top Bar"
+msgstr ""
+
+#: inc/customizer/sections/color.php:19 inc/customizer/sections/mainmenu.php:20
+msgid "Header"
+msgstr ""
+
+#: inc/customizer/sections/color.php:31 inc/customizer/sections/mainmenu.php:36
+#: inc/customizer/sections/typography.php:32
+#: inc/customizer/shoptimizer-customizer-extensions.php:85
+msgid "Navigation"
+msgstr ""
+
+#: inc/customizer/sections/general.php:13
+msgid "Site Logo"
+msgstr ""
+
+#: inc/customizer/sections/general.php:21
+msgid "Sticky Logo"
+msgstr ""
+
+#: inc/customizer/sections/general.php:29
+msgid "Speed Settings"
+msgstr ""
+
+#: inc/customizer/sections/general.php:37
+msgid "Accessibility"
+msgstr ""
+
+#: inc/customizer/sections/layout.php:18
+msgid "Sidebars"
+msgstr ""
+
+#: inc/customizer/sections/layout.php:31
+msgid "Publish and refresh to see the changes."
+msgstr ""
+
+#: inc/customizer/sections/mainmenu.php:28
+msgid "Mobile Header"
+msgstr ""
+
+#: inc/customizer/sections/mainmenu.php:57
+msgid "Responsive Breakpoint"
+msgstr ""
+
+#: inc/customizer/sections/typography.php:14
+#: inc/customizer/shoptimizer-customizer-extensions.php:65
+msgid "Presets"
+msgstr ""
+
+#: inc/customizer/sections/typography.php:23
+#: inc/customizer/shoptimizer-customizer-extensions.php:75
+msgid "Main Body"
+msgstr ""
+
+#: inc/customizer/sections/typography.php:41
+#: inc/customizer/shoptimizer-customizer-extensions.php:95
+msgid "Paragraphs"
+msgstr ""
+
+#: inc/customizer/sections/typography.php:50
+#: inc/customizer/shoptimizer-customizer-extensions.php:105
+msgid "Heading One"
+msgstr ""
+
+#: inc/customizer/sections/typography.php:59
+#: inc/customizer/shoptimizer-customizer-extensions.php:115
+msgid "Heading Two"
+msgstr ""
+
+#: inc/customizer/sections/typography.php:68
+#: inc/customizer/shoptimizer-customizer-extensions.php:125
+msgid "Heading Three"
+msgstr ""
+
+#: inc/customizer/sections/typography.php:77
+#: inc/customizer/shoptimizer-customizer-extensions.php:135
+msgid "Heading Four"
+msgstr ""
+
+#: inc/customizer/sections/typography.php:86
+#: inc/customizer/shoptimizer-customizer-extensions.php:145
+msgid "Heading Five"
+msgstr ""
+
+#: inc/customizer/sections/typography.php:95
+#: inc/customizer/shoptimizer-customizer-extensions.php:155
+#: inc/customizer/shoptimizer-customizer-extensions.php:1425
+msgid "Blockquotes"
+msgstr ""
+
+#: inc/customizer/sections/typography.php:104
+#: inc/customizer/shoptimizer-customizer-extensions.php:165
+msgid "Widget Titles"
+msgstr ""
+
+#: inc/customizer/shoptimizer-customizer-extensions.php:49
+msgid "Typography 2.0"
+msgstr ""
+
+#: inc/customizer/shoptimizer-customizer-extensions.php:214
+#: inc/customizer/shoptimizer-customizer-extensions.php:306
+#: inc/customizer/shoptimizer-customizer-extensions.php:405
+#: inc/customizer/shoptimizer-customizer-extensions.php:480
+#: inc/customizer/shoptimizer-customizer-extensions.php:598
+#: inc/customizer/shoptimizer-customizer-extensions.php:716
+#: inc/customizer/shoptimizer-customizer-extensions.php:858
+#: inc/customizer/shoptimizer-customizer-extensions.php:1000
+#: inc/customizer/shoptimizer-customizer-extensions.php:1142
+#: inc/customizer/shoptimizer-customizer-extensions.php:1284
+#: inc/customizer/shoptimizer-customizer-extensions.php:1426
+#: inc/customizer/shoptimizer-customizer-extensions.php:1568
+#: inc/customizer/shoptimizer-customizer-extensions.php:1710
+#: inc/customizer/shoptimizer-customizer-extensions.php:1853
+#: inc/customizer/shoptimizer-customizer-extensions.php:1995
+#: inc/customizer/shoptimizer-customizer-extensions.php:2137
+#: inc/customizer/shoptimizer-customizer-extensions.php:2279
+msgid "All Google Fonts sorted alphabetically"
+msgstr ""
+
+#: inc/customizer/shoptimizer-customizer-extensions.php:237
+#: inc/customizer/shoptimizer-customizer-extensions.php:329
+#: inc/customizer/shoptimizer-customizer-extensions.php:428
+#: inc/customizer/shoptimizer-customizer-extensions.php:503
+#: inc/customizer/shoptimizer-customizer-extensions.php:621
+#: inc/customizer/shoptimizer-customizer-extensions.php:739
+#: inc/customizer/shoptimizer-customizer-extensions.php:881
+#: inc/customizer/shoptimizer-customizer-extensions.php:1023
+#: inc/customizer/shoptimizer-customizer-extensions.php:1165
+#: inc/customizer/shoptimizer-customizer-extensions.php:1307
+#: inc/customizer/shoptimizer-customizer-extensions.php:1449
+#: inc/customizer/shoptimizer-customizer-extensions.php:1591
+#: inc/customizer/shoptimizer-customizer-extensions.php:1733
+#: inc/customizer/shoptimizer-customizer-extensions.php:1876
+#: inc/customizer/shoptimizer-customizer-extensions.php:2018
+#: inc/customizer/shoptimizer-customizer-extensions.php:2160
+#: inc/customizer/shoptimizer-customizer-extensions.php:2302
+msgid "Font size (px)"
+msgstr ""
+
+#: inc/customizer/shoptimizer-customizer-extensions.php:261
+#: inc/customizer/shoptimizer-customizer-extensions.php:353
+#: inc/customizer/shoptimizer-customizer-extensions.php:527
+#: inc/customizer/shoptimizer-customizer-extensions.php:645
+#: inc/customizer/shoptimizer-customizer-extensions.php:763
+#: inc/customizer/shoptimizer-customizer-extensions.php:905
+#: inc/customizer/shoptimizer-customizer-extensions.php:1047
+#: inc/customizer/shoptimizer-customizer-extensions.php:1189
+#: inc/customizer/shoptimizer-customizer-extensions.php:1331
+#: inc/customizer/shoptimizer-customizer-extensions.php:1473
+#: inc/customizer/shoptimizer-customizer-extensions.php:1615
+#: inc/customizer/shoptimizer-customizer-extensions.php:1757
+#: inc/customizer/shoptimizer-customizer-extensions.php:1900
+#: inc/customizer/shoptimizer-customizer-extensions.php:2042
+#: inc/customizer/shoptimizer-customizer-extensions.php:2184
+#: inc/customizer/shoptimizer-customizer-extensions.php:2326
+msgid "Letter spacing (px)"
+msgstr ""
+
+#: inc/customizer/shoptimizer-customizer-extensions.php:283
+#: inc/customizer/shoptimizer-customizer-extensions.php:575
+#: inc/customizer/shoptimizer-customizer-extensions.php:693
+#: inc/customizer/shoptimizer-customizer-extensions.php:835
+#: inc/customizer/shoptimizer-customizer-extensions.php:977
+#: inc/customizer/shoptimizer-customizer-extensions.php:1119
+#: inc/customizer/shoptimizer-customizer-extensions.php:1261
+#: inc/customizer/shoptimizer-customizer-extensions.php:1403
+#: inc/customizer/shoptimizer-customizer-extensions.php:1545
+#: inc/customizer/shoptimizer-customizer-extensions.php:1687
+#: inc/customizer/shoptimizer-customizer-extensions.php:1829
+#: inc/customizer/shoptimizer-customizer-extensions.php:1972
+#: inc/customizer/shoptimizer-customizer-extensions.php:2114
+#: inc/customizer/shoptimizer-customizer-extensions.php:2256
+#: inc/customizer/shoptimizer-customizer-extensions.php:2374
+msgid "Font color"
+msgstr ""
+
+#: inc/customizer/shoptimizer-customizer-extensions.php:305
+msgid "Primary navigation settings"
+msgstr ""
+
+#: inc/customizer/shoptimizer-customizer-extensions.php:377
+#: inc/customizer/shoptimizer-customizer-extensions.php:452
+#: inc/customizer/shoptimizer-customizer-extensions.php:551
+#: inc/customizer/shoptimizer-customizer-extensions.php:669
+#: inc/customizer/shoptimizer-customizer-extensions.php:787
+#: inc/customizer/shoptimizer-customizer-extensions.php:929
+#: inc/customizer/shoptimizer-customizer-extensions.php:1071
+#: inc/customizer/shoptimizer-customizer-extensions.php:1213
+#: inc/customizer/shoptimizer-customizer-extensions.php:1355
+#: inc/customizer/shoptimizer-customizer-extensions.php:1497
+#: inc/customizer/shoptimizer-customizer-extensions.php:1639
+#: inc/customizer/shoptimizer-customizer-extensions.php:1781
+#: inc/customizer/shoptimizer-customizer-extensions.php:1924
+#: inc/customizer/shoptimizer-customizer-extensions.php:2066
+#: inc/customizer/shoptimizer-customizer-extensions.php:2208
+#: inc/customizer/shoptimizer-customizer-extensions.php:2350
+msgid "Text transform"
+msgstr ""
+
+#: inc/customizer/shoptimizer-customizer-extensions.php:404
+msgid "Navigation dropdown settings"
+msgstr ""
+
+#: inc/customizer/shoptimizer-customizer-extensions.php:479
+msgid "Mega menu heading"
+msgstr ""
+
+#: inc/customizer/shoptimizer-customizer-extensions.php:597
+msgid "Paragraph"
+msgstr ""
+
+#: inc/customizer/shoptimizer-customizer-extensions.php:715
+msgid "H1"
+msgstr ""
+
+#: inc/customizer/shoptimizer-customizer-extensions.php:813
+#: inc/customizer/shoptimizer-customizer-extensions.php:955
+#: inc/customizer/shoptimizer-customizer-extensions.php:1097
+#: inc/customizer/shoptimizer-customizer-extensions.php:1239
+#: inc/customizer/shoptimizer-customizer-extensions.php:1381
+#: inc/customizer/shoptimizer-customizer-extensions.php:1523
+#: inc/customizer/shoptimizer-customizer-extensions.php:1665
+#: inc/customizer/shoptimizer-customizer-extensions.php:1807
+#: inc/customizer/shoptimizer-customizer-extensions.php:1950
+#: inc/customizer/shoptimizer-customizer-extensions.php:2092
+#: inc/customizer/shoptimizer-customizer-extensions.php:2234
+msgid "Line height"
+msgstr ""
+
+#: inc/customizer/shoptimizer-customizer-extensions.php:857
+msgid "H2"
+msgstr ""
+
+#: inc/customizer/shoptimizer-customizer-extensions.php:999
+msgid "H3"
+msgstr ""
+
+#: inc/customizer/shoptimizer-customizer-extensions.php:1141
+msgid "H4"
+msgstr ""
+
+#: inc/customizer/shoptimizer-customizer-extensions.php:1283
+msgid "H5"
+msgstr ""
+
+#: inc/customizer/shoptimizer-customizer-extensions.php:1567
+msgid "Widget title"
+msgstr ""
+
+#: inc/customizer/shoptimizer-customizer-extensions.php:1709
+msgid "Blog post"
+msgstr ""
+
+#: inc/customizer/shoptimizer-customizer-extensions.php:1852
+msgid "WooCommerce Archives description"
+msgstr ""
+
+#: inc/customizer/shoptimizer-customizer-extensions.php:1994
+msgid "WooCommerce product listings"
+msgstr ""
+
+#: inc/customizer/shoptimizer-customizer-extensions.php:2136
+msgid "WooCommerce single product page"
+msgstr ""
+
+#: inc/customizer/shoptimizer-customizer-extensions.php:2278
+msgid "WooCommerce primary button"
+msgstr ""
+
+#: inc/metaboxes/shoptimizer-metaboxes.php:29
+msgid "Shoptimizer settings"
+msgstr ""
+
+#: inc/metaboxes/shoptimizer-metaboxes.php:76
+msgid "Customizer setting"
+msgstr ""
+
+#: inc/metaboxes/shoptimizer-metaboxes.php:84
+msgid "Disable sections"
+msgstr ""
+
+#: inc/metaboxes/shoptimizer-metaboxes.php:89
+msgid "Disable Single Product Custom Area Widget"
+msgstr ""
+
+#: inc/setup/help.php:44
+#, php-format
+msgid ""
+"Thanks for choosing Shoptimizer! You can read hints and tips on how get the "
+"most out of your new theme in the %1$sHelp section%2$s."
+msgstr ""
+
+#: inc/setup/help.php:45
+msgid "Get started with Shoptimizer"
+msgstr ""
+
+#: inc/setup/help.php:65 inc/setup/help.php:77
+msgid "Shoptimizer Help"
+msgstr ""
+
+#: inc/setup/help.php:78
+msgid "Everything you need to get the most out of Shoptimizer."
+msgstr ""
+
+#: inc/setup/help.php:80
+msgid "Getting Started"
+msgstr ""
+
+#: inc/setup/help.php:81 inc/setup/sections/usefulplugins.php:16
+msgid "Useful Plugins"
+msgstr ""
+
+#: inc/setup/sections/intro.php:18
+msgid "Welcome to Shoptimizer!"
+msgstr ""
+
+#: inc/setup/sections/intro.php:24
+msgid "Shoptimizer Theme Documentation"
+msgstr ""
+
+#: inc/setup/sections/intro.php:25
+msgid ""
+"We provide lots of theme documentation articles including a detailed "
+"installation and setup guide on our website. We have over 100 articles "
+"available covering many of the most common support queries."
+msgstr ""
+
+#: inc/setup/sections/intro.php:26
+msgid "View Shoptimizer Documentation"
+msgstr ""
+
+#: inc/setup/sections/intro.php:30
+msgid "Theme Options"
+msgstr ""
+
+#: inc/setup/sections/intro.php:31
+msgid ""
+"The Shoptimizer Theme Customizer enables you to customize many elements of "
+"the theme directly without any coding skills. This includes options such as "
+"uploading your logo, changing the primary color, and much more."
+msgstr ""
+
+#: inc/setup/sections/intro.php:33
+msgid "To access the Customizer, go to"
+msgstr ""
+
+#: inc/setup/sections/intro.php:33
+msgid "Appearance → Customize"
+msgstr ""
+
+#: inc/setup/sections/intro.php:33
+msgid "in the WordPress admin menu."
+msgstr ""
+
+#: inc/setup/sections/intro.php:34
+msgid "When you are finished making changes, click"
+msgstr ""
+
+#: inc/setup/sections/intro.php:34
+msgid "Save & Publish"
+msgstr ""
+
+#: inc/setup/sections/intro.php:34
+msgid "to save the settings. Check out your site to confirm your changes."
+msgstr ""
+
+#: inc/setup/sections/intro.php:35
+msgid "You will need to have the"
+msgstr ""
+
+#: inc/setup/sections/intro.php:35
+msgid ""
+"plugin active to see the full list of theme options. You can see if it is "
+"enabled via Appearance → Install Plugins."
+msgstr ""
+
+#: inc/setup/sections/intro.php:38
+msgid "Open the Customizer"
+msgstr ""
+
+#: inc/setup/sections/usefulplugins.php:17
+msgid ""
+"Enhance your store with these useful optional plugin suggestions for "
+"Shoptimizer. Just search the \"Plugins\" section of WordPress for the name, "
+"then install and activate. You will need to consult the plugin documentation "
+"of each for setup instructions."
+msgstr ""
+
+#: inc/setup/sections/usefulplugins.php:23
+msgid "Autoptimize"
+msgstr ""
+
+#: inc/setup/sections/usefulplugins.php:24
+msgid ""
+"Optimizes your website, concatenating the CSS and JavaScript code, and "
+"compresses it."
+msgstr ""
+
+#: inc/setup/sections/usefulplugins.php:27
+#: inc/setup/sections/usefulplugins.php:36
+#: inc/setup/sections/usefulplugins.php:45
+#: inc/setup/sections/usefulplugins.php:54
+#: inc/setup/sections/usefulplugins.php:63
+#: inc/setup/sections/usefulplugins.php:72
+#: inc/setup/sections/usefulplugins.php:81
+msgid "More information"
+msgstr ""
+
+#: inc/setup/sections/usefulplugins.php:32
+msgid "Loco Translate"
+msgstr ""
+
+#: inc/setup/sections/usefulplugins.php:33
+msgid ""
+"Loco Translate provides in-browser editing of WordPress translation files. "
+"It is the easiest way to change your store language to something else."
+msgstr ""
+
+#: inc/setup/sections/usefulplugins.php:41
+msgid "MailChimp for WordPress"
+msgstr ""
+
+#: inc/setup/sections/usefulplugins.php:42
+msgid ""
+"Allows visitors to subscribe to your newsletters easily. Requires a free "
+"MailChimp account."
+msgstr ""
+
+#: inc/setup/sections/usefulplugins.php:50
+msgid "Real-Time Find and Replace"
+msgstr ""
+
+#: inc/setup/sections/usefulplugins.php:51
+msgid ""
+"This plugin allows you to dynamically replace text with alternative copy of "
+"your choosing before a page is delivered to a user’s browser."
+msgstr ""
+
+#: inc/setup/sections/usefulplugins.php:59
+msgid "WooCommerce Product Tabs"
+msgstr ""
+
+#: inc/setup/sections/usefulplugins.php:60
+msgid "Helps you add your own custom tabs to the product page in WooCommerce."
+msgstr ""
+
+#: inc/setup/sections/usefulplugins.php:68
+msgid "Weglot"
+msgstr ""
+
+#: inc/setup/sections/usefulplugins.php:69
+msgid ""
+"The best and easiest translation solution to translate your Shoptimizer "
+"store and go multilingual."
+msgstr ""
+
+#: inc/setup/sections/usefulplugins.php:77
+msgid "WPForms"
+msgstr ""
+
+#: inc/setup/sections/usefulplugins.php:78
+msgid ""
+"WPForms allows you to create contact forms, and any other kind of form on "
+"your site in minutes."
+msgstr ""
+
+#: inc/shoptimizer-template-functions.php:46
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: inc/shoptimizer-template-functions.php:77
+msgid "Edit"
+msgstr ""
+
+#: inc/shoptimizer-template-functions.php:395
+msgid "My Account"
+msgstr ""
+
+#: inc/shoptimizer-template-functions.php:502
+#: inc/shoptimizer-template-functions.php:506
+msgid "Primary Navigation"
+msgstr ""
+
+#: inc/shoptimizer-template-functions.php:641
+msgid "Skip to navigation"
+msgstr ""
+
+#: inc/shoptimizer-template-functions.php:642
+msgid "Skip to content"
+msgstr ""
+
+#: inc/shoptimizer-template-functions.php:680
+#: inc/shoptimizer-template-functions.php:784
+msgid "Pages:"
+msgstr ""
+
+#: inc/shoptimizer-template-functions.php:775
+#, php-format
+msgid "Continue reading %s"
+msgstr ""
+
+#: inc/shoptimizer-template-functions.php:840
+#: inc/shoptimizer-template-functions.php:854
+msgid ", "
+msgstr ""
+
+#: inc/shoptimizer-template-functions.php:846
+msgid "Posted in:"
+msgstr ""
+
+#: inc/shoptimizer-template-functions.php:860
+msgid "Tagged:"
+msgstr ""
+
+#: inc/shoptimizer-template-functions.php:883
+msgid "Previous article"
+msgstr ""
+
+#: inc/shoptimizer-template-functions.php:892
+msgid "Next article"
+msgstr ""
+
+#: inc/woocommerce/shoptimizer-woocommerce-template-functions.php:177
+#: inc/woocommerce/shoptimizer-woocommerce-template-functions.php:207
+#: inc/woocommerce/template-functions/plp.php:71
+#: inc/woocommerce/template-functions/plp.php:101
+msgid "Below Category Content"
+msgstr ""
+
+#: inc/woocommerce/shoptimizer-woocommerce-template-functions.php:179
+#: inc/woocommerce/shoptimizer-woocommerce-template-functions.php:217
+#: inc/woocommerce/template-functions/plp.php:73
+#: inc/woocommerce/template-functions/plp.php:111
+msgid "Category information which appears below the product list"
+msgstr ""
+
+#: inc/woocommerce/shoptimizer-woocommerce-template-functions.php:292
+#: inc/woocommerce/shoptimizer-woocommerce-template-functions.php:309
+#: inc/woocommerce/template-functions/plp.php:240
+#: inc/woocommerce/template-functions/plp.php:286
+msgid "Below Tag Content"
+msgstr ""
+
+#: inc/woocommerce/shoptimizer-woocommerce-template-functions.php:294
+#: inc/woocommerce/shoptimizer-woocommerce-template-functions.php:320
+#: inc/woocommerce/template-functions/plp.php:251
+#: inc/woocommerce/template-functions/plp.php:292
+msgid "Tag information which appears below the product list"
+msgstr ""
+
+#: inc/woocommerce/shoptimizer-woocommerce-template-functions.php:382
+#: inc/woocommerce/shoptimizer-woocommerce-template-functions.php:399
+#: inc/woocommerce/template-functions/plp.php:393
+#: inc/woocommerce/template-functions/plp.php:410
+msgid "Below Brand Content"
+msgstr ""
+
+#: inc/woocommerce/shoptimizer-woocommerce-template-functions.php:384
+#: inc/woocommerce/shoptimizer-woocommerce-template-functions.php:410
+#: inc/woocommerce/template-functions/plp.php:395
+#: inc/woocommerce/template-functions/plp.php:421
+msgid "Brand information which appears below the product list"
+msgstr ""
+
+#: inc/woocommerce/shoptimizer-woocommerce-template-functions.php:684
+#: inc/woocommerce/shoptimizer-woocommerce-template-functions.php:686
+#: inc/woocommerce/shoptimizer-woocommerce-template-functions.php:744
+#: inc/woocommerce/shoptimizer-woocommerce-template-functions.php:746
+#: inc/woocommerce/template-functions/cart.php:59
+msgid "View your shopping cart"
+msgstr ""
+
+#: inc/woocommerce/shoptimizer-woocommerce-template-functions.php:1517
+#: inc/woocommerce/template-functions/loop.php:312
+msgid "Out of stock"
+msgstr ""
+
+#: inc/woocommerce/shoptimizer-woocommerce-template-functions.php:1572
+#, php-format
+msgid "<span class=\"sale-item product-label type-bubble\">-%s</span>"
+msgstr ""
+
+#: inc/woocommerce/shoptimizer-woocommerce-template-functions.php:1575
+#, php-format
+msgid "<span class=\"sale-item product-label type-circle\">-%s</span>"
+msgstr ""
+
+#: inc/woocommerce/shoptimizer-woocommerce-template-functions.php:2059
+#: inc/woocommerce/template-functions/plp.php:822
+msgid "Show Filters"
+msgstr ""
+
+#: inc/woocommerce/shoptimizer-woocommerce-template-functions.php:2181
+#: inc/woocommerce/template-functions/pdp.php:846
+msgid "Checkout"
+msgstr ""
+
+#: inc/woocommerce/shoptimizer-woocommerce-template-functions.php:2183
+#: inc/woocommerce/template-functions/pdp.php:848
+msgid "View Cart"
+msgstr ""
+
+#: inc/woocommerce/shoptimizer-woocommerce-template-functions.php:2422
+#: inc/woocommerce/template-functions/cart.php:255
+#: inc/woocommerce/template-functions/checkout-flow.php:61
+msgid "Shopping Cart"
+msgstr ""
+
+#: inc/woocommerce/shoptimizer-woocommerce-template-functions.php:2426
+#: inc/woocommerce/template-functions/checkout-flow.php:73
+msgid "Shipping and Checkout"
+msgstr ""
+
+#: inc/woocommerce/shoptimizer-woocommerce-template-functions.php:2427
+#: inc/woocommerce/template-functions/checkout-flow.php:79
+msgid "Confirmation"
+msgstr ""
+
+#: inc/woocommerce/shoptimizer-woocommerce-template-functions.php:2772
+msgid "Quantity input"
+msgstr ""
+
+#: inc/woocommerce/shoptimizer-woocommerce-template-functions.php:3253
+#: inc/woocommerce/template-functions/pdp.php:1422
+msgid "Add to cart"
+msgstr ""
+
+#: inc/woocommerce/shoptimizer-woocommerce-template-functions.php:3373
+#: inc/woocommerce/template-functions/pdp.php:1573
+msgid "Select options"
+msgstr ""
+
+#: inc/woocommerce/template-functions/breadcrumbs.php:63
+#: inc/woocommerce/template-functions/breadcrumbs.php:71
+#: inc/woocommerce/template-functions/breadcrumbs.php:78
+#: inc/woocommerce/template-functions/breadcrumbs.php:85
+#: inc/woocommerce/template-functions/breadcrumbs.php:94
+msgid "Breadcrumb"
+msgstr ""
+
+#: inc/woocommerce/template-functions/cart.php:145
+msgid "Cart contents"
+msgstr ""
+
+#: inc/woocommerce/template-functions/checkout-flow.php:40
+msgid "Checkout Progress"
+msgstr ""
+
+#: inc/woocommerce/template-functions/checkout-flow.php:47
+#, php-format
+msgid "Currently on step %s of 3"
+msgstr ""
+
+#: inc/woocommerce/template-functions/checkout-flow.php:58
+msgid "Shopping Cart, current step"
+msgstr ""
+
+#: inc/woocommerce/template-functions/checkout-flow.php:59
+msgid "Return to Shopping Cart"
+msgstr ""
+
+#: inc/woocommerce/template-functions/checkout-flow.php:70
+msgid "Shipping and Checkout, current step"
+msgstr ""
+
+#: inc/woocommerce/template-functions/checkout-flow.php:71
+msgid "Proceed to Shipping and Checkout"
+msgstr ""
+
+#: inc/woocommerce/template-functions/checkout.php:66
+msgid "Additional checkout information"
+msgstr ""
+
+#: inc/woocommerce/template-functions/checkout.php:88
+msgid "Coupon code section"
+msgstr ""
+
+#: inc/woocommerce/template-functions/checkout.php:129
+#, php-format
+msgid "Product image for %s"
+msgstr ""
+
+#: inc/woocommerce/template-functions/checkout.php:240
+msgid "Order confirmation details"
+msgstr ""
+
+#: inc/woocommerce/template-functions/checkout.php:251
+msgid "Skip to checkout form"
+msgstr ""
+
+#: inc/woocommerce/template-functions/discount.php:125
+#, php-format
+msgid "Save %1$d%% on %2$s"
+msgstr ""
+
+#: inc/woocommerce/template-functions/loop.php:106
+#, php-format
+msgid "View product: %s"
+msgstr ""
+
+#: inc/woocommerce/template-functions/loop.php:320
+#, php-format
+msgid "%s is currently out of stock"
+msgstr ""
+
+#: inc/woocommerce/template-functions/mini-cart.php:75
+msgid "Cart drawer"
+msgstr ""
+
+#: inc/woocommerce/template-functions/mini-cart.php:79
+msgid "Loading cart contents"
+msgstr ""
+
+#: inc/woocommerce/template-functions/mini-cart.php:89
+msgid "Close drawer"
+msgstr ""
+
+#: inc/woocommerce/template-functions/mini-cart.php:237
+#, php-format
+msgid "Decrease quantity for %s"
+msgstr ""
+
+#: inc/woocommerce/template-functions/mini-cart.php:241
+#, php-format
+msgid "Quantity for %s"
+msgstr ""
+
+#: inc/woocommerce/template-functions/mini-cart.php:242
+#, php-format
+msgid "Increase quantity for %s"
+msgstr ""
+
+#: inc/woocommerce/template-functions/mini-cart.php:316
+msgid "Updating cart..."
+msgstr ""
+
+#: inc/woocommerce/template-functions/mini-cart.php:317
+msgid "Error updating cart."
+msgstr ""
+
+#: inc/woocommerce/template-functions/pdp.php:93
+#: inc/woocommerce/template-functions/pdp.php:98
+msgid "You may also like&hellip;"
+msgstr ""
+
+#: inc/woocommerce/template-functions/pdp.php:399
+msgid "Request a Call Back"
+msgstr ""
+
+#: inc/woocommerce/template-functions/pdp.php:513
+#: inc/woocommerce/template-functions/pdp.php:870
+msgid "Security check failed"
+msgstr ""
+
+#: inc/woocommerce/template-functions/pdp.php:518
+msgid "Too many requests, please try again later"
+msgstr ""
+
+#: inc/woocommerce/template-functions/pdp.php:524
+msgid "Invalid product ID"
+msgstr ""
+
+#: inc/woocommerce/template-functions/pdp.php:530
+msgid "Invalid product type"
+msgstr ""
+
+#: inc/woocommerce/template-functions/pdp.php:535
+msgid "Product not available"
+msgstr ""
+
+#: inc/woocommerce/template-functions/pdp.php:547
+msgid "No variation prices found"
+msgstr ""
+
+#: inc/woocommerce/template-functions/pdp.php:878
+msgid "Invalid product"
+msgstr ""
+
+#: inc/woocommerce/template-functions/pdp.php:884
+msgid "Product not found"
+msgstr ""
+
+#: inc/woocommerce/template-functions/pdp.php:1225
+msgid "Adding to cart..."
+msgstr ""
+
+#: inc/woocommerce/template-functions/pdp.php:1226
+msgid "Added to cart"
+msgstr ""
+
+#: inc/woocommerce/template-functions/pdp.php:1227
+msgid "Error occurred. Please try again."
+msgstr ""
+
+#: inc/woocommerce/template-functions/pdp.php:1533
+msgid "Sticky Add to Cart"
+msgstr ""
+
+#: inc/woocommerce/template-functions/pdp.php:1593
+#, php-format
+msgid "Add %s to cart"
+msgstr ""
+
+#: inc/woocommerce/template-functions/plp.php:248
+msgid "Content to display below product tag listing"
+msgstr ""
+
+#: inc/woocommerce/template-functions/plp.php:581
+msgid "Category Header"
+msgstr ""
+
+#: inc/woocommerce/template-functions/plp.php:592
+msgid "Category Description"
+msgstr ""
+
+#: inc/woocommerce/template-functions/plp.php:615
+msgid "Product sorting options"
+msgstr ""
+
+#: preloadcss.php:270
+msgid ":preload"
+msgstr ""
+
+#: search.php:16
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: search.php:33
+msgid "‹ Previous"
+msgstr ""
+
+#: search.php:34
+msgid "Next ›"
+msgstr ""

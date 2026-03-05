@@ -1,0 +1,147 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "alpacode/contact-split",
+    "version": "1.0.0",
+    "title": "Contact Split",
+    "category": "alpacode",
+    "description": "Two-column contact section with form integration, map placeholder, and contact cards.",
+    "keywords": [
+        "contact",
+        "form",
+        "split",
+        "map",
+        "email",
+        "phone"
+    ],
+    "textdomain": "alpacode-blocks",
+    "editorScript": {
+        "handle": "alpacode-contact-split-editor",
+        "src": "file:./editor.js",
+        "dependencies": [
+            "wp-blocks",
+            "wp-element",
+            "wp-block-editor",
+            "wp-components",
+            "wp-server-side-render"
+        ]
+    },
+    "style": "file:./style.css",
+    "render": "file:./render.php",
+    "attributes": {
+        "eyebrow": {
+            "type": "string",
+            "default": "Get in Touch"
+        },
+        "heading": {
+            "type": "string",
+            "default": "Let's Build Something Amazing Together"
+        },
+        "description": {
+            "type": "string",
+            "default": "Have a project in mind? We'd love to hear about it. Send us a message and we'll get back to you within 24 hours."
+        },
+        "layout": {
+            "type": "string",
+            "default": "left",
+            "enum": ["left", "right"]
+        },
+        "splitRatio": {
+            "type": "string",
+            "default": "60-40",
+            "enum": ["50-50", "60-40", "40-60"]
+        },
+        "showMap": {
+            "type": "boolean",
+            "default": true
+        },
+        "mapEmbed": {
+            "type": "string",
+            "default": ""
+        },
+        "mapPlaceholderText": {
+            "type": "string",
+            "default": "Our Location"
+        },
+        "contactCards": {
+            "type": "array",
+            "default": [
+                {
+                    "icon": "email",
+                    "label": "Email",
+                    "value": "hello@alpacode.com",
+                    "link": "mailto:hello@alpacode.com"
+                },
+                {
+                    "icon": "phone",
+                    "label": "Phone",
+                    "value": "+1 (555) 123-4567",
+                    "link": "tel:+15551234567"
+                },
+                {
+                    "icon": "location",
+                    "label": "Address",
+                    "value": "123 Tech Street, San Francisco, CA",
+                    "link": ""
+                }
+            ]
+        },
+        "formType": {
+            "type": "string",
+            "default": "builtin",
+            "enum": ["builtin", "shortcode", "none"]
+        },
+        "formShortcode": {
+            "type": "string",
+            "default": ""
+        },
+        "formFields": {
+            "type": "array",
+            "default": [
+                { "name": "name", "label": "Your Name", "type": "text", "required": true, "placeholder": "John Doe" },
+                { "name": "email", "label": "Email Address", "type": "email", "required": true, "placeholder": "john@example.com" },
+                { "name": "subject", "label": "Subject", "type": "text", "required": false, "placeholder": "Project inquiry" },
+                { "name": "message", "label": "Message", "type": "textarea", "required": true, "placeholder": "Tell us about your project..." }
+            ]
+        },
+        "submitButtonText": {
+            "type": "string",
+            "default": "Send Message"
+        },
+        "formAction": {
+            "type": "string",
+            "default": ""
+        },
+        "cardStyle": {
+            "type": "string",
+            "default": "default",
+            "enum": ["default", "bordered", "glass"]
+        },
+        "showSocialLinks": {
+            "type": "boolean",
+            "default": true
+        },
+        "socialLinks": {
+            "type": "array",
+            "default": [
+                { "platform": "twitter", "url": "#" },
+                { "platform": "linkedin", "url": "#" },
+                { "platform": "github", "url": "#" }
+            ]
+        }
+    },
+    "supports": {
+        "html": false,
+        "align": [
+            "wide",
+            "full"
+        ],
+        "color": {
+            "background": true
+        },
+        "spacing": {
+            "padding": true,
+            "margin": true
+        }
+    }
+}

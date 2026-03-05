@@ -1,0 +1,139 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "alpacode/business-card-bento",
+    "version": "1.0.0",
+    "title": "Business Card Bento",
+    "category": "alpacode",
+    "icon": "grid-view",
+    "description": "A stunning fullscreen bento-grid business card with modular sections and dynamic animations.",
+    "keywords": ["business card", "bento", "grid", "contact", "homepage", "fullscreen"],
+    "textdomain": "alpacode",
+    "editorScript": {
+        "handle": "alpacode-business-card-bento-editor",
+        "src": "file:./editor.js"
+    },
+    "render": "file:./render.php",
+    "style": "file:./style.css",
+    "viewScript": "file:./view.js",
+    "attributes": {
+        "logoSquare": {
+            "type": "string",
+            "default": ""
+        },
+        "logoRectangular": {
+            "type": "string",
+            "default": ""
+        },
+        "logoStyle": {
+            "type": "string",
+            "default": "square"
+        },
+        "tagline": {
+            "type": "string",
+            "default": "Crafting Digital Excellence"
+        },
+        "headline": {
+            "type": "string",
+            "default": ""
+        },
+        "name": {
+            "type": "string",
+            "default": ""
+        },
+        "title": {
+            "type": "string",
+            "default": ""
+        },
+        "bio": {
+            "type": "string",
+            "default": ""
+        },
+        "email": {
+            "type": "string",
+            "default": ""
+        },
+        "phone": {
+            "type": "string",
+            "default": ""
+        },
+        "website": {
+            "type": "string",
+            "default": ""
+        },
+        "address": {
+            "type": "string",
+            "default": ""
+        },
+        "socials": {
+            "type": "array",
+            "default": [
+                { "platform": "linkedin", "url": "" },
+                { "platform": "twitter", "url": "" },
+                { "platform": "instagram", "url": "" },
+                { "platform": "github", "url": "" }
+            ]
+        },
+        "stats": {
+            "type": "array",
+            "default": [
+                { "value": "10+", "label": "Years Experience" },
+                { "value": "200+", "label": "Projects Delivered" },
+                { "value": "50+", "label": "Happy Clients" }
+            ]
+        },
+        "showStats": {
+            "type": "boolean",
+            "default": true
+        },
+        "ctaText": {
+            "type": "string",
+            "default": "Let's Work Together"
+        },
+        "ctaUrl": {
+            "type": "string",
+            "default": "#contact"
+        },
+        "colorScheme": {
+            "type": "string",
+            "default": "dark"
+        },
+        "accentColor": {
+            "type": "string",
+            "default": "#6366f1"
+        },
+        "gridLayout": {
+            "type": "string",
+            "default": "classic"
+        },
+        "enableParticles": {
+            "type": "boolean",
+            "default": true
+        },
+        "enableHoverEffects": {
+            "type": "boolean",
+            "default": true
+        },
+        "enableMagneticButtons": {
+            "type": "boolean",
+            "default": true
+        }
+    },
+    "supports": {
+        "align": ["full"],
+        "html": false,
+        "color": {
+            "background": true,
+            "text": true
+        }
+    },
+    "example": {
+        "attributes": {
+            "tagline": "Crafting Digital Excellence",
+            "name": "John Doe",
+            "title": "Creative Director",
+            "email": "hello@example.com",
+            "gridLayout": "classic"
+        }
+    }
+}

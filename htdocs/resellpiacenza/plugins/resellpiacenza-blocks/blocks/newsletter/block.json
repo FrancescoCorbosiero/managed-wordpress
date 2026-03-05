@@ -1,0 +1,40 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "resellpiacenza/newsletter",
+    "version": "1.0.0",
+    "title": "Newsletter Signup",
+    "category": "resellpiacenza",
+    "icon": "email",
+    "description": "Elegant email capture section for building your subscriber list.",
+    "keywords": ["newsletter", "email", "subscribe", "signup", "mailing"],
+    "textdomain": "resellpiacenza-blocks",
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": "Stay in the Loop"
+        },
+        "text": {
+            "type": "string",
+            "default": "Subscribe for exclusive drops, early access, and insider updates on the latest releases."
+        },
+        "placeholder": {
+            "type": "string",
+            "default": "Enter your email"
+        },
+        "buttonText": {
+            "type": "string",
+            "default": "Subscribe"
+        },
+        "disclaimer": {
+            "type": "string",
+            "default": "We respect your privacy. Unsubscribe at any time."
+        }
+    },
+    "supports": {
+        "align": ["wide", "full"],
+        "html": false
+    },
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php"
+}

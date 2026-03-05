@@ -1,0 +1,36 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "sneakersselection/faq-schema",
+    "version": "1.0.0",
+    "title": "FAQ (SEO Schema)",
+    "category": "sneakersselection",
+    "icon": "editor-help",
+    "description": "SEO-optimized FAQ accordion with structured data schema markup for rich snippets.",
+    "keywords": ["faq", "accordion", "seo", "schema", "questions"],
+    "textdomain": "sneakersselection-blocks",
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": "Frequently Asked Questions"
+        },
+        "subtitle": {
+            "type": "string",
+            "default": ""
+        },
+        "items": {
+            "type": "array",
+            "default": []
+        },
+        "allowMultiple": {
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "supports": {
+        "align": ["wide"],
+        "html": false
+    },
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php"
+}

@@ -1,0 +1,52 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "resellpiacenza/cta-banner",
+    "version": "1.0.0",
+    "title": "CTA Banner",
+    "category": "resellpiacenza",
+    "icon": "megaphone",
+    "description": "Elegant call-to-action banner with sophisticated design for converting visitors.",
+    "keywords": ["cta", "banner", "call to action", "promotion", "marketing"],
+    "textdomain": "resellpiacenza-blocks",
+    "attributes": {
+        "eyebrow": {
+            "type": "string",
+            "default": ""
+        },
+        "title": {
+            "type": "string",
+            "default": ""
+        },
+        "text": {
+            "type": "string",
+            "default": ""
+        },
+        "primaryButtonText": {
+            "type": "string",
+            "default": "Shop Now"
+        },
+        "primaryButtonUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "secondaryButtonText": {
+            "type": "string",
+            "default": ""
+        },
+        "secondaryButtonUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "backgroundImage": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "supports": {
+        "align": ["full", "wide"],
+        "html": false
+    },
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php"
+}

@@ -1,0 +1,66 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "edizioni-rosi/cta-split",
+    "version": "1.0.0",
+    "title": "CTA Split",
+    "category": "edizioni-rosi",
+    "icon": "columns",
+    "description": "Call-to-action con testo e immagine affiancati e sfondo configurabile — ideale per promuovere libri o eventi.",
+    "keywords": ["cta", "split", "immagine", "promozione", "libro"],
+    "textdomain": "edizioni-rosi-blocks",
+    "attributes": {
+        "eyebrow": {
+            "type": "string",
+            "default": ""
+        },
+        "title": {
+            "type": "string",
+            "default": "Scopri il Nostro Catalogo"
+        },
+        "text": {
+            "type": "string",
+            "default": "Esplora le opere dei nostri autori e trova la tua prossima lettura."
+        },
+        "buttonText": {
+            "type": "string",
+            "default": "Sfoglia i Libri"
+        },
+        "buttonUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "image": {
+            "type": "string",
+            "default": ""
+        },
+        "imageAlt": {
+            "type": "string",
+            "default": ""
+        },
+        "backgroundImage": {
+            "type": "string",
+            "default": ""
+        },
+        "overlayOpacity": {
+            "type": "number",
+            "default": 80
+        },
+        "variant": {
+            "type": "string",
+            "default": "dark",
+            "enum": ["dark", "gold"]
+        },
+        "imagePosition": {
+            "type": "string",
+            "default": "right",
+            "enum": ["left", "right"]
+        }
+    },
+    "supports": {
+        "align": ["full", "wide"],
+        "html": false
+    },
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php"
+}

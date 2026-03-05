@@ -1,0 +1,340 @@
+<!--
+Size Chart Modal Block - Demo & Variants
+Copy-paste ready examples for Sneaker Selection
+
+NOTE: This block can be placed anywhere and triggered via button.
+The modal ID must match between trigger and modal.
+-->
+
+<!-- ============================================
+     DEFAULT: Full size chart with trigger button
+     ============================================ -->
+<!-- Trigger button (place anywhere on the page) -->
+<button class="ss-size-guide-trigger" data-ss-modal-trigger="size-chart">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 10H3M21 6H3M21 14H3M21 18H3"/>
+    </svg>
+    Size Guide
+</button>
+
+<!-- Modal (place once, anywhere on the page) -->
+<div class="ss-block ss-modal" data-ss-modal="size-chart" role="dialog" aria-modal="true" aria-labelledby="size-chart-title">
+    <div class="ss-modal__backdrop"></div>
+    <div class="ss-modal__container">
+        <div class="ss-modal__header">
+            <h2 class="ss-modal__title" id="size-chart-title">Size Guide</h2>
+            <button class="ss-modal__close" data-ss-modal-close aria-label="Close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <div class="ss-modal__body">
+            <p style="margin-bottom: 1.5rem; color: #737373;">Find your perfect fit</p>
+
+            <table class="ss-size-chart">
+                <thead>
+                    <tr>
+                        <th>US</th>
+                        <th>UK</th>
+                        <th>EU</th>
+                        <th>CM</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>6</td><td>5.5</td><td>38.5</td><td>24</td></tr>
+                    <tr><td>6.5</td><td>6</td><td>39</td><td>24.5</td></tr>
+                    <tr><td>7</td><td>6</td><td>40</td><td>25</td></tr>
+                    <tr><td>7.5</td><td>6.5</td><td>40.5</td><td>25.5</td></tr>
+                    <tr><td>8</td><td>7</td><td>41</td><td>26</td></tr>
+                    <tr><td>8.5</td><td>7.5</td><td>42</td><td>26.5</td></tr>
+                    <tr><td>9</td><td>8</td><td>42.5</td><td>27</td></tr>
+                    <tr><td>9.5</td><td>8.5</td><td>43</td><td>27.5</td></tr>
+                    <tr><td>10</td><td>9</td><td>44</td><td>28</td></tr>
+                    <tr><td>10.5</td><td>9.5</td><td>44.5</td><td>28.5</td></tr>
+                    <tr><td>11</td><td>10</td><td>45</td><td>29</td></tr>
+                    <tr><td>11.5</td><td>10.5</td><td>45.5</td><td>29.5</td></tr>
+                    <tr><td>12</td><td>11</td><td>46</td><td>30</td></tr>
+                    <tr><td>13</td><td>12</td><td>47.5</td><td>31</td></tr>
+                </tbody>
+            </table>
+
+            <p style="margin-top: 1.5rem; font-size: 0.875rem; color: #a3a3a3;">
+                Tip: If you're between sizes, we recommend sizing up for a more comfortable fit.
+            </p>
+        </div>
+    </div>
+</div>
+
+<style>
+.ss-size-guide-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0;
+    background: none;
+    border: none;
+    font-size: 0.875rem;
+    color: #525252;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.ss-size-guide-trigger:hover {
+    color: #000;
+}
+</style>
+
+
+<!-- ============================================
+     VARIANT 1: Custom button text
+     ============================================ -->
+<button class="ss-size-guide-trigger" data-ss-modal-trigger="size-chart-v1">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 10H3M21 6H3M21 14H3M21 18H3"/>
+    </svg>
+    What's my size?
+</button>
+
+<div class="ss-block ss-modal" data-ss-modal="size-chart-v1" role="dialog" aria-modal="true" aria-labelledby="size-chart-v1-title">
+    <div class="ss-modal__backdrop"></div>
+    <div class="ss-modal__container">
+        <div class="ss-modal__header">
+            <h2 class="ss-modal__title" id="size-chart-v1-title">Find Your Size</h2>
+            <button class="ss-modal__close" data-ss-modal-close aria-label="Close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <div class="ss-modal__body">
+            <p style="margin-bottom: 1.5rem; color: #737373;">Men's sneaker size conversion chart</p>
+
+            <table class="ss-size-chart">
+                <thead>
+                    <tr>
+                        <th>US</th>
+                        <th>UK</th>
+                        <th>EU</th>
+                        <th>CM</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>7</td><td>6</td><td>40</td><td>25</td></tr>
+                    <tr><td>8</td><td>7</td><td>41</td><td>26</td></tr>
+                    <tr><td>9</td><td>8</td><td>42.5</td><td>27</td></tr>
+                    <tr><td>10</td><td>9</td><td>44</td><td>28</td></tr>
+                    <tr><td>11</td><td>10</td><td>45</td><td>29</td></tr>
+                    <tr><td>12</td><td>11</td><td>46</td><td>30</td></tr>
+                </tbody>
+            </table>
+
+            <p style="margin-top: 1.5rem; font-size: 0.875rem; color: #a3a3a3;">
+                Tip: If you're between sizes, we recommend sizing up for a more comfortable fit.
+            </p>
+        </div>
+    </div>
+</div>
+
+
+<!-- ============================================
+     VARIANT 2: Trigger only (modal elsewhere)
+     Use when the modal is already on the page
+     ============================================ -->
+<button class="ss-size-guide-trigger" data-ss-modal-trigger="size-chart">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 10H3M21 6H3M21 14H3M21 18H3"/>
+    </svg>
+    Size Guide
+</button>
+
+
+<!-- ============================================
+     VARIANT 3: Styled as link (inline)
+     ============================================ -->
+<p style="font-size: 0.875rem; color: #525252;">
+    Not sure about your size? Check our
+    <button class="ss-size-guide-trigger" data-ss-modal-trigger="size-chart" style="display: inline; font-size: inherit;">
+        size guide
+    </button>
+    for help.
+</p>
+
+
+<!-- ============================================
+     VARIANT 4: Women's sizes
+     ============================================ -->
+<button class="ss-size-guide-trigger" data-ss-modal-trigger="womens-size-chart">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 10H3M21 6H3M21 14H3M21 18H3"/>
+    </svg>
+    Women's Size Guide
+</button>
+
+<div class="ss-block ss-modal" data-ss-modal="womens-size-chart" role="dialog" aria-modal="true" aria-labelledby="womens-size-chart-title">
+    <div class="ss-modal__backdrop"></div>
+    <div class="ss-modal__container">
+        <div class="ss-modal__header">
+            <h2 class="ss-modal__title" id="womens-size-chart-title">Women's Size Guide</h2>
+            <button class="ss-modal__close" data-ss-modal-close aria-label="Close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <div class="ss-modal__body">
+            <p style="margin-bottom: 1.5rem; color: #737373;">Women's sneaker size conversion chart</p>
+
+            <table class="ss-size-chart">
+                <thead>
+                    <tr>
+                        <th>US Women's</th>
+                        <th>UK</th>
+                        <th>EU</th>
+                        <th>CM</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>5</td><td>2.5</td><td>35.5</td><td>22</td></tr>
+                    <tr><td>5.5</td><td>3</td><td>36</td><td>22.5</td></tr>
+                    <tr><td>6</td><td>3.5</td><td>36.5</td><td>23</td></tr>
+                    <tr><td>6.5</td><td>4</td><td>37.5</td><td>23.5</td></tr>
+                    <tr><td>7</td><td>4.5</td><td>38</td><td>24</td></tr>
+                    <tr><td>7.5</td><td>5</td><td>38.5</td><td>24.5</td></tr>
+                    <tr><td>8</td><td>5.5</td><td>39</td><td>25</td></tr>
+                    <tr><td>8.5</td><td>6</td><td>40</td><td>25.5</td></tr>
+                    <tr><td>9</td><td>6.5</td><td>40.5</td><td>26</td></tr>
+                    <tr><td>9.5</td><td>7</td><td>41</td><td>26.5</td></tr>
+                    <tr><td>10</td><td>7.5</td><td>42</td><td>27</td></tr>
+                </tbody>
+            </table>
+
+            <p style="margin-top: 1.5rem; font-size: 0.875rem; color: #a3a3a3;">
+                Note: Women's sizes are typically 1.5 sizes smaller than men's. A men's 8 = women's 9.5.
+            </p>
+        </div>
+    </div>
+</div>
+
+
+<!-- ============================================
+     VARIANT 5: Kids sizes
+     ============================================ -->
+<button class="ss-size-guide-trigger" data-ss-modal-trigger="kids-size-chart">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 10H3M21 6H3M21 14H3M21 18H3"/>
+    </svg>
+    Kids Size Guide
+</button>
+
+<div class="ss-block ss-modal" data-ss-modal="kids-size-chart" role="dialog" aria-modal="true" aria-labelledby="kids-size-chart-title">
+    <div class="ss-modal__backdrop"></div>
+    <div class="ss-modal__container">
+        <div class="ss-modal__header">
+            <h2 class="ss-modal__title" id="kids-size-chart-title">Kids Size Guide</h2>
+            <button class="ss-modal__close" data-ss-modal-close aria-label="Close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <div class="ss-modal__body">
+            <p style="margin-bottom: 1.5rem; color: #737373;">Kids sneaker size conversion chart (Grade School)</p>
+
+            <table class="ss-size-chart">
+                <thead>
+                    <tr>
+                        <th>US Kids</th>
+                        <th>UK</th>
+                        <th>EU</th>
+                        <th>CM</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>3.5Y</td><td>3</td><td>35.5</td><td>22.5</td></tr>
+                    <tr><td>4Y</td><td>3.5</td><td>36</td><td>23</td></tr>
+                    <tr><td>4.5Y</td><td>4</td><td>36.5</td><td>23.5</td></tr>
+                    <tr><td>5Y</td><td>4.5</td><td>37.5</td><td>24</td></tr>
+                    <tr><td>5.5Y</td><td>5</td><td>38</td><td>24.5</td></tr>
+                    <tr><td>6Y</td><td>5.5</td><td>38.5</td><td>25</td></tr>
+                    <tr><td>6.5Y</td><td>6</td><td>39</td><td>25.5</td></tr>
+                    <tr><td>7Y</td><td>6</td><td>40</td><td>25.5</td></tr>
+                </tbody>
+            </table>
+
+            <p style="margin-top: 1.5rem; font-size: 0.875rem; color: #a3a3a3;">
+                Tip: Kids' feet grow fast! Leave about a thumb's width of space at the toe.
+            </p>
+        </div>
+    </div>
+</div>
+
+
+<!-- ============================================
+     VARIANT 6: Brand-specific sizes
+     ============================================ -->
+<button class="ss-size-guide-trigger" data-ss-modal-trigger="jordan-size-chart">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 10H3M21 6H3M21 14H3M21 18H3"/>
+    </svg>
+    Jordan Size Guide
+</button>
+
+<div class="ss-block ss-modal" data-ss-modal="jordan-size-chart" role="dialog" aria-modal="true" aria-labelledby="jordan-size-chart-title">
+    <div class="ss-modal__backdrop"></div>
+    <div class="ss-modal__container">
+        <div class="ss-modal__header">
+            <h2 class="ss-modal__title" id="jordan-size-chart-title">Air Jordan Size Guide</h2>
+            <button class="ss-modal__close" data-ss-modal-close aria-label="Close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <div class="ss-modal__body">
+            <p style="margin-bottom: 1.5rem; color: #737373;">Jordan sneakers sizing guide with fit notes</p>
+
+            <table class="ss-size-chart">
+                <thead>
+                    <tr>
+                        <th>US</th>
+                        <th>UK</th>
+                        <th>EU</th>
+                        <th>CM</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>7</td><td>6</td><td>40</td><td>25</td></tr>
+                    <tr><td>8</td><td>7</td><td>41</td><td>26</td></tr>
+                    <tr><td>9</td><td>8</td><td>42.5</td><td>27</td></tr>
+                    <tr><td>10</td><td>9</td><td>44</td><td>28</td></tr>
+                    <tr><td>11</td><td>10</td><td>45</td><td>29</td></tr>
+                    <tr><td>12</td><td>11</td><td>46</td><td>30</td></tr>
+                    <tr><td>13</td><td>12</td><td>47.5</td><td>31</td></tr>
+                </tbody>
+            </table>
+
+            <div style="margin-top: 1.5rem; padding: 1rem; background: #f5f5f5; border-radius: 0.5rem;">
+                <h4 style="margin: 0 0 0.5rem; font-size: 0.875rem; font-weight: 600;">Fit Notes by Model:</h4>
+                <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.875rem; color: #525252;">
+                    <li><strong>Jordan 1:</strong> Runs slightly large - consider going half size down</li>
+                    <li><strong>Jordan 4:</strong> True to size with a roomy toe box</li>
+                    <li><strong>Jordan 11:</strong> True to size, snug fit initially</li>
+                    <li><strong>Jordan 3:</strong> True to size with comfortable fit</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ============================================
+     VARIANT 7: Trigger as primary button
+     ============================================ -->
+<button class="ss-btn ss-btn--primary" data-ss-modal-trigger="size-chart" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 10H3M21 6H3M21 14H3M21 18H3"/>
+    </svg>
+    View Size Guide
+</button>
