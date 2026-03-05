@@ -1869,12 +1869,18 @@ html:has(.gh-social-buttons) {
    ========================================================================== */
 
 .gh-shortcode-wrapper {
-    padding: var(--gh-space-xl) var(--gh-space-xl) 0;
+    padding: var(--gh-space-lg) 0 0;
 }
 
 .gh-shortcode-wrapper__header {
     text-align: center;
-    margin-bottom: var(--gh-space-sm);
+    margin-bottom: 0;
+    padding: 0 var(--gh-space-xl);
+}
+
+.gh-shortcode-wrapper__content {
+    margin: 0;
+    padding: 0;
 }
 
 .gh-shortcode-wrapper__eyebrow {
@@ -1896,10 +1902,6 @@ html:has(.gh-social-buttons) {
     color: var(--gh-black);
 }
 
-.gh-shortcode-wrapper__content {
-    max-width: 1400px;
-    margin: 0 auto;
-}
 
 /* ==========================================================================
    PROMO MODAL
