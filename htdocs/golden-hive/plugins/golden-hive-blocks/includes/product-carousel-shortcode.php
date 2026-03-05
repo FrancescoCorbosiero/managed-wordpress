@@ -171,7 +171,7 @@ function ghb_get_carousel_styles() {
        ═══════════════════════════════════════════════════════════ */
     .ghb-carousel-section {
         position: relative;
-        padding: 3rem 0;
+        padding: 1rem 0;
         overflow: hidden;
     }
 
@@ -1126,7 +1126,7 @@ function ghb_get_carousel_styles() {
        ═══════════════════════════════════════════════════════════ */
     @media (max-width: 768px) {
         .ghb-carousel-section {
-            padding: 2rem 0;
+            padding: 0.5rem 0;
         }
 
         .ghb-carousel-section__container {
@@ -1195,9 +1195,9 @@ function ghb_carousel_section_shortcode($atts) {
 
     $atts = shortcode_atts(array(
         // Section settings
-        'title'          => 'Prodotti',
+        'title'          => '',
         'subtitle'       => '',
-        'link'           => '/shop',
+        'link'           => '',
         'link_text'      => 'Vedi Tutti',
         'style'          => 'default',      // default|dark|minimal
         'header_align'   => 'left',         // left|center
@@ -1254,7 +1254,7 @@ function ghb_carousel_section_shortcode($atts) {
         'show_sizes'     => 'false',
         'show_badges'    => 'true',
         'show_rating'    => 'false',
-        'show_cart_btn'  => 'false',
+        'show_cart_btn'  => 'true',
         'show_discount'  => 'true',
     ), $atts);
 
@@ -1314,11 +1314,16 @@ function ghb_carousel_section_shortcode($atts) {
     <section class="<?php echo esc_attr(implode(' ', $section_classes)); ?>" data-section-id="<?php echo esc_attr($carousel_id); ?>">
         <div class="ghb-carousel-section__container">
 
+            <?php
+            $has_header = !empty($atts['title']) || !empty($atts['subtitle']) || !empty($atts['link']) || ($atts['nav_style'] === 'top-right' && $atts['show_nav'] === 'true');
+            if ($has_header) : ?>
             <!-- Header -->
             <div class="ghb-carousel-section__header">
                 <div class="ghb-carousel-section__header-left">
                     <div>
-                        <h2 class="ghb-carousel-section__title"><?php echo esc_html($atts['title']); ?></h2>
+                        <?php if (!empty($atts['title'])) : ?>
+                            <h2 class="ghb-carousel-section__title"><?php echo esc_html($atts['title']); ?></h2>
+                        <?php endif; ?>
                         <?php if (!empty($atts['subtitle'])) : ?>
                             <p class="ghb-carousel-section__subtitle"><?php echo esc_html($atts['subtitle']); ?></p>
                         <?php endif; ?>
@@ -1351,6 +1356,7 @@ function ghb_carousel_section_shortcode($atts) {
                     <?php endif; ?>
                 </div>
             </div>
+            <?php endif; ?>
 
             <!-- Carousel -->
             <div class="<?php echo esc_attr(implode(' ', $carousel_classes)); ?>" data-carousel-id="<?php echo esc_attr($carousel_id); ?>">
@@ -1748,13 +1754,28 @@ function ghb_render_product_card($product, $atts) {
     }
 
     // Prices
-    $regular_price = $product->get_regular_price();
-    $sale_price    = $product->get_sale_price();
     $is_on_sale    = $product->is_on_sale();
+    $regular_price = '';
+    $sale_price    = '';
     $discount_pct  = 0;
 
-    if ($is_on_sale && $regular_price && $sale_price) {
-        $discount_pct = round((($regular_price - $sale_price) / $regular_price) * 100);
+    if ($product->is_type('variable')) {
+        $prices = $product->get_variation_prices(true);
+        if (!empty($prices['regular_price']) && !empty($prices['sale_price'])) {
+            $max_regular = max($prices['regular_price']);
+            $min_sale    = min($prices['sale_price']);
+            if ($max_regular > 0 && $min_sale > 0 && $max_regular > $min_sale) {
+                $regular_price = $max_regular;
+                $sale_price    = $min_sale;
+                $discount_pct  = round((($max_regular - $min_sale) / $max_regular) * 100);
+            }
+        }
+    } else {
+        $regular_price = $product->get_regular_price();
+        $sale_price    = $product->get_sale_price();
+        if ($is_on_sale && $regular_price && $sale_price) {
+            $discount_pct = round((($regular_price - $sale_price) / $regular_price) * 100);
+        }
     }
 
     // Badges
@@ -1849,7 +1870,7 @@ function ghb_render_product_card($product, $atts) {
             <?php endif; ?>
 
             <div class="ghb-product-card__price-wrapper">
-                <?php if ($is_on_sale && $sale_price) : ?>
+                <?php if ($is_on_sale && $sale_price && !$product->is_type('variable')) : ?>
                     <span class="ghb-product-card__price ghb-product-card__price--sale">
                         <?php echo wc_price($sale_price); ?>
                     </span>
@@ -1863,6 +1884,9 @@ function ghb_render_product_card($product, $atts) {
                     <span class="ghb-product-card__price">
                         <?php echo $product->get_price_html(); ?>
                     </span>
+                    <?php if ($is_on_sale && $atts['show_discount'] === 'true' && $discount_pct > 0) : ?>
+                        <span class="ghb-product-card__discount-tag">-<?php echo esc_html($discount_pct); ?>%</span>
+                    <?php endif; ?>
                 <?php endif; ?>
             </div>
 
@@ -1879,11 +1903,11 @@ function ghb_render_product_card($product, $atts) {
 
             <?php if ($atts['show_cart_btn'] === 'true' && $product->is_in_stock()) : ?>
                 <?php if ($product->is_type('variable')) : ?>
-                    <button type="button" class="ghb-product-card__cart-btn ghb-quick-add-btn" data-product-id="<?php echo esc_attr($product_id); ?>" onclick="event.preventDefault(); event.stopPropagation();">
+                    <button type="button" class="ghb-product-card__cart-btn ghb-quick-add-btn" data-product-id="<?php echo esc_attr($product_id); ?>">
                         Aggiungi al Carrello
                     </button>
                 <?php else : ?>
-                    <button type="button" class="ghb-product-card__cart-btn ghb-simple-add-btn" data-product-id="<?php echo esc_attr($product_id); ?>" onclick="event.preventDefault(); event.stopPropagation();">
+                    <button type="button" class="ghb-product-card__cart-btn ghb-simple-add-btn" data-product-id="<?php echo esc_attr($product_id); ?>">
                         Aggiungi al Carrello
                     </button>
                 <?php endif; ?>

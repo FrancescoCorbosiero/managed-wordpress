@@ -27,9 +27,9 @@
 | `header_align` | `left` \| `center` | `left` | Title/subtitle alignment |
 | `title_size` | `sm` \| `md` \| `lg` \| `xl` \| `xxl` | _(default)_ | Title font size |
 | `subtitle_size` | `sm` \| `md` \| `lg` | _(default)_ | Subtitle font size |
-| `title` | any text | `Prodotti` | Section title |
+| `title` | any text | _(empty)_ | Section title (no header rendered if empty) |
 | `subtitle` | any text | _(empty)_ | Section subtitle |
-| `link` | URL | `/shop` | "View All" link URL |
+| `link` | URL | _(empty)_ | "View All" link URL |
 | `link_text` | any text | `Vedi Tutti` | "View All" link text |
 
 ### Navigation Options
@@ -98,7 +98,7 @@
 | `show_sizes` | `true` \| `false` | `false` | Show available sizes |
 | `show_badges` | `true` \| `false` | `true` | Show sale/new/featured badges |
 | `show_rating` | `true` \| `false` | `false` | Show star rating |
-| `show_cart_btn` | `true` \| `false` | `false` | Show add-to-cart button |
+| `show_cart_btn` | `true` \| `false` | `true` | Show add-to-cart button (AJAX with modal for variable products) |
 | `show_discount` | `true` \| `false` | `true` | Show discount percentage tag |
 
 ---
