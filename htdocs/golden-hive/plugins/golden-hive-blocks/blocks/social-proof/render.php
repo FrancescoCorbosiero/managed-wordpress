@@ -23,7 +23,7 @@ if (empty($notifications)) {
      aria-atomic="true">
 
     <div class="gh-social-proof__image">
-        <img src="" alt="" data-gh-social-proof-image loading="lazy">
+        <img src="" alt="" data-gh-social-proof-image>
     </div>
 
     <div class="gh-social-proof__body">
