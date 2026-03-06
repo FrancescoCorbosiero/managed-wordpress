@@ -274,9 +274,16 @@
                 const location = n.location ? ` from ${n.location}` : '';
                 metaEl.textContent = `${n.time}${location}`;
             }
-            if (imageEl && n.image) {
-                imageEl.src = n.image;
-                imageEl.alt = n.product;
+            if (imageEl) {
+                const imageWrapper = imageEl.closest('.gh-social-proof__image');
+                if (n.image) {
+                    imageEl.src = n.image;
+                    imageEl.alt = n.product;
+                    if (imageWrapper) imageWrapper.style.display = '';
+                } else {
+                    imageEl.src = '';
+                    if (imageWrapper) imageWrapper.style.display = 'none';
+                }
             }
 
             this.container.classList.add('is-visible');

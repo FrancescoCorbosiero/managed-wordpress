@@ -74,6 +74,7 @@
  * ║ show_rating    = true|false                                               ║
  * ║ show_cart_btn  = true|false                                               ║
  * ║ show_discount  = true|false                                               ║
+ * ║ show_quick_view = true|false (quick view modal button)                    ║
  * ╚═══════════════════════════════════════════════════════════════════════════╝
  *
  * USAGE EXAMPLES:
@@ -905,6 +906,49 @@ function ghb_get_carousel_styles() {
         padding: 10px;
     }
 
+    /* Quick View Button */
+    .ghb-quick-view-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 3;
+        width: 36px;
+        height: 36px;
+        border: none;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #333;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.2s;
+        opacity: 0;
+        transform: scale(0.8);
+        pointer-events: none;
+    }
+    .ghb-product-card:hover .ghb-quick-view-btn {
+        opacity: 1;
+        transform: scale(1);
+        pointer-events: auto;
+    }
+    @media (hover: none) {
+        .ghb-quick-view-btn {
+            opacity: 1;
+            transform: scale(1);
+            pointer-events: auto;
+        }
+    }
+    .ghb-quick-view-btn:hover {
+        background: var(--ghb-accent, #721124);
+        color: #fff;
+        box-shadow: 0 4px 12px rgba(114, 17, 36, 0.3);
+        transform: scale(1.1);
+    }
+
     /* Content */
     .ghb-product-card__content {
         display: flex;
@@ -1256,6 +1300,7 @@ function ghb_carousel_section_shortcode($atts) {
         'show_rating'    => 'false',
         'show_cart_btn'  => 'true',
         'show_discount'  => 'true',
+        'show_quick_view' => 'true',
     ), $atts);
 
     $carousel_id = 'ghb_carousel_' . uniqid();
@@ -1841,6 +1886,15 @@ function ghb_render_product_card($product, $atts) {
                 </div>
             <?php endif; ?>
 
+            <?php if ($atts['show_quick_view'] === 'true') : ?>
+                <button type="button" class="ghb-quick-view-btn" data-product-id="<?php echo esc_attr($product_id); ?>" aria-label="Quick View">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"/>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
+                </button>
+            <?php endif; ?>
+
             <?php if ($atts['card_style'] !== 'overlay') : ?>
                 <div class="ghb-product-card__actions">
                     <span class="ghb-product-card__action-btn">Vedi Dettagli</span>
@@ -2095,6 +2149,59 @@ function ghb_add_to_cart_handler() {
     } else {
         wp_send_json_error('Impossibile aggiungere al carrello');
     }
+}
+
+/**
+ * ═══════════════════════════════════════════════════════════════
+ * 9b. AJAX: Quick View product data
+ * ═══════════════════════════════════════════════════════════════
+ */
+add_action('wp_ajax_ghb_quick_view', 'ghb_quick_view_handler');
+add_action('wp_ajax_nopriv_ghb_quick_view', 'ghb_quick_view_handler');
+
+function ghb_quick_view_handler() {
+    $product_id = intval($_GET['product_id'] ?? 0);
+    $product = wc_get_product($product_id);
+
+    if (!$product) {
+        wp_send_json_error('Prodotto non trovato');
+    }
+
+    // Images
+    $images = [];
+    $main_img = wp_get_attachment_image_url($product->get_image_id(), 'medium_large');
+    if ($main_img) $images[] = $main_img;
+
+    $gallery_ids = $product->get_gallery_image_ids();
+    foreach (array_slice($gallery_ids, 0, 4) as $gid) {
+        $url = wp_get_attachment_image_url($gid, 'medium_large');
+        if ($url) $images[] = $url;
+    }
+
+    // Attributes
+    $attributes = [];
+    foreach ($product->get_attributes() as $attr) {
+        $attributes[] = [
+            'label' => wc_attribute_label($attr->get_name()),
+            'value' => $product->get_attribute($attr->get_name()),
+        ];
+    }
+
+    // Categories
+    $categories = wp_get_post_terms($product_id, 'product_cat', ['fields' => 'names']);
+
+    wp_send_json_success([
+        'title'       => $product->get_name(),
+        'url'         => get_permalink($product_id),
+        'price'       => html_entity_decode(strip_tags($product->get_price_html())),
+        'short_desc'  => wpautop($product->get_short_description()),
+        'images'      => $images,
+        'in_stock'    => $product->is_in_stock(),
+        'stock_text'  => $product->is_in_stock() ? 'Disponibile' : 'Esaurito',
+        'attributes'  => $attributes,
+        'categories'  => implode(', ', is_array($categories) ? $categories : []),
+        'sku'         => $product->get_sku(),
+    ]);
 }
 
 /**
@@ -2689,6 +2796,300 @@ function ghb_quick_add_to_cart_frontend() {
         function escHtml(str) {
             var div = document.createElement('div');
             div.appendChild(document.createTextNode(str));
+            return div.innerHTML;
+        }
+    })();
+    </script>
+
+    <!-- ═══ GHB Quick View Modal ═══ -->
+    <style>
+        .ghb-qv-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 99998;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+        .ghb-qv-overlay.active { display: block; }
+
+        .ghb-qv-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 95%;
+            max-width: 800px;
+            max-height: 85vh;
+            overflow-y: auto;
+            background: #fff;
+            border-radius: 16px;
+            z-index: 99999;
+            box-shadow: 0 16px 50px rgba(0, 0, 0, 0.2);
+        }
+        .ghb-qv-modal.active { display: block; }
+
+        .ghb-qv-close {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #999;
+            z-index: 2;
+            transition: color 0.2s;
+            line-height: 1;
+        }
+        .ghb-qv-close:hover { color: var(--ghb-accent, #721124); }
+
+        .ghb-qv-body {
+            display: flex;
+            gap: 0;
+        }
+
+        /* Gallery */
+        .ghb-qv-gallery {
+            flex: 1;
+            min-width: 0;
+            background: #f9f9f9;
+            border-radius: 16px 0 0 16px;
+            overflow: hidden;
+        }
+        .ghb-qv-main-img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            display: block;
+        }
+        .ghb-qv-thumbs {
+            display: flex;
+            gap: 6px;
+            padding: 8px;
+            overflow-x: auto;
+        }
+        .ghb-qv-thumb {
+            width: 52px;
+            height: 52px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border-color 0.2s;
+            flex-shrink: 0;
+        }
+        .ghb-qv-thumb:hover,
+        .ghb-qv-thumb.active {
+            border-color: var(--ghb-accent, #721124);
+        }
+
+        /* Info */
+        .ghb-qv-info {
+            flex: 1;
+            padding: 28px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .ghb-qv-cats {
+            font-size: 11px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .ghb-qv-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #222;
+            line-height: 1.3;
+        }
+        .ghb-qv-price {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--ghb-accent, #721124);
+        }
+        .ghb-qv-stock {
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            width: fit-content;
+        }
+        .ghb-qv-stock.in-stock {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        .ghb-qv-stock.out-of-stock {
+            background: #fbe9e7;
+            color: #c62828;
+        }
+        .ghb-qv-desc {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+        }
+        .ghb-qv-desc p { margin: 0 0 8px; }
+        .ghb-qv-attrs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .ghb-qv-attr {
+            font-size: 12px;
+            padding: 4px 10px;
+            background: #f5f5f5;
+            border-radius: 6px;
+            color: #555;
+        }
+        .ghb-qv-attr strong {
+            color: #333;
+        }
+        .ghb-qv-sku {
+            font-size: 11px;
+            color: #bbb;
+        }
+        .ghb-qv-view-full {
+            display: inline-block;
+            margin-top: auto;
+            padding: 12px 24px;
+            background: var(--ghb-accent, #721124);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            transition: background 0.2s;
+        }
+        .ghb-qv-view-full:hover {
+            background: var(--ghb-accent-dark, #5a0d1d);
+            color: #fff;
+        }
+
+        .ghb-qv-loading {
+            padding: 60px;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        @media (max-width: 640px) {
+            .ghb-qv-body { flex-direction: column; }
+            .ghb-qv-gallery { border-radius: 16px 16px 0 0; }
+            .ghb-qv-info { padding: 20px 16px; }
+            .ghb-qv-title { font-size: 18px; }
+        }
+    </style>
+
+    <div class="ghb-qv-overlay"></div>
+    <div class="ghb-qv-modal">
+        <button class="ghb-qv-close" aria-label="Chiudi">&#10005;</button>
+        <div class="ghb-qv-content"></div>
+    </div>
+
+    <script>
+    (function() {
+        var ajaxUrl = '<?php echo esc_js(admin_url("admin-ajax.php")); ?>';
+        var qvOverlay = document.querySelector('.ghb-qv-overlay');
+        var qvModal = document.querySelector('.ghb-qv-modal');
+        var qvContent = qvModal ? qvModal.querySelector('.ghb-qv-content') : null;
+
+        if (!qvOverlay || !qvModal || !qvContent) return;
+
+        function closeQvModal() {
+            qvOverlay.classList.remove('active');
+            qvModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        qvOverlay.addEventListener('click', closeQvModal);
+        qvModal.querySelector('.ghb-qv-close').addEventListener('click', closeQvModal);
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && qvModal.classList.contains('active')) closeQvModal();
+        });
+
+        document.addEventListener('click', function(e) {
+            var btn = e.target.closest('.ghb-quick-view-btn');
+            if (!btn) return;
+            e.preventDefault();
+            e.stopPropagation();
+
+            var productId = btn.getAttribute('data-product-id');
+            qvContent.innerHTML = '<div class="ghb-qv-loading">Caricamento...</div>';
+            qvOverlay.classList.add('active');
+            qvModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+            fetch(ajaxUrl + '?action=ghb_quick_view&product_id=' + encodeURIComponent(productId))
+                .then(function(r) { return r.json(); })
+                .then(function(response) {
+                    if (!response.success) {
+                        qvContent.innerHTML = '<div class="ghb-qv-loading">Prodotto non trovato</div>';
+                        return;
+                    }
+                    var p = response.data;
+                    var html = '<div class="ghb-qv-body">';
+
+                    // Gallery
+                    html += '<div class="ghb-qv-gallery">';
+                    if (p.images.length) {
+                        html += '<img src="' + esc(p.images[0]) + '" class="ghb-qv-main-img" alt="' + esc(p.title) + '">';
+                        if (p.images.length > 1) {
+                            html += '<div class="ghb-qv-thumbs">';
+                            p.images.forEach(function(img, i) {
+                                html += '<img src="' + esc(img) + '" class="ghb-qv-thumb' + (i === 0 ? ' active' : '') + '" data-src="' + esc(img) + '">';
+                            });
+                            html += '</div>';
+                        }
+                    }
+                    html += '</div>';
+
+                    // Info
+                    html += '<div class="ghb-qv-info">';
+                    if (p.categories) html += '<div class="ghb-qv-cats">' + esc(p.categories) + '</div>';
+                    html += '<div class="ghb-qv-title">' + esc(p.title) + '</div>';
+                    html += '<div class="ghb-qv-price">' + esc(p.price) + '</div>';
+                    html += '<div class="ghb-qv-stock ' + (p.in_stock ? 'in-stock' : 'out-of-stock') + '">' + esc(p.stock_text) + '</div>';
+                    if (p.short_desc) html += '<div class="ghb-qv-desc">' + p.short_desc + '</div>';
+
+                    if (p.attributes && p.attributes.length) {
+                        html += '<div class="ghb-qv-attrs">';
+                        p.attributes.forEach(function(a) {
+                            html += '<span class="ghb-qv-attr"><strong>' + esc(a.label) + ':</strong> ' + esc(a.value) + '</span>';
+                        });
+                        html += '</div>';
+                    }
+
+                    if (p.sku) html += '<div class="ghb-qv-sku">SKU: ' + esc(p.sku) + '</div>';
+                    html += '<a href="' + esc(p.url) + '" class="ghb-qv-view-full">Vedi Prodotto Completo</a>';
+                    html += '</div></div>';
+
+                    qvContent.innerHTML = html;
+                })
+                .catch(function() {
+                    qvContent.innerHTML = '<div class="ghb-qv-loading">Errore di caricamento</div>';
+                });
+        });
+
+        // Thumbnail click
+        document.addEventListener('click', function(e) {
+            var thumb = e.target.closest('.ghb-qv-thumb');
+            if (!thumb || !qvModal.contains(thumb)) return;
+            var src = thumb.getAttribute('data-src');
+            var siblings = thumb.parentElement.querySelectorAll('.ghb-qv-thumb');
+            siblings.forEach(function(s) { s.classList.remove('active'); });
+            thumb.classList.add('active');
+            thumb.closest('.ghb-qv-gallery').querySelector('.ghb-qv-main-img').src = src;
+        });
+
+        function esc(str) {
+            var div = document.createElement('div');
+            div.appendChild(document.createTextNode(str || ''));
             return div.innerHTML;
         }
     })();
