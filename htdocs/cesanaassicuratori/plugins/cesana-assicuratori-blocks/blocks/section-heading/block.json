@@ -1,0 +1,40 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "cesana/section-heading",
+    "version": "1.0.0",
+    "title": "Section Heading",
+    "category": "cesana",
+    "icon": "editor-textcolor",
+    "description": "Blocco testo con eyebrow, titolo e descrizione. Possibilità di centrare il testo.",
+    "keywords": ["titolo", "heading", "eyebrow", "testo", "sezione"],
+    "textdomain": "cesana-assicuratori-blocks",
+    "attributes": {
+        "eyebrow": {
+            "type": "string",
+            "default": ""
+        },
+        "title": {
+            "type": "string",
+            "default": ""
+        },
+        "description": {
+            "type": "string",
+            "default": ""
+        },
+        "centered": {
+            "type": "boolean",
+            "default": false
+        },
+        "headingLevel": {
+            "type": "number",
+            "default": 2
+        }
+    },
+    "supports": {
+        "align": ["wide", "full"],
+        "html": false
+    },
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php"
+}
