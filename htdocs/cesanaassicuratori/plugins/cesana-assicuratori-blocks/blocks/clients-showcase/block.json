@@ -1,0 +1,43 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "cesana/clients-showcase",
+    "version": "1.0.0",
+    "title": "Clients Showcase",
+    "category": "cesana",
+    "icon": "groups",
+    "description": "Vetrina loghi clienti e partner con griglia responsive.",
+    "keywords": ["clienti", "partner", "loghi", "showcase", "brand"],
+    "textdomain": "cesana-assicuratori-blocks",
+    "attributes": {
+        "eyebrow": {
+            "type": "string",
+            "default": ""
+        },
+        "title": {
+            "type": "string",
+            "default": "I Nostri Clienti"
+        },
+        "images": {
+            "type": "array",
+            "default": [],
+            "items": {
+                "type": "object"
+            }
+        },
+        "columns": {
+            "type": "number",
+            "default": 4
+        },
+        "grayscale": {
+            "type": "boolean",
+            "default": true
+        }
+    },
+    "supports": {
+        "align": ["wide", "full"],
+        "html": false
+    },
+    "editorScript": "file:./editor.js",
+    "render": "file:./render.php"
+}

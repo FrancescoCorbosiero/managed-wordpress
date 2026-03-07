@@ -24,13 +24,20 @@ if (!$category) {
     return;
 }
 
-// Query posts
+// Query pages in this category (categories added to pages via plugin)
 $paged = get_query_var('paged') ? get_query_var('paged') : 1;
 $query_args = array(
-    'cat'            => $category->term_id,
+    'post_type'      => 'page',
     'posts_per_page' => $posts_per_page,
     'paged'          => $paged,
     'post_status'    => 'publish',
+    'tax_query'      => array(
+        array(
+            'taxonomy' => 'category',
+            'field'    => 'term_id',
+            'terms'    => $category->term_id,
+        ),
+    ),
 );
 $query = new WP_Query($query_args);
 
@@ -77,8 +84,8 @@ $arrow_svg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-
                 $post_id     = get_the_ID();
                 $permalink   = get_permalink();
                 $thumb_url   = get_the_post_thumbnail_url($post_id, 'medium_large');
-                $post_cats   = get_the_category($post_id);
-                $first_cat   = !empty($post_cats) ? $post_cats[0]->name : '';
+                $post_cats   = wp_get_post_terms($post_id, 'category');
+                $first_cat   = (!is_wp_error($post_cats) && !empty($post_cats)) ? $post_cats[0]->name : '';
                 $author_name = get_the_author();
                 $post_date   = get_the_date('j M Y');
                 $reading     = ca_estimate_reading_time($post_id);
