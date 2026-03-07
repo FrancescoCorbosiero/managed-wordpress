@@ -6,7 +6,7 @@
     "title": "Clients Showcase",
     "category": "cesana",
     "icon": "groups",
-    "description": "Vetrina loghi clienti e partner con griglia responsive.",
+    "description": "Vetrina loghi clienti e partner con griglia responsive e dimensioni configurabili.",
     "keywords": ["clienti", "partner", "loghi", "showcase", "brand"],
     "textdomain": "cesana-assicuratori-blocks",
     "attributes": {
@@ -28,6 +28,10 @@
         "columns": {
             "type": "number",
             "default": 4
+        },
+        "imageHeight": {
+            "type": "number",
+            "default": 120
         },
         "grayscale": {
             "type": "boolean",

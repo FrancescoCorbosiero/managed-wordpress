@@ -139,21 +139,6 @@ function cesana_blocks_load_textdomain()
 add_action('plugins_loaded', 'cesana_blocks_load_textdomain');
 
 /**
- * Override category archive template with custom card grid
- */
-function cesana_blocks_category_template($template)
-{
-    if (is_category()) {
-        $custom = CESANA_BLOCKS_PATH . 'templates/category.php';
-        if (file_exists($custom)) {
-            return $custom;
-        }
-    }
-    return $template;
-}
-add_filter('template_include', 'cesana_blocks_category_template');
-
-/**
  * Load contact form handler
  */
 require_once CESANA_BLOCKS_PATH . 'includes/class-ca-contact-form.php';

@@ -1,12 +1,13 @@
 <?php
 /**
  * Category Posts Block — Server-side render
- * Editorial card grid for category archive pages
+ * Card grid for pages in a category, with image and text-only variants
  */
 
 $category_slug   = $attributes['categorySlug'] ?? '';
 $posts_per_page  = $attributes['postsPerPage'] ?? 9;
 $columns         = $attributes['columns'] ?? 3;
+$show_image      = $attributes['showImage'] ?? true;
 $show_excerpt    = $attributes['showExcerpt'] ?? true;
 $show_author     = $attributes['showAuthor'] ?? true;
 $show_date       = $attributes['showDate'] ?? true;
@@ -61,11 +62,12 @@ if (!function_exists('ca_estimate_reading_time')) {
 }
 
 $col_class = 'ca-category-posts__grid--' . intval($columns) . 'col';
+$variant_class = $show_image ? '' : ' ca-category-posts--text-only';
 
 // Arrow SVG
 $arrow_svg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>';
 ?>
-<section class="ca-block ca-category-posts">
+<section class="ca-block ca-category-posts<?php echo esc_attr($variant_class); ?>">
     <div class="ca-category-posts__container">
 
         <!-- Category Header -->
@@ -83,37 +85,44 @@ $arrow_svg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-
                 <?php
                 $post_id     = get_the_ID();
                 $permalink   = get_permalink();
-                $thumb_url   = get_the_post_thumbnail_url($post_id, 'medium_large');
+                $thumb_url   = $show_image ? get_the_post_thumbnail_url($post_id, 'medium_large') : '';
                 $post_cats   = wp_get_post_terms($post_id, 'category');
                 $first_cat   = (!is_wp_error($post_cats) && !empty($post_cats)) ? $post_cats[0]->name : '';
                 $author_name = get_the_author();
                 $post_date   = get_the_date('j M Y');
                 $reading     = ca_estimate_reading_time($post_id);
                 $excerpt     = get_the_excerpt();
+                $card_class  = $show_image ? 'ca-post-card' : 'ca-post-card ca-post-card--text-only';
                 ?>
-                <a href="<?php echo esc_url($permalink); ?>" class="ca-post-card">
-                    <!-- Image -->
-                    <div class="ca-post-card__image-wrap">
-                        <?php if ($thumb_url) : ?>
-                            <img src="<?php echo esc_url($thumb_url); ?>"
-                                 alt="<?php echo esc_attr(get_the_title()); ?>"
-                                 loading="lazy"
-                                 width="600" height="400">
-                        <?php else : ?>
-                            <div class="ca-post-card__image-placeholder">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                                </svg>
-                            </div>
-                        <?php endif; ?>
+                <a href="<?php echo esc_url($permalink); ?>" class="<?php echo esc_attr($card_class); ?>">
+                    <?php if ($show_image) : ?>
+                        <!-- Image -->
+                        <div class="ca-post-card__image-wrap">
+                            <?php if ($thumb_url) : ?>
+                                <img src="<?php echo esc_url($thumb_url); ?>"
+                                     alt="<?php echo esc_attr(get_the_title()); ?>"
+                                     loading="lazy"
+                                     width="600" height="400">
+                            <?php else : ?>
+                                <div class="ca-post-card__image-placeholder">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                    </svg>
+                                </div>
+                            <?php endif; ?>
 
-                        <?php if (!empty($first_cat)) : ?>
-                            <span class="ca-post-card__badge"><?php echo esc_html($first_cat); ?></span>
-                        <?php endif; ?>
-                    </div>
+                            <?php if (!empty($first_cat)) : ?>
+                                <span class="ca-post-card__badge"><?php echo esc_html($first_cat); ?></span>
+                            <?php endif; ?>
+                        </div>
+                    <?php endif; ?>
 
                     <!-- Content -->
                     <div class="ca-post-card__content">
+                        <?php if (!$show_image && !empty($first_cat)) : ?>
+                            <span class="ca-post-card__badge ca-post-card__badge--inline"><?php echo esc_html($first_cat); ?></span>
+                        <?php endif; ?>
+
                         <!-- Meta top -->
                         <div class="ca-post-card__meta-top">
                             <?php if ($show_date) : ?>

@@ -1,14 +1,15 @@
 <?php
 /**
  * Clients Showcase Block — Server-side render
- * Logo grid showcasing clients/partners
+ * Image grid showcasing clients/partners — full-size, no boxing
  */
 
-$eyebrow   = $attributes['eyebrow'] ?? '';
-$title     = $attributes['title'] ?? '';
-$images    = $attributes['images'] ?? array();
-$columns   = $attributes['columns'] ?? 4;
-$grayscale = $attributes['grayscale'] ?? true;
+$eyebrow      = $attributes['eyebrow'] ?? '';
+$title        = $attributes['title'] ?? '';
+$images       = $attributes['images'] ?? array();
+$columns      = $attributes['columns'] ?? 4;
+$image_height = $attributes['imageHeight'] ?? 120;
+$grayscale    = $attributes['grayscale'] ?? true;
 
 if (empty($images)) {
     return;
@@ -16,8 +17,9 @@ if (empty($images)) {
 
 $col_class = 'ca-clients-showcase__grid--' . intval($columns) . 'col';
 $gray_class = $grayscale ? ' ca-clients-showcase--grayscale' : '';
+$height_style = 'style="--ca-client-img-height: ' . intval($image_height) . 'px"';
 ?>
-<section class="ca-block ca-clients-showcase<?php echo esc_attr($gray_class); ?>">
+<section class="ca-block ca-clients-showcase<?php echo esc_attr($gray_class); ?>" <?php echo $height_style; ?>>
     <div class="ca-clients-showcase__container">
 
         <?php if (!empty($title) || !empty($eyebrow)) : ?>

@@ -6,7 +6,7 @@
     "title": "Section Heading",
     "category": "cesana",
     "icon": "editor-textcolor",
-    "description": "Blocco testo con eyebrow, titolo e descrizione. Possibilità di centrare il testo.",
+    "description": "Blocco testo con eyebrow, titolo, descrizione e immagine opzionale. Allineamento configurabile.",
     "keywords": ["titolo", "heading", "eyebrow", "testo", "sezione"],
     "textdomain": "cesana-assicuratori-blocks",
     "attributes": {
@@ -22,13 +22,27 @@
             "type": "string",
             "default": ""
         },
-        "centered": {
-            "type": "boolean",
-            "default": false
+        "textAlign": {
+            "type": "string",
+            "default": "left",
+            "enum": ["left", "center", "right"]
         },
         "headingLevel": {
             "type": "number",
             "default": 2
+        },
+        "imageUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "imageAlt": {
+            "type": "string",
+            "default": ""
+        },
+        "imagePosition": {
+            "type": "string",
+            "default": "right",
+            "enum": ["left", "right", "top", "bottom"]
         }
     },
     "supports": {

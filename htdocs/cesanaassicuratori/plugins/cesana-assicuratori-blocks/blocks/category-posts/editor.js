@@ -7,12 +7,13 @@
 
     registerBlockType('cesana/category-posts', {
         edit: function({ attributes, setAttributes }) {
-            var categorySlug   = attributes.categorySlug;
-            var postsPerPage   = attributes.postsPerPage;
-            var columns        = attributes.columns;
-            var showExcerpt    = attributes.showExcerpt;
-            var showAuthor     = attributes.showAuthor;
-            var showDate       = attributes.showDate;
+            var categorySlug    = attributes.categorySlug;
+            var postsPerPage    = attributes.postsPerPage;
+            var columns         = attributes.columns;
+            var showImage       = attributes.showImage;
+            var showExcerpt     = attributes.showExcerpt;
+            var showAuthor      = attributes.showAuthor;
+            var showDate        = attributes.showDate;
             var showReadingTime = attributes.showReadingTime;
 
             return el(Fragment, null,
@@ -27,7 +28,7 @@
                             onChange: function(val) { setAttributes({ categorySlug: val }); }
                         }),
                         el(RangeControl, {
-                            label: 'Articoli per pagina',
+                            label: 'Pagine per sezione',
                             value: postsPerPage,
                             min: 1,
                             max: 24,
@@ -42,6 +43,12 @@
                         })
                     ),
                     el(PanelBody, { title: 'Visualizzazione', initialOpen: false },
+                        el(ToggleControl, {
+                            label: 'Mostra immagine',
+                            help: 'Disattiva per card eleganti solo testo.',
+                            checked: showImage,
+                            onChange: function(val) { setAttributes({ showImage: val }); }
+                        }),
                         el(ToggleControl, {
                             label: 'Mostra estratto',
                             checked: showExcerpt,
@@ -75,8 +82,10 @@
                     el('div', { className: 'ca-editor-placeholder__title' }, 'Category Posts'),
                     el('div', { className: 'ca-editor-placeholder__text' },
                         categorySlug
-                            ? 'Categoria: ' + categorySlug + ' — ' + postsPerPage + ' articoli, ' + columns + ' colonne'
-                            : 'Categoria automatica (archivio) — ' + postsPerPage + ' articoli, ' + columns + ' colonne'
+                            ? 'Categoria: ' + categorySlug + ' — ' + postsPerPage + ' pagine, ' + columns + ' colonne'
+                                + (showImage ? '' : ' (solo testo)')
+                            : 'Categoria automatica (archivio) — ' + postsPerPage + ' pagine, ' + columns + ' colonne'
+                                + (showImage ? '' : ' (solo testo)')
                     )
                 )
             );

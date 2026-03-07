@@ -6,8 +6,8 @@
     "title": "Category Posts",
     "category": "cesana",
     "icon": "category",
-    "description": "Griglia di articoli per categoria con card editoriali in stile Cesana.",
-    "keywords": ["categoria", "articoli", "posts", "archivio", "blog", "card"],
+    "description": "Griglia di pagine per categoria con card editoriali. Variante con o senza immagine.",
+    "keywords": ["categoria", "pagine", "posts", "archivio", "card"],
     "textdomain": "cesana-assicuratori-blocks",
     "attributes": {
         "categorySlug": {
@@ -21,6 +21,10 @@
         "columns": {
             "type": "number",
             "default": 3
+        },
+        "showImage": {
+            "type": "boolean",
+            "default": true
         },
         "showExcerpt": {
             "type": "boolean",

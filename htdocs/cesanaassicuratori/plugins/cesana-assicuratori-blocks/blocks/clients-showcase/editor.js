@@ -8,11 +8,12 @@
 
     registerBlockType('cesana/clients-showcase', {
         edit: function({ attributes, setAttributes }) {
-            var eyebrow   = attributes.eyebrow;
-            var title     = attributes.title;
-            var images    = attributes.images;
-            var columns   = attributes.columns;
-            var grayscale = attributes.grayscale;
+            var eyebrow     = attributes.eyebrow;
+            var title       = attributes.title;
+            var images      = attributes.images;
+            var columns     = attributes.columns;
+            var imageHeight = attributes.imageHeight;
+            var grayscale   = attributes.grayscale;
 
             function removeImage(index) {
                 var updated = images.filter(function(_, i) { return i !== index; });
@@ -64,7 +65,7 @@
                                             variant: 'tertiary',
                                             isDestructive: true,
                                             isSmall: true
-                                        }, '✕')
+                                        }, '\u2715')
                                     );
                                 })
                               )
@@ -99,9 +100,17 @@
                             max: 6,
                             onChange: function(val) { setAttributes({ columns: val }); }
                         }),
+                        el(RangeControl, {
+                            label: 'Altezza immagini (px)',
+                            value: imageHeight,
+                            min: 40,
+                            max: 300,
+                            step: 10,
+                            onChange: function(val) { setAttributes({ imageHeight: val }); }
+                        }),
                         el(ToggleControl, {
                             label: 'Scala di grigi',
-                            help: 'I loghi appaiono in bianco/nero e diventano a colori al passaggio del mouse.',
+                            help: 'Le immagini appaiono in bianco/nero e diventano a colori al passaggio del mouse.',
                             checked: grayscale,
                             onChange: function(val) { setAttributes({ grayscale: val }); }
                         })
@@ -118,8 +127,8 @@
                     el('div', { className: 'ca-editor-placeholder__title' }, 'Clients Showcase'),
                     el('div', { className: 'ca-editor-placeholder__text' },
                         images.length > 0
-                            ? images.length + ' logo' + (images.length > 1 ? 'hi' : '') + ' — ' + columns + ' colonne'
-                            : 'Aggiungi i loghi dal pannello laterale.'
+                            ? images.length + ' immagin' + (images.length > 1 ? 'i' : 'e') + ' — ' + columns + ' colonne, ' + imageHeight + 'px'
+                            : 'Aggiungi le immagini dal pannello laterale.'
                     )
                 )
             );
