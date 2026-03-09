@@ -1279,7 +1279,7 @@ html:has(.gh-social-buttons) {
 
 .gh-category-slider__image-wrapper {
     position: relative;
-    aspect-ratio: 3 / 4;
+    aspect-ratio: 4 / 5;
     overflow: hidden;
     background: var(--gh-gray-100);
     border-radius: 12px;
@@ -1803,7 +1803,7 @@ html:has(.gh-social-buttons) {
    ========================================================================== */
 
 .gh-trustpilot {
-    padding: var(--gh-space-3xl) var(--gh-space-xl);
+    padding: var(--gh-space-xl) var(--gh-space-md);
     background: var(--gh-white);
 }
 
@@ -1814,7 +1814,7 @@ html:has(.gh-social-buttons) {
 }
 
 .gh-trustpilot__header {
-    margin-bottom: var(--gh-space-xl);
+    margin-bottom: var(--gh-space-sm);
 }
 
 .gh-trustpilot__label {
@@ -1823,7 +1823,7 @@ html:has(.gh-social-buttons) {
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--gh-gray-500);
-    margin-bottom: var(--gh-space-sm);
+    margin-bottom: var(--gh-space-xs);
     display: block;
 }
 
@@ -1831,7 +1831,7 @@ html:has(.gh-social-buttons) {
     display: flex;
     justify-content: center;
     gap: 4px;
-    margin-bottom: var(--gh-space-md);
+    margin-bottom: var(--gh-space-sm);
 }
 
 .gh-trustpilot__star {
@@ -1853,7 +1853,7 @@ html:has(.gh-social-buttons) {
     font-size: var(--gh-text-2xl);
     font-weight: 700;
     color: var(--gh-black);
-    margin-bottom: var(--gh-space-xs);
+    margin-bottom: 2px;
 }
 
 .gh-trustpilot__count {
@@ -1862,7 +1862,7 @@ html:has(.gh-social-buttons) {
 }
 
 .gh-trustpilot__logo {
-    margin-top: var(--gh-space-lg);
+    margin-top: var(--gh-space-sm);
 }
 
 .gh-trustpilot__logo img {
