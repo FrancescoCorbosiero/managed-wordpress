@@ -23,7 +23,11 @@ $block_id = 'gh-hero-' . wp_unique_id();
         <div class="gh-hero-slide<?php echo $index === 0 ? ' gh-hero-slide--active' : ''; ?>" data-gh-hero-slide>
             <div class="gh-hero-slide__bg">
                 <?php if (!empty($slide['image'])) :
-                    $img_pos = !empty($slide['imagePosition']) ? $slide['imagePosition'] : 'center center';
+                    $img_pos = !empty($slide['objectPosition']) ? $slide['objectPosition'] : 'center center';
+                    // Normalize shorthand values (e.g. "left" → "left center")
+                    if (strpos($img_pos, ' ') === false) {
+                        $img_pos .= ' center';
+                    }
                 ?>
                     <img src="<?php echo esc_url($slide['image']); ?>"
                          alt=""
