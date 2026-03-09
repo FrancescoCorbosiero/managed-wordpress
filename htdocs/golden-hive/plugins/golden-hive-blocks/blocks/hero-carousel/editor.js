@@ -2,7 +2,7 @@
     const { registerBlockType } = wp.blocks;
     const { createElement: el, Fragment } = wp.element;
     const { InspectorControls, MediaUpload, MediaUploadCheck } = wp.blockEditor;
-    const { PanelBody, TextControl, NumberControl, ToggleControl, SelectControl, Button } = wp.components;
+    const { PanelBody, TextControl, RangeControl, ToggleControl, SelectControl, Button } = wp.components;
 
     registerBlockType('golden-hive/hero-carousel', {
         edit: function({ attributes, setAttributes }) {
@@ -51,11 +51,13 @@
             return el(Fragment, {},
                 el(InspectorControls, {},
                     el(PanelBody, { title: 'Impostazioni Carousel', initialOpen: true },
-                        el(NumberControl, {
+                        el(RangeControl, {
                             label: 'Autoplay (ms)',
                             value: autoplay,
                             min: 0,
-                            onChange: function(val) { setAttributes({ autoplay: parseInt(val, 10) || 0 }); }
+                            max: 15000,
+                            step: 500,
+                            onChange: function(val) { setAttributes({ autoplay: val }); }
                         }),
                         el(ToggleControl, {
                             label: 'Mostra indicatori',
