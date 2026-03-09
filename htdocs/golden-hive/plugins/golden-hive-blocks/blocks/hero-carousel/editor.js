@@ -2,7 +2,7 @@
     const { registerBlockType } = wp.blocks;
     const { createElement: el, Fragment } = wp.element;
     const { InspectorControls, MediaUpload, MediaUploadCheck } = wp.blockEditor;
-    const { PanelBody, TextControl, NumberControl, ToggleControl, Button } = wp.components;
+    const { PanelBody, TextControl, NumberControl, ToggleControl, SelectControl, Button } = wp.components;
 
     registerBlockType('golden-hive/hero-carousel', {
         edit: function({ attributes, setAttributes }) {
@@ -28,6 +28,7 @@
             var addSlide = function() {
                 var updated = slides.concat([{
                     image: '',
+                    imagePosition: 'center center',
                     eyebrow: '',
                     title: '',
                     subtitle: '',
@@ -87,6 +88,23 @@
                                         }
                                     })
                                 ),
+                                el(SelectControl, {
+                                    label: 'Posizione immagine',
+                                    help: 'Punto focale dell\'immagine (visibile soprattutto su mobile)',
+                                    value: slide.imagePosition || 'center center',
+                                    options: [
+                                        { label: 'Centro', value: 'center center' },
+                                        { label: 'Sinistra', value: 'left center' },
+                                        { label: 'Destra', value: 'right center' },
+                                        { label: 'Alto centro', value: 'center top' },
+                                        { label: 'Basso centro', value: 'center bottom' },
+                                        { label: 'Alto sinistra', value: 'left top' },
+                                        { label: 'Alto destra', value: 'right top' },
+                                        { label: 'Basso sinistra', value: 'left bottom' },
+                                        { label: 'Basso destra', value: 'right bottom' }
+                                    ],
+                                    onChange: function(val) { updateSlide(index, 'imagePosition', val); }
+                                }),
                                 el(TextControl, {
                                     label: 'Eyebrow',
                                     value: slide.eyebrow || '',

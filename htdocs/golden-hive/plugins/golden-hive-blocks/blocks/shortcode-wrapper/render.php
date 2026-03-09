@@ -7,6 +7,8 @@ $eyebrow = $attributes['eyebrow'] ?? '';
 $title = $attributes['title'] ?? '';
 $shortcode = $attributes['shortcode'] ?? '';
 $bg_color = $attributes['backgroundColor'] ?? 'white';
+$button_text = $attributes['buttonText'] ?? '';
+$button_url = $attributes['buttonUrl'] ?? '';
 
 if (empty($shortcode)) {
     return;
@@ -39,4 +41,15 @@ switch ($bg_color) {
     <div class="gh-shortcode-wrapper__content">
         <?php echo do_shortcode($shortcode); ?>
     </div>
+
+    <?php if (!empty($button_url) && !empty($button_text)) : ?>
+        <div class="gh-shortcode-wrapper__cta">
+            <a href="<?php echo esc_url($button_url); ?>" class="gh-btn gh-btn--primary gh-btn--large">
+                <?php echo esc_html($button_text); ?>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    <?php endif; ?>
 </section>

@@ -25,6 +25,19 @@
                             onChange: function(value) { setAttributes({ shortcode: value }); }
                         })
                     ),
+                    el(PanelBody, { title: 'Pulsante', initialOpen: false },
+                        el(TextControl, {
+                            label: 'Testo pulsante',
+                            help: 'Es. "Vedi Tutti". Lascia vuoto per nascondere il pulsante.',
+                            value: attributes.buttonText || '',
+                            onChange: function(value) { setAttributes({ buttonText: value }); }
+                        }),
+                        el(TextControl, {
+                            label: 'URL pulsante',
+                            value: attributes.buttonUrl || '',
+                            onChange: function(value) { setAttributes({ buttonUrl: value }); }
+                        })
+                    ),
                     el(PanelBody, { title: 'Aspetto', initialOpen: false },
                         el(SelectControl, {
                             label: 'Colore di Sfondo',
