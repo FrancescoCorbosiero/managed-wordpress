@@ -5,106 +5,7 @@
  * WooCommerce product carousels using Swiper.js
  *
  * @package Golden_Hive_Blocks
- * @version 2.1.0
- *
- * ╔═══════════════════════════════════════════════════════════════════════════╗
- * ║                         ALL AVAILABLE OPTIONS                              ║
- * ╠═══════════════════════════════════════════════════════════════════════════╣
- * ║ SECTION STYLING                                                            ║
- * ║ ─────────────────────────────────────────────────────────────────────────  ║
- * ║ style          = default|dark|minimal                                     ║
- * ║ header_align   = left|center (centered title & subtitle)                  ║
- * ║ title_size     = sm|md|lg|xl|xxl (title font size)                        ║
- * ║ subtitle_size  = sm|md|lg (subtitle font size)                            ║
- * ║                                                                            ║
- * ║ NAVIGATION OPTIONS                                                         ║
- * ║ ─────────────────────────────────────────────────────────────────────────  ║
- * ║ nav_style      = bottom|sides|top-right|integrated|none                   ║
- * ║ nav_shape      = circle|square|pill                                       ║
- * ║ nav_size       = sm|md|lg                                                 ║
- * ║ show_nav       = true|false                                               ║
- * ║                                                                            ║
- * ║ PAGINATION OPTIONS                                                         ║
- * ║ ─────────────────────────────────────────────────────────────────────────  ║
- * ║ pagination     = dots|fraction|progressbar|none                           ║
- * ║ dots_style     = default|line|dash|dynamic                                ║
- * ║                                                                            ║
- * ║ SLIDER EFFECTS                                                             ║
- * ║ ─────────────────────────────────────────────────────────────────────────  ║
- * ║ effect         = slide|fade|coverflow                                     ║
- * ║                                                                            ║
- * ║ CARD STYLES                                                                ║
- * ║ ─────────────────────────────────────────────────────────────────────────  ║
- * ║ card_style     = default|minimal|overlay|detailed|horizontal              ║
- * ║ card_hover     = lift|zoom|glow|border|none                               ║
- * ║ card_radius    = none|sm|md|lg|xl                                         ║
- * ║ card_text      = default|centered (bigger & centered text)                ║
- * ║                                                                            ║
- * ║ LAYOUT OPTIONS                                                             ║
- * ║ ─────────────────────────────────────────────────────────────────────────  ║
- * ║ layout         = standard|centered|peek|full-width                        ║
- * ║ columns        = 2|3|4|5|6 (desktop)                                      ║
- * ║ columns_tablet = 2|3|4 (tablet)                                           ║
- * ║ columns_mobile = 1|2 (mobile)                                             ║
- * ║ gap            = none|sm|md|lg|xl                                         ║
- * ║ rows           = 1|2 (multi-row grid)                                     ║
- * ║                                                                            ║
- * ║ BEHAVIOR OPTIONS                                                           ║
- * ║ ─────────────────────────────────────────────────────────────────────────  ║
- * ║ autoplay       = true|false                                               ║
- * ║ speed          = 3000|4000|5000|... (ms)                                  ║
- * ║ loop           = true|false                                               ║
- * ║ free_mode      = true|false (momentum scrolling)                          ║
- * ║ mousewheel     = true|false                                               ║
- * ║ keyboard       = true|false                                               ║
- * ║ grab_cursor    = true|false                                               ║
- * ║ autoplay_bar   = true|false (show progress bar during autoplay)           ║
- * ║                                                                            ║
- * ║ PRODUCT OPTIONS                                                            ║
- * ║ ─────────────────────────────────────────────────────────────────────────  ║
- * ║ type           = recent|best_selling|featured|sale|top_rated              ║
- * ║ limit          = 4|8|12|16|...                                            ║
- * ║ category       = slug1,slug2,...                                          ║
- * ║ tag            = slug1,slug2,...                                          ║
- * ║ brand          = slug1,slug2,...                                          ║
- * ║ ids            = 123,456,789,...                                          ║
- * ║ show_brand     = true|false                                               ║
- * ║ show_sizes     = true|false                                               ║
- * ║ show_badges    = true|false                                               ║
- * ║ show_rating    = true|false                                               ║
- * ║ show_cart_btn  = true|false                                               ║
- * ║ show_discount  = true|false                                               ║
- * ║ show_quick_view = true|false (quick view modal button)                    ║
- * ╚═══════════════════════════════════════════════════════════════════════════╝
- *
- * USAGE EXAMPLES:
- * ───────────────
- * // Classic bottom navigation
- * [carousel_section title="Best Sellers" type="best_selling" nav_style="bottom"]
- *
- * // Coverflow effect with side arrows
- * [carousel_section title="Featured" type="featured" effect="coverflow" nav_style="sides"]
- *
- * // Top-right navigation
- * [carousel_section title="New In" type="recent" nav_style="top-right"]
- *
- * // Minimal style with progress bar
- * [carousel_section title="Sale" type="sale" style="minimal" pagination="progressbar"]
- *
- * // Dark theme with overlay cards
- * [carousel_section title="Nike" brand="nike" style="dark" card_style="overlay"]
- *
- * // Multi-row grid
- * [carousel_section title="All Products" type="recent" rows="2" limit="16"]
- *
- * // Autoplay with progress bar
- * [carousel_section title="Highlights" type="featured" autoplay="true" autoplay_bar="true"]
- *
- * // Bigger centered text
- * [carousel_section title="Collection" type="recent" card_text="centered"]
- *
- * // Centered header
- * [carousel_section title="Our Collection" subtitle="Discover the latest" header_align="center" nav_style="bottom"]
+ * @version 5.0.0
  */
 
 if (!defined('ABSPATH')) {
@@ -223,7 +124,7 @@ function ghb_get_carousel_styles() {
     }
 
     .ghb-carousel-section__title {
-        font-size: clamp(1.25rem, 4vw, 1.75rem);
+        font-size: clamp(1.4rem, 4vw, 1.75rem);
         font-weight: 700 !important;
         margin: 0;
         letter-spacing: -0.02em;
@@ -1192,6 +1093,44 @@ function ghb_get_carousel_styles() {
             padding: 0.75rem;
         }
 
+        .ghb-product-card__title {
+            font-size: 0.9rem;
+        }
+
+        .ghb-product-card__price {
+            font-size: 1rem;
+        }
+
+        .ghb-product-card__brand {
+            font-size: 0.7rem;
+        }
+
+        /* Bigger image wrappers on mobile */
+        .ghb-product-card--default .ghb-product-card__image-wrapper,
+        .ghb-product-card--minimal .ghb-product-card__image-wrapper {
+            aspect-ratio: 3/4;
+            min-height: 200px;
+        }
+
+        /* Overlay cards: much taller on mobile for impact */
+        .ghb-product-card--overlay .ghb-product-card__image-wrapper {
+            aspect-ratio: 2/3;
+            min-height: 280px;
+        }
+
+        .ghb-product-card--overlay .ghb-product-card__content {
+            padding: 2.5rem 0.75rem 0.75rem;
+        }
+
+        .ghb-product-card--overlay .ghb-product-card__title {
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        .ghb-product-card--overlay .ghb-product-card__price {
+            font-size: 1.05rem;
+        }
+
         .ghb-product-card__actions {
             display: none;
         }
@@ -1212,12 +1151,19 @@ function ghb_get_carousel_styles() {
             font-size: 1.1rem;
         }
 
+        /* Keep cards readable even at small sizes */
         .ghb-product-card__title {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
+            line-height: 1.3;
         }
 
         .ghb-product-card__price {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+        }
+
+        /* Overlay stays impactful on small screens */
+        .ghb-product-card--overlay .ghb-product-card__image-wrapper {
+            min-height: 240px;
         }
     }
     ';
@@ -2003,61 +1949,6 @@ add_shortcode('featured_products', function($atts) {
     return do_shortcode("[carousel_section title=\"{$atts['title']}\" type=\"featured\" limit=\"{$atts['limit']}\" effect=\"{$atts['effect']}\" nav_style=\"sides\" link=\"/shop\"]");
 });
 
-/**
- * ═══════════════════════════════════════════════════════════════
- * 8. PRESET GALLERY SHORTCODE
- * ═══════════════════════════════════════════════════════════════
- */
-add_shortcode('carousel_presets', 'ghb_carousel_presets_shortcode');
-
-function ghb_carousel_presets_shortcode($atts) {
-    $atts = shortcode_atts(array('show' => 'all'), $atts);
-
-    $presets = array(
-        'classic' => array(
-            'name'   => 'Classic',
-            'config' => 'style="default" nav_style="bottom" pagination="dots" card_style="default"'
-        ),
-        'modern' => array(
-            'name'   => 'Modern',
-            'config' => 'style="minimal" nav_style="top-right" pagination="fraction" card_style="minimal" card_hover="zoom"'
-        ),
-        'dark_luxury' => array(
-            'name'   => 'Dark Luxury',
-            'config' => 'style="dark" nav_style="sides" pagination="progressbar" card_style="overlay" card_radius="lg"'
-        ),
-        'showcase' => array(
-            'name'   => 'Showcase',
-            'config' => 'style="default" effect="coverflow" nav_style="bottom" layout="centered"'
-        ),
-        'grid' => array(
-            'name'   => 'Grid View',
-            'config' => 'style="minimal" rows="2" columns="4" pagination="none" card_style="detailed"'
-        ),
-        'editorial' => array(
-            'name'   => 'Editorial',
-            'config' => 'style="default" card_style="horizontal" columns="2" columns_mobile="1" gap="lg"'
-        ),
-    );
-
-    $output = '<div style="display:grid;gap:3rem;">';
-
-    foreach ($presets as $key => $preset) {
-        if ($atts['show'] !== 'all' && $atts['show'] !== $key) {
-            continue;
-        }
-
-        $output .= '<div>';
-        $output .= '<h3 style="margin-bottom:0.5rem;">' . esc_html($preset['name']) . ' Preset</h3>';
-        $output .= '<code style="display:block;padding:0.5rem;background:#f5f5f5;border-radius:4px;margin-bottom:1rem;font-size:0.75rem;overflow-x:auto;">[carousel_section ' . esc_html($preset['config']) . ']</code>';
-        $output .= do_shortcode('[carousel_section title="' . esc_attr($preset['name']) . '" type="recent" limit="6" ' . $preset['config'] . ']');
-        $output .= '</div>';
-    }
-
-    $output .= '</div>';
-
-    return $output;
-}
 
 /**
  * ═══════════════════════════════════════════════════════════════
