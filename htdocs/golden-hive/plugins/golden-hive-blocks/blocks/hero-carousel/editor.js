@@ -28,7 +28,7 @@
             var addSlide = function() {
                 var updated = slides.concat([{
                     image: '',
-                    imagePosition: 'center center',
+                    objectPosition: 'center center',
                     eyebrow: '',
                     title: '',
                     subtitle: '',
@@ -91,7 +91,7 @@
                                 el(SelectControl, {
                                     label: 'Posizione immagine',
                                     help: 'Punto focale dell\'immagine (visibile soprattutto su mobile)',
-                                    value: slide.imagePosition || 'center center',
+                                    value: slide.objectPosition || 'center center',
                                     options: [
                                         { label: 'Centro', value: 'center center' },
                                         { label: 'Sinistra', value: 'left center' },
@@ -103,7 +103,7 @@
                                         { label: 'Basso sinistra', value: 'left bottom' },
                                         { label: 'Basso destra', value: 'right bottom' }
                                     ],
-                                    onChange: function(val) { updateSlide(index, 'imagePosition', val); }
+                                    onChange: function(val) { updateSlide(index, 'objectPosition', val); }
                                 }),
                                 el(TextControl, {
                                     label: 'Eyebrow',
