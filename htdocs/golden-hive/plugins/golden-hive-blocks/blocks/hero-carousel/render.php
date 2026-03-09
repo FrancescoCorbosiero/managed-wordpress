@@ -22,10 +22,12 @@ $block_id = 'gh-hero-' . wp_unique_id();
     <?php foreach ($slides as $index => $slide) : ?>
         <div class="gh-hero-slide<?php echo $index === 0 ? ' gh-hero-slide--active' : ''; ?>" data-gh-hero-slide>
             <div class="gh-hero-slide__bg">
-                <?php if (!empty($slide['image'])) : ?>
+                <?php if (!empty($slide['image'])) :
+                    $img_pos = !empty($slide['imagePosition']) ? $slide['imagePosition'] : 'center center';
+                ?>
                     <img src="<?php echo esc_url($slide['image']); ?>"
                          alt=""
-                         style="object-position: left center;"
+                         style="object-position: <?php echo esc_attr($img_pos); ?>;"
                          loading="<?php echo $index === 0 ? 'eager' : 'lazy'; ?>">
                 <?php endif; ?>
             </div>
