@@ -1883,15 +1883,13 @@ html:has(.gh-social-buttons) {
     padding: 0;
 }
 
-.gh-shortcode-wrapper__content .ghb-carousel-section__header {
-    justify-content: center;
+.gh-shortcode-wrapper__content .ghb-carousel-section__link {
+    display: none;
 }
 
-.gh-shortcode-wrapper__content .ghb-carousel-section__link {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-top: var(--gh-space-lg);
+.gh-shortcode-wrapper__cta {
+    text-align: center;
+    padding: var(--gh-space-xl) 0;
 }
 
 .gh-shortcode-wrapper__eyebrow {
@@ -2618,10 +2616,6 @@ a.gh-btn:visited {
 @media (max-width: 768px) {
     .gh-hero-carousel {
         min-height: 500px;
-    }
-
-    .gh-hero-slide__bg img {
-        object-position: left center;
     }
 
     .gh-hero-slide__title {

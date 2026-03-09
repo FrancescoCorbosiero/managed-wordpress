@@ -25,6 +25,7 @@ $block_id = 'gh-hero-' . wp_unique_id();
                 <?php if (!empty($slide['image'])) : ?>
                     <img src="<?php echo esc_url($slide['image']); ?>"
                          alt=""
+                         style="object-position: left center;"
                          loading="<?php echo $index === 0 ? 'eager' : 'lazy'; ?>">
                 <?php endif; ?>
             </div>

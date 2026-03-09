@@ -25,6 +25,14 @@
         "backgroundColor": {
             "type": "string",
             "default": "white"
+        },
+        "buttonText": {
+            "type": "string",
+            "default": ""
+        },
+        "buttonUrl": {
+            "type": "string",
+            "default": ""
         }
     },
     "supports": {
