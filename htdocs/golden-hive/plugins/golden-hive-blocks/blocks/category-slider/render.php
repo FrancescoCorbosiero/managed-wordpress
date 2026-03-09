@@ -92,24 +92,28 @@ document.addEventListener('DOMContentLoaded', function() {
             <?php endif; ?>
             breakpoints: {
                 0: {
-                    slidesPerView: 2,
+                    slidesPerView: 1.4,
                     spaceBetween: 12,
                 },
+                480: {
+                    slidesPerView: 1.8,
+                    spaceBetween: 14,
+                },
                 640: {
-                    slidesPerView: 2,
+                    slidesPerView: 2.2,
                     spaceBetween: 16,
                 },
                 768: {
-                    slidesPerView: 3,
+                    slidesPerView: 2.8,
                     spaceBetween: 20,
                 },
                 1024: {
-                    slidesPerView: 4,
+                    slidesPerView: 3.5,
                     spaceBetween: 24,
                 },
                 1280: {
-                    slidesPerView: 5,
-                    spaceBetween: 24,
+                    slidesPerView: 4,
+                    spaceBetween: 28,
                 },
             },
         });
