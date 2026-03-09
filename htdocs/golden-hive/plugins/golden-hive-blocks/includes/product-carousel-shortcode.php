@@ -1247,6 +1247,7 @@ function ghb_carousel_section_shortcode($atts) {
         'show_cart_btn'  => 'true',
         'show_discount'  => 'true',
         'show_quick_view' => 'true',
+        'show_details_btn' => 'true',
     ), $atts);
 
     $carousel_id = 'ghb_carousel_' . uniqid();
@@ -1841,7 +1842,7 @@ function ghb_render_product_card($product, $atts) {
                 </button>
             <?php endif; ?>
 
-            <?php if ($atts['card_style'] !== 'overlay') : ?>
+            <?php if ($atts['card_style'] !== 'overlay' && $atts['show_details_btn'] === 'true') : ?>
                 <div class="ghb-product-card__actions">
                     <span class="ghb-product-card__action-btn">Vedi Dettagli</span>
                 </div>
