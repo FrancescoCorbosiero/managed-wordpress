@@ -2,7 +2,7 @@
     const { registerBlockType } = wp.blocks;
     const { createElement: el, Fragment } = wp.element;
     const { InspectorControls, MediaUpload, MediaUploadCheck } = wp.blockEditor;
-    const { PanelBody, TextControl, NumberControl, SelectControl, ToggleControl, Button } = wp.components;
+    const { PanelBody, TextControl, RangeControl, SelectControl, ToggleControl, Button } = wp.components;
 
     registerBlockType('golden-hive/brand-marquee', {
         edit: function({ attributes, setAttributes }) {
@@ -48,11 +48,13 @@
                             value: title,
                             onChange: function(val) { setAttributes({ title: val }); }
                         }),
-                        el(NumberControl, {
+                        el(RangeControl, {
                             label: 'Velocita (px/s)',
                             value: speed,
                             min: 1,
-                            onChange: function(val) { setAttributes({ speed: parseInt(val, 10) || 1 }); }
+                            max: 200,
+                            step: 5,
+                            onChange: function(val) { setAttributes({ speed: val }); }
                         }),
                         el(SelectControl, {
                             label: 'Direzione',
