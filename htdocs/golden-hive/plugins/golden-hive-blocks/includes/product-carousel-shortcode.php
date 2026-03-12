@@ -1105,17 +1105,15 @@ function ghb_get_carousel_styles() {
             font-size: 0.7rem;
         }
 
-        /* Bigger image wrappers on mobile */
+        /* Keep same aspect ratio on mobile to avoid side-cropping */
         .ghb-product-card--default .ghb-product-card__image-wrapper,
         .ghb-product-card--minimal .ghb-product-card__image-wrapper {
-            aspect-ratio: 3/4;
-            min-height: 200px;
+            aspect-ratio: 4/3;
         }
 
-        /* Overlay cards: much taller on mobile for impact */
+        /* Overlay cards: keep 3/4 portrait on mobile */
         .ghb-product-card--overlay .ghb-product-card__image-wrapper {
-            aspect-ratio: 2/3;
-            min-height: 280px;
+            aspect-ratio: 3/4;
         }
 
         .ghb-product-card--overlay .ghb-product-card__content {
@@ -1163,7 +1161,7 @@ function ghb_get_carousel_styles() {
 
         /* Overlay stays impactful on small screens */
         .ghb-product-card--overlay .ghb-product-card__image-wrapper {
-            min-height: 240px;
+            aspect-ratio: 3/4;
         }
     }
     ';
