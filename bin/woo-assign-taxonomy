@@ -1,0 +1,456 @@
+#!/usr/bin/env php
+<?php
+/**
+ * Assign WooCommerce taxonomy terms (categories, tags, brands, attributes) to products by SKU.
+ *
+ * Usage:
+ *   bin/woo-assign-taxonomy -s "SKU1,SKU2" -v "sneakers"
+ *   bin/woo-assign-taxonomy -s "SKU1" -t tag -v "on-sale" -a
+ *   bin/woo-assign-taxonomy -s "SKU1" -t brand -v "nike"
+ *   bin/woo-assign-taxonomy -s "SKU1" -t attribute:color -v "black"
+ *   bin/woo-assign-taxonomy -f skus.txt -t category -v "sneakers" --dry-run
+ *
+ * Environment variables (must be set before running):
+ *   WOO_URL              - Store URL (e.g. https://example.com)
+ *   WOO_CONSUMER_KEY     - WooCommerce REST API consumer key
+ *   WOO_CONSUMER_SECRET  - WooCommerce REST API consumer secret
+ */
+
+// ── CLI argument parsing ────────────────────────────────────────────────────
+
+$opts = getopt('s:f:t:v:ah', ['skus:', 'file:', 'type:', 'value:', 'append', 'dry-run', 'help'], $restIndex);
+
+if (isset($opts['h']) || isset($opts['help'])) {
+    fwrite(STDOUT, <<<USAGE
+Usage: bin/woo-assign-taxonomy [OPTIONS]
+
+Assign WooCommerce taxonomy terms to products by SKU.
+
+Options:
+  -s, --skus LIST        Comma-separated SKU list (e.g. "SKU1,SKU2,SKU3")
+  -f, --file FILE        File with one SKU per line
+  -t, --type TYPE        Taxonomy type (default: category)
+                           category        Product categories
+                           tag             Product tags
+                           brand           Product brands (WooCommerce Brands)
+                           attribute:SLUG  Product attribute (e.g. attribute:color)
+  -v, --value TERM       Term name or slug to assign
+  -a, --append           Append term (keep existing). Default: replace.
+      --dry-run          Show what would happen without making changes
+  -h, --help             Show this help
+
+Environment (must already be set):
+  WOO_URL                Store URL         (e.g. https://store.example.com)
+  WOO_CONSUMER_KEY       API consumer key  (ck_...)
+  WOO_CONSUMER_SECRET    API consumer secret (cs_...)
+
+Examples:
+  # Assign category "sneakers" to products
+  bin/woo-assign-taxonomy -s "ABC123,DEF456" -v "sneakers"
+
+  # Append tag "on-sale" keeping existing tags
+  bin/woo-assign-taxonomy -s "ABC123" -t tag -v "on-sale" -a
+
+  # Set brand "nike" on products from file
+  bin/woo-assign-taxonomy -f skus.txt -t brand -v "nike"
+
+  # Set attribute "color" to "black"
+  bin/woo-assign-taxonomy -s "ABC123" -t attribute:color -v "black"
+
+  # Preview changes
+  bin/woo-assign-taxonomy -f skus.txt -v "sneakers" --dry-run
+
+USAGE
+    );
+    exit(0);
+}
+
+$skusArg  = $opts['s'] ?? $opts['skus'] ?? '';
+$skuFile  = $opts['f'] ?? $opts['file'] ?? '';
+$type     = $opts['t'] ?? $opts['type'] ?? 'category';
+$value    = $opts['v'] ?? $opts['value'] ?? '';
+$append   = isset($opts['a']) || isset($opts['append']);
+$dryRun   = isset($opts['dry-run']);
+
+// ── Validate environment ────────────────────────────────────────────────────
+
+$wooUrl    = rtrim(getenv('WOO_URL') ?: '', '/');
+$wooKey    = getenv('WOO_CONSUMER_KEY') ?: '';
+$wooSecret = getenv('WOO_CONSUMER_SECRET') ?: '';
+
+$missing = [];
+if ($wooUrl === '')    $missing[] = 'WOO_URL';
+if ($wooKey === '')    $missing[] = 'WOO_CONSUMER_KEY';
+if ($wooSecret === '') $missing[] = 'WOO_CONSUMER_SECRET';
+
+if ($missing) {
+    fprintf(STDERR, "Error: Missing required env vars: %s\n", implode(', ', $missing));
+    exit(1);
+}
+
+if ($skusArg === '' && $skuFile === '') {
+    fprintf(STDERR, "Error: Provide SKUs via -s or -f\n");
+    exit(1);
+}
+
+if ($value === '') {
+    fprintf(STDERR, "Error: Provide a term value via -v\n");
+    exit(1);
+}
+
+$apiBase = "$wooUrl/wp-json/wc/v3";
+
+// ── HTTP helpers ────────────────────────────────────────────────────────────
+
+function woo_get(string $endpoint, array $params = []): array
+{
+    global $apiBase, $wooKey, $wooSecret;
+
+    $url = "$apiBase/$endpoint";
+    if ($params) {
+        $url .= '?' . http_build_query($params);
+    }
+
+    $ch = curl_init($url);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_USERPWD        => "$wooKey:$wooSecret",
+        CURLOPT_HTTPHEADER     => ['Accept: application/json'],
+        CURLOPT_FAILONERROR    => false,
+    ]);
+    $body = curl_exec($ch);
+    $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+
+    $data = json_decode($body, true);
+    if ($data === null) {
+        fprintf(STDERR, "Error: Failed to parse API response (HTTP %d)\n", $code);
+        exit(1);
+    }
+
+    return $data;
+}
+
+function woo_put(string $endpoint, array $payload): array
+{
+    global $apiBase, $wooKey, $wooSecret;
+
+    $url  = "$apiBase/$endpoint";
+    $json = json_encode($payload);
+
+    $ch = curl_init($url);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_CUSTOMREQUEST  => 'PUT',
+        CURLOPT_USERPWD        => "$wooKey:$wooSecret",
+        CURLOPT_HTTPHEADER     => ['Content-Type: application/json', 'Accept: application/json'],
+        CURLOPT_POSTFIELDS     => $json,
+        CURLOPT_FAILONERROR    => false,
+    ]);
+    $body = curl_exec($ch);
+    curl_close($ch);
+
+    return json_decode($body, true) ?: [];
+}
+
+// ── Taxonomy resolver ───────────────────────────────────────────────────────
+
+/**
+ * Resolve a term by slug or name within a taxonomy endpoint.
+ * Returns the term ID or null if not found.
+ */
+function resolve_term(string $endpoint, string $term): ?int
+{
+    // Try by slug first
+    $results = woo_get($endpoint, ['slug' => $term, 'per_page' => 1]);
+    if (is_array($results) && !empty($results[0]['id'])) {
+        return (int) $results[0]['id'];
+    }
+
+    // Fallback: search by name
+    $results = woo_get($endpoint, ['search' => $term, 'per_page' => 100]);
+    if (is_array($results)) {
+        $needle = mb_strtolower($term);
+        foreach ($results as $r) {
+            if (mb_strtolower($r['name']) === $needle || mb_strtolower($r['slug']) === $needle) {
+                return (int) $r['id'];
+            }
+        }
+    }
+
+    return null;
+}
+
+/**
+ * List all available terms in a taxonomy endpoint (for error messages).
+ */
+function list_terms(string $endpoint): void
+{
+    $all = woo_get($endpoint, ['per_page' => 100]);
+    if (is_array($all)) {
+        usort($all, fn($a, $b) => strcmp($a['name'], $b['name']));
+        foreach ($all as $t) {
+            fprintf(STDERR, "  %-30s (id: %d, name: %s)\n", $t['slug'], $t['id'], $t['name']);
+        }
+    }
+}
+
+/**
+ * Resolve an attribute by slug. Returns the attribute ID or null.
+ */
+function resolve_attribute(string $slug): ?int
+{
+    $attrs = woo_get('products/attributes', ['per_page' => 100]);
+    if (!is_array($attrs)) return null;
+
+    $needle = mb_strtolower($slug);
+    foreach ($attrs as $attr) {
+        if (mb_strtolower($attr['slug']) === $needle || mb_strtolower($attr['name']) === $needle) {
+            return (int) $attr['id'];
+        }
+    }
+
+    return null;
+}
+
+/**
+ * Resolve an attribute term by slug/name within a given attribute.
+ * Returns the term name (WooCommerce attributes use option names, not IDs).
+ */
+function resolve_attribute_term(int $attrId, string $term): ?string
+{
+    $terms = woo_get("products/attributes/$attrId/terms", ['per_page' => 100]);
+    if (!is_array($terms)) return null;
+
+    $needle = mb_strtolower($term);
+    foreach ($terms as $t) {
+        if (mb_strtolower($t['slug']) === $needle || mb_strtolower($t['name']) === $needle) {
+            return $t['name'];
+        }
+    }
+
+    return null;
+}
+
+// ── Parse taxonomy type ─────────────────────────────────────────────────────
+
+$isAttribute  = false;
+$attrId       = null;
+$attrSlug     = '';
+$termEndpoint = '';
+$productField = '';
+
+if (str_starts_with($type, 'attribute:')) {
+    $isAttribute = true;
+    $attrSlug = substr($type, strlen('attribute:'));
+
+    if ($attrSlug === '') {
+        fprintf(STDERR, "Error: Attribute slug required (e.g. attribute:color)\n");
+        exit(1);
+    }
+} else {
+    $taxonomyMap = [
+        'category' => ['endpoint' => 'products/categories', 'field' => 'categories'],
+        'tag'      => ['endpoint' => 'products/tags',       'field' => 'tags'],
+        'brand'    => ['endpoint' => 'products/brands',     'field' => 'brands'],
+    ];
+
+    if (!isset($taxonomyMap[$type])) {
+        fprintf(STDERR, "Error: Unknown taxonomy type '%s'. Use: category, tag, brand, or attribute:<slug>\n", $type);
+        exit(1);
+    }
+
+    $termEndpoint = $taxonomyMap[$type]['endpoint'];
+    $productField = $taxonomyMap[$type]['field'];
+}
+
+// ── Build SKU list ──────────────────────────────────────────────────────────
+
+$skuList = [];
+
+if ($skusArg !== '') {
+    $skuList = array_map('trim', explode(',', $skusArg));
+}
+
+if ($skuFile !== '') {
+    if (!is_file($skuFile)) {
+        fprintf(STDERR, "Error: File not found: %s\n", $skuFile);
+        exit(1);
+    }
+    $lines = file($skuFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+        $line = trim($line);
+        if ($line !== '' && $line[0] !== '#') {
+            $skuList[] = $line;
+        }
+    }
+}
+
+$skuList = array_filter($skuList, fn($s) => $s !== '');
+
+if (empty($skuList)) {
+    fprintf(STDERR, "Error: No SKUs provided\n");
+    exit(1);
+}
+
+printf("SKUs to process: %d\n", count($skuList));
+printf("Taxonomy: %s\n", $type);
+printf("Value: %s\n", $value);
+printf("Mode: %s\n", $append ? 'append' : 'replace');
+if ($dryRun) {
+    echo "** DRY RUN — no changes will be made **\n";
+}
+echo "---\n";
+
+// ── Resolve term ────────────────────────────────────────────────────────────
+
+$termId   = null;
+$termName = null;
+
+if ($isAttribute) {
+    printf("Resolving attribute '%s'...\n", $attrSlug);
+
+    $attrId = resolve_attribute($attrSlug);
+    if ($attrId === null) {
+        fprintf(STDERR, "Error: Attribute '%s' not found.\n", $attrSlug);
+        fprintf(STDERR, "Available attributes:\n");
+        $attrs = woo_get('products/attributes', ['per_page' => 100]);
+        if (is_array($attrs)) {
+            foreach ($attrs as $a) {
+                fprintf(STDERR, "  %-30s (id: %d, name: %s)\n", $a['slug'], $a['id'], $a['name']);
+            }
+        }
+        exit(1);
+    }
+    printf("Resolved attribute: '%s' -> id %d\n", $attrSlug, $attrId);
+
+    printf("Resolving term '%s' in attribute '%s'...\n", $value, $attrSlug);
+    $termName = resolve_attribute_term($attrId, $value);
+    if ($termName === null) {
+        fprintf(STDERR, "Error: Term '%s' not found in attribute '%s'.\n", $value, $attrSlug);
+        fprintf(STDERR, "Available terms:\n");
+        $terms = woo_get("products/attributes/$attrId/terms", ['per_page' => 100]);
+        if (is_array($terms)) {
+            foreach ($terms as $t) {
+                fprintf(STDERR, "  %-30s (id: %d, name: %s)\n", $t['slug'], $t['id'], $t['name']);
+            }
+        }
+        exit(1);
+    }
+    printf("Resolved: '%s' -> term '%s'\n\n", $value, $termName);
+} else {
+    printf("Resolving %s '%s'...\n", $type, $value);
+
+    $termId = resolve_term($termEndpoint, $value);
+    if ($termId === null) {
+        fprintf(STDERR, "Error: %s '%s' not found on the store.\n", ucfirst($type), $value);
+        fprintf(STDERR, "Available %ss:\n", $type);
+        list_terms($termEndpoint);
+        exit(1);
+    }
+    printf("Resolved: '%s' -> %s id %d\n\n", $value, $type, $termId);
+}
+
+// ── Process each SKU ────────────────────────────────────────────────────────
+
+$ok      = 0;
+$skipped = 0;
+$failed  = 0;
+
+foreach ($skuList as $sku) {
+    $sku = trim($sku);
+    if ($sku === '') continue;
+
+    printf("%-30s ", "[$sku]");
+
+    // Look up product by SKU
+    $products = woo_get('products', ['sku' => $sku, 'per_page' => 1]);
+
+    if (!is_array($products) || empty($products[0]['id'])) {
+        echo "NOT FOUND — skipped\n";
+        $skipped++;
+        continue;
+    }
+
+    $product   = $products[0];
+    $productId = (int) $product['id'];
+
+    // Build the update payload based on taxonomy type
+    $payload = [];
+
+    if ($isAttribute) {
+        // For attributes, we need to merge into the product's attributes array
+        $existingAttrs = $product['attributes'] ?? [];
+        $found = false;
+
+        foreach ($existingAttrs as &$attr) {
+            if ((int) $attr['id'] === $attrId) {
+                $found = true;
+                if ($append) {
+                    if (!in_array($termName, $attr['options'], true)) {
+                        $attr['options'][] = $termName;
+                    }
+                } else {
+                    $attr['options'] = [$termName];
+                }
+                break;
+            }
+        }
+        unset($attr);
+
+        if (!$found) {
+            $existingAttrs[] = [
+                'id'      => $attrId,
+                'options' => [$termName],
+                'visible' => true,
+            ];
+        }
+
+        $payload = ['attributes' => $existingAttrs];
+        $displayPayload = json_encode(['attribute:' . $attrSlug => $termName]);
+    } else {
+        // For categories, tags, brands — same structure
+        if ($append) {
+            $existingIds = array_map(fn($t) => (int) $t['id'], $product[$productField] ?? []);
+            if (!in_array($termId, $existingIds, true)) {
+                $existingIds[] = $termId;
+            }
+            $terms = array_map(fn($id) => ['id' => $id], $existingIds);
+        } else {
+            $terms = [['id' => $termId]];
+        }
+
+        $payload = [$productField => $terms];
+        $displayPayload = json_encode($terms);
+    }
+
+    if ($dryRun) {
+        printf("product #%d -> would set %s: %s\n", $productId, $type, $displayPayload);
+        $ok++;
+        continue;
+    }
+
+    // Update the product
+    $result = woo_put("products/$productId", $payload);
+
+    if (!empty($result['id'])) {
+        printf("product #%d -> OK\n", $productId);
+        $ok++;
+    } else {
+        $msg = $result['message'] ?? 'unknown error';
+        printf("product #%d -> FAILED (%s)\n", $productId, $msg);
+        $failed++;
+    }
+}
+
+// ── Summary ─────────────────────────────────────────────────────────────────
+
+echo "\n=== Summary ===\n";
+printf("Updated:  %d\n", $ok);
+printf("Skipped:  %d (SKU not found)\n", $skipped);
+printf("Failed:   %d\n", $failed);
+if ($dryRun) {
+    echo "(dry run — nothing was actually changed)\n";
+}
+
+exit($failed > 0 ? 1 : 0);
