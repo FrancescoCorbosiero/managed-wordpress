@@ -1644,6 +1644,8 @@ function ghb_get_carousel_products($atts) {
                 'field'    => 'name',
                 'terms'    => 'featured',
             );
+            $args['orderby'] = 'menu_order title';
+            $args['order']   = 'ASC';
             break;
         case 'sale':
             $args['meta_query'][] = array(
@@ -1662,6 +1664,14 @@ function ghb_get_carousel_products($atts) {
             $args['orderby'] = 'date';
             $args['order']   = 'DESC';
             break;
+    }
+
+    // When filtering by category, use menu_order to preserve the manual
+    // sort order from WooCommerce admin (matching the category page).
+    // Only skip if an explicit metric-based sort (best_selling, top_rated) is active.
+    if (!empty($atts['category']) && !in_array($atts['type'], array('best_selling', 'top_rated'), true)) {
+        $args['orderby'] = 'menu_order title';
+        $args['order']   = 'ASC';
     }
 
     if (!empty($atts['category'])) {

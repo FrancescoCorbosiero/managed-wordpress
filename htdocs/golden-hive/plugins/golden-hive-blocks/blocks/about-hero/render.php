@@ -20,7 +20,6 @@ $content_reveal  = $reverse ? 'right' : 'left';
 $image_reveal    = $reverse ? 'left' : 'right';
 ?>
 <section class="gh-block gh-about-hero<?php echo esc_attr($reverse_class); ?>" style="
-    font-family: var(--gh-font-sans, system-ui, -apple-system, sans-serif);
     color: var(--gh-black, #111);
     padding: var(--gh-space-20, 5rem) var(--gh-space-6, 1.5rem);
     overflow: hidden;
