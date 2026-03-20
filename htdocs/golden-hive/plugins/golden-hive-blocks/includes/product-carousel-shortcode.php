@@ -1669,7 +1669,7 @@ function ghb_get_carousel_products($atts) {
     // When filtering by category, use menu_order to preserve the manual
     // sort order from WooCommerce admin (matching the category page).
     // Only skip if an explicit metric-based sort (best_selling, top_rated) is active.
-    if (!empty($atts['category']) && !in_array($atts['type'], array('best_selling', 'top_rated'), true)) {
+    if ((!empty($atts['category']) || !empty($atts['brand'])) && !in_array($atts['type'], array('best_selling', 'top_rated'), true)) {
         $args['orderby'] = 'menu_order title';
         $args['order']   = 'ASC';
     }
