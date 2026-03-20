@@ -1,0 +1,279 @@
+#!/usr/bin/env php
+<?php
+/**
+ * Assign a WooCommerce category to products identified by SKU.
+ *
+ * Usage:
+ *   bin/woo-assign-category -s "SKU1,SKU2,SKU3" -c "sneakers"
+ *   bin/woo-assign-category -f skus.txt -c "sneakers" -a
+ *   bin/woo-assign-category -s "SKU1" -c "sneakers" --dry-run
+ *
+ * Environment variables (must be set before running):
+ *   WOO_URL              - Store URL (e.g. https://example.com)
+ *   WOO_CONSUMER_KEY     - WooCommerce REST API consumer key
+ *   WOO_CONSUMER_SECRET  - WooCommerce REST API consumer secret
+ */
+
+// ── CLI argument parsing ────────────────────────────────────────────────────
+
+$opts = getopt('s:f:c:ah', ['skus:', 'file:', 'category:', 'append', 'dry-run', 'help'], $restIndex);
+
+if (isset($opts['h']) || isset($opts['help'])) {
+    fwrite(STDOUT, <<<USAGE
+Usage: bin/woo-assign-category [OPTIONS]
+
+Assign a WooCommerce category to products by SKU.
+
+Options:
+  -s, --skus LIST        Comma-separated SKU list (e.g. "SKU1,SKU2,SKU3")
+  -f, --file FILE        File with one SKU per line
+  -c, --category SLUG    Category name or slug to assign
+  -a, --append           Append category (keep existing). Default: replace.
+      --dry-run          Show what would happen without making changes
+  -h, --help             Show this help
+
+Environment (must already be set):
+  WOO_URL                Store URL         (e.g. https://store.example.com)
+  WOO_CONSUMER_KEY       API consumer key  (ck_...)
+  WOO_CONSUMER_SECRET    API consumer secret (cs_...)
+
+Examples:
+  bin/woo-assign-category -s "ABC123,DEF456" -c "sneakers"
+  bin/woo-assign-category -f skus.txt -c "on-sale" -a
+  bin/woo-assign-category -s "ABC123" -c "sneakers" --dry-run
+
+USAGE
+    );
+    exit(0);
+}
+
+$skusArg    = $opts['s'] ?? $opts['skus'] ?? '';
+$skuFile    = $opts['f'] ?? $opts['file'] ?? '';
+$category   = $opts['c'] ?? $opts['category'] ?? '';
+$append     = isset($opts['a']) || isset($opts['append']);
+$dryRun     = isset($opts['dry-run']);
+
+// ── Validate environment ────────────────────────────────────────────────────
+
+$wooUrl    = rtrim(getenv('WOO_URL') ?: '', '/');
+$wooKey    = getenv('WOO_CONSUMER_KEY') ?: '';
+$wooSecret = getenv('WOO_CONSUMER_SECRET') ?: '';
+
+$missing = [];
+if ($wooUrl === '')    $missing[] = 'WOO_URL';
+if ($wooKey === '')    $missing[] = 'WOO_CONSUMER_KEY';
+if ($wooSecret === '') $missing[] = 'WOO_CONSUMER_SECRET';
+
+if ($missing) {
+    fprintf(STDERR, "Error: Missing required env vars: %s\n", implode(', ', $missing));
+    exit(1);
+}
+
+if ($skusArg === '' && $skuFile === '') {
+    fprintf(STDERR, "Error: Provide SKUs via -s or -f\n");
+    exit(1);
+}
+
+if ($category === '') {
+    fprintf(STDERR, "Error: Provide a category via -c\n");
+    exit(1);
+}
+
+$apiBase = "$wooUrl/wp-json/wc/v3";
+
+// ── HTTP helpers ────────────────────────────────────────────────────────────
+
+function woo_get(string $endpoint, array $params = []): array
+{
+    global $apiBase, $wooKey, $wooSecret;
+
+    $url = "$apiBase/$endpoint";
+    if ($params) {
+        $url .= '?' . http_build_query($params);
+    }
+
+    $ch = curl_init($url);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_USERPWD        => "$wooKey:$wooSecret",
+        CURLOPT_HTTPHEADER     => ['Accept: application/json'],
+        CURLOPT_FAILONERROR    => false,
+    ]);
+    $body = curl_exec($ch);
+    $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+
+    $data = json_decode($body, true);
+    if ($data === null) {
+        fprintf(STDERR, "Error: Failed to parse API response (HTTP %d)\n", $code);
+        exit(1);
+    }
+
+    return $data;
+}
+
+function woo_put(string $endpoint, array $payload): array
+{
+    global $apiBase, $wooKey, $wooSecret;
+
+    $url  = "$apiBase/$endpoint";
+    $json = json_encode($payload);
+
+    $ch = curl_init($url);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_CUSTOMREQUEST  => 'PUT',
+        CURLOPT_USERPWD        => "$wooKey:$wooSecret",
+        CURLOPT_HTTPHEADER     => ['Content-Type: application/json', 'Accept: application/json'],
+        CURLOPT_POSTFIELDS     => $json,
+        CURLOPT_FAILONERROR    => false,
+    ]);
+    $body = curl_exec($ch);
+    curl_close($ch);
+
+    return json_decode($body, true) ?: [];
+}
+
+// ── Build SKU list ──────────────────────────────────────────────────────────
+
+$skuList = [];
+
+if ($skusArg !== '') {
+    $skuList = array_map('trim', explode(',', $skusArg));
+}
+
+if ($skuFile !== '') {
+    if (!is_file($skuFile)) {
+        fprintf(STDERR, "Error: File not found: %s\n", $skuFile);
+        exit(1);
+    }
+    $lines = file($skuFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+        $line = trim($line);
+        if ($line !== '' && $line[0] !== '#') {
+            $skuList[] = $line;
+        }
+    }
+}
+
+$skuList = array_filter($skuList, fn($s) => $s !== '');
+
+if (empty($skuList)) {
+    fprintf(STDERR, "Error: No SKUs provided\n");
+    exit(1);
+}
+
+printf("SKUs to process: %d\n", count($skuList));
+printf("Category: %s\n", $category);
+printf("Mode: %s\n", $append ? 'append' : 'replace');
+if ($dryRun) {
+    echo "** DRY RUN — no changes will be made **\n";
+}
+echo "---\n";
+
+// ── Resolve category ────────────────────────────────────────────────────────
+
+printf("Resolving category '%s'...\n", $category);
+
+$catId = null;
+
+// Try by slug
+$cats = woo_get('products/categories', ['slug' => $category, 'per_page' => 1]);
+if (is_array($cats) && !empty($cats[0]['id'])) {
+    $catId = (int) $cats[0]['id'];
+}
+
+// Fallback: search by name
+if ($catId === null) {
+    $cats = woo_get('products/categories', ['search' => $category, 'per_page' => 100]);
+    if (is_array($cats)) {
+        $needle = mb_strtolower($category);
+        foreach ($cats as $c) {
+            if (mb_strtolower($c['name']) === $needle || mb_strtolower($c['slug']) === $needle) {
+                $catId = (int) $c['id'];
+                break;
+            }
+        }
+    }
+}
+
+if ($catId === null) {
+    fprintf(STDERR, "Error: Category '%s' not found on the store.\n", $category);
+    fprintf(STDERR, "Available categories:\n");
+    $all = woo_get('products/categories', ['per_page' => 100]);
+    if (is_array($all)) {
+        usort($all, fn($a, $b) => strcmp($a['name'], $b['name']));
+        foreach ($all as $c) {
+            fprintf(STDERR, "  %-30s (id: %d, name: %s)\n", $c['slug'], $c['id'], $c['name']);
+        }
+    }
+    exit(1);
+}
+
+printf("Resolved: '%s' -> category id %d\n\n", $category, $catId);
+
+// ── Process each SKU ────────────────────────────────────────────────────────
+
+$ok      = 0;
+$skipped = 0;
+$failed  = 0;
+
+foreach ($skuList as $sku) {
+    $sku = trim($sku);
+    if ($sku === '') continue;
+
+    printf("%-30s ", "[$sku]");
+
+    // Look up product by SKU
+    $products = woo_get('products', ['sku' => $sku, 'per_page' => 1]);
+
+    if (!is_array($products) || empty($products[0]['id'])) {
+        echo "NOT FOUND — skipped\n";
+        $skipped++;
+        continue;
+    }
+
+    $product   = $products[0];
+    $productId = (int) $product['id'];
+
+    // Build category payload
+    if ($append) {
+        $existingIds = array_map(fn($c) => (int) $c['id'], $product['categories'] ?? []);
+        if (!in_array($catId, $existingIds, true)) {
+            $existingIds[] = $catId;
+        }
+        $categories = array_map(fn($id) => ['id' => $id], $existingIds);
+    } else {
+        $categories = [['id' => $catId]];
+    }
+
+    if ($dryRun) {
+        printf("product #%d -> would set categories: %s\n", $productId, json_encode($categories));
+        $ok++;
+        continue;
+    }
+
+    // Update the product
+    $result = woo_put("products/$productId", ['categories' => $categories]);
+
+    if (!empty($result['id'])) {
+        printf("product #%d -> OK\n", $productId);
+        $ok++;
+    } else {
+        $msg = $result['message'] ?? 'unknown error';
+        printf("product #%d -> FAILED (%s)\n", $productId, $msg);
+        $failed++;
+    }
+}
+
+// ── Summary ─────────────────────────────────────────────────────────────────
+
+echo "\n=== Summary ===\n";
+printf("Updated:  %d\n", $ok);
+printf("Skipped:  %d (SKU not found)\n", $skipped);
+printf("Failed:   %d\n", $failed);
+if ($dryRun) {
+    echo "(dry run — nothing was actually changed)\n";
+}
+
+exit($failed > 0 ? 1 : 0);
