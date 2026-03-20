@@ -12,7 +12,6 @@ if (empty($hours)) {
 }
 ?>
 <section class="gh-block gh-store-hours" style="
-    font-family: var(--gh-font-sans, system-ui, -apple-system, sans-serif);
     background: var(--gh-gray-50, #f9fafb);
     padding: var(--gh-space-16, 4rem) var(--gh-space-6, 1.5rem);
 ">
