@@ -27,6 +27,13 @@ define('GOLDEN_HIVE_BLOCKS_URL', plugin_dir_url(__FILE__));
  */
 function golden_hive_blocks_enqueue_assets()
 {
+    wp_enqueue_style(
+        'golden-hive-playfair-font',
+        'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap',
+        array(),
+        null
+    );
+
     wp_enqueue_script(
         'golden-hive-animations',
         GOLDEN_HIVE_BLOCKS_URL . 'js/animations.js',
